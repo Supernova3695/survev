@@ -418,6 +418,23 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         sound: { explode: "crate_break_01" },
         teamId: 1,
     }),
+    crate_02fx: createCrate({
+        health: 140,
+        loot: [
+            tierLoot("tier_guns", 3, 3, { preloadGuns: true }),
+            tierLoot("tier_armor", 2, 2),
+            tierLoot("tier_packs", 1, 1),
+        ],
+        map: { display: true, color: 0xcc0000 },
+        terrain: {
+            grass: true,
+            beach: false,
+            minDistanceFromSameType: 32,
+        },
+        img: { sprite: "map-crate-02fx.img" },
+        sound: { explode: "crate_break_01" },
+        teamId: 1,
+    }),
     crate_02d: createCrate({
         health: 140,
         loot: [
@@ -975,6 +992,23 @@ export const CrateDefs: Record<string, ObstacleDef> = {
             minDistanceFromSameType: 32,
         },
         img: { sprite: "map-crate-22.img" },
+        sound: { explode: "crate_break_01" },
+        teamId: 2,
+    }),
+    crate_22x: createCrate({
+        health: 140,
+        loot: [
+            tierLoot("tier_guns", 3, 3, { preloadGuns: true }),
+            tierLoot("tier_armor", 2, 2),
+            tierLoot("tier_packs", 1, 1),
+        ],
+        map: { display: true, color: 32511 },
+        terrain: {
+            grass: true,
+            beach: false,
+            minDistanceFromSameType: 32,
+        },
+        img: { sprite: "map-crate-22x.img" },
         sound: { explode: "crate_break_01" },
         teamId: 2,
     }),

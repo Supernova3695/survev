@@ -1,0 +1,4 @@
+start pnpm dev:client
+then pnpm dev:api
+then pnpm dev:server
+in seperate terminals

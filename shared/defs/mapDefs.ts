@@ -9,6 +9,7 @@ import { Cobalt } from "./maps/cobaltDefs.ts";
 import { Desert } from "./maps/desertDefs.ts";
 import { Faction } from "./maps/factionDefs.ts";
 import { FactionPotato } from "./maps/factionPotatoDefs.ts";
+import { FactionSnow } from "./maps/factionSnowDefs.ts";
 import { Halloween } from "./maps/halloweenDefs.ts";
 import { MainSpring } from "./maps/mainSpringDefs.ts";
 import { MainSummer } from "./maps/mainSummerDefs.ts";
@@ -29,6 +30,7 @@ export type Atlas =
     | "main"
     | "desert"
     | "faction"
+    | "factionSnow"
     | "halloween"
     | "potato"
     | "snow"
@@ -45,6 +47,7 @@ const _MapDefs = {
     desert: Desert,
     faction: Faction,
     faction_potato: FactionPotato,
+    faction_snow: FactionSnow,
     halloween: Halloween,
     potato: Potato,
     potato_spring: PotatoSpring,
