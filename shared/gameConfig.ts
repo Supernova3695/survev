@@ -139,6 +139,8 @@ export enum TeamMode {
 export enum FactionTeam {
     Red = 1,
     Blue = 2,
+    Green =3,
+    Yellow = 4,
 }
 
 export interface TracerColors {
@@ -304,7 +306,7 @@ export const GameConfig = {
         fallOff: 1.25,
     },
     groupColors: [0xffff00, 0xff00ff, 0xffff, 0xff5400],
-    teamColors: [0xcc0000, 0x7eff],
+    teamColors: [0xcc0000, 0x7eff, 0x1AB012, 0xb37a00],
     bullet: {
         maxReflect: 3,
         reflectDistDecay: 1.5,

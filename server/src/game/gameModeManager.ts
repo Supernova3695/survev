@@ -25,9 +25,9 @@ export class GameModeManager {
         this.game = game;
 
         this.mode = [
-            game.teamMode == TeamMode.Solo && !game.map.factionMode,
-            game.teamMode != TeamMode.Solo && !game.map.factionMode,
-            game.map.factionMode,
+            game.teamMode == TeamMode.Solo && !game.map.factionMode && !game.map.Hardpoint,
+            game.teamMode != TeamMode.Solo && !game.map.factionMode && !game.map.Hardpoint,
+            game.map.factionMode  || game.map.Hardpoint,
         ].findIndex((isMode) => isMode);
 
         this.isSolo = this.mode === GameMode.Solo;
@@ -40,6 +40,8 @@ export class GameModeManager {
             case GameMode.Team:
                 return this.game.playerBarn.getAliveGroups().length;
             case GameMode.Faction:
+                return this.game.playerBarn.getAliveTeams().length;
+            case GameMode.Hardpoint:
                 return this.game.playerBarn.getAliveTeams().length;
         }
     }
@@ -56,6 +58,10 @@ export class GameModeManager {
                     return group.players.filter((p) => !p.canDespawn()).length > 0;
                 }).length;
             case GameMode.Faction:
+                return this.game.playerBarn.getAliveTeams().filter((team) => {
+                    return team.players.filter((p) => !p.canDespawn()).length;
+                }).length;
+            case GameMode.Hardpoint:
                 return this.game.playerBarn.getAliveTeams().filter((team) => {
                     return team.players.filter((p) => !p.canDespawn()).length;
                 }).length;
@@ -126,6 +132,10 @@ export class GameModeManager {
                 return winner.id;
             }
             case GameMode.Faction: {
+                const winner = this.game.playerBarn.getAliveTeams()[0];
+                return winner.id;
+            }
+            case GameMode.Hardpoint: {
                 const winner = this.game.playerBarn.getAliveTeams()[0];
                 return winner.id;
             }
@@ -236,16 +246,18 @@ export class GameModeManager {
             case GameMode.Faction: {
                 const redLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Red - 1].leader;
                 const blueLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Blue - 1].leader;
+                const greenLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Green - 1].leader;
+                const yellowLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Yellow - 1].leader;
 
-                if (!redLeader || !blueLeader) {
+                if (!redLeader || !blueLeader || !greenLeader  || !yellowLeader) {
                     return [player];
                 }
 
                 if (this.game.playerBarn.factionsMvp === undefined) {
-                    return [player, redLeader, blueLeader];
+                    return [player, redLeader, blueLeader, greenLeader, yellowLeader];
                 }
 
-                return [player, redLeader, blueLeader, this.game.playerBarn.factionsMvp];
+                return [player, redLeader, blueLeader, greenLeader, yellowLeader, this.game.playerBarn.factionsMvp];
             }
         }
     }
@@ -254,8 +266,10 @@ export class GameModeManager {
         if (this.mode !== GameMode.Faction) return;
         const redLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Red - 1].leader;
         const blueLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Blue - 1].leader;
+        const greenLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Green - 1].leader;
+        const yellowLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Yellow - 1].leader;
 
-        if (!redLeader || !blueLeader) {
+        if (!redLeader || !blueLeader || !greenLeader || !yellowLeader) {
             return;
         }
 

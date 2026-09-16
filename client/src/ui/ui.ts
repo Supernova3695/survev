@@ -899,7 +899,15 @@ export class UiManager {
             if (this.flairId != localPlayerInfo.teamId) {
                 this.flairId = localPlayerInfo.teamId;
                 // Assume red or blue for now
-                const flairColor = this.flairId == GameConfig.FactionTeam.Red ? "red" : "blue";
+                //const flairColor = this.flairId == GameConfig.FactionTeam.Red ? "red" : "blue";
+                const factionColors: Record<number, string> = {
+                    [GameConfig.FactionTeam.Red]: "red",
+                    [GameConfig.FactionTeam.Blue]: "blue",
+                    [GameConfig.FactionTeam.Yellow]: "yellow",
+                    [GameConfig.FactionTeam.Green]: "green",
+                };
+
+                const flairColor = factionColors[this.flairId] ?? "defaultColor";
                 this.flairElems.css({
                     display: "block",
                     "background-image": `url(../img/gui/player-patch-${flairColor}.svg)`,
@@ -1513,8 +1521,15 @@ export class UiManager {
                             );
                             break;
                         case 3: {
-                            const R = playerInfo.teamId == GameConfig.FactionTeam.Red
+                            // const R = playerInfo.teamId == GameConfig.FactionTeam.Red
+                            //     ? "ui-stats-info-player-red-ribbon"
+                            //     : "ui-stats-info-player-blue-ribbon";
+                            const R = playerInfo.teamId === GameConfig.FactionTeam.Red
                                 ? "ui-stats-info-player-red-ribbon"
+                                : playerInfo.teamId === GameConfig.FactionTeam.Green
+                                ? "ui-stats-info-player-green-ribbon"
+                                : playerInfo.teamId === GameConfig.FactionTeam.Yellow
+                                ? "ui-stats-info-player-yellow-ribbon"
                                 : "ui-stats-info-player-blue-ribbon";
                             B.append(
                                 $("<div/>", {

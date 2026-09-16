@@ -3029,6 +3029,23 @@ span.ui-stats-header-value {
     background-image: url(/img/gui/ribbon-blue.svg);
 }
 
+.ui-stats-info-player-green-leader {
+    background-image: url(/img/gui/star-green.svg)
+}
+
+.ui-stats-info-player-green-ribbon {
+    background-image: url(/img/gui/ribbon-green.svg);
+}
+
+.ui-stats-info-player-yellow-leader {
+    background-image: url(/img/gui/star-yellow.svg)
+}
+
+.ui-stats-info-player-yellow-ribbon {
+    background-image: url(/img/gui/ribbon-yellow.svg);
+}
+
+
 .ui-stats-info {
     display: flex;
     height: 36px;

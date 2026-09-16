@@ -10,6 +10,7 @@ import { Desert } from "./maps/desertDefs.ts";
 import { Faction } from "./maps/factionDefs.ts";
 import { FactionPotato } from "./maps/factionPotatoDefs.ts";
 import { Halloween } from "./maps/halloweenDefs.ts";
+import { Hardpoint } from "./maps/hardpointDefs.ts";
 import { MainSpring } from "./maps/mainSpringDefs.ts";
 import { MainSummer } from "./maps/mainSummerDefs.ts";
 import { Potato } from "./maps/potatoDefs.ts";
@@ -46,6 +47,7 @@ const _MapDefs = {
     faction: Faction,
     faction_potato: FactionPotato,
     halloween: Halloween,
+    hardpoint: Hardpoint,
     potato: Potato,
     potato_spring: PotatoSpring,
     snow: Snow,
