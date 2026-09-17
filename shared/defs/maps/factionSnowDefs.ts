@@ -520,6 +520,11 @@ const mapDef: PartialMapDef = {
                 stone_01: "stone_01x", //"stone_01f",
                 stone_03: "stone_03x", //"stone_03f",
                 tree_01: "tree_08f",
+                crate_22: "crate_22x",
+                crate_02f: "crate_02fx",
+                statue_structure_01: "statue_structure_01_winter",
+                statue_structure_02: "statue_structure_02_winter",
+                river_town_01: "river_town_03",
             },
         ],
         importantSpawns: [
