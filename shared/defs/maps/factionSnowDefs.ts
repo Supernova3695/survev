@@ -366,11 +366,10 @@ const mapDef: PartialMapDef = {
             { name: "tier_katanas", count: 1, weight: 3 },
             { name: "naginata", count: 1, weight: 1 },
             { name: "fireaxe", count: 1, weight: 1 },
-            { name: "sledgehammer", count: 1, weight: 1 },
             { name: "pan", count: 1, weight: 0.5 },
         ],
         tier_airdrop_outfits: [
-            { name: "", count: 1, weight: 25 },
+            { name: "", count: 1, weight: 20 },
             { name: "outfitSpetsnaz", count: 1, weight: 5 },
             { name: "outfitHeaven", count: 1, weight: 1 },
             {
@@ -393,7 +392,7 @@ const mapDef: PartialMapDef = {
             { name: "50AE", count: 21, weight: 1 },
             { name: "308sub", count: 5, weight: 1 },
         ],
-        tier_mansion_floor: [{ name: "outfitCamo", count: 1, weight: 1 }],
+        tier_mansion_floor: [{ name: "outfitSpetsnaz", count: 1, weight: 1 }],
         tier_conch: [{ name: "outfitKeyLime", count: 1, weight: 1 }],
         tier_chrys_01: [
             {
@@ -413,7 +412,7 @@ const mapDef: PartialMapDef = {
             { name: "outfitCobaltShell", count: 1, weight: 0.3 },
             { name: "outfitWoodland", count: 1, weight: 0.3 },
             { name: "outfitBlackIce", count: 1, weight: 0.2 },
-            { name: "outfitSpetsnaz", count: 1, weight: 0.2 },
+            { name: "outfitSpetsnaz", count: 4, weight: 0.2 },
             { name: "outfitCamo", count: 1, weight: 0.15 },
             { name: "outfitSnow", count: 1, weight: 0.15 },
             { name: "outfitGhillie", count: 1, weight: 0.01 },
@@ -421,7 +420,7 @@ const mapDef: PartialMapDef = {
         tier_airdrop_throwables: [
             { name: "frag", count: 2, weight: 1 },
             { name: "mirv", count: 2, weight: 0.5 },
-            { name: "snowball", count: 10, weight: 0.5 },
+            { name: "snowball", count: 20, weight: 0.5 },
         ],
     },
     mapGen: {
@@ -464,16 +463,13 @@ const mapDef: PartialMapDef = {
                 barrel_01: 76,
                 silo_01: 8,
                 crate_01x: 38,
-                crate_02fx: 6, //soviet crate
+                crate_02fx: 6, //winter soviet crate
                 crate_22x: 6, //initiative crate
                 crate_03: 8,
                 crate_03x: 1,
                 bush_01x: 78,
-                tree_07: 50,
-                tree_08: 50,
-                tree_08f: 320,
-                tree_10: 400,
-                //tree_11: 20,
+                tree_10: 400, //small winter tree
+                tree_10x: 420, //big chungus winter tree
                 hedgehog_01: 24,
                 container_01x: 5,
                 container_02: 5,

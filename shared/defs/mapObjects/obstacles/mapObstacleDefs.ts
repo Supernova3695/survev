@@ -1538,6 +1538,13 @@ export const MapObstacleDefs: Record<string, ObstacleDef> = {
         map: { color: 0x73895f, scale: 2.5 },
         img: { sprite: "map-tree-10.img" },
     }),
+    tree_10x: createTree({
+        collision: collider.createCircle(v2.create(0, 0), 1.25),
+        scale: { createMin: 1.0, createMax: 1.2 },
+        health: 200,
+        map: { color: 0x73895f, scale: 2.5 },
+        img: { sprite: "map-tree-10x.img" },
+    }),
     tree_11: createTree({
         collision: collider.createCircle(v2.create(0, 0), 1.25),
         scale: { createMin: 1, createMax: 1 },

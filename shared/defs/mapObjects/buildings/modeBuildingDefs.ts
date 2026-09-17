@@ -7268,19 +7268,19 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
         mapGroundPatches: [
             {
                 bound: collider.createAabbExtents(v2.create(-20, 0), v2.create(100, 6)),
-                color: 0x653313,
+                color: 0xd6d6d6, //0x653313, //path on red side
                 roughness: 0.05,
                 offsetDist: 1,
             },
             {
                 bound: collider.createAabbExtents(v2.create(-71, 10), v2.create(2, 9)),
-                color: 0x653313,
+                color: 0xd6d6d6, //0x653313, //path on red side
                 roughness: 0,
                 offsetDist: 1,
             },
             {
                 bound: collider.createAabbExtents(v2.create(-57, -10), v2.create(2, 9)),
-                color: 0x653313,
+                color: 0xd6d6d6, //0x653313, //path on red side
                 roughness: 0,
                 offsetDist: 1,
             },
@@ -7289,13 +7289,13 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
                     v2.create(-109, 30),
                     v2.create(6, 6.25),
                 ),
-                color: 0x324319,
+                color: 0xd6d6d6, //0x324319, //grass patch
                 roughness: 0.05,
                 offsetDist: 0.5,
             },
             {
                 bound: collider.createAabbExtents(v2.create(-86, -10), v2.create(2, 9)),
-                color: 0x653313,
+                color: 0xd6d6d6, //0x653313, //path on red side
                 roughness: 0,
                 offsetDist: 1,
             },
@@ -7304,7 +7304,7 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
                     v2.create(106, 19.5),
                     v2.create(7, 6.25),
                 ),
-                color: 0x324319,
+                color: 0xd6d6d6, //0x324319, grass patch
                 roughness: 0.05,
                 offsetDist: 0.5,
             },
@@ -7383,14 +7383,14 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
                 ori: 0,
             },
             {
-                type: randomObstacleType({ crate_02: 1, crate_01x: 3 }),
+                type: "crate_02", //randomObstacleType({ crate_02: 1, crate_01x: 3 }),
                 pos: v2.create(-85, 1),
                 scale: 1,
                 ori: 0,
                 inheritOri: false,
             },
             {
-                type: randomObstacleType({ crate_02: 1, crate_01x: 3 }),
+                type: "crate_01x", //randomObstacleType({ crate_02: 1, crate_01x: 3 }),
                 pos: v2.create(-90, -1),
                 scale: 1,
                 ori: 0,
@@ -7423,7 +7423,7 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
             },
             {
                 type: randomObstacleType({
-                    container_01: 1,
+                    container_01x: 1,
                     container_02: 1,
                     container_03: 1,
                 }),
@@ -7433,7 +7433,7 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
             },
             {
                 type: randomObstacleType({
-                    container_01: 1,
+                    container_01x: 1,
                     container_02: 1,
                     container_03: 1,
                 }),
@@ -7455,7 +7455,7 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
             },
             {
                 type: randomObstacleType({
-                    container_01: 1,
+                    container_01x: 1,
                     container_02: 1,
                     container_03: 1,
                 }),
@@ -7506,7 +7506,7 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
             },
             {
                 type: randomObstacleType({
-                    container_01: 1,
+                    container_01x: 1,
                     container_02: 1,
                     container_03: 1,
                 }),
@@ -7516,7 +7516,7 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
             },
             {
                 type: randomObstacleType({
-                    container_01: 1,
+                    container_01x: 1,
                     container_02: 1,
                     container_03: 1,
                 }),
@@ -7538,7 +7538,7 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
             },
             {
                 type: randomObstacleType({
-                    container_01: 1,
+                    container_01x: 1,
                     container_02: 1,
                     container_03: 1,
                 }),
