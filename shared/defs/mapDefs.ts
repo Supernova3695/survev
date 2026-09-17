@@ -9,6 +9,7 @@ import { Cobalt } from "./maps/cobaltDefs.ts";
 import { Desert } from "./maps/desertDefs.ts";
 import { Faction } from "./maps/factionDefs.ts";
 import { FactionPotato } from "./maps/factionPotatoDefs.ts";
+import { FactionCobalt } from "./maps/factionCobaltDefs.ts";
 import { Halloween } from "./maps/halloweenDefs.ts";
 import { MainSpring } from "./maps/mainSpringDefs.ts";
 import { MainSummer } from "./maps/mainSummerDefs.ts";
@@ -45,6 +46,7 @@ const _MapDefs = {
     desert: Desert,
     faction: Faction,
     faction_potato: FactionPotato,
+    faction_cobalt: FactionCobalt,
     halloween: Halloween,
     potato: Potato,
     potato_spring: PotatoSpring,
