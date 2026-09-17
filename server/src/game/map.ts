@@ -1578,6 +1578,7 @@ export class GameMap {
                 const centerObjects = [
                     "greenhouse_01",
                     "bunker_structure_03", // storm bunker
+                    "logging_complex_01",
                 ];
 
                 const divisions = 10;
