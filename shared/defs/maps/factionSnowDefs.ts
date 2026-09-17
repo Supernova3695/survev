@@ -464,8 +464,8 @@ const mapDef: PartialMapDef = {
                 barrel_01: 76,
                 silo_01: 8,
                 crate_01x: 38,
-                crate_02fx: 5,
-                crate_22x: 5,
+                crate_02fx: 6, //soviet crate
+                crate_22x: 6, //initiative crate
                 crate_03: 8,
                 crate_03x: 1,
                 bush_01x: 78,
