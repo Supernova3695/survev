@@ -29,9 +29,11 @@ export const FactionSnowAtlas: AtlasDef = {
         "map/map-statue-top-02-snowy.svg", //^^^
         
         "map/map-bush-01f.svg",
+        "map/map-tree-07.svg",
+        "map/map-tree-07su.svg",
         "map/map-tree-08f.svg",
         "map/map-tree-08.svg",
-        "map/map-tree-08sp.svg",
+        "map/map-tree-08su.svg",
 
         "map/map-stone-03f.svg",
         "map/map-stone-res-02f.svg",
