@@ -3423,6 +3423,35 @@ a:active {
     }
 }
 
+.btn-mode-faction-snow {
+    animation-name: faction-pulse-snow;
+    animation-duration: 4s;
+    border-bottom: 4px solid #007eff;
+}
+
+@media (max-width: 850px), (max-width: 900px) and (min-resolution: 3dppx) {
+    .btn-mode-faction-snow {
+        border-bottom: 2px solid #007eff;
+    }
+}
+@keyframes faction-pulse-snow {
+    from {
+        background-color: #71b8ff;
+        border-bottom-color: #3e9fff;
+        -webkit-box-shadow: 0 0 9px #007eff;
+    }
+    50% {
+        background-color: #ff7777;
+        border-bottom-color: #ff3939;
+        -webkit-box-shadow: 0 0 18px #cc0000;
+    }
+    to {
+        background-color: #71b8ff;
+        border-bottom-color: #3e9fff;
+        -webkit-box-shadow: 0 0 9px #007eff;
+    }
+}
+
 .btn-mode-savannah {
     animation-name: savannah-pulse;
     border-bottom: 4px solid #947c1c;

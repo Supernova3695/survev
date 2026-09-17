@@ -329,6 +329,10 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         img: { sprite: "map-chest-03f.img" },
         loot: [tierLoot("tier_chest", 3, 5), autoLoot("outfitKhaki", 1)],
     }),
+    chest_03fx: createRiverChest({
+        img: { sprite: "map-chest-03x.img" },
+        loot: [tierLoot("tier_chest", 3, 5), autoLoot("outfitKhaki", 1)],
+    }),
     chest_03sv: createRiverChest({
         img: { sprite: "map-chest-03sv.img" },
         loot: [tierLoot("tier_chest", 3, 5), autoLoot("outfitWaterElem", 1)],

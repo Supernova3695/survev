@@ -815,6 +815,13 @@ export const MapObstacleDefs: Record<string, ObstacleDef> = {
         map: { display: true, color: 0x575757, scale: 1 },
         img: { sprite: "map-statue-01.img", scale: 0.5 },
     }),
+    statue_01_winter: createStone({
+        scale: { createMin: 1, createMax: 1, destroy: 0.5 },
+        collision: collider.createAabbExtents(v2.create(0, 0), v2.create(4.4, 4.4)),
+        destructible: false,
+        map: { display: true, color: 0x575757, scale: 1 },
+        img: { sprite: "map-statue-01-snowy.img", scale: 0.5 },
+    }),
     statue_03: createStone({
         stonePlated: true,
         health: 500,
@@ -865,6 +872,20 @@ export const MapObstacleDefs: Record<string, ObstacleDef> = {
             zIdx: 60,
         },
     }),
+    statue_top_01_winter: createStone({
+        health: 500,
+        height: 10,
+        collision: collider.createCircle(v2.create(0, 0), 2.45),
+        scale: { createMin: 1, createMax: 1, destroy: 0.8 },
+        destructible: true,
+        map: { display: false, color: 0x575757, scale: 1 },
+        img: {
+            sprite: "map-statue-top-01-snowy.img",
+            residue: "",
+            scale: 0.5,
+            zIdx: 60,
+        },
+    }),
     statue_top_02: createStone({
         health: 500,
         height: 10,
@@ -874,6 +895,20 @@ export const MapObstacleDefs: Record<string, ObstacleDef> = {
         map: { display: false, color: 0x575757, scale: 1 },
         img: {
             sprite: "map-statue-top-02.img",
+            residue: "",
+            scale: 0.5,
+            zIdx: 60,
+        },
+    }),
+    statue_top_02_winter: createStone({
+        health: 500,
+        height: 10,
+        collision: collider.createCircle(v2.create(0, 0), 2.45),
+        scale: { createMin: 1, createMax: 1, destroy: 0.8 },
+        destructible: true,
+        map: { display: false, color: 0x575757, scale: 1 },
+        img: {
+            sprite: "map-statue-top-02-snowy.img",
             residue: "",
             scale: 0.5,
             zIdx: 60,

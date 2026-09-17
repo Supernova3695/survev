@@ -1559,9 +1559,14 @@ export class GameMap {
                 // doesn't matter which team, just as long as theyre grouped with the team specific buildings
                 const edgeObjects = [
                     "warehouse_01f",
+                    "warehouse_01x",
                     "house_red_01",
+                    "house_red_01x",
                     "house_red_02",
+                    "house_red_02x",
                     "barn_01",
+                    "barn_01x",
+                    "bank_01x"
                 ];
 
                 // obstacles, buildings, and structures that are specific to a team but can spawn anywhere on their side.
