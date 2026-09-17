@@ -1545,6 +1545,23 @@ export const MapObstacleDefs: Record<string, ObstacleDef> = {
         map: { color: 0x73895f, scale: 2.5 },
         img: { sprite: "map-tree-10x.img" },
     }),
+    tree_10c: createTree({
+        scale: { createMin: 1.8, createMax: 2.0 },
+        health: 300,
+        loot: [
+            tierLoot("tier_campsite_snow_cache", 6, 1),
+            tierLoot("tier_shotguns", 2, 1),
+            tierLoot("tier_faction_outfits", 1, 1),
+            autoLoot("outfitSpetsnaz", 1),
+        ],
+        map: { color: 0x774a15, scale: 3 },
+        img: {
+            sprite: "map-tree-10.img",
+            // residue: "map-tree-res-02.img",
+            scale: 1.6, //0.35
+            zIdx: 801,
+        },
+    }),
     tree_11: createTree({
         collision: collider.createCircle(v2.create(0, 0), 1.25),
         scale: { createMin: 1, createMax: 1 },

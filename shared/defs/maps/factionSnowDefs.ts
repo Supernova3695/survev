@@ -422,6 +422,12 @@ const mapDef: PartialMapDef = {
             { name: "mirv", count: 2, weight: 0.5 },
             { name: "snowball", count: 20, weight: 0.5 },
         ],
+        tier_campsite_snow_cache: [
+            { name: "tier_ammo", count: 1, weight: 2 },
+            { name: "tier_medical", count: 2, weight: 2 },
+            { name: "tier_throwables", count: 1, weight: 2 },
+            { name: "ak47", count: 1, weight: 1 },
+        ]
     },
     mapGen: {
         map: {
@@ -505,7 +511,10 @@ const mapDef: PartialMapDef = {
                 chest_01: 1,
                 chest_03fx: 1,
                 mil_crate_02: { odds: 1 },
+                mil_crate_03: 2,
                 tree_02: 3,
+                campsite_faction_snow_01: 2,
+                campsite_faction_snow_02: 2,
             },
         ],
         randomSpawns: [],
@@ -525,6 +534,7 @@ const mapDef: PartialMapDef = {
         ],
         importantSpawns: [
             "river_town_01",
+            "river_town_03",
             "police_01",
             "bank_01",
             "mansion_structure_01",

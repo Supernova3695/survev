@@ -937,7 +937,7 @@ function createLoggingComplex3(
         groundTintLt?: number;
         groundTintDk?: number;
     },
-): BuildingDef {
+): BuildingDef { 
     const baseDef: BuildingDef = {
         type: "building",
         map: { display: true, shapes: [] },
@@ -5239,6 +5239,272 @@ function createWorkshopComplex(overrides: DeepPartial<BuildingDef>): BuildingDef
     return util.mergeDeep(baseDef, overrides);
 }
 
+function createFactionSnowCampsite(
+    overrides: DeepPartial<BuildingDef>,
+    params: {
+        groundTintLt?: number;
+        groundTintDk?: number;
+    },
+): BuildingDef { 
+    const baseDef: BuildingDef = {
+        type: "building",
+        map: { display: true, shapes: [] },
+        terrain: {
+            grass: true,
+            beach: false,
+            spawnPriority: 10,
+        },
+        mapObstacleBounds: [collider.createCircle(v2.create(0, 0), 20)],
+        mapGroundPatches: [
+            {
+                bound: collider.createAabbExtents(v2.create(0, 0), v2.create(6.5, 5.5)),
+                color: params.groundTintDk || 0xd6d6d6,
+                roughness: 0.05,
+                offsetDist: 0.5,
+            },
+        ],
+        floor: {
+            surfaces: [{ type: "snow", collision: [] }],
+            imgs: [],
+        },
+        ceiling: { zoomRegions: [], imgs: [] },
+        occupiedEmitters: [
+            {
+                type: "campfire_smoke",
+                pos: v2.create(0, 0),
+                rot: 0,
+                scale: 1,
+                layer: 0,
+                parentToCeiling: true,
+            },
+        ],
+        healRegions: [
+            {
+                collision: collider.createCircle(v2.create(0, 0), 12),
+                healRate: 2,
+            },
+        ],
+        mapObjects: [
+            {
+                type: "campfire_01",
+                pos: v2.create(0.0, 0.0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({ barrel_02: 4, barrel_01: 1 }),
+                pos: v2.create(11.0, 5.0),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: randomObstacleType({ barrel_02: 4, barrel_01: 1 }),
+                pos: v2.create(13.0, 1.0),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: randomObstacleType({ barrel_02: 4, barrel_01: 1 }),
+                pos: v2.create(-15.0, -6.0),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: randomObstacleType({ crate_03: 4, crate_03x: 1 }),
+                pos: v2.create(-11.0, -9.0),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "crate_01x",
+                pos: v2.create(-15.0, -10.0),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(6.0, 6.0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(-6.0, 6.0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(6.0, -6.0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(-6.0, -6.0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(8.0, 0.0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(-8.0, 0.0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(0.0, 8.0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(0.0, -8.0),
+                scale: 1,
+                ori: 0,
+            },
+        ],
+    };
+    return util.mergeDeep(baseDef, overrides);
+}
+
+function createFactionSnowCampsite2(
+    overrides: DeepPartial<BuildingDef>,
+    params: {
+        groundTintLt?: number;
+        groundTintDk?: number;
+    },
+): BuildingDef { 
+    const baseDef: BuildingDef = {
+        type: "building",
+        map: { display: true, shapes: [] },
+        terrain: {
+            grass: true,
+            beach: false,
+            spawnPriority: 10,
+        },
+        mapObstacleBounds: [collider.createCircle(v2.create(0, 0), 20)],
+        mapGroundPatches: [
+            {
+                bound: collider.createAabbExtents(v2.create(0, 0), v2.create(6.5, 5.5)),
+                color: params.groundTintDk || 0xd6d6d6,
+                roughness: 0.05,
+                offsetDist: 0.5,
+            },
+        ],
+        floor: {
+            surfaces: [{ type: "snow", collision: [] }],
+            imgs: [],
+        },
+        ceiling: { zoomRegions: [], imgs: [] },
+        occupiedEmitters: [
+            {
+                type: "campfire_smoke",
+                pos: v2.create(0, 0),
+                rot: 0,
+                scale: 1,
+                layer: 0,
+                parentToCeiling: true,
+            },
+        ],
+        healRegions: [
+            {
+                collision: collider.createCircle(v2.create(0, 0), 12),
+                healRate: 2,
+            },
+        ],
+        mapObjects: [
+            {
+                type: "campfire_01",
+                pos: v2.create(0.0, 0.0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({ barrel_02: 4, barrel_01: 1 }),
+                pos: v2.create(11.0, 5.0),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: randomObstacleType({ barrel_02: 4, barrel_01: 1 }),
+                pos: v2.create(13.0, 1.0),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "tree_10c",
+                pos: v2.create(-11.0, -9.0),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(6.0, 6.0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(-6.0, 6.0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(6.0, -6.0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(-6.0, -6.0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(8.0, 0.0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(-8.0, 0.0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(0.0, 8.0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(0.0, -8.0),
+                scale: 1,
+                ori: 0,
+            },
+        ],
+    };
+    return util.mergeDeep(baseDef, overrides);
+}
+
 export const ModeBuildingDefs: Record<string, BuildingDef> = {
     // Beach
 
@@ -7201,7 +7467,7 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
         ignoreMapSpawnReplacement: false,
     }),
 
-    //winter factions
+    // Winter Faction
 
     river_town_03: {
         type: "building",
@@ -7612,6 +7878,7 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
             },
         ],
     },
+
 
     // Halloween
 
@@ -9793,6 +10060,7 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
             },
         ],
     }),
+
     // Woods
     workshop_01: createWorkshop({}, {
         left_loot: "loot_tier_1",
@@ -10038,4 +10306,9 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
         tree_small: "tree_08su",
         tree_large: "tree_08su",
     }),
+
+    // Factions
+
+    campsite_faction_snow_01: createFactionSnowCampsite({}, {}),
+    campsite_faction_snow_02: createFactionSnowCampsite2({}, {}),
 };
