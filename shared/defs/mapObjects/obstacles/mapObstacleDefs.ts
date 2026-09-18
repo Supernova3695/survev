@@ -1554,7 +1554,7 @@ export const MapObstacleDefs: Record<string, ObstacleDef> = {
             tierLoot("tier_faction_outfits", 1, 1),
             autoLoot("outfitSpetsnaz", 1),
         ],
-        map: { color: 0x774a15, scale: 3 },
+        map: { color: 0x73895f, scale: 3 },
         img: {
             sprite: "map-tree-10.img",
             // residue: "map-tree-res-02.img",
