@@ -505,6 +505,7 @@ const mapDef: PartialMapDef = {
                 chest_03cb: 1,
                 mil_crate_02: { odds: 1 },
                 tree_02: 3,
+                class_shell_01: 55,
             },
         ],
         randomSpawns: [],
