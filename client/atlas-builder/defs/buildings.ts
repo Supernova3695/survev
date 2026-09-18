@@ -381,4 +381,11 @@ export const BuildingSprites = {
         "map/map-bunker-chrys-compartment-floor-02c.svg",
         "map/map-bunker-chrys-compartment-floor-03a.svg",
     ],
+
+    bunker_random: [
+        "map/map-bunker-storm-chamber-ceiling-01.svg",
+        "map/map-bunker-storm-chamber-floor-01a.svg",
+        "map/map-bunker-storm-chamber-floor-01b.svg",
+        "map/map-bunker-storm-floor-02.svg",
+    ],
 };
