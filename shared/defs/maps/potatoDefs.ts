@@ -159,6 +159,11 @@ const mapDef: PartialMapDef = {
             { name: "potato_smg", count: 1, weight: 1 },
             { name: "potato_lmg", count: 1, weight: 1 },
         ],
+        tier_potato_perks: [
+            { name: "", count: 1, weight: 1 },
+            { name: "tuberculosis", count: 1, weight: 25 },
+            { name: "tier_perks", count: 1, weight: 1 },
+        ]
     },
     mapGen: {
         customSpawnRules: {

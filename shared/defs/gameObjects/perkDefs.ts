@@ -74,6 +74,14 @@ export const PerkProperties = {
             strobe: 5,
         } as const,
     },
+    tuberculosis: {
+        refillInterval: 0.1, // means refill every x seconds
+        giveInterval: 0.08, // interval between each grenade being given until the backpack is full
+        // Odds to get each type of explosive
+        weights: {
+            potato: 1,
+        } as const,
+    },
     windwalk: {
         maxTriggerDistance: 5, // max distance at which a bullet can trigger windwalk
         hasteDuration: 3,
@@ -552,6 +560,20 @@ export const PerkDefs: Record<string, PerkDef> = {
         type: "perk",
         lootImg: {
             sprite: "loot-perk-fabricate.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-03.img",
+            borderTint: 0xffffff,
+            scale: 0.275,
+        },
+        sound: {
+            pickup: "perk_pickup_01",
+        },
+    },
+    tuberculosis: {
+        name: "Tuber-culosis",
+        type: "perk",
+        lootImg: {
+            sprite: "loot-perk-tuberculosis.img",
             tint: 0xffffff,
             border: "loot-circle-outer-03.img",
             borderTint: 0xffffff,
