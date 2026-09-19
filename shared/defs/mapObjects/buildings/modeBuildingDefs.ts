@@ -9623,4 +9623,358 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
         tree_small: "tree_08su",
         tree_large: "tree_08su",
     }),
+
+    // Cobalt Factions
+
+    river_town_01cb: {
+        type: "building",
+        map: {
+            display: true,
+            shapes: [
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(70.75, 0.5),
+                        v2.create(30, 54.5),
+                    ),
+                    color: 0x3a3a3a,
+                },
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(77.5, 64),
+                        v2.create(23, 10),
+                    ),
+                    color: 0x3a3a3a,
+                },
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(111, -29.5),
+                        v2.create(10.5, 24.5),
+                    ),
+                    color: 0x3a3a3a,
+                },
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(50, 0),
+                        v2.create(4.4, 4.4),
+                    ),
+                    color: 0x575757,
+                },
+            ],
+        },
+        terrain: {
+            bridge: { nearbyWidthMult: 1 },
+            spawnPriority: 100,
+        },
+        bridgeLandBounds: [
+            collider.createAabbExtents(v2.create(-41, 0), v2.create(6, 10)),
+            collider.createAabbExtents(v2.create(41, 0), v2.create(6, 10)),
+            collider.createAabbExtents(v2.create(81, 0), v2.create(40, 54)),
+            collider.createAabbExtents(v2.create(78, 64), v2.create(23, 10)),
+            collider.createAabbExtents(v2.create(-76, -22), v2.create(36, 24)),
+            collider.createAabbExtents(v2.create(-72, 22), v2.create(27, 25)),
+        ],
+        bridgeWaterBounds: [collider.createAabbExtents(v2.create(0, 0), v2.create(5, 5))],
+        mapObstacleBounds: [
+            collider.createAabbExtents(v2.create(71, 0), v2.create(31, 56)),
+            collider.createAabbExtents(v2.create(77, 65), v2.create(24, 10)),
+            collider.createAabbExtents(v2.create(112, -30), v2.create(10, 26)),
+            collider.createAabbExtents(v2.create(106, 19.5), v2.create(8, 7.25)),
+            collider.createAabbExtents(v2.create(-71, 32), v2.create(27, 15)),
+            collider.createAabbExtents(v2.create(-71, 16), v2.create(8, 6)),
+            collider.createAabbExtents(v2.create(-75, -34), v2.create(40, 19)),
+            collider.createAabbExtents(v2.create(-57, -10), v2.create(5, 11)),
+            collider.createAabbExtents(v2.create(-86, -10), v2.create(5, 11)),
+            collider.createAabbExtents(v2.create(-21, 0), v2.create(100, 8)),
+            collider.createAabbExtents(v2.create(-109, 30), v2.create(7, 7.25)),
+            collider.createAabbExtents(v2.create(0, 0), v2.create(40, 15)),
+        ],
+        mapGroundPatches: [
+            {
+                bound: collider.createAabbExtents(v2.create(-20, 0), v2.create(100, 6)),
+                color: 0x653313,
+                roughness: 0.05,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(-71, 10), v2.create(2, 9)),
+                color: 0x653313,
+                roughness: 0,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(-57, -10), v2.create(2, 9)),
+                color: 0x653313,
+                roughness: 0,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(
+                    v2.create(-109, 30),
+                    v2.create(6, 6.25),
+                ),
+                color: 0x324319,
+                roughness: 0.05,
+                offsetDist: 0.5,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(-86, -10), v2.create(2, 9)),
+                color: 0x653313,
+                roughness: 0,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(
+                    v2.create(106, 19.5),
+                    v2.create(7, 6.25),
+                ),
+                color: 0x324319,
+                roughness: 0.05,
+                offsetDist: 0.5,
+            },
+        ],
+        floor: {
+            surfaces: [
+                {
+                    type: "grass",
+                    collision: [
+                        collider.createAabbExtents(v2.create(0, 0), v2.create(0, 0)),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(
+                            v2.create(70.75, 0.5),
+                            v2.create(30, 54.5),
+                        ),
+                        collider.createAabbExtents(
+                            v2.create(77.5, 64),
+                            v2.create(23, 10),
+                        ),
+                        collider.createAabbExtents(
+                            v2.create(111, -29.5),
+                            v2.create(10.5, 24.5),
+                        ),
+                    ],
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-complex-warehouse-floor-04.img",
+                    pos: v2.create(81, 10),
+                    scale: 1,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+        },
+        // HACK: used to define a region that counts as "river town" for quests
+        goreRegion: collider.createAabbExtents(v2.create(0, 10), v2.create(125, 70)),
+        ceiling: {
+            zoomRegions: [],
+            imgs: [],
+        },
+        mapObjects: [
+            {
+                type: "bunker_structure_10",
+                pos: v2.create(0, 50),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "bridge_xlg_structure_01",
+                pos: v2.create(0, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barn_01",
+                pos: v2.create(-71, 30),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "house_red_01",
+                pos: v2.create(-56, -30),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "house_red_02",
+                pos: v2.create(-96, -30),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-68, 2),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({ crate_02: 1, crate_01: 3 }),
+                pos: v2.create(-85, 1),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: randomObstacleType({ crate_02: 1, crate_01: 3 }),
+                pos: v2.create(-90, -1),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "crate_02f",
+                pos: v2.create(-106.5, 32.25),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-111.25, 32.25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-108, 27.25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "statue_structure_01",
+                pos: v2.create(-50, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(45, 36),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(51, 36),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "shack_02",
+                pos: v2.create(47, 20),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "warehouse_02",
+                pos: v2.create(78, 40),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(95, 44),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "statue_structure_02",
+                pos: v2.create(50, 0),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(74.5, -0.5),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(79.5, 0.25),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(106, 22),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(104.5, 17.25),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "crate_22",
+                pos: v2.create(109.25, 17.25),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(85, -13),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(45, -36),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "shack_02",
+                pos: v2.create(47, -20),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "warehouse_02",
+                pos: v2.create(86, -30),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(72, -47),
+                scale: 1,
+                ori: 1,
+            },
+        ],
+    },
 };

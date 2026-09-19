@@ -6760,4 +6760,555 @@ export const BunkerDefs: Record<string, BuildingDef> = {
             },
         ],
     },
+    bunker_cobalt_stairs_01: createBunkerStairs({
+        map: {
+            display: false,
+            shapes: [
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(0, 1),
+                        v2.create(2, 3.25),
+                    ),
+                    color: 0x9c5110,
+                },
+            ],
+        },
+        floor: {
+            surfaces: [
+                {
+                    type: "container",
+                    collision: [
+                        collider.createAabbExtents(v2.create(0, 1), v2.create(2, 3.25)),
+                    ],
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-generic-floor-02.img", //"map-bunker-storm-floor-02.img",
+                    pos: v2.create(0, 0),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+        },
+        ceiling: {
+            zoomRegions: [
+                // {
+                //     zoomIn: collider.createAabbExtents(
+                //         v2.create(0, 0.75),
+                //         v2.create(2, 3.25),
+                //     ),
+                // },
+            ],
+            imgs: [
+                // {
+                //     sprite: "map-bunker-crossing-ceiling-01.img",
+                //     pos: v2.create(0, 0),
+                //     scale: 0.5,
+                //     alpha: 1,
+                //     tint: 0xffffff,
+                //     rot: 0,
+                // },
+            ],
+        },
+    }),
+    bunker_cobalt_01: {
+        type: "building",
+        map: {
+            display: true,
+            shapes: [
+                // {
+                //     collider: collider.createAabbExtents(
+                //         v2.create(20.25, 3.5),
+                //         v2.create(6.25, 5.5),
+                //     ),
+                //     color: 0x2c2c2c,
+                // },
+                // {
+                //     collider: collider.createAabbExtents(
+                //         v2.create(32.25, 3.5),
+                //         v2.create(6.75, 9.25),
+                //     ),
+                //     color: 0x3a3a3a,
+                // },
+            ],
+        },
+        terrain: { grass: true, beach: false },
+        zIdx: 0,
+        floor: {
+            surfaces: [
+                {
+                    type: "container",
+                    collision: [
+                        collider.createAabbExtents(
+                            v2.create(0, 7.75),
+                            v2.create(2, 3.25),
+                        ),
+                    ],
+                },
+                {
+                    type: "shack",
+                    collision: [
+                        collider.createAabbExtents(
+                            v2.create(0, 13.5),
+                            v2.create(3.75, 2.5),
+                        ),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(
+                            v2.create(5, 13.75),
+                            v2.create(1.25, 2.25),
+                        ),
+                    ],
+                },
+                // {
+                //     type: "tile",
+                //     collision: [
+                //         collider.createAabbExtents(
+                //             v2.create(20.25, 3.5),
+                //             v2.create(6.25, 5.5),
+                //         ),
+                //         collider.createAabbExtents(
+                //             v2.create(32.25, 3.5),
+                //             v2.create(6.75, 9.25),
+                //         ),
+                //     ],
+                // },
+                // {
+                //     type: "container",
+                //     collision: [
+                //         collider.createAabbExtents(
+                //             v2.create(16.25, 3.5),
+                //             v2.create(3.25, 2),
+                //         ),
+                //         collider.createAabbExtents(
+                //             v2.create(-16.5, -90.75),
+                //             v2.create(2, 3.25),
+                //         ),
+                //         collider.createAabbExtents(
+                //             v2.create(40, -50.5),
+                //             v2.create(2, 3.25),
+                //         ),
+                //     ],
+                // },
+            ],
+            imgs: [
+                {//red entrance floor
+                    sprite: "map-bunker-storm-floor-02.img",
+                    pos: v2.create(-41, -18),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+                {//blue entrance floor
+                    sprite: "map-bunker-storm-floor-02.img",
+                    pos: v2.create(49, 11),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+        },
+        ceiling: {
+            zoomRegions: [
+                {
+                    zoomIn: collider.createAabbExtents(
+                        v2.create(19.25, 3.5),
+                        v2.create(6.25, 5.5),
+                    ),
+                },
+                {
+                    zoomIn: collider.createAabbExtents(
+                        v2.create(32.25, 3.5),
+                        v2.create(6.75, 9.25),
+                    ),
+                },
+            ],
+            imgs: [
+                {//red entrance ceiling
+                    sprite: "map-building-shack-ceiling-01.img",
+                    pos: v2.create(-42.95, -18),
+                    scale: 0.667,
+                    alpha: 1,
+                    tint: 0xffffff,
+                    rot: 1,
+                },
+                {//blue entrance ceiling
+                    sprite: "map-building-shack-ceiling-01.img",
+                    pos: v2.create(46.2, 11),
+                    scale: 0.667,
+                    alpha: 1,
+                    tint: 0xffffff,
+                    rot: 1,
+                },
+            ],
+            vision: {
+                dist: 5,
+                width: 2.75,
+                linger: 0.5,
+                fadeRate: 6,
+            },
+            destroy: {
+                wallCount: 2,
+                particle: "shackBreak",
+                particleCount: 25,
+                residue: "none",
+            },
+        },
+        mapObjects: [
+            {
+                type: "decal_hydra_01",
+                pos: v2.create(3, 0),
+                scale: 1,
+                ori: 1,
+                inheritOri: false,
+            },
+            {//red entrance
+                type: "bunker_cobalt_stairs_01",
+                pos: v2.create(-41, -18),
+                scale: 1,
+                ori: 0,
+            },
+            {//blue entrance
+                type: "bunker_cobalt_stairs_01",
+                pos: v2.create(49, 11),
+                scale: 1,
+                ori: 0,
+            },
+            //red shack elements below
+            {
+                type: "shack_wall_bot",
+                pos: v2.create(-38.85, -19.45),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "shack_wall_side_left",
+                pos: v2.create(-41.8, -12.35),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "shack_wall_top",
+                pos: v2.create(-45.58, -17.58),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "shack_wall_side_right",
+                pos: v2.create(-42.2, -23.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-40.8, -10), //-2, 17.9
+                scale: 0.8,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-37.2, -10), //1.45, 17.7
+                scale: 0.85,
+                ori: 0,
+            },
+            //red shack above
+            //blue shack elements below
+            {
+                type: "shack_wall_bot",
+                pos: v2.create(51.15, 9.6),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "shack_wall_side_left",
+                pos: v2.create(48.1, 16.6),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "shack_wall_top",
+                pos: v2.create(44.4, 11.4),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "shack_wall_side_right",
+                pos: v2.create(47.8, 5.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(49.6, 19), //-2, 17.9
+                scale: 0.8,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(45.8, 18.7), //1.45, 17.7
+                scale: 0.85,
+                ori: 0,
+            },
+            //blue shack elements above
+        ],
+    },
+    bunker_cobalt_sublevel_01: {
+        type: "building",
+        map: { display: false, color: 0x665a4e, scale: 1 },
+        terrain: { grass: true, beach: false },
+        zIdx: 1,
+        floor: {
+            surfaces: [
+                {
+                    type: "bunker",
+                    collision: [
+                        collider.createAabbExtents(v2.create(3.5, 3), v2.create(9.5, 9)),
+                    ],
+                },
+                {
+                    type: "tile",
+                    collision: [
+                        collider.createAabbExtents(
+                            v2.create(-15.5, -79.5),
+                            v2.create(3, 8),
+                        ),
+                        collider.createAabbExtents(
+                            v2.create(40.5, -62),
+                            v2.create(9.5, 8),
+                        ),
+                    ],
+                },
+            ],
+            imgs: [
+                // {
+                //     sprite: "map-bunker-hydra-chamber-floor-01a.img",
+                //     pos: v2.create(17.5, 3.5),
+                //     scale: 0.5,
+                //     alpha: 1,
+                //     tint: 0xffffff,
+                // },
+                // {
+                //     sprite: "map-bunker-hydra-chamber-floor-01b.img",
+                //     pos: v2.create(3.5, 2.5),
+                //     scale: 0.5,
+                //     alpha: 1,
+                //     tint: 0xffffff,
+                // },
+                // {
+                //     sprite: "map-bunker-hydra-chamber-floor-02.img",
+                //     pos: v2.create(-15.5, -83),
+                //     scale: 0.5,
+                //     alpha: 1,
+                //     tint: 0xffffff,
+                // },
+                // {
+                //     sprite: "map-bunker-hydra-chamber-floor-03.img",
+                //     pos: v2.create(40.5, -58.5),
+                //     scale: 0.5,
+                //     alpha: 1,
+                //     tint: 0xffffff,
+                // },
+            ],
+        },
+        ceiling: {
+            zoomRegions: [
+                // {
+                //     zoomIn: collider.createAabbExtents(
+                //         v2.create(3.5, 2.25),
+                //         v2.create(10, 10),
+                //     ),
+                // },
+                // {
+                //     zoomIn: collider.createAabbExtents(
+                //         v2.create(-15, -77),
+                //         v2.create(5.5, 10.5),
+                //     ),
+                // },
+                // {
+                //     zoomIn: collider.createAabbExtents(
+                //         v2.create(38, -62),
+                //         v2.create(11.5, 8),
+                //     ),
+                // },
+            ],
+            imgs: [
+                // {
+                //     sprite: "map-bunker-hydra-chamber-ceiling-01.img",
+                //     pos: v2.create(7, 2),
+                //     scale: 1,
+                //     alpha: 1,
+                //     tint: 0x5f5f5f,
+                // },
+                // {
+                //     sprite: "map-bunker-hydra-chamber-ceiling-02.img",
+                //     pos: v2.create(-13.5, -76.5),
+                //     scale: 1,
+                //     alpha: 1,
+                //     tint: 0x5f5f5f,
+                // },
+                // {
+                //     sprite: "map-bunker-hydra-chamber-ceiling-03.img",
+                //     pos: v2.create(38, -62),
+                //     scale: 1,
+                //     alpha: 1,
+                //     tint: 0x5f5f5f,
+                // },
+            ],
+            //vision: { dist: 10, width: 3 },
+        },
+        mapObjects: [
+            {
+                type: "bunker_cobalt_compartment_01", //blue entrance room
+                pos: v2.create(48.2, 1.38),
+                scale: 1,
+                ori: 0,
+            },
+            
+        ],
+    },
+    bunker_cobalt_compartment_01: {
+        type: "building",
+        map: { display: false, color: 0x665a4e, scale: 1 },
+        terrain: { grass: true, beach: false },
+        zIdx: 2,
+        floor: {
+            surfaces: [
+                {
+                    type: "tile",
+                    collision: [
+                        collider.createAabbExtents(
+                            v2.create(0, 1.5),
+                            v2.create(9.5, 12.5),
+                        ),
+                    ],
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-hydra-chamber-floor-03.img",
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+        },
+        ceiling: {
+            zoomRegions: [
+                {
+                    zoomIn: collider.createAabbExtents(
+                        v2.create(0, 1.25),
+                        v2.create(10, 10),
+                    ),
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-hydra-chamber-ceiling-03.img",
+                    pos: v2.create(0, 1.25),
+                    scale: 1,
+                    alpha: 1,
+                    tint: 0x5f5f5f,
+                },
+            ],
+        },
+        mapObjects: [
+            // {
+            //     type: "metal_wall_ext_thicker_17",
+            //     pos: v2.create(-9.75, 3),
+            //     scale: 1,
+            //     ori: 0,
+            // },
+            // {
+            //     type: "metal_wall_ext_thicker_5",
+            //     pos: v2.create(-6.5, 9.75),
+            //     scale: 1,
+            //     ori: 1,
+            // },
+            // {
+            //     type: "metal_wall_ext_thicker_5",
+            //     pos: v2.create(6.5, 10.5),
+            //     scale: 1,
+            //     ori: 1,
+            // },
+            // {
+            //     type: "metal_wall_ext_thicker_18",
+            //     pos: v2.create(10.5, 1.5),
+            //     scale: 1,
+            //     ori: 0,
+            // },
+            // {
+            //     type: "metal_wall_ext_thicker_7",
+            //     pos: v2.create(-7.5, -6.75),
+            //     scale: 1,
+            //     ori: 1,
+            // },
+            // {
+            //     type: "metal_wall_ext_thicker_8",
+            //     pos: v2.create(8, -7.5),
+            //     scale: 1,
+            //     ori: 1,
+            // },
+            // {
+            //     type: "crate_08",
+            //     pos: v2.create(6.5, 6.5),
+            //     scale: 1,
+            //     ori: 2,
+            // },
+            // {
+            //     type: "sandbags_01",
+            //     pos: v2.create(4.75, 1.5),
+            //     scale: 1,
+            //     ori: 0,
+            // },
+            // {
+            //     type: "lab_door_01",
+            //     pos: v2.create(-4, -8.5),
+            //     scale: 1,
+            //     ori: 3,
+            // },
+            // {
+            //     type: "lab_door_01",
+            //     pos: v2.create(4, -8.5),
+            //     scale: 1,
+            //     ori: 1,
+            // },
+            // {
+            //     type: "locker_01",
+            //     pos: v2.create(-6, 8.4),
+            //     scale: 1,
+            //     ori: 0,
+            // },
+            // {
+            //     type: "locker_01",
+            //     pos: v2.create(-8.35, 6),
+            //     scale: 1,
+            //     ori: 1,
+            // },
+            // {
+            //     type: "locker_01",
+            //     pos: v2.create(-8.35, 1.5),
+            //     scale: 1,
+            //     ori: 1,
+            // },
+            // {
+            //     type: "locker_01",
+            //     pos: v2.create(-8.35, -3),
+            //     scale: 1,
+            //     ori: 1,
+            // },
+            // {
+            //     type: "locker_01",
+            //     pos: v2.create(-6, -5.4),
+            //     scale: 1,
+            //     ori: 2,
+            // },
+        ],
+    },
 };

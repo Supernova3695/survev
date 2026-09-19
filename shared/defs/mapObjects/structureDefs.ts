@@ -1063,4 +1063,56 @@ export const StructureDefs: Record<string, StructureDef> = {
         ],
         mask: [collider.createAabbExtents(v2.create(0, 0), v2.create(16.75, 11.75))],
     },
+    bunker_structure_10: {
+        type: "structure",
+        terrain: { grass: true, beach: false },
+        mapObstacleBounds: [
+            collider.createAabbExtents(v2.create(25.5, 3.5), v2.create(16, 11.5)),
+            collider.createAabbExtents(v2.create(-16.5, -89.5), v2.create(7, 7.5)),
+            collider.createAabbExtents(v2.create(40, -47.25), v2.create(6.5, 7.25)),
+            collider.createAabbExtents(v2.create(3.5, -48.5), v2.create(3, 3)),
+        ],
+        layers: [
+            {
+                type: "bunker_cobalt_01",
+                pos: v2.create(0, 0),
+                ori: 0,
+            },
+            {
+                type: "bunker_cobalt_sublevel_01",
+                pos: v2.create(0, 0),
+                ori: 0,
+            },
+        ],
+        stairs: [
+            {
+                collision: collider.createAabbExtents(
+                    v2.create(16.4, 3.5),
+                    v2.create(2.6, 2),
+                ),
+                downDir: v2.create(-1, 0),
+            },
+            {
+                collision: collider.createAabbExtents(
+                    v2.create(-16.5, -90.75),
+                    v2.create(2, 2.5),
+                ),
+                downDir: v2.create(0, 1),
+            },
+            {
+                collision: collider.createAabbExtents(
+                    v2.create(40, -50.35),
+                    v2.create(2, 2.5),
+                ),
+                downDir: v2.create(0, -1),
+            },
+        ],
+        mask: [
+            collider.createAabbExtents(v2.create(3.5, -7.2), v2.create(10.75, 20)),
+            collider.createAabbExtents(v2.create(-15, -79.75), v2.create(5, 8.5)),
+            collider.createAabbExtents(v2.create(39, -61.85), v2.create(12, 9)),
+            collider.createAabbExtents(v2.create(3.5, -49.2), v2.create(23.49, 21.99)),
+            collider.createAabbExtents(v2.create(10.5, -76.7), v2.create(10, 5.5)),
+        ],
+    },
 };

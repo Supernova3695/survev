@@ -84,7 +84,7 @@ const mapDef: PartialMapDef = {
             { name: "vault_change_03", channel: "sfx" },
             { name: "watering_01", channel: "sfx" },
         ],
-        atlases: ["loadout", "shared", "faction", "cobalt"],
+        atlases: ["loadout", "main", "shared", "faction", "cobalt"],
     },
     biome: {
         colors: {
@@ -517,6 +517,7 @@ const mapDef: PartialMapDef = {
                 stone_01: "stone_01cb",
                 stone_03: "stone_03cb",
                 tree_01: "tree_01cb",
+                river_town_01: "river_town_01cb",
             },
         ],
         importantSpawns: [

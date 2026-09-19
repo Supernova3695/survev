@@ -1376,6 +1376,7 @@ export const BuildingObjectDefs: Record<string, ObstacleDef> = {
     metal_wall_ext_thicker_17: createWall({
         material: "metal",
         extents: v2.create(1.5, 8.5),
+        // img: wallImg("map-wall-outhouse-side.img"),
     }),
     metal_wall_ext_thicker_18: createWall({
         material: "metal",
