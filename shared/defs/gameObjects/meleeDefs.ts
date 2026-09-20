@@ -459,60 +459,6 @@ const BaseDefs: Record<string, MeleeDef> = {
             tint: 0xffffff,
         },
     },
-    macheteOrchid: {
-        name: "Machete",
-        type: "melee",
-        quality: 1,
-        cleave: true,
-        autoAttack: false,
-        switchDelay: 0.25,
-        damage: 33,
-        obstacleDamage: 1,
-        noPotatoSwap: true,
-        attack: {
-            offset: {
-                x: 1.5,
-                y: 0,
-            },
-            rad: 1.75,
-            damageTimes: [0.12],
-            cooldownTime: 0.3,
-        },
-        speed: {
-            equip: 1,
-        },
-        anim: {
-            idlePose: "machete",
-            attackAnims: ["cutReverse"],
-        },
-        sound: {
-            pickup: "frag_pickup_01",
-            swing: "knife_swing_01",
-            deploy: "knife_deploy_01",
-            playerHit: "knife_hit_01",
-        },
-        lootImg: {
-            sprite: "loot-melee-machete-orchid.img",
-            tint: 0xffffff,
-            border: "loot-circle-outer-02.img",
-            borderTint: 0xffffff,
-            scale: 0.3,
-            rot: 0.785,
-        },
-        worldImg: {
-            sprite: "loot-melee-machete-orchid.img",
-            pos: {
-                x: -2.5,
-                y: -48.5,
-            },
-            rot: 1.885,
-            scale: {
-                x: 0.35,
-                y: 0.35,
-            },
-            tint: 0xffffff,
-        },
-    },
     saw: {
         name: "Saw",
         type: "melee",
@@ -1358,7 +1304,7 @@ const SkinDefs: Record<string, MeleeDef> = {
             sprite: "loot-melee-machete-taiga.img",
         },
     }),
-    machete_orchid: defineMeleeSkin("macheteOrchid", {
+    machete_orchid: defineMeleeSkin("machete", {
         name: "Machete Orchid",
         noPotatoSwap: false,
         lootImg: { sprite: "loot-melee-machete-orchid.img" },
