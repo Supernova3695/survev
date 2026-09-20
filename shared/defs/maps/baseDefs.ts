@@ -384,6 +384,7 @@ export const Main: MapDef = {
             { name: "strobe", count: 1, weight: 1 },
         ],
         tier_forest_helmet: [{ name: "helmet03_forest", count: 1, weight: 1 }],
+        tier_forest_king_skin: [{ name: "outfitWoodsCloak", count: 1, weight: 1 }],
         tier_outfits: [
             { name: "outfitCobaltShell", count: 1, weight: 0.3 },
             { name: "outfitKeyLime", count: 1, weight: 0.25 },

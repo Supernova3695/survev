@@ -143,7 +143,10 @@ export const BuildingSprites = {
 
     pavilion: [
         "map/map-building-pavilion-ceiling-01.svg",
+        "map/map-building-pavilion-ceiling-02.svg",
         "map/map-building-pavilion-floor-01.svg",
+        "map/map-building-pavilion-floor-02.svg",
+        "map/map-building-pavilion-floor-03.svg",
         "map/map-building-pavilion-res-01.svg",
     ],
 
@@ -217,6 +220,7 @@ export const BuildingSprites = {
         "map/map-building-teahouse-ceiling-01.svg",
         "map/map-building-teahouse-floor-01.svg",
         "map/map-building-teahouse-floor-02.svg",
+        "map/map-building-teahouse-floor-03.svg",
         "map/map-building-teahouse-res-01.svg",
     ],
 

@@ -935,6 +935,14 @@ export const FurnitureDefs: Record<string, ObstacleDef> = {
         loot: [autoLoot("spas16", 1)],
         img: { sprite: "map-gun-mount-07.img" },
     }),
+    gun_mount_08: createGunMount({
+        loot: [autoLoot("katana", 1)],
+        img: { sprite: "map-gun-mount-08.img" },
+    }),
+    gun_mount_09: createGunMount({
+        loot: [autoLoot("katana_orchid", 1)],
+        img: { sprite: "map-gun-mount-09.img" },
+    }),
     locker_01: createLocker({
         img: { sprite: "map-locker-01.img" },
         loot: [tierLoot("tier_world", 1, 1)],
@@ -1032,7 +1040,8 @@ export const FurnitureDefs: Record<string, ObstacleDef> = {
     pot_03: createBottle({ img: { sprite: "map-pot-03.img" } }),
     pot_03b: createBottle({
         img: { sprite: "map-pot-03.img" },
-        loot: [autoLoot("outfitWoodsCloak", 1), autoLoot("backpack03", 1)],
+        loot: [autoLoot("backpack03", 1), tierLoot("tier_forest_king_skin", 1, 1)],
+        // loot: [autoLoot("outfitWoodsCloak", 1), autoLoot("backpack03", 1)],
     }),
     pot_03c: createBottle({
         img: { sprite: "map-pot-03.img" },

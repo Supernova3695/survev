@@ -427,6 +427,23 @@ const SkinDefs: Record<string, OutfitDef> = {
             tint: 0x2aff00,
         },
     }),
+    outfitWoodsCloakSpring: defineOutfitSkin("outfitBase", {
+        name: "Springcloak",
+        skinImg: {
+            baseTint: 0xec00ff,
+            baseSprite: "player-base-02.img",
+            handTint: 0xf5aaff,
+            handSprite: "player-hands-02.img",
+            footTint: 0xf5aaff,
+            footSprite: "player-feet-02.img",
+            backpackTint: 0xf6b5ff,
+            backpackSprite: "player-circle-base-02.img",
+        },
+        lootImg: {
+            sprite: "loot-shirt-02.img",
+            tint: 0xec00ff,
+        },
+    }),
     outfitElf: defineOutfitSkin("outfitBase", {
         name: "Tallow's Little Helper",
         skinImg: {

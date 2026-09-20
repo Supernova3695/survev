@@ -679,6 +679,29 @@ const SkinDefs = {
             rot: 0.5 * Math.PI,
         },
     }),
+    helmet03_forest_spring: defineSkin("helmet03", {
+        name: "Shishigami no Kabuto",
+        role: "woods_king_spring",
+        mapIndicator: {
+            sprite: "player-king-woods-spring.img",
+            //tint: 0xff00,
+            pulse: true,
+            pulseTint: 0xff00,
+        },
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-forest-spring.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-forest-spring.img",
+            border: "loot-circle-outer-01.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
     helmet03_moon: defineSkin("helmet03", {
         name: "Tsukuyomi no Kabuto",
         skinImg: {
@@ -687,6 +710,32 @@ const SkinDefs = {
             baseTintBlue: 0xffffff,
             baseSprite: "player-helmet-moon.img",
             spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-moon.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-01.img",
+            borderTint: 0,
+            scale: 0.2,
+            rot: 0.5 * Math.PI,
+        },
+    }),
+    helmet03_moon_spring: defineSkin("helmet03", {
+        name: "Tsukuyomi no Kabuto",
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-moon-spring.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-moon-spring.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-01.img",
+            borderTint: 0,
+            scale: 0.2,
+            rot: 0.5 * Math.PI,
         },
     }),
     helmet03_lt: defineSkin("helmet03", {

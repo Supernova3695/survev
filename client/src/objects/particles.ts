@@ -3370,6 +3370,35 @@ const ParticleDefs: Record<string, ParticleDef> = {
             return util.rgbToInt(util.hsvToRgb(0.37, 1, util.random(0.95, 1)));
         },
     },
+    leafStimSpring: {
+        image: [
+            "part-blossom-01.img",
+            "part-blossom-02.img",
+            "part-blossom-03.img",
+            "part-blossom-04.img",
+        ],
+        life: new Range(4, 5),
+        drag: 0,
+        rotVel: new Range(Math.PI * 0.25, Math.PI * 0.5),
+        scale: {
+            start: new Range(0.12, 0.14),
+            end: new Range(0.06, 0.08),
+            lerp: new Range(0, 1),
+        },
+        alpha: {
+            start: 1,
+            end: 0,
+            lerp: new Range(0.7, 1),
+        },
+        alphaIn: {
+            start: 0,
+            end: 1,
+            lerp: new Range(0, 0.05),
+        },
+        // color: function() {
+        //     return util.rgbToInt(util.hsvToRgb(0.37, 1, util.random(0.95, 1)));
+        // },
+    },
     takedownStim: {
         image: ["part-takedown-01.img"],
         life: new Range(4, 5),
@@ -3807,6 +3836,15 @@ const EmitterDefs: Record<string, EmitterDef> = {
     },
     windwalk: {
         particle: "leafStim",
+        rate: new Range(0.1, 0.12),
+        radius: 1.5,
+        speed: new Range(1, 1.5),
+        angle: 0,
+        rot: 0,
+        maxCount: Number.MAX_VALUE,
+    },
+    windwalk_spring: {
+        particle: "leafStimSpring",
         rate: new Range(0.1, 0.12),
         radius: 1.5,
         speed: new Range(1, 1.5),

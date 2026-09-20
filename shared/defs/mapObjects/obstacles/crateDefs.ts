@@ -238,6 +238,13 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         hitParticle: "blackChip",
         map: { display: false, color: 0x6b3500, scale: 0.85 },
     }),
+    case_06_king_su: createCase({
+        health: 140,
+        img: { sprite: "map-case-chrys-01.img" },
+        loot: [tierLoot("tier_chrys_case_king", 1, 1), tierLoot("tier_chrys_case_king_other", 1, 1)],
+        hitParticle: "blackChip",
+        map: { display: false, color: 0x6b3500, scale: 0.85 },
+    }),
     case_07: createCase({
         health: 200,
         img: { sprite: "map-case-ring-01.img" },

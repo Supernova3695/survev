@@ -42,12 +42,65 @@ const mapDef: PartialMapDef = {
         // this override is not from the leak!
         tier_chrys_case: [
             { name: "", count: 1, weight: 2 }, // ?
-            { name: "helmet03_moon", count: 1, weight: 3 },
+            { name: "helmet03_moon_spring", count: 1, weight: 3 },
             { name: "tier_katanas", count: 1, weight: 3 }, // ?
             { name: "naginata", count: 1, weight: 1 }, // ?
         ],
+        tier_chrys_case_king: [
+            { name: "helmet03_moon_spring", count: 1, weight: 3 },
+        ],
+        tier_chrys_case_king_other: [
+            { name: "chest02", count: 1, weight: 3 },
+            { name: "chest03", count: 1, weight: 3 },
+            { name: "backpack02", count: 1, weight: 3 },
+            { name: "backpack03", count: 1, weight: 3 },
+            { name: "tier_ammo", count: 3, weight: 4}
+        ],
+        tier_forest_helmet: [{ name: "helmet03_forest_spring", count: 1, weight: 1 }],
+        tier_forest_king_skin: [{ name: "outfitWoodsCloakSpring", count: 1, weight: 1 }],
+        tier_pavilion: [
+            { name: "machete_orchid", count: 1, weight: 2 }, // ?
+            { name: "naginata_orchid", count: 1, weight: 2 }, // ?
+            { name: "pkp", count: 1, weight: 2 }, // ?
+            { name: "dp28", count: 1, weight: 1 }, // ?
+            { name: "bar", count: 1, weight: 1 }, // ?
+            { name: "m9", count: 1, weight: 1 }, // ?
+        ],
     },
     mapGen: {
+        map: {
+            scale: { small: 1.1875, large: 1.21875 },
+            shoreInset: 8,
+            grassInset: 12,
+            rivers: {
+                lakes: [
+                    {
+                        odds: 1,
+                        innerRad: 36,
+                        outerRad: 96,
+                        centerObj: "teapavilion_01sp",
+                        spawnBound: {
+                            pos: v2.create(0.5, 0.5),
+                            rad: 100,
+                        },
+                    },
+                ],
+                weights: [
+                    { weight: 0.1, widths: [4] },
+                    { weight: 0.15, widths: [8] },
+                    { weight: 0.25, widths: [8, 4] },
+                    { weight: 0.21, widths: [8] },
+                    { weight: 0.09, widths: [8, 8] },
+                    { weight: 0.2, widths: [8, 8, 4] },
+                    {
+                        weight: 1e-4,
+                        widths: [8, 8, 8, 6, 4],
+                    },
+                ],
+                smoothness: 0.45,
+                masks: [],
+            },
+        },
         customSpawnRules: {
             locationSpawns: [
                 {
@@ -114,6 +167,7 @@ const mapDef: PartialMapDef = {
                 crate_09: "crate_19",
                 recorder_01: "recorder_08",
                 recorder_02: "recorder_09",
+                teapavilion_01w: "teapavilion_01sp"
             },
         ],
         importantSpawns: ["logging_complex_01sp", "logging_complex_02sp"],

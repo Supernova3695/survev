@@ -459,10 +459,18 @@ export class Bullet {
                     obj.hasPerk("windwalk")
                     && obj.hasteType != GameConfig.HasteType.Windwalk // can't stack windwalk
                     && v2.distance(this.pos, obj.pos) <= PerkProperties.windwalk.maxTriggerDistance
-                    && this.player?.teamId !== obj.teamId // bullet shooter or its teammates cant give the shooter winwalk
+                    //&& this.player?.teamId !== obj.teamId // bullet shooter or its teammates cant give the shooter winwalk
                 ) {
                     obj.giveHaste(GameConfig.HasteType.Windwalk, PerkProperties.windwalk.hasteDuration);
                 }
+                // else if (
+                //     obj.hasPerk("windwalk_spring")
+                //     && obj.hasteType != GameConfig.HasteType.Windwalk // can't stack windwalk
+                //     && v2.distance(this.pos, obj.pos) <= PerkProperties.windwalk.maxTriggerDistance
+                //     //&& this.player?.teamId !== obj.teamId // bullet shooter or its teammates cant give the shooter winwalk
+                // ) {
+                //     obj.giveHaste(GameConfig.HasteType.WindwalkSpring, PerkProperties.windwalk.hasteDuration);
+                // }
 
                 let panCollision = null;
                 if (obj.hasActivePan()) {

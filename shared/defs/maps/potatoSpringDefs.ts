@@ -43,7 +43,7 @@ const mapDef: PartialMapDef = {
     lootTable: {
         tier_chrys_case: [
             { name: "", count: 1, weight: 2 }, // ?
-            { name: "helmet03_moon", count: 1, weight: 3 },
+            { name: "helmet03_moon_spring", count: 1, weight: 3 },
             { name: "tier_katanas", count: 1, weight: 3 }, // ?
             { name: "naginata", count: 1, weight: 1 }, // ?
         ],
