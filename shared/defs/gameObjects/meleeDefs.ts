@@ -1276,6 +1276,18 @@ const SkinDefs: Record<string, MeleeDef> = {
             sprite: "loot-melee-huntsman-burnished.img",
         },
     }),
+    huntsman_deepblue: defineMeleeSkin("huntsman", {
+        name: "Deepblue Huntsman",
+        rarity: Rarity.Epic,
+        lore: "I don't know",
+        noPotatoSwap: false,
+        lootImg: {
+            sprite: "loot-melee-huntsman-deepblue.img",
+        },
+        worldImg: {
+            sprite: "loot-melee-huntsman-deepblue.img",
+        },
+    }),
     bowie_vintage: defineMeleeSkin("bowie", {
         name: "Bowie Vintage",
         rarity: Rarity.Rare,
@@ -1313,6 +1325,15 @@ const SkinDefs: Record<string, MeleeDef> = {
             pos: { x: -0.5, y: -46.5 },
         },
     }),
+    kukri_deepblue: defineMeleeSkin("machete", {
+        name: "Sorrowful Kukri",
+        noPotatoSwap: false,
+        lootImg: { sprite: "loot-melee-kukri-deepblue.img" },
+        worldImg: {
+            sprite: "loot-melee-kukri-deepblue.img",
+            pos: { x: -0.5, y: -46.5 },
+        },
+    }),
     bonesaw_rusted: defineMeleeSkin("saw", {
         name: "Bonesaw Rusted",
         noPotatoSwap: false,
@@ -1345,6 +1366,14 @@ const SkinDefs: Record<string, MeleeDef> = {
         lootImg: { sprite: "loot-melee-katana-orchid.img" },
         worldImg: {
             sprite: "loot-melee-katana-orchid.img",
+        },
+    }),
+    katana_deepblue: defineMeleeSkin("katana", {
+        name: "Sorrowful Katana",
+        quality: 1,
+        lootImg: { sprite: "loot-melee-katana-deepblue.img" },
+        worldImg: {
+            sprite: "loot-melee-katana-deepblue.img",
         },
     }),
     sledgehammer: defineMeleeSkin("stonehammer", {
