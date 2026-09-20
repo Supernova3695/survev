@@ -335,6 +335,28 @@ export const RoleDefs: Record<string, RoleDef> = {
             },
         }),
     },
+    controller: {
+        type: "role",
+        announce: true,
+        killFeed: { assign: true },
+        sound: { assign: "grenadier_assigned_01" },
+        perks: ["broken_arrow"],
+        defaultItems: createDefaultItems({
+            weapons: [
+                { type: "", ammo: 0 },
+                { type: "", ammo: 0 },
+                { type: "", ammo: 0 },
+                { type: "", ammo: 0 },
+            ],
+            backpack: "backpack03",
+            helmet: "helmet03_controller",
+            chest: "chest03",
+            inventory: {
+                "8xscope": 1,
+                bandage: 5,
+            },
+        }),
+    },
     bugler: {
         type: "role",
         announce: true,
