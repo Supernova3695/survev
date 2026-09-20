@@ -2755,7 +2755,7 @@ export class PlayerBarn {
             status.timeSinceUpdate! += dt;
 
             const fade = !status.dead
-                    || (playerInfo.teamId != activeInfo.teamId && status.role != "leader")
+                    || (playerInfo.teamId != activeInfo.teamId && status.role != "leader") // || status.role != "leader_winter"))
                 ? 0
                 : 0.6;
 

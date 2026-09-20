@@ -159,6 +159,63 @@ export const RoleDefs: Record<string, RoleDef> = {
             },
         }),
     },
+    leader_winter: {
+        type: "role",
+        announce: true,
+        killFeed: { assign: true, dead: true },
+        sound: {
+            assign: "leader_assigned_01",
+            dead: "leader_dead_01",
+        },
+        mapIcon: {
+            alive: "player-star.img",
+            dead: "skull-leader.img",
+        },
+        perks: ["leadership"],
+        defaultItems: createDefaultItems({
+            weapons: [
+                (teamcolor: FactionTeam) =>
+                    getTeamWeapon(
+                        {
+                            [FactionTeam.Red]: { type: "m1014", ammo: 8, fillInv: true },
+                            [FactionTeam.Blue]: { type: "an94", ammo: 45, fillInv: true },
+                        },
+                        teamcolor,
+                    ),
+                { type: "flare_gun", ammo: 1 },
+                (teamcolor: FactionTeam) =>
+                    getTeamWeapon(
+                        {
+                            [FactionTeam.Red]: { type: "machete_taiga", ammo: 0 },
+                            [FactionTeam.Blue]: { type: "kukri_trad", ammo: 0 },
+                        },
+                        teamcolor,
+                    ),
+                { type: "", ammo: 0 },
+            ],
+            backpack: "backpack03",
+            helmet: (teamcolor: FactionTeam) =>
+                getTeamHelmet(
+                    {
+                        [FactionTeam.Red]: "helmet04_leader_winter_red",
+                        [FactionTeam.Blue]: "helmet04_leader_winter_blue",
+                    },
+                    teamcolor,
+                ),
+            chest: "chest03",
+            outfit: (teamcolor: FactionTeam) =>
+                ({
+                    [FactionTeam.Red]: "outfitSpetsnaz",
+                    [FactionTeam.Blue]: "outfitSpetsnaz",
+                })[teamcolor],
+            noDropOutfit: true,
+            inventory: {
+                "8xscope": 1,
+                bandage: 10,
+                healthkit: 1,
+            },
+        }),
+    },
     captain: {
         type: "role",
         announce: true,
@@ -182,6 +239,46 @@ export const RoleDefs: Record<string, RoleDef> = {
                 ({
                     [FactionTeam.Red]: "outfitRedLeader",
                     [FactionTeam.Blue]: "outfitBlueLeader",
+                })[teamcolor],
+            noDropOutfit: true,
+            inventory: {
+                "8xscope": 1,
+                bandage: 10,
+                healthkit: 1,
+                soda: 2,
+            },
+        }),
+    },
+    captain_winter: {
+        type: "role",
+        announce: true,
+        killFeed: { assign: true },
+        sound: { assign: "captain_assigned_01" },
+        mapIcon: {
+            alive: "player-captain.img",
+        },
+        perks: ["assume_leadership", "firepower"],
+        defaultItems: createDefaultItems({
+            weapons: [
+                { type: "", ammo: 0 },
+                { type: "", ammo: 0 },
+                { type: "", ammo: 0 },
+                { type: "", ammo: 0 },
+            ],
+            backpack: "backpack03",
+            helmet: (teamcolor: FactionTeam) =>
+                getTeamHelmet(
+                    {
+                        [FactionTeam.Red]: "helmet04_captain_winter_red",
+                        [FactionTeam.Blue]: "helmet04_captain_winter_blue",
+                    },
+                    teamcolor,
+                ),
+            chest: "chest03",
+            outfit: (teamcolor: FactionTeam) =>
+                ({
+                    [FactionTeam.Red]: "outfitSpetsnaz",
+                    [FactionTeam.Blue]: "outfitSpetsnaz",
                 })[teamcolor],
             noDropOutfit: true,
             inventory: {
@@ -223,6 +320,44 @@ export const RoleDefs: Record<string, RoleDef> = {
             },
         }),
     },
+    lieutenant_winter: {
+        type: "role",
+        announce: true,
+        killFeed: { assign: true },
+        sound: { assign: "lt_assigned_01" },
+        perks: ["firepower"],
+        defaultItems: createDefaultItems({
+            weapons: [
+                { type: "", ammo: 0 },
+                (teamcolor: FactionTeam) =>
+                    getTeamWeapon(
+                        {
+                            [FactionTeam.Red]: { type: "m4a1", ammo: 40, fillInv: true },
+                            [FactionTeam.Blue]: { type: "grozas", ammo: 40, fillInv: true },
+                        },
+                        teamcolor,
+                    ),
+                { type: "spade_assault", ammo: 0 },
+                { type: "", ammo: 0 },
+            ],
+            backpack: "backpack03",
+            helmet: (teamcolor: FactionTeam) =>
+                getTeamHelmet(
+                    {
+                        [FactionTeam.Red]: "helmet03_lt_winter_red",
+                        [FactionTeam.Blue]: "helmet03_lt_winter_blue",
+                    },
+                    teamcolor,
+                ),
+            chest: "chest03",
+            inventory: {
+                "4xscope": 1,
+                bandage: 10,
+                healthkit: 1,
+                soda: 2,
+            },
+        }),
+    },
     medic: {
         type: "role",
         announce: true,
@@ -242,6 +377,43 @@ export const RoleDefs: Record<string, RoleDef> = {
             ],
             backpack: "backpack03",
             helmet: "helmet04_medic",
+            chest: "chest03",
+            inventory: {
+                "4xscope": 1,
+                bandage: 30,
+                healthkit: 4,
+                painkiller: 4,
+                soda: 15,
+                smoke: 6,
+            },
+        }),
+    },
+    medic_winter: {
+        type: "role",
+        announce: true,
+        killFeed: { assign: true },
+        sound: { assign: "medic_assigned_01" },
+        mapIcon: {
+            alive: "player-medic.img",
+            dead: "skull-leader.img",
+        },
+        perks: ["aoe_heal", "self_revive"],
+        defaultItems: createDefaultItems({
+            weapons: [
+                { type: "", ammo: 0 },
+                { type: "", ammo: 0 },
+                { type: "bonesaw_rusted", ammo: 0 },
+                { type: "smoke", ammo: 0 },
+            ],
+            backpack: "backpack03",
+            helmet: (teamcolor: FactionTeam) =>
+                getTeamHelmet(
+                    {
+                        [FactionTeam.Red]: "helmet04_medic_winter_red",
+                        [FactionTeam.Blue]: "helmet04_medic_winter_blue",
+                    },
+                    teamcolor,
+                ),
             chest: "chest03",
             inventory: {
                 "4xscope": 1,
@@ -288,6 +460,48 @@ export const RoleDefs: Record<string, RoleDef> = {
             },
         }),
     },
+    marksman_winter: {
+        type: "role",
+        announce: true,
+        killFeed: { assign: true },
+        sound: { assign: "marksman_assigned_01" },
+        perks: ["targeting"],
+        defaultItems: createDefaultItems({
+            weapons: [
+                { type: "", ammo: 0 },
+                (teamcolor: FactionTeam) =>
+                    getTeamWeapon(
+                        {
+                            [FactionTeam.Red]: util.weightedRandom([
+                                { type: "l86", ammo: 30, fillInv: true, weight: 0.9 },
+                                { type: "scarssr", ammo: 10, fillInv: true, weight: 0.1 },
+                            ]),
+                            [FactionTeam.Blue]: util.weightedRandom([
+                                { type: "svd", ammo: 10, fillInv: true, weight: 0.9 },
+                                { type: "scarssr", ammo: 10, fillInv: true, weight: 0.1 },
+                            ]),
+                        },
+                        teamcolor,
+                    ),
+                { type: "kukri_sniper", ammo: 0 },
+                { type: "", ammo: 0 },
+            ],
+            backpack: "backpack03",
+            helmet: (teamcolor: FactionTeam) =>
+                getTeamHelmet(
+                    {
+                        [FactionTeam.Red]: "helmet03_marksman_winter_red",
+                        [FactionTeam.Blue]: "helmet03_marksman_winter_blue",
+                    },
+                    teamcolor,
+                ),
+            chest: "chest03",
+            inventory: {
+                "8xscope": 1,
+                bandage: 5,
+            },
+        }),
+    },
     recon: {
         type: "role",
         announce: true,
@@ -303,6 +517,36 @@ export const RoleDefs: Record<string, RoleDef> = {
             ],
             backpack: "backpack03",
             helmet: "helmet03_recon",
+            chest: "chest03",
+            inventory: {
+                "4xscope": 1,
+                soda: 6,
+                bandage: 5,
+            },
+        }),
+    },
+    recon_winter: {
+        type: "role",
+        announce: true,
+        killFeed: { assign: true },
+        sound: { assign: "recon_assigned_01" },
+        perks: ["small_arms"],
+        defaultItems: createDefaultItems({
+            weapons: [
+                { type: "", ammo: 0 },
+                { type: "glock_dual", ammo: 34, fillInv: true },
+                { type: "crowbar_recon", ammo: 0 },
+                { type: "", ammo: 0 },
+            ],
+            backpack: "backpack03",
+            helmet: (teamcolor: FactionTeam) =>
+                getTeamHelmet(
+                    {
+                        [FactionTeam.Red]: "helmet03_recon_winter_red",
+                        [FactionTeam.Blue]: "helmet03_recon_winter_blue",
+                    },
+                    teamcolor,
+                ),
             chest: "chest03",
             inventory: {
                 "4xscope": 1,
@@ -335,6 +579,37 @@ export const RoleDefs: Record<string, RoleDef> = {
             },
         }),
     },
+    grenadier_winter: {
+        type: "role",
+        announce: true,
+        killFeed: { assign: true },
+        sound: { assign: "grenadier_assigned_01" },
+        perks: ["flak_jacket"],
+        defaultItems: createDefaultItems({
+            weapons: [
+                { type: "", ammo: 0 },
+                { type: "saiga", ammo: 5, fillInv: true },
+                { type: "katana", ammo: 0 },
+                { type: "mirv", ammo: 10 },
+            ],
+            backpack: "backpack03",
+            helmet: (teamcolor: FactionTeam) =>
+                getTeamHelmet(
+                    {
+                        [FactionTeam.Red]: "helmet03_grenadier_winter_red",
+                        [FactionTeam.Blue]: "helmet03_grenadier_winter_blue",
+                    },
+                    teamcolor,
+                ),
+            chest: "chest03",
+            inventory: {
+                mirv: 10,
+                frag: 15,
+                "4xscope": 1,
+                bandage: 5,
+            },
+        }),
+    },
     bugler: {
         type: "role",
         announce: true,
@@ -350,6 +625,35 @@ export const RoleDefs: Record<string, RoleDef> = {
             ],
             backpack: "backpack03",
             helmet: "helmet03_bugler",
+            chest: "chest03",
+            inventory: {
+                "4xscope": 1,
+                bandage: 5,
+            },
+        }),
+    },
+    bugler_winter: {
+        type: "role",
+        announce: true,
+        killFeed: { assign: true },
+        sound: { assign: "bugler_assigned_01" },
+        perks: ["inspiration", "final_bugle"],
+        defaultItems: createDefaultItems({
+            weapons: [
+                { type: "", ammo: 0 },
+                { type: "bugle", ammo: 1 },
+                { type: "pan", ammo: 0 },
+                { type: "", ammo: 0 },
+            ],
+            backpack: "backpack03",
+            helmet: (teamcolor: FactionTeam) =>
+                getTeamHelmet(
+                    {
+                        [FactionTeam.Red]: "helmet03_bugler_winter_red",
+                        [FactionTeam.Blue]: "helmet03_bugler_winter_blue",
+                    },
+                    teamcolor,
+                ),
             chest: "chest03",
             inventory: {
                 "4xscope": 1,
@@ -405,6 +709,67 @@ export const RoleDefs: Record<string, RoleDef> = {
                     {
                         [FactionTeam.Red]: "helmet04_last_man_red",
                         [FactionTeam.Blue]: "helmet04_last_man_blue",
+                    },
+                    teamcolor,
+                ),
+            chest: "chest04",
+            inventory: {
+                mirv: 8,
+                "8xscope": 1,
+                bandage: 10,
+                healthkit: 1,
+                soda: 2,
+            },
+        }),
+    },
+    last_man_winter: {
+        type: "role",
+        announce: true,
+        killFeed: { assign: true },
+        sound: { assign: "last_man_assigned_01" },
+        mapIcon: {
+            alive: "player-last-man.img",
+        },
+        perks: [
+            "steelskin",
+            () =>
+                util.weightedRandom([
+                    { type: "ap_rounds", weight: 1 },
+                    { type: "splinter", weight: 1 },
+                ]).type,
+            "takedown",
+            () =>
+                util.weightedRandom([
+                    { type: "windwalk", weight: 1 },
+                    { type: "field_medic", weight: 1 },
+                ]).type,
+        ],
+        defaultItems: createDefaultItems({
+            weapons: [
+                { type: "", ammo: 0 },
+                (teamcolor: FactionTeam) =>
+                    getTeamWeapon(
+                        {
+                            [FactionTeam.Red]: util.weightedRandom([
+                                { type: "m249", ammo: 100, fillInv: true, weight: 1 },
+                                { type: "pkp", ammo: 200, fillInv: true, weight: 1 },
+                            ]),
+                            [FactionTeam.Blue]: util.weightedRandom([
+                                { type: "m249", ammo: 100, fillInv: true, weight: 1 },
+                                { type: "pkp", ammo: 200, fillInv: true, weight: 1 },
+                            ]),
+                        },
+                        teamcolor,
+                    ),
+                { type: "", ammo: 0 },
+                { type: "mirv", ammo: 8 },
+            ],
+            backpack: "backpack03",
+            helmet: (teamcolor: FactionTeam) =>
+                getTeamHelmet(
+                    {
+                        [FactionTeam.Red]: "helmet04_last_man_winter_red",
+                        [FactionTeam.Blue]: "helmet04_last_man_winter_blue",
                     },
                     teamcolor,
                 ),

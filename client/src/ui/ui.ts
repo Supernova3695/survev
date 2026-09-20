@@ -1131,7 +1131,7 @@ export class UiManager {
                 const playerInfo = playerBarn.getPlayerInfo(playerId);
                 const playerStatus = playerBarn.getPlayerStatus(playerId);
                 if (activePlayerInfo && playerInfo && playerStatus) {
-                    if (playerStatus.role == "leader") {
+                    if (playerStatus.role == "leader" || playerStatus.role == "leader_winter") {
                         // Use a special color if they are a faction leader
                         tint = 0x00ff00;
                     } else if (activePlayerInfo.groupId == playerInfo.groupId) {

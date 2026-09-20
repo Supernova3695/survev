@@ -866,7 +866,7 @@ export class Player extends BaseGameObject {
             roleDef = util.mergeDeep<RoleDef>({}, roleDef, roleOverride);
         }
 
-        if (role === "leader") {
+        if (role === "leader" || role === "leader_winter") {
             this.hasFiredFlare = false;
             this.flareTimer = 15;
         }
@@ -907,6 +907,11 @@ export class Player extends BaseGameObject {
                 }
                 break;
             case "last_man":
+                this.health = 100;
+                this.boost = 100;
+                this.giveHaste(GameConfig.HasteType.Windwalk, 5);
+                break;
+            case "last_man_winter":
                 this.health = 100;
                 this.boost = 100;
                 this.giveHaste(GameConfig.HasteType.Windwalk, 5);
@@ -1459,7 +1464,7 @@ export class Player extends BaseGameObject {
             }
         }
 
-        if (this.role === "leader" && !this.hasFiredFlare && this.flareTimer > 0) {
+        if ((this.role === "leader" || this.role === "leader_winter") && !this.hasFiredFlare && this.flareTimer > 0) {
             this.flareTimer -= dt;
             if (this.flareTimer <= 0) {
                 const flareGunIndex = this.weapons.findIndex(
@@ -2615,6 +2620,8 @@ export class Player extends BaseGameObject {
         if (this.game.map.factionMode) {
             this.team!.checkAndApplyLastMan();
             this.team!.checkAndApplyCaptain();
+            this.team!.checkAndApplyLastManWinter();
+            this.team!.checkAndApplyCaptainWinter();
         }
     }
 
@@ -4035,7 +4042,7 @@ export class Player extends BaseGameObject {
     /** just used in potato mode, swaps oldWeapon with a random weapon of the same type (mosin -> m9) */
     randomWeaponSwap(params: DamageParams): void {
         if (this.dead) return;
-        if (this.role === "last_man") return;
+        if (this.role === "last_man" || this.role === "last_man_winter") return;
         const oldWeapon = params.weaponSourceType || params.gameSourceType;
         if (!oldWeapon) return;
 

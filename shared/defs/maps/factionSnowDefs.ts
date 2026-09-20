@@ -198,27 +198,27 @@ const mapDef: PartialMapDef = {
         roles: {
             timings: [
                 {
-                    role: "leader",
+                    role: "leader_winter",
                     circleIdx: 0,
                     wait: 50,
                 },
                 {
-                    role: "lieutenant",
+                    role: "lieutenant_winter",
                     circleIdx: 0,
                     wait: 54,
                 },
                 {
-                    role: "marksman",
+                    role: "marksman_winter",
                     circleIdx: 0,
                     wait: 58,
                 },
                 {
-                    role: "recon",
+                    role: "recon_winter",
                     circleIdx: 0,
                     wait: 62,
                 },
                 {
-                    role: "grenadier",
+                    role: "grenadier_winter",
                     circleIdx: 0,
                     wait: 66,
                 },
@@ -234,12 +234,12 @@ const mapDef: PartialMapDef = {
                 //     wait: 54,
                 // },
                 {
-                    role: "medic",
+                    role: "medic_winter",
                     circleIdx: 0,
                     wait: 70,
                 },
                 {
-                    role: "bugler",
+                    role: "bugler_winter",
                     circleIdx: 0,
                     wait: 74,
                 },

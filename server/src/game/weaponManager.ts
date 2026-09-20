@@ -662,7 +662,7 @@ export class WeaponManager {
         const def = GameObjectDefs.typeToDefSafe(this.weapons[weapIdx].type) as GunDef;
         if (!def) return false;
 
-        if (this.player.role !== "leader") return true;
+        if (this.player.role !== "leader" && this.player.role !== "leader_winter") return true;
 
         return def.ammo !== "flare" || this.player.hasFiredFlare;
     }
@@ -999,7 +999,7 @@ export class WeaponManager {
             this.player.playBugle();
         }
 
-        if (bulletType === "bullet_flare" && this.player.role === "leader") {
+        if (bulletType === "bullet_flare" && (this.player.role === "leader" || this.player.role === "leader_winter")) {
             this.player.hasFiredFlare = true;
         }
 

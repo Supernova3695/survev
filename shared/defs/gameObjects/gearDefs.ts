@@ -700,6 +700,36 @@ const SkinDefs = {
             spriteScale: 0.3,
         },
     }),
+    helmet03_lt_winter_red: defineSkin("helmet03", {
+        name: "Winter Lieutenant Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-lieutenant-winter-red.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-lieutenant-winter-red.img",
+            rot: 0.5 * Math.PI,
+        },
+    }),
+    helmet03_lt_winter_blue: defineSkin("helmet03", {
+        name: "Winter Lieutenant Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-lieutenant-winter-blue.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-lieutenant-winter-blue.img",
+            rot: 0.5 * Math.PI,
+        },
+    }),
     helmet03_lt_aged: defineSkin("helmet03", {
         name: "Lieutenant Helmet",
         perk: "firepower",
@@ -746,6 +776,38 @@ const SkinDefs = {
             rot: 0.5 * Math.PI,
         },
     }),
+    helmet03_marksman_winter_red: defineSkin("helmet03", {
+        name: "Winter Marksman Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-marksman-winter-red.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-marksman-winter-red.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
+    helmet03_marksman_winter_blue: defineSkin("helmet03", {
+        name: "Winter Marksman Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-marksman-winter-blue.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-marksman-winter-blue.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
     helmet03_recon: defineSkin("helmet03", {
         name: "Recon Helmet",
         noDrop: true,
@@ -758,6 +820,38 @@ const SkinDefs = {
         },
         lootImg: {
             sprite: "player-helmet-recon.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
+    helmet03_recon_winter_red: defineSkin("helmet03", {
+        name: "Winter Recon Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-recon-winter-red.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-recon-winter-red.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
+    helmet03_recon_winter_blue: defineSkin("helmet03", {
+        name: "Winter Recon Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-recon-winter-blue.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-recon-winter-blue.img",
             scale: 0.3,
             rot: 0.5 * Math.PI,
         },
@@ -778,6 +872,38 @@ const SkinDefs = {
             rot: 0.5 * Math.PI,
         },
     }),
+    helmet03_grenadier_winter_red: defineSkin("helmet03", {
+        name: "Winter Grenadier Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-grenadier-winter-red.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-grenadier-winter-red.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
+    helmet03_grenadier_winter_blue: defineSkin("helmet03", {
+        name: "Winter Grenadier Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-grenadier-winter-blue.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-grenadier-winter-blue.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
     helmet03_bugler: defineSkin("helmet03", {
         name: "Bugler Helmet",
         noDrop: true,
@@ -790,6 +916,38 @@ const SkinDefs = {
         },
         lootImg: {
             sprite: "player-helmet-bugler.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
+    helmet03_bugler_winter_red: defineSkin("helmet03", {
+        name: "Winter Bugler Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-bugler-winter-red.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-bugler-winter-red.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
+    helmet03_bugler_winter_blue: defineSkin("helmet03", {
+        name: "Winter Bugler Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-bugler-winter-blue.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-bugler-winter-blue.img",
             scale: 0.3,
             rot: 0.5 * Math.PI,
         },
@@ -810,6 +968,38 @@ const SkinDefs = {
             rot: 0.5 * Math.PI,
         },
     }),
+    helmet04_medic_winter_red: defineSkin("helmet04", {
+        name: "Winter Medic Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-medic-winter-red.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-medic-winter-red.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
+    helmet04_medic_winter_blue: defineSkin("helmet04", {
+        name: "Winter Medic Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-medic-winter-blue.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-medic-winter-blue.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
     helmet04_last_man_red: defineSkin("helmet04", {
         name: "Lone Survivr Helmet",
         noDrop: true,
@@ -822,6 +1012,22 @@ const SkinDefs = {
         },
         lootImg: {
             sprite: "player-helmet-last-man-01.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
+    helmet04_last_man_winter_red: defineSkin("helmet04", {
+        name: "Winter Lone Survivr Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-last-man-winter-red.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-last-man-winter-red.img",
             scale: 0.3,
             rot: 0.5 * Math.PI,
         },
@@ -842,6 +1048,22 @@ const SkinDefs = {
             rot: 0.5 * Math.PI,
         },
     }),
+    helmet04_last_man_winter_blue: defineSkin("helmet04", {
+        name: "Winter Lone Survivr Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-last-man-winter-blue.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-last-man-winter-blue.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
     helmet04_leader: defineSkin("helmet04", {
         name: "Leader Helmet",
         noDrop: true,
@@ -858,6 +1080,38 @@ const SkinDefs = {
             rot: 0.5 * Math.PI,
         },
     }),
+    helmet04_leader_winter_red: defineSkin("helmet04", {
+        name: "Winter Leader Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-leader-winter-red.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-leader-winter-red.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
+    helmet04_leader_winter_blue: defineSkin("helmet04", {
+        name: "Winter Leader Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-leader-winter-blue.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-leader-winter-blue.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
     helmet04_captain: defineSkin("helmet04", {
         name: "Captain Helmet",
         noDrop: true,
@@ -870,6 +1124,38 @@ const SkinDefs = {
         },
         lootImg: {
             sprite: "player-helmet-captain.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
+    helmet04_captain_winter_red: defineSkin("helmet04", {
+        name: "Winter Captain Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-captain-winter-red.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-captain-winter-red.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
+    helmet04_captain_winter_blue: defineSkin("helmet04", {
+        name: "Winter Captain Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-captain-winter-blue.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-captain-winter-blue.img",
             scale: 0.3,
             rot: 0.5 * Math.PI,
         },

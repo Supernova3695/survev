@@ -1498,7 +1498,7 @@ export class UiManager2 {
 
     getRoleTranslation(role: string, teamId: number) {
         let roleTxt = `game-${role}`;
-        if (role == "leader") {
+        if (role == "leader" || role == "leader_winter") {
             roleTxt = teamId == GameConfig.FactionTeam.Red ? "game-red-leader" : "game-blue-leader";
         }
         return this.localization.translate(roleTxt);

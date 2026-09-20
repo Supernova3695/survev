@@ -161,7 +161,7 @@ export class Team extends BasePlayerGroup {
         if (this.isCaptainApplied) return;
 
         const leaderAlive = this.livingPlayers.find(
-            (p) => !p.disconnected && p.role === "leader",
+            (p) => !p.disconnected && (p.role === "leader" || p.role === "leader_winter"),
         );
         if (leaderAlive) return;
 
@@ -170,6 +170,39 @@ export class Team extends BasePlayerGroup {
         );
         if (lieutenant) {
             lieutenant.promoteToRole("captain");
+            this.isCaptainApplied = true;
+        }
+    }
+
+    checkAndApplyLastManWinter() {
+        if (this.isLastManApplied) return;
+
+        const playersToPromote = this.livingPlayers.filter(
+            (p) => !p.downed && !p.disconnected,
+        );
+
+        if (playersToPromote.length > 2 || this.game.canJoin) return;
+
+        const last1 = playersToPromote[0];
+        const last2 = playersToPromote[1];
+        if (last1 && last1.role != "last_man_winter") last1.promoteToRole("last_man_winter");
+        if (last2 && last2.role != "last_man_winter") last2.promoteToRole("last_man_winter");
+        this.isLastManApplied = true;
+    }
+
+    checkAndApplyCaptainWinter() {
+        if (this.isCaptainApplied) return;
+
+        const leaderAlive = this.livingPlayers.find(
+            (p) => !p.disconnected && p.role === "leader_winter",
+        );
+        if (leaderAlive) return;
+
+        const lieutenant = this.livingPlayers.find(
+            (p) => !p.downed && !p.disconnected && p.role === "lieutenant_winter",
+        );
+        if (lieutenant) {
+            lieutenant.promoteToRole("captain_winter");
             this.isCaptainApplied = true;
         }
     }

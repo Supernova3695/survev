@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="176"
+   height="176"
+   version="1.1"
+   id="svg31"
+   sodipodi:docname="player-helmet-grenadier-winter-red.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <metadata
+     id="metadata35">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     id="namedview33"
+     showgrid="true"
+     inkscape:zoom="3.7926637"
+     inkscape:cx="55.238223"
+     inkscape:cy="96.106597"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg31"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4685"
+       empspacing="4"
+       spacingy="1"
+       spacingx="1"
+       originx="0"
+       originy="0"
+       units="px" />
+  </sodipodi:namedview>
+  <defs
+     id="defs25">
+    <linearGradient
+       id="linearGradient1"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#ff0f0f;stop-opacity:1;"
+         offset="0"
+         id="stop1" />
+      <stop
+         style="stop-color:#4a4a4a;stop-opacity:1;"
+         offset="0.5"
+         id="stop3" />
+      <stop
+         style="stop-color:#808080;stop-opacity:1;"
+         offset="1"
+         id="stop2" />
+    </linearGradient>
+    <clipPath
+       id="e">
+      <path
+         d="M188 128c0 80-69.756 119.362-69.756 119.362C64 244 8.638 193.922 8.638 128S64 12 118.244 8.638C118.244 8.638 188 48 188 128z"
+         fill="#252525"
+         fill-opacity=".601"
+         stroke-width="12.537"
+         id="path2" />
+    </clipPath>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1"
+       id="radialGradient2"
+       cx="77.90446"
+       cy="84.506762"
+       fx="77.90446"
+       fy="84.506762"
+       r="29.32992"
+       gradientTransform="matrix(1,0,0,0.88807771,0,9.4581907)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <path
+     d="m 188,128 c 0,80 -69.756,119.362 -69.756,119.362 C 64,244 8.638,193.922 8.638,128 8.638,62.078 64,12 118.244,8.638 118.244,8.638 188,48 188,128 Z"
+     clip-path="url(#e)"
+     transform="matrix(0.52122,0,0,0.52122,24.170001,21.284)"
+     id="path27"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;stroke:#bebebe;stroke-width:37.25899887;fill-opacity:1;stroke-opacity:1" />
+  <path
+     style="fill:#ff0f0f;fill-opacity:1;stroke:url(#radialGradient2);stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     d="m 51.57454,96 h 12.98479 4.795327 A 18.04554,18.04554 0 0 0 86.187966,107.55401 18.04554,18.04554 0 0 0 104.23438,89.507605 18.04554,18.04554 0 0 0 86.187966,71.461202 18.04554,18.04554 0 0 0 69.37368,83.015209 H 64.55933 V 65.702155 L 51.57454,78.686946 v 4.328263 z"
+     id="rect4687"
+     inkscape:connector-curvature="0"
+     clip-path="none" />
+</svg>

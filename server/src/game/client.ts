@@ -608,8 +608,11 @@ export class Client {
                 // faction team leader
                 if (
                     (emotePlayer.role === "leader"
+                        || emotePlayer.role === "leader_winter"
                         || emotePlayer.role === "captain"
-                        || emotePlayer.role === "last_man")
+                        || emotePlayer.role === "captain_winter"
+                        || emotePlayer.role === "last_man"
+                        || emotePlayer.role === "last_man_winter")
                     && emotePlayer.teamId === player.teamId
                 ) {
                     return true;
