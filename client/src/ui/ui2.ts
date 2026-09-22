@@ -1575,6 +1575,7 @@ export class UiManager2 {
     getKillTextFactions(
         killerName: string,
         killerTeam: number,
+        killerTeamId: number,
         targetName: string,
         targetTeam: number,
         completeKill: boolean,
@@ -1587,9 +1588,9 @@ export class UiManager2 {
     ) {
         const knockedOut = downed && !killed;
         const youTxt = spectating
-            ? (killerTeam === 1 
+            ? (killerTeamId === GameConfig.FactionTeam.Red 
                 ? `<span style="color: red;">${killerName}</span>` 
-                : killerTeam === 2
+                : killerTeamId === GameConfig.FactionTeam.Blue
                 ? `<span style="color: blue;">${killerName}</span>`
                 : killerName
             )

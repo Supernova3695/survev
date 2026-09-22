@@ -1344,9 +1344,9 @@ export class Game {
                 let killerTeam = this.m_playerBarn.getTeamColor(
                     killerInfo.teamId
                 )
-                // let killerTeam = this.m_playerBarn.getTeamInfo(
-                //     killerInfo.teamId
-                // )
+                let killerTeamId = this.m_playerBarn.getTeamColor(
+                    killerInfo.teamId
+                )
                 let killfeedKillerName = this.m_playerBarn.getPlayerName(
                     killfeedKillerInfo.playerId,
                     this.m_activeId,
@@ -1392,6 +1392,7 @@ export class Game {
                     const killText = this.m_ui2Manager.getKillTextFactions(
                         killerName,
                         killerTeam,
+                        killerTeamId,
                         targetName,
                         targetTeam,
                         completeKill,
