@@ -124,6 +124,11 @@ export class Game {
     lastUpdateTime!: number;
     updateIntervals!: number[];
 
+
+    //faction kill feed coloring
+    killerTeamID = 1
+    targetTeamID = 1
+
     constructor(
         public m_pixi: PIXI.Application,
         public m_audioManager: AudioManager,
@@ -1317,7 +1322,9 @@ export class Game {
                     || msg.damageType == GameConfig.DamageType.Bleeding
                     || msg.damageType == GameConfig.DamageType.Airdrop;
                 const targetInfo = this.m_playerBarn.getPlayerInfo(msg.targetId);
+                //const targetTeam = this.m_playerBarn.getTeamColor(msg.targetId);
                 const killerInfo = this.m_playerBarn.getPlayerInfo(msg.killCreditId);
+                //const killerTeam = this.m_playerBarn.getTeamColor(msg.killCreditId);
                 const killfeedKillerInfo = useKillerInfoInFeed
                     ? killerInfo
                     : this.m_playerBarn.getPlayerInfo(msg.killerId);
@@ -1326,11 +1333,20 @@ export class Game {
                     this.m_activeId,
                     true,
                 );
+                let targetTeam = this.m_playerBarn.getTeamColor(
+                    targetInfo.teamId
+                )
                 let killerName = this.m_playerBarn.getPlayerName(
                     killerInfo.playerId,
                     this.m_activeId,
                     true,
                 );
+                let killerTeam = this.m_playerBarn.getTeamColor(
+                    killerInfo.teamId
+                )
+                // let killerTeam = this.m_playerBarn.getTeamInfo(
+                //     killerInfo.teamId
+                // )
                 let killfeedKillerName = this.m_playerBarn.getPlayerName(
                     killfeedKillerInfo.playerId,
                     this.m_activeId,
@@ -1340,12 +1356,44 @@ export class Game {
                 killerName = helpers.htmlEscape(killerName);
                 killfeedKillerName = helpers.htmlEscape(killfeedKillerName);
                 // Display the kill / downed notification for the active player
-                if (msg.killCreditId == this.m_activeId) {
-                    const completeKill = msg.killerId == this.m_activeId;
-                    const suicide = msg.killCreditId == msg.targetId;
-                    const killText = this.m_ui2Manager.getKillText(
+                if (this.m_map.factionMode == false) {
+                    if ((msg.killCreditId == this.m_activeId) && this.m_map.factionMode == false) {
+                        const completeKill = msg.killerId == this.m_activeId;
+                        const suicide = msg.killCreditId == msg.targetId;
+                        const killText = this.m_ui2Manager.getKillText(
+                            killerName,
+                            targetName,
+                            completeKill,
+                            msg.downed,
+                            msg.killed,
+                            suicide,
+                            sourceType,
+                            msg.damageType,
+                            this.m_spectating,
+                        );
+                        const killCountText = msg.killed && !suicide
+                            ? this.m_ui2Manager.getKillCountText(msg.killerKills)
+                            : "";
+                        this.m_ui2Manager.displayKillMessage(killText, killCountText);
+                    }
+                } else if (msg.targetId == this.m_activeId && msg.downed && !msg.killed) {
+                    const downedText = this.m_ui2Manager.getDownedText(
                         killerName,
                         targetName,
+                        sourceType,
+                        msg.damageType,
+                        this.m_spectating,
+                    );
+                    this.m_ui2Manager.displayKillMessage(downedText, "");
+                } 
+                if (this.m_map.factionMode == true && (msg.killCreditId == this.m_activeId)) {
+                    const completeKill = msg.killerId == this.m_activeId;
+                    const suicide = msg.killCreditId == msg.targetId;
+                    const killText = this.m_ui2Manager.getKillTextFactions(
+                        killerName,
+                        killerTeam,
+                        targetName,
+                        targetTeam,
                         completeKill,
                         msg.downed,
                         msg.killed,
@@ -1358,15 +1406,6 @@ export class Game {
                         ? this.m_ui2Manager.getKillCountText(msg.killerKills)
                         : "";
                     this.m_ui2Manager.displayKillMessage(killText, killCountText);
-                } else if (msg.targetId == this.m_activeId && msg.downed && !msg.killed) {
-                    const downedText = this.m_ui2Manager.getDownedText(
-                        killerName,
-                        targetName,
-                        sourceType,
-                        msg.damageType,
-                        this.m_spectating,
-                    );
-                    this.m_ui2Manager.displayKillMessage(downedText, "");
                 }
 
                 // Update local kill counter

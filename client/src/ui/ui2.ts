@@ -1572,6 +1572,59 @@ export class UiManager2 {
         return `${youTxt} ${killTxt} ${targetTxt}`;
     }
 
+    getKillTextFactions(
+        killerName: string,
+        killerTeam: number,
+        targetName: string,
+        targetTeam: number,
+        completeKill: boolean,
+        downed: boolean,
+        killed: boolean,
+        suicide: boolean,
+        sourceType: string,
+        damageType: DamageType,
+        spectating: boolean,
+    ) {
+        const knockedOut = downed && !killed;
+        const youTxt = spectating
+            ? (killerTeam === 1 
+                ? `<span style="color: red;">${killerName}</span>` 
+                : killerTeam === 2
+                ? `<span style="color: blue;">${killerName}</span>`
+                : killerName
+            )
+            : this.localization.translate("game-you").toUpperCase();
+        const killKey = knockedOut
+            ? "game-knocked-out"
+            : completeKill
+            ? "game-killed"
+            : "game-finally-killed";
+        const killTxt = this.localization.translate(killKey);
+        const targetTxt = suicide
+            ? spectating
+                ? this.localization.translate("game-themselves")
+                : this.localization.translate("game-yourself").toUpperCase()
+            // ? (targetTeam === 1 
+            //     ? `<span style="color: red;">${targetName}</span>` 
+            //     : targetTeam === 2
+            //     ? `<span style="color: blue;">${targetName}</span>`
+            //     : targetName
+            // )
+            : `<span style="color: ${targetTeam}">${targetName}</span>`
+            //: targetName;
+        const damageTxt = this.localization.translate(
+            damageType == GameConfig.DamageType.Airstrike
+                ? "game-an-air-strike"
+                : `game-${sourceType}`,
+        );
+        const withTxt = this.localization.translate("game-with");
+
+        if (damageTxt && (completeKill || knockedOut)) {
+            return `${youTxt} ${killTxt} ${targetTxt} ${withTxt} ${damageTxt}`;
+        }
+        return `${youTxt} ${killTxt} ${targetTxt}`;
+    }
+
     getKillCountText(killCount: number) {
         return `${killCount} ${
             this.localization.translate(
