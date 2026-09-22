@@ -30,7 +30,7 @@ import type { Localization } from "./localization.ts";
 
 const maxKillFeedLines = 6;
 const touchHoldDuration = 0.75 * 1000;
-const perkUiCount = 4;
+const perkUiCount = 7;
 
 enum InteractionType {
     None,

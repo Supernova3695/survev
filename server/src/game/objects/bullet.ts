@@ -611,6 +611,11 @@ export class Bullet {
                     this.reflect(col.point, col.normal, col.obj!.__id);
                 }
 
+                if (this.player?.hasPerk("ricochet")) {
+                    this.reflect(col.point, col.normal, col.obj!.__id);
+                    obstacleMult *= PerkProperties.ricochet.obstacleMult;
+                }
+
                 // Continue travelling if non-collidable
                 hit = col.collidable;
             } else if (col.type == "player") {
@@ -641,6 +646,8 @@ export class Bullet {
             } else if (col.type == "pan") {
                 hit = col.collidable;
                 this.reflect(col.point, col.normal, col.obj?.__id ?? 0);
+            } else if (this.player?.hasPerk("ricochet")) {
+                this.reflect(col.point, col.normal, col.obj!.__id);
             }
             if (hit) {
                 this.pos = col.point;

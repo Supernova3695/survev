@@ -1347,6 +1347,22 @@ const SkinDefs: Record<string, MeleeDef> = {
             sprite: "loot-melee-katana-orchid.img",
         },
     }),
+    katana_vengance_red: defineMeleeSkin("katana", {
+        name: "Red Vengance Katana",
+        quality: 1,
+        lootImg: { sprite: "loot-melee-katana-vengance-red.img" },
+        worldImg: {
+            sprite: "loot-melee-katana-vengance-red.img",
+        },
+    }),
+    katana_vengance_blue: defineMeleeSkin("katana", {
+        name: "Blue Vengance Katana",
+        quality: 1,
+        lootImg: { sprite: "loot-melee-katana-vengance-blue.img" },
+        worldImg: {
+            sprite: "loot-melee-katana-vengance-blue.img",
+        },
+    }),
     sledgehammer: defineMeleeSkin("stonehammer", {
         name: "Sledgehammer",
         lootImg: { sprite: "loot-melee-sledgehammer.img" },

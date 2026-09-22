@@ -42,6 +42,9 @@ export const PerkProperties = {
         armorPenetration: 0.8,
         obstacleMult: 1.5,
     },
+    ricochet: {
+        obstacleMult: 0.25,
+    },
     trick_size: {
         scale: 0.25,
     },
@@ -216,6 +219,20 @@ export const PerkDefs: Record<string, PerkDef> = {
         type: "perk",
         lootImg: {
             sprite: "loot-perk-firepower.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-03.img",
+            borderTint: 0xffffff,
+            scale: 0.275,
+        },
+        sound: {
+            pickup: "perk_pickup_01",
+        },
+    },
+    ricochet: {
+        name: "Ricochet",
+        type: "perk",
+        lootImg: {
+            sprite: "loot-perk-ricochet.img",
             tint: 0xffffff,
             border: "loot-circle-outer-03.img",
             borderTint: 0xffffff,

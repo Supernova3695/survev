@@ -826,6 +826,22 @@ const SkinDefs = {
             rot: 0.5 * Math.PI,
         },
     }),
+    helmet04_last_man_hyperpowered_red: defineSkin("helmet04", {
+        name: "Hyperpowered Lone Survivr Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-last-man-hyperpowered-red.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-last-man-hyperpowered-red.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
     helmet04_last_man_blue: defineSkin("helmet04", {
         name: "Lone Survivr Helmet",
         noDrop: true,
@@ -838,6 +854,22 @@ const SkinDefs = {
         },
         lootImg: {
             sprite: "player-helmet-last-man-02.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
+    helmet04_last_man_hyperpowered_blue: defineSkin("helmet04", {
+        name: "Hyperpowered Lone Survivr Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-last-man-hyperpowered-blue.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-last-man-hyperpowered-blue.img",
             scale: 0.3,
             rot: 0.5 * Math.PI,
         },

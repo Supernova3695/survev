@@ -911,6 +911,11 @@ export class Player extends BaseGameObject {
                 this.boost = 100;
                 this.giveHaste(GameConfig.HasteType.Windwalk, 5);
                 break;
+            case "last_man_hyperpowered":
+                this.health = 100;
+                this.boost = 100;
+                this.giveHaste(GameConfig.HasteType.Windwalk, 10);
+                break;
             case "lieutenant":
                 this.boost = 100;
                 break;
@@ -931,7 +936,7 @@ export class Player extends BaseGameObject {
         } else if (roleDef.perks) {
             // client can only show 4 perks in the UI
             // if this role has 4 or more perks, drop all our droppable perks
-            if (roleDef.perks.length >= 4) {
+            if (roleDef.perks.length >= 6) {
                 for (const perk of this.perks) {
                     if (perk.droppable) {
                         this.dropLoot(perk.type);
@@ -3947,7 +3952,7 @@ export class Player extends BaseGameObject {
 
                 // The client can only show 4 perks in the UI.
                 // If the player already has 4 or more perks, they cannot pick up a new one.
-                if (!perkSlotType && this.perks.length >= 4) {
+                if (!perkSlotType && this.perks.length >= 7) {
                     amountLeft = 1;
                     pickupMsg.type = net.PickupMsgType.MaxPerks;
                     break;
@@ -4038,7 +4043,7 @@ export class Player extends BaseGameObject {
     /** just used in potato mode, swaps oldWeapon with a random weapon of the same type (mosin -> m9) */
     randomWeaponSwap(params: DamageParams): void {
         if (this.dead) return;
-        if (this.role === "last_man") return;
+        if (this.role === "last_man" || this.role === "last_man_hyperpowered") return;
         const oldWeapon = params.weaponSourceType || params.gameSourceType;
         if (!oldWeapon) return;
 

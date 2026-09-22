@@ -418,6 +418,115 @@ export const RoleDefs: Record<string, RoleDef> = {
             },
         }),
     },
+    last_man_hyperpowered: {
+        type: "role",
+        announce: true,
+        killFeed: { assign: true },
+        sound: { assign: "last_man_assigned_01" },
+        mapIcon: {
+            alive: "player-last-man.img",
+        },
+        perks: [
+            "steelskin",
+            "takedown",
+            "lifeline",
+            () =>//bullet perks
+                util.weightedRandom([
+                    { type: "ap_rounds", weight: 1 },
+                    { type: "splinter", weight: 1 },
+                ]).type,
+            () => //healing/speed perks
+                util.weightedRandom([
+                    { type: "windwalk", weight: 2 },
+                    { type: "field_medic", weight: 1 },
+                    { type: "combat_stims", weight: 1 },
+                ]).type,
+            () => //explosive perks
+                util.weightedRandom([
+                    { type: "amped_explosives", weight: 1 },
+                    { type: "broken_arrow", weight: 1 },
+                ]).type,
+            () => //ammo perks/other bullet perks
+                util.weightedRandom([
+                    { type: "ricochet", weight: 1 },
+                    { type: "explosive", weight: 1 },
+                    { type: "endless_ammo", weight: 1}
+                ]).type,
+        ],
+        defaultItems: createDefaultItems({
+            weapons: [
+                (teamcolor: FactionTeam) =>
+                    getTeamWeapon(
+                        {
+                            [FactionTeam.Red]: util.weightedRandom([
+                                { type: "scarssr", ammo: 10, fillInv: true, weight: 1 },
+                                { type: "deagle_dual", ammo: 14, fillInv: true, weight: 5 },
+                                { type: "vector", ammo: 33, fillInv: true, weight: 10 },
+                            ]),
+                            [FactionTeam.Blue]: util.weightedRandom([
+                                { type: "scarssr", ammo: 10, fillInv: true, weight: 1 },
+                                { type: "deagle_dual", ammo: 14, fillInv: true, weight: 5 },
+                                { type: "vector", ammo: 33, fillInv: true, weight: 10 },
+                            ]),
+                        },
+                        teamcolor,
+                    ),
+                (teamcolor: FactionTeam) =>
+                    getTeamWeapon(
+                        {
+                            [FactionTeam.Red]: util.weightedRandom([
+                                //{ type: "m249", ammo: 100, fillInv: true, weight: 1 },
+                                { type: "pkp", ammo: 200, fillInv: true, weight: 1 },
+                            ]),
+                            [FactionTeam.Blue]: util.weightedRandom([
+                                //{ type: "m249", ammo: 100, fillInv: true, weight: 1 },
+                                { type: "pkp", ammo: 200, fillInv: true, weight: 1 },
+                            ]),
+                        },
+                        teamcolor,
+                    ),
+                (teamcolor: FactionTeam) =>
+                    getTeamWeapon(
+                        {
+                            [FactionTeam.Red]: util.weightedRandom([
+                                { type: "katana_vengance_red", ammo: 0, weight: 1 },
+                            ]),
+                            [FactionTeam.Blue]: util.weightedRandom([
+                                { type: "katana_vengance_blue", ammo: 0, weight: 1 },
+                            ]),
+                        },
+                        teamcolor,
+                    ),
+                { type: "mirv", ammo: 8 },
+            ],
+            backpack: "backpack03",
+            helmet: (teamcolor: FactionTeam) =>
+                getTeamHelmet(
+                    {
+                        [FactionTeam.Red]: "helmet04_last_man_hyperpowered_red",
+                        [FactionTeam.Blue]: "helmet04_last_man_hyperpowered_blue",
+                    },
+                    teamcolor,
+                ),
+            chest: "chest04",
+            outfit: (teamcolor: FactionTeam) =>
+                ({
+                    [FactionTeam.Red]: "outfitRedHyperpowered",
+                    [FactionTeam.Blue]: "outfitBlueHyperpowered",
+                })[teamcolor],
+            noDropOutfit: false,
+            inventory: {
+                mirv: 8,
+                strobe: 3,
+                frag: 12,
+                "8xscope": 1,
+                bandage: 10,
+                healthkit: 1,
+                soda: 2,
+                painkiller: 1,
+            },
+        }),
+    },
     woods_king: {
         type: "role",
         announce: false,

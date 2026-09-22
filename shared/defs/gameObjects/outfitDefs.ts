@@ -393,6 +393,44 @@ const SkinDefs: Record<string, OutfitDef> = {
         },
         teamId: FactionTeam.Blue,
     }),
+    outfitRedHyperpowered: defineOutfitSkin("outfitBase", {
+        name: "Red Hyperpowered",
+        noDrop: false,
+        skinImg: {
+            baseTint: 0x9b0000,
+            baseSprite: "player-base-02.img",
+            handTint: 0xff0000,
+            handSprite: "player-hands-02.img",
+            footTint: 0xff0000,
+            footSprite: "player-feet-02.img",
+            backpackTint: 0x530000,
+            backpackSprite: "player-circle-base-02.img",
+        },
+        lootImg: {
+            sprite: "loot-shirt-02.img",
+            tint: 0x9b0000,
+        },
+        teamId: FactionTeam.Red,
+    }),
+    outfitBlueHyperpowered: defineOutfitSkin("outfitBase", {
+        name: "Blue Hyperpowered",
+        noDrop: false,
+        skinImg: {
+            baseTint: 0x2f9b,
+            baseSprite: "player-base-02.img",
+            handTint: 0x4eff,
+            handSprite: "player-hands-02.img",
+            footTint: 0x4eff,
+            footSprite: "player-feet-02.img",
+            backpackTint: 0x174c,
+            backpackSprite: "player-circle-base-02.img",
+        },
+        lootImg: {
+            sprite: "loot-shirt-02.img",
+            tint: 0x2f9b,
+        },
+        teamId: FactionTeam.Blue,
+    }),
     outfitSpetsnaz: defineOutfitSkin("outfitBase", {
         name: "Siberian Assault",
         skinImg: {
