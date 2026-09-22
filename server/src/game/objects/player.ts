@@ -911,6 +911,9 @@ export class Player extends BaseGameObject {
                 this.boost = 100;
                 this.giveHaste(GameConfig.HasteType.Windwalk, 5);
                 break;
+            case "lieutenant":
+                this.boost = 100;
+                break;
         }
 
         // A list of the new perks to add must be built first

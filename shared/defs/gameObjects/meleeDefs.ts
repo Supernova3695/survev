@@ -995,7 +995,7 @@ const BaseDefs: Record<string, MeleeDef> = {
         type: "melee",
         quality: 1,
         cleave: false,
-        autoAttack: false,
+        autoAttack: true,
         switchDelay: 0.25,
         damage: 40,
         obstacleDamage: 1.3,

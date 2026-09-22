@@ -609,6 +609,7 @@ export class Client {
                 if (
                     (emotePlayer.role === "leader"
                         || emotePlayer.role === "captain"
+                        || emotePlayer.role === "liutenant"
                         || emotePlayer.role === "last_man")
                     && emotePlayer.teamId === player.teamId
                 ) {
