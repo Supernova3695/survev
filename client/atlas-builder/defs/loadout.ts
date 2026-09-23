@@ -434,6 +434,7 @@ export const LoadoutAtlas: AtlasDef = {
         "loot/loot-perk-firepower.svg",
         "loot/loot-perk-ricochet.svg",
         "loot/loot-perk-flak-jacket.svg",
+        "loot/loot-perk-hyperpowered.svg",
         "loot/loot-perk-gotw.svg",
         "loot/loot-perk-halloween-mystery.svg",
         "loot/loot-perk-high-velocity.svg",

@@ -427,30 +427,22 @@ export const RoleDefs: Record<string, RoleDef> = {
             alive: "player-last-man.img",
         },
         perks: [
-            "leadskin",
+            "hyperpowered",
             "bloodlust",
+            "leadskin",
             "lifeline",
-            () =>//bullet perks
-                util.weightedRandom([
-                    { type: "ap_rounds", weight: 1 },
-                    { type: "splinter", weight: 1 },
-                ]).type,
+            "splinter",
             () => //healing/speed perks
                 util.weightedRandom([
                     { type: "windwalk", weight: 2 },
                     { type: "field_medic", weight: 1 },
                     { type: "combat_stims", weight: 1 },
                 ]).type,
-            () => //explosive perks
-                util.weightedRandom([
-                    { type: "amped_explosives", weight: 1 },
-                    { type: "broken_arrow", weight: 1 },
-                ]).type,
             () => //ammo perks/other bullet perks
                 util.weightedRandom([
                     { type: "ricochet", weight: 1 },
                     { type: "explosive", weight: 1 },
-                    { type: "endless_ammo", weight: 1}
+                    //{ type: "endless_ammo", weight: 1}
                 ]).type,
         ],
         defaultItems: createDefaultItems({

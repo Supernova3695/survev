@@ -29,7 +29,7 @@ export const PerkProperties = {
         } as Partial<Record<InventoryItem, number>>,
     },
     amped_explosives: {
-        throwableRangeMult: 1.75,
+        throwableRangeMult: 1.75, //these settings also control hyperpowered settings that are amped_explosives intergrations
         throwableSpeedMult: 2,
         shrapnelCountMult: 2,
         shrapnelDamageMult: 1.5,
@@ -44,8 +44,13 @@ export const PerkProperties = {
         splitsDamageMult: 0.5,
     },
     ap_rounds: {
-        armorPenetration: 0.8,
+        armorPenetration: 0.8,//also supplies hyperpowered armor penetration
         obstacleMult: 1.5,
+    },
+    hyperpowered: {
+        bulletSpeedMult: 1.1,
+        obstacleMult: 1.5,
+        reloadTimeMult: 0.55
     },
     ricochet: {
         obstacleMult: 0.65, //damage done to obsatcles by all bullets
@@ -241,6 +246,20 @@ export const PerkDefs: Record<string, PerkDef> = {
         type: "perk",
         lootImg: {
             sprite: "loot-perk-firepower.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-03.img",
+            borderTint: 0xffffff,
+            scale: 0.275,
+        },
+        sound: {
+            pickup: "perk_pickup_01",
+        },
+    },
+    hyperpowered: {
+        name: "Hyperpowered",
+        type: "perk",
+        lootImg: {
+            sprite: "loot-perk-hyperpowered.img",
             tint: 0xffffff,
             border: "loot-circle-outer-03.img",
             borderTint: 0xffffff,

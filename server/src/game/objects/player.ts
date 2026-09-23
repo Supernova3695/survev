@@ -1229,6 +1229,9 @@ export class Player extends BaseGameObject {
             case "firepower":
                 this.weaponManager.clampGunsAmmo();
                 break;
+            case "hyperpowered":
+                this.weaponManager.clampGunsAmmo();
+                break;
             case "aoe_heal": {
                 util.removeFrom(this.game.playerBarn.aoeHealPlayers, this);
                 break;
@@ -2630,21 +2633,24 @@ export class Player extends BaseGameObject {
             downedMsg.killCreditId = params.source.__id;
             //bloodlust down rewards
             const downedBy = this.downedBy
-            downedBy.health += PerkProperties.bloodlust.hpRewardOnDown;
-            downedBy.boost += PerkProperties.bloodlust.boostRewardOnDown;
-            downedBy.giveHaste(GameConfig.HasteType.Takedown, PerkProperties.bloodlust.hasteDuarationOnDown);
+            if (downedBy !== this && downedBy.teamId !== this.teamId) {
+                downedBy.health += PerkProperties.bloodlust.hpRewardOnDown;
+                downedBy.boost += PerkProperties.bloodlust.boostRewardOnDown;
+                downedBy.giveHaste(GameConfig.HasteType.Takedown, PerkProperties.bloodlust.hasteDuarationOnDown);
+            }
         }
 
         this.game.clientBarn.broadcastMsg(net.MsgType.Kill, downedMsg);
 
         // lone survivr can be given on knock or kill
-        if (this.game.map.factionMode) {
+        if (this.game.map.factionMode  && !this.game.map.hasHyperpoweredLastMan) {
             this.team!.checkAndApplyLastMan();
             this.team!.checkAndApplyCaptain();
         }
 
         if (this.game.map.factionMode && this.game.map.hasHyperpoweredLastMan) {
             this.team!.checkAndApplyHyperpoweredLastMan();
+            this.team!.checkAndApplyCaptain();
         }
     }
 

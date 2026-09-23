@@ -42,6 +42,7 @@ export interface BulletParams {
     lastShot?: boolean;
     splinter?: boolean;
     apRounds?: boolean;
+    hyperpowered?: boolean;
     highVelocity?: boolean;
     combatStims?: boolean;
     shotAlt?: boolean;
@@ -153,6 +154,7 @@ export class Bullet {
     shotAlt!: boolean;
     splinter!: boolean;
     apRounds!: boolean;
+    hyperpowered!: boolean;
     highVelocity!: boolean;
     combatStims!: boolean;
     trailSaturated!: boolean;
@@ -248,6 +250,7 @@ export class Bullet {
         this.shotAlt = params.shotAlt ?? false;
         this.splinter = params.splinter ?? false;
         this.apRounds = params.apRounds ?? false;
+        this.hyperpowered = params.hyperpowered ?? false;
         this.highVelocity = params.highVelocity ?? false;
         this.combatStims = params.combatStims ?? false;
         this.trailSaturated = params.trailSaturated ?? false;
@@ -274,6 +277,7 @@ export class Bullet {
         this.hasSpecialFx = this.shotAlt
             || this.splinter
             || this.apRounds
+            || this.hyperpowered
             || this.highVelocity
             || this.combatStims
             || this.trailSaturated
@@ -627,6 +631,10 @@ export class Bullet {
                     obstacleMult *= PerkProperties.ap_rounds.obstacleMult;
                 }
 
+                if (this.hyperpowered) {
+                    obstacleMult *= PerkProperties.hyperpowered.obstacleMult;
+                }
+
                 this.bulletManager.damages.push({
                     obj: col.obj!,
                     gameSourceType: this.shotSourceType,
@@ -669,7 +677,7 @@ export class Bullet {
                         amount: multiplier * finalDamage,
                         dir: this.dir,
                         isExplosion: this.isShrapnel,
-                        armorPenetration: this.apRounds
+                        armorPenetration: this.apRounds || this.hyperpowered
                             ? PerkProperties.ap_rounds.armorPenetration
                             : undefined,
                     });
@@ -767,6 +775,7 @@ export class Bullet {
             shotAlt: this.shotAlt,
             splinter: this.splinter,
             apRounds: this.apRounds,
+            hyperpowered: this.hyperpowered,
             highVelocity: this.highVelocity,
             combatStims: this.combatStims,
             trailSaturated: this.trailSaturated,

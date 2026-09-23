@@ -891,7 +891,8 @@ export class UiManager2 {
         let remainingWeaponAmmo = 0;
         if (weaponDef.type === "gun") {
             const infiniteAmmo = weaponDef.ammoInfinite
-                || (activePlayer.m_hasPerk("endless_ammo") && !weaponDef.ignoreEndlessAmmo);
+                || ((activePlayer.m_hasPerk("endless_ammo") || activePlayer.m_hasPerk("hyperpowered")) 
+                    && !weaponDef.ignoreEndlessAmmo);
             remainingWeaponAmmo = infiniteAmmo
                 ? Number.MAX_VALUE
                 : activePlayer.m_localData.m_inventory[weaponDef.ammo];

@@ -143,7 +143,7 @@ export class ExplosionBarn {
             ? explosion.damageParams.source
             : undefined;
 
-        const hasAmped = sourcePlayer?.hasPerk?.("amped_explosives");
+        const hasAmped = (sourcePlayer?.hasPerk?.("amped_explosives") || sourcePlayer?.hasPerk?.("hyperpowered"));
 
         const shrapnelSpeedMult = hasAmped
             ? PerkProperties.amped_explosives.shrapnelSpeedMult
