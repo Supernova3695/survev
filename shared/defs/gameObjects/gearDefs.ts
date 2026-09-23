@@ -918,7 +918,7 @@ const SkinDefs = {
             rot: 0.5 * Math.PI,
         },
     }),
-    helmet04_last_man_hyperpowered_blue: defineSkin("helmet04", {
+    helmet05_last_man_hyperpowered_blue: defineSkin("helmet05", {
         name: "Hyperpowered Lone Survivr Helmet",
         noDrop: true,
         skinImg: {
