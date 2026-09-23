@@ -2467,8 +2467,20 @@ export class Player extends BaseGameObject {
                 );
             }
 
+            if (this.hasPerk("leadskin")) {
+                reduceDamage(
+                    params.isExplosion
+                        ? PerkProperties.leadskin.explosionDamageReduction
+                        : PerkProperties.leadskin.damageReduction,
+                );
+            }
+
             if (this.hasPerk("steelskin")) {
                 reduceDamage(PerkProperties.steelskin.damageReduction);
+            }
+
+            if (this.hasPerk("leadskin")) {
+                reduceDamage(PerkProperties.leadskin.damageReduction);
             }
 
             const chest = GameObjectDefs.typeToDefSafe(this.chest) as ChestDef | undefined;

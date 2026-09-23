@@ -1293,7 +1293,7 @@ export class UiManager2 {
                 const gearLevel = gearDef ? gearDef.level : 0;
                 gearDom.div.style.display = gearDef ? "block" : "none";
                 gearDom.level.innerHTML = this.localization.translate(`game-level-${gearLevel}`);
-                gearDom.level.style.color = gearLevel === 4 ? "#b30000" : gearLevel === 3 ? "#ff9900" : "#ffffff";
+                gearDom.level.style.color = gearLevel === 5 ? "#323232" : gearLevel === 4 ? "#b30000" : gearLevel === 3 ? "#ff9900" : "#ffffff";
                 gearDom.image.src = helpers.getSvgFromGameType(gearState.item);
             }
             if (gearPatch.selectable) {

@@ -363,6 +363,18 @@ export class BulletBarn {
                                     collidable: false,
                                 });
                             }
+                            if (player.m_hasPerk("leadskin")) {
+                                colObjs.push({
+                                    type: "pan",
+                                    point: v2.add(
+                                        collision.point,
+                                        v2.mul(collision.normal, 0.1),
+                                    ),
+                                    normal: collision.normal,
+                                    layer: player.layer,
+                                    collidable: false,
+                                });
+                            }
                         } else if (panCollision) {
                             colObjs.push({
                                 type: "pan",

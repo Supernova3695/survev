@@ -427,9 +427,10 @@ export const RoleDefs: Record<string, RoleDef> = {
             alive: "player-last-man.img",
         },
         perks: [
-            "steelskin",
+            "leadskin",
             "takedown",
-            "lifeline",
+            "flak_jacket",
+            //"lifeline",
             () =>//bullet perks
                 util.weightedRandom([
                     { type: "ap_rounds", weight: 1 },
@@ -460,13 +461,13 @@ export const RoleDefs: Record<string, RoleDef> = {
                         {
                             [FactionTeam.Red]: util.weightedRandom([
                                 { type: "scarssr", ammo: 10, fillInv: true, weight: 1 },
-                                { type: "deagle_dual", ammo: 14, fillInv: true, weight: 5 },
-                                { type: "vector", ammo: 33, fillInv: true, weight: 10 },
+                                { type: "saiga", ammo: 5, fillInv: true, weight: 4 },
+                                { type: "vector", ammo: 33, fillInv: true, weight: 5 },
                             ]),
                             [FactionTeam.Blue]: util.weightedRandom([
                                 { type: "scarssr", ammo: 10, fillInv: true, weight: 1 },
-                                { type: "deagle_dual", ammo: 14, fillInv: true, weight: 5 },
-                                { type: "vector", ammo: 33, fillInv: true, weight: 10 },
+                                { type: "saiga", ammo: 5, fillInv: true, weight: 4 },
+                                { type: "vector", ammo: 33, fillInv: true, weight: 5 },
                             ]),
                         },
                         teamcolor,
@@ -501,16 +502,16 @@ export const RoleDefs: Record<string, RoleDef> = {
                     ),
                 { type: "mirv", ammo: 8 },
             ],
-            backpack: "backpack03",
+            backpack: "backpack04",
             helmet: (teamcolor: FactionTeam) =>
                 getTeamHelmet(
                     {
-                        [FactionTeam.Red]: "helmet04_last_man_hyperpowered_red",
-                        [FactionTeam.Blue]: "helmet04_last_man_hyperpowered_blue",
+                        [FactionTeam.Red]: "helmet05_last_man_hyperpowered_red",
+                        [FactionTeam.Blue]: "helmet05_last_man_hyperpowered_blue",
                     },
                     teamcolor,
                 ),
-            chest: "chest04",
+            chest: "chest05",
             outfit: (teamcolor: FactionTeam) =>
                 ({
                     [FactionTeam.Red]: "outfitRedHyperpowered",
@@ -518,9 +519,9 @@ export const RoleDefs: Record<string, RoleDef> = {
                 })[teamcolor],
             noDropOutfit: false,
             inventory: {
-                mirv: 8,
+                mirv: 10,
                 strobe: 3,
-                frag: 12,
+                frag: 15,
                 "8xscope": 1,
                 bandage: 10,
                 healthkit: 1,

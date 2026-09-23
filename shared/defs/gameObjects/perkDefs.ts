@@ -14,10 +14,15 @@ export const PerkProperties = {
         scale: 0.4,
         damageReduction: 0.45,
     },
+    leadskin: {
+        scale: 0.4,
+        damageReduction: 0.65,
+        explosionDamageReduction: 0.70,
+    },
     flak_jacket: {
         scale: 0.1,
         damageReduction: 0.1,
-        explosionDamageReduction: 0.9,
+        explosionDamageReduction: 0.90,
         bonuses: {
             frag: 3,
             mirv: 2,
@@ -43,8 +48,8 @@ export const PerkProperties = {
         obstacleMult: 1.5,
     },
     ricochet: {
-        obstacleMult: 0.25,
-        ricochetMultiplier: 1.15,
+        obstacleMult: 0.65,
+        ricochetMultiplier: 1.25,
         ricochetMultiplierApplyAbove: 1,
         ricochetMultiplierApplyBelow: 2,
     },
@@ -317,6 +322,20 @@ export const PerkDefs: Record<string, PerkDef> = {
     },
     steelskin: {
         name: "Steelskin",
+        type: "perk",
+        lootImg: {
+            sprite: "loot-perk-steelskin.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-03.img",
+            borderTint: 0xffffff,
+            scale: 0.275,
+        },
+        sound: {
+            pickup: "perk_pickup_01",
+        },
+    },
+    leadskin: {
+        name: "Leadskin",
         type: "perk",
         lootImg: {
             sprite: "loot-perk-steelskin.img",

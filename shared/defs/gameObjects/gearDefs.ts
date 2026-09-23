@@ -99,6 +99,27 @@ const ChestDefs: Record<string, ChestDef> = {
             pickup: "chest_pickup_01",
         },
     },
+    chest05: {
+        name: "Level 5 Vest",
+        type: "chest",
+        noDrop: true,
+        level: 5,
+        damageReduction: 0.75,
+        skinImg: {
+            baseTint: 0x1c2e06,
+            baseSprite: "player-armor-base-01.img",
+        },
+        lootImg: {
+            sprite: "loot-chest-04.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-01.img",
+            borderTint: 0,
+            scale: 0.2,
+        },
+        sound: {
+            pickup: "chest_pickup_01",
+        },
+    },
 };
 
 export interface HelmetDef extends BaseLootDef {
@@ -205,6 +226,28 @@ const HelmetDefs: Record<string, HelmetDef> = {
             pickup: "helmet_pickup_01",
         },
     },
+    helmet05: {
+        name: "Level 5 Helmet",
+        type: "helmet",
+        level: 5,
+        damageReduction: 0.85,
+        skinImg: {
+            baseTint: 0x252525,
+            baseTintRed: 0x260404,
+            baseTintBlue: 0x5192d,
+            baseSprite: "player-circle-base-01.img",
+        },
+        lootImg: {
+            sprite: "loot-helmet-03.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-01.img",
+            borderTint: 0,
+            scale: 0.2,
+        },
+        sound: {
+            pickup: "helmet_pickup_01",
+        },
+    },
 };
 
 export interface BackpackDef extends BaseLootDef {
@@ -270,6 +313,23 @@ const BackpackDefs: Record<string, BackpackDef> = {
         name: "Military Pack",
         type: "backpack",
         level: 3,
+        tint: 0x666633,
+        playerRad: 1,
+        lootImg: {
+            sprite: "loot-pack-03.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-01.img",
+            borderTint: 0,
+            scale: 0.2,
+        },
+        sound: {
+            pickup: "pack_pickup_01",
+        },
+    },
+    backpack04: {
+        name: "Large Military Pack",
+        type: "backpack",
+        level: 4,
         tint: 0x666633,
         playerRad: 1,
         lootImg: {
@@ -826,7 +886,7 @@ const SkinDefs = {
             rot: 0.5 * Math.PI,
         },
     }),
-    helmet04_last_man_hyperpowered_red: defineSkin("helmet04", {
+    helmet05_last_man_hyperpowered_red: defineSkin("helmet05", {
         name: "Hyperpowered Lone Survivr Helmet",
         noDrop: true,
         skinImg: {
@@ -842,7 +902,7 @@ const SkinDefs = {
             rot: 0.5 * Math.PI,
         },
     }),
-    helmet04_last_man_blue: defineSkin("helmet04", {
+    helmet05_last_man_blue: defineSkin("helmet05", {
         name: "Lone Survivr Helmet",
         noDrop: true,
         skinImg: {

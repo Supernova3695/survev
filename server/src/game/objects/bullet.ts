@@ -528,7 +528,22 @@ export class Bullet {
                         collidable: true,
                         dist: v2.lengthSqr(v2.sub(collision.point, this.startPos)),
                     });
-                    if (obj.hasPerk("steelskin")) {
+                    if (obj.hasPerk("steelskin") && !obj.hasPerk("leadskin")) {
+                        const point = v2.add(
+                            collision.point,
+                            v2.mul(collision.normal, 0.1),
+                        );
+                        collisions.push({
+                            type: "pan",
+                            point,
+                            normal: collision.normal,
+                            layer: obj.layer,
+                            collidable: false,
+                            obj: obj,
+                            dist: v2.lengthSqr(v2.sub(point, this.startPos)),
+                        });
+                    }
+                    if (obj.hasPerk("leadskin") && !obj.hasPerk("steelskin")) {
                         const point = v2.add(
                             collision.point,
                             v2.mul(collision.normal, 0.1),
