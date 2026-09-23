@@ -44,6 +44,9 @@ export const PerkProperties = {
     },
     ricochet: {
         obstacleMult: 0.25,
+        ricochetMultiplier: 1.15,
+        ricochetMultiplierApplyAbove: 1,
+        ricochetMultiplierApplyBelow: 2,
     },
     trick_size: {
         scale: 0.25,

@@ -578,6 +578,17 @@ export class Bullet {
             finalDamage *= falloff;
         }
 
+        if (this.player?.hasPerk("ricochet") 
+            && GameConfig.bullet.falloff 
+            && (this.reflectCount >= PerkProperties.ricochet.ricochetMultiplierApplyAbove 
+                && this.reflectCount <= PerkProperties.ricochet.ricochetMultiplierApplyBelow
+            )) {
+            //const distT = math.clamp(this.distanceTraveled / this.distance, 0, 1);
+            //const falloff = math.remap(distT, 0, 1, 1, this.falloff);
+            //finalDamage *= falloff;
+            finalDamage *= PerkProperties.ricochet.ricochetMultiplier;
+        }
+
         for (let i = 0; i < collisions.length; i++) {
             const col = collisions[i];
 
@@ -670,7 +681,11 @@ export class Bullet {
         if (this.clipDistance) {
             distance = math.max(1, this.distance - this.distanceTraveled)
                 / Math.pow(GameConfig.bullet.reflectDistDecay, this.reflectCount);
-        }
+        } 
+        // else if (this.clipDistance && this.player?.hasPerk("ricochet")) {
+        //     distance = math.max(1, this.distance - this.distanceTraveled)
+        //         / Math.pow(GameConfig.bullet.reflectDistDecay, this.reflectCount);
+        // }
 
         this.bulletManager.fireBullet({
             bulletType: this.bulletType,

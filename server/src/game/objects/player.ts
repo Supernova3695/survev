@@ -2624,6 +2624,10 @@ export class Player extends BaseGameObject {
             this.team!.checkAndApplyLastMan();
             this.team!.checkAndApplyCaptain();
         }
+
+        if (this.game.map.factionMode && this.game.map.hasHyperpoweredLastMan) {
+            this.team!.checkAndApplyHyperpoweredLastMan();
+        }
     }
 
     killedBy: Player | undefined;

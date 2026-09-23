@@ -490,9 +490,11 @@ export const RoleDefs: Record<string, RoleDef> = {
                         {
                             [FactionTeam.Red]: util.weightedRandom([
                                 { type: "katana_vengance_red", ammo: 0, weight: 1 },
+                                { type: "bonesaw_hyperpowered_red", ammo: 0, weight: 1 },
                             ]),
                             [FactionTeam.Blue]: util.weightedRandom([
                                 { type: "katana_vengance_blue", ammo: 0, weight: 1 },
+                                { type: "bonesaw_hyperpowered_blue", ammo: 0, weight: 1 },
                             ]),
                         },
                         teamcolor,

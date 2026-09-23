@@ -1323,6 +1323,26 @@ const SkinDefs: Record<string, MeleeDef> = {
             sprite: "loot-melee-bonesaw-rusted.img",
         },
     }),
+    bonesaw_hyperpowered_red: defineMeleeSkin("saw", {
+        name: "Hyperpowered Bonesaw Red",
+        noPotatoSwap: false,
+        lootImg: {
+            sprite: "loot-melee-bonesaw-hyperpowered-red.img",
+        },
+        worldImg: {
+            sprite: "loot-melee-bonesaw-hyperpowered-red.img",
+        },
+    }),
+    bonesaw_hyperpowered_blue: defineMeleeSkin("saw", {
+        name: "Hyperpowered Bonesaw Blue",
+        noPotatoSwap: false,
+        lootImg: {
+            sprite: "loot-melee-bonesaw-hyperpowered-blue.img",
+        },
+        worldImg: {
+            sprite: "loot-melee-bonesaw-hyperpowered-blue.img",
+        },
+    }),
     woodaxe_bloody: defineMeleeSkin("woodaxe", {
         name: "Axe Bloodstained",
         lootImg: {
