@@ -2623,10 +2623,16 @@ export class Player extends BaseGameObject {
         downedMsg.targetId = this.__id;
         downedMsg.downed = true;
 
+
         if (params.source?.__type === ObjectType.Player) {
             this.downedBy = params.source;
             downedMsg.killerId = params.source.__id;
             downedMsg.killCreditId = params.source.__id;
+            //bloodlust down rewards
+            const downedBy = this.downedBy
+            downedBy.health += PerkProperties.bloodlust.hpRewardOnDown;
+            downedBy.boost += PerkProperties.bloodlust.boostRewardOnDown;
+            downedBy.giveHaste(GameConfig.HasteType.Takedown, PerkProperties.bloodlust.hasteDuarationOnDown);
         }
 
         this.game.clientBarn.broadcastMsg(net.MsgType.Kill, downedMsg);
@@ -2730,6 +2736,10 @@ export class Player extends BaseGameObject {
                     killCreditSource.health += PerkProperties.takedown.hpReward;
                     killCreditSource.boost += PerkProperties.takedown.boostReward;
                     killCreditSource.giveHaste(GameConfig.HasteType.Takedown, PerkProperties.takedown.hasteDuration);
+                } else if (killCreditSource.hasPerk("bloodlust")) {
+                    killCreditSource.health += PerkProperties.bloodlust.hpReward;
+                    killCreditSource.boost += PerkProperties.bloodlust.boostReward;
+                    killCreditSource.giveHaste(GameConfig.HasteType.Takedown, PerkProperties.bloodlust.hasteDuration);
                 }
 
                 // Pirate's Bounty (Cutlass-specific)
@@ -2819,6 +2829,7 @@ export class Player extends BaseGameObject {
             this.hasPerk("martyrdom")
             || this.role == "grenadier"
             || this.role == "demo"
+            || this.role == "last_man_hyperpowered"
         ) {
             this.game.projectileBarn.addSplitProjectiles(
                 this.__id,

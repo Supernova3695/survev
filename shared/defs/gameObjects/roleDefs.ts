@@ -428,7 +428,7 @@ export const RoleDefs: Record<string, RoleDef> = {
         },
         perks: [
             "leadskin",
-            "takedown",
+            "bloodlust",
             "lifeline",
             () =>//bullet perks
                 util.weightedRandom([
@@ -461,12 +461,12 @@ export const RoleDefs: Record<string, RoleDef> = {
                             [FactionTeam.Red]: util.weightedRandom([
                                 { type: "scarssr", ammo: 10, fillInv: true, weight: 1 },
                                 { type: "saiga", ammo: 5, fillInv: true, weight: 4 },
-                                { type: "vector", ammo: 33, fillInv: true, weight: 5 },
+                                { type: "qbb97", ammo: 75, fillInv: true, weight: 5 },
                             ]),
                             [FactionTeam.Blue]: util.weightedRandom([
                                 { type: "scarssr", ammo: 10, fillInv: true, weight: 1 },
                                 { type: "saiga", ammo: 5, fillInv: true, weight: 4 },
-                                { type: "vector", ammo: 33, fillInv: true, weight: 5 },
+                                { type: "qbb97", ammo: 75, fillInv: true, weight: 5 },
                             ]),
                         },
                         teamcolor,

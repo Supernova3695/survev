@@ -16,7 +16,7 @@ export const PerkProperties = {
     },
     leadskin: {
         scale: 0.4,
-        damageReduction: 0.65,
+        damageReduction: 0.55,
         explosionDamageReduction: 0.50,
     },
     flak_jacket: {
@@ -48,11 +48,17 @@ export const PerkProperties = {
         obstacleMult: 1.5,
     },
     ricochet: {
-        obstacleMult: 0.65,
-        ricochetMultiplier: 1.25,
-        ricochetMultiplierApplyAbove: 1,
-        ricochetMultiplierApplyBelow: 2,
+        obstacleMult: 0.65, //damage done to obsatcles by all bullets
+        obstacleRicochetMultiplier: 2.00, //damage done to obstacles by ricocheting bullets
+        ricochetMultiplier: 1.25, //damage done to players by ricocheting bullets
+        ricochetMultiplierApplyAbove: 1, //the amount of ricochets to trigger multiplier
+        ricochetMultiplierApplyBelow: 2, //the amount of ricochets to stop increasing multiplier
     },
+    // piercing_rounds: {
+    //     piercingDepth: 3,
+    //     piercingDamageDegradation: 0.15,
+    //     finalDamageMultiplier: 0.20,
+    // },
     trick_size: {
         scale: 0.25,
     },
@@ -97,6 +103,14 @@ export const PerkProperties = {
         hpReward: 25,
         boostReward: 25,
         hasteDuration: 3,
+    },
+    bloodlust: {
+        hpReward: 30,
+        hpRewardOnDown: 10,
+        boostReward: 25,
+        boostRewardOnDown: 10,
+        hasteDuration: 5,
+        hasteDuarationOnDown: 1.5,
     },
     lifeline: {
         decayMult: 0.75, // Adrenaline decay multiplier
@@ -250,6 +264,20 @@ export const PerkDefs: Record<string, PerkDef> = {
             pickup: "perk_pickup_01",
         },
     },
+    // piercing_rounds: {
+    //     name: "Piercing Rounds",
+    //     type: "perk",
+    //     lootImg: {
+    //         sprite: "loot-perk-ricochet.img",
+    //         tint: 0xffffff,
+    //         border: "loot-circle-outer-03.img",
+    //         borderTint: 0xffffff,
+    //         scale: 0.275,
+    //     },
+    //     sound: {
+    //         pickup: "perk_pickup_01",
+    //     },
+    // },
     gotw: {
         name: "Gift of the Wild",
         type: "perk",
@@ -395,6 +423,20 @@ export const PerkDefs: Record<string, PerkDef> = {
         type: "perk",
         lootImg: {
             sprite: "loot-perk-takedown.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-03.img",
+            borderTint: 0xffffff,
+            scale: 0.275,
+        },
+        sound: {
+            pickup: "perk_pickup_01",
+        },
+    },
+    bloodlust: {
+        name: "Bloodlust",
+        type: "perk",
+        lootImg: {
+            sprite: "loot-perk-bloodlust.img",
             tint: 0xffffff,
             border: "loot-circle-outer-03.img",
             borderTint: 0xffffff,

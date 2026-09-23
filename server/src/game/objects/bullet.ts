@@ -598,9 +598,6 @@ export class Bullet {
             && (this.reflectCount >= PerkProperties.ricochet.ricochetMultiplierApplyAbove 
                 && this.reflectCount <= PerkProperties.ricochet.ricochetMultiplierApplyBelow
             )) {
-            //const distT = math.clamp(this.distanceTraveled / this.distance, 0, 1);
-            //const falloff = math.remap(distT, 0, 1, 1, this.falloff);
-            //finalDamage *= falloff;
             finalDamage *= PerkProperties.ricochet.ricochetMultiplier;
         }
 
@@ -611,6 +608,14 @@ export class Bullet {
                 if (this.damagedObjIds.has(col.obj.__id)) continue;
 
                 this.damagedObjIds.add(col.obj.__id);
+            }
+
+            if (this.player?.hasPerk("ricochet") && col.type == "obstacle" 
+                && GameConfig.bullet.falloff 
+                && (this.reflectCount >= PerkProperties.ricochet.ricochetMultiplierApplyAbove 
+                    && this.reflectCount <= PerkProperties.ricochet.ricochetMultiplierApplyBelow
+            )) {
+                finalDamage *= PerkProperties.ricochet.obstacleRicochetMultiplier;
             }
 
             if (col.type == "obstacle") {
@@ -647,6 +652,7 @@ export class Bullet {
             } else if (col.type == "player") {
                 if (!shooterDead) {
                     const isHighValueTarget = this.player?.hasPerk("targeting") && col.player!.perks.length;
+                    // const shooterHasPiercingRounds = this.player?.hasPerk("piercing_rounds")
 
                     let multiplier = 1;
                     if (isHighValueTarget) {
@@ -674,7 +680,51 @@ export class Bullet {
                 this.reflect(col.point, col.normal, col.obj?.__id ?? 0);
             } else if (this.player?.hasPerk("ricochet")) {
                 this.reflect(col.point, col.normal, col.obj!.__id);
-            }
+            } 
+            //else if (this.player?.hasPerk("piercing_rounds")) {
+            //     const piercingCount = 0
+            //     let multiplier = 1;
+            //     if (piercingCount <= PerkProperties.piercing_rounds.piercingDepth) {
+            //         piercingCount + 1
+
+            //         multiplier *= PerkProperties.piercing_rounds.piercingDamageDegradation
+
+            //         this.bulletManager.damages.push({
+            //             obj: col.player!,
+            //             gameSourceType: this.shotSourceType,
+            //             weaponSourceType: this.shotSourceType,
+            //             mapSourceType: this.mapSourceType,
+            //             source: this.player,
+            //             damageType: this.damageType,
+            //             amount: multiplier * finalDamage,
+            //             dir: this.dir,
+            //             isExplosion: this.isShrapnel,
+            //             armorPenetration: this.apRounds
+            //                 ? PerkProperties.ap_rounds.armorPenetration
+            //                 : undefined,
+            //         });
+            //         break;
+            //     } else if (piercingCount > PerkProperties.piercing_rounds.piercingDepth) {
+            //         hit = col.collidable;
+
+            //         multiplier *= PerkProperties.piercing_rounds.finalDamageMultiplier
+
+            //         this.bulletManager.damages.push({
+            //             obj: col.player!,
+            //             gameSourceType: this.shotSourceType,
+            //             weaponSourceType: this.shotSourceType,
+            //             mapSourceType: this.mapSourceType,
+            //             source: this.player,
+            //             damageType: this.damageType,
+            //             amount: multiplier * finalDamage,
+            //             dir: this.dir,
+            //             isExplosion: this.isShrapnel,
+            //             armorPenetration: this.apRounds
+            //                 ? PerkProperties.ap_rounds.armorPenetration
+            //                 : undefined,
+            //         });
+            //     }
+            // }
             if (hit) {
                 this.pos = col.point;
                 this.alive = false;
@@ -697,10 +747,6 @@ export class Bullet {
             distance = math.max(1, this.distance - this.distanceTraveled)
                 / Math.pow(GameConfig.bullet.reflectDistDecay, this.reflectCount);
         } 
-        // else if (this.clipDistance && this.player?.hasPerk("ricochet")) {
-        //     distance = math.max(1, this.distance - this.distanceTraveled)
-        //         / Math.pow(GameConfig.bullet.reflectDistDecay, this.reflectCount);
-        // }
 
         this.bulletManager.fireBullet({
             bulletType: this.bulletType,
