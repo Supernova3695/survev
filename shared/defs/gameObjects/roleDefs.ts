@@ -429,8 +429,7 @@ export const RoleDefs: Record<string, RoleDef> = {
         perks: [
             "leadskin",
             "takedown",
-            "flak_jacket",
-            //"lifeline",
+            "lifeline",
             () =>//bullet perks
                 util.weightedRandom([
                     { type: "ap_rounds", weight: 1 },

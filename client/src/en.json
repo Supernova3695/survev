@@ -788,7 +788,7 @@
   "game-steelskin": "Cast Ironskin",
   "game-steelskin-desc": "Take reduced damage and reflect enemy bullets.</br>Increased size.",
   "game-leadskin": "Leadskin",
-  "game-leadskin-desc": "Take 65% less damage and reflect enemy bullets.</br>70% explosion damage reduction. </br>Increased size.",
+  "game-leadskin-desc": "Take 65% less damage and reflect enemy bullets.</br>50% explosion damage reduction. </br>Increased size.",
   "game-ap_rounds": "AP Rounds",
   "game-ap_rounds-desc": "Bullets are more effective against armored enemies and obstacles.",
   "game-ricochet": "Ricochet",

@@ -17,7 +17,7 @@ export const PerkProperties = {
     leadskin: {
         scale: 0.4,
         damageReduction: 0.65,
-        explosionDamageReduction: 0.70,
+        explosionDamageReduction: 0.50,
     },
     flak_jacket: {
         scale: 0.1,
