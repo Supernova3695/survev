@@ -438,7 +438,7 @@ export const RoleDefs: Record<string, RoleDef> = {
                     { type: "field_medic", weight: 1 },
                     { type: "combat_stims", weight: 1 },
                 ]).type,
-            () => //ammo perks/other bullet perks
+            () => //bullet perks
                 util.weightedRandom([
                     { type: "ricochet", weight: 1 },
                     { type: "explosive", weight: 1 },
@@ -468,11 +468,11 @@ export const RoleDefs: Record<string, RoleDef> = {
                         {
                             [FactionTeam.Red]: util.weightedRandom([
                                 //{ type: "m249", ammo: 100, fillInv: true, weight: 1 },
-                                { type: "pkp", ammo: 200, fillInv: true, weight: 1 },
+                                { type: "pkp_sp", ammo: 200, fillInv: true, weight: 1 },
                             ]),
                             [FactionTeam.Blue]: util.weightedRandom([
                                 //{ type: "m249", ammo: 100, fillInv: true, weight: 1 },
-                                { type: "pkp", ammo: 200, fillInv: true, weight: 1 },
+                                { type: "pkp_sp", ammo: 200, fillInv: true, weight: 1 },
                             ]),
                         },
                         teamcolor,

@@ -317,6 +317,11 @@ const Sounds: Record<string, Record<string, SoundDef>> = {
             path: "audio/guns/pkp_switch_01.mp3",
             volume: 1,
         },
+        pkp_sp_01: {
+            path: "audio/guns/pkp_01.mp3",
+            volume: 0.4,
+            maxInstances: 5,
+        },
         m870_01: {
             path: "audio/guns/m870_01.mp3",
             volume: 1,

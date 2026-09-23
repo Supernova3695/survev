@@ -50,7 +50,7 @@ export const PerkProperties = {
     hyperpowered: {
         bulletSpeedMult: 1.1,
         obstacleMult: 1.5,
-        reloadTimeMult: 0.55
+        reloadTimeMult: 0.80
     },
     ricochet: {
         obstacleMult: 0.65, //damage done to obsatcles by all bullets
