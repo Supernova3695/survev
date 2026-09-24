@@ -53,7 +53,7 @@ export const PerkProperties = {
         reloadTimeMult: 0.80
     },
     ricochet: {
-        obstacleMult: 0.65, //damage done to obsatcles by all bullets
+        obstacleMult: 0.65, //damage done to obsacles by all bullets
         obstacleRicochetMultiplier: 2.00, //damage done to obstacles by ricocheting bullets
         ricochetMultiplier: 1.25, //damage done to players by ricocheting bullets
         ricochetMultiplierApplyAbove: 1, //the amount of ricochets to trigger multiplier

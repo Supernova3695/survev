@@ -596,6 +596,21 @@ const AmmoDefs: Record<string, AmmoDef> = {
             pickup: "ammo_pickup_01",
         },
     },
+    "227fury": {
+        name: ".227 Fury",
+        type: "ammo",
+        special: true,
+        minStackSize: 10,
+        lootImg: {
+            sprite: "loot-ammo-box.img",
+            scale: 0.2,
+            tint: 0x8c0000,
+            tintDark: 0x690000,
+        },
+        sound: {
+            pickup: "ammo_pickup_01",
+        },
+    },
     potato_ammo: {
         name: "Potato Ammo",
         type: "ammo",

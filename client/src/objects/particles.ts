@@ -2029,6 +2029,25 @@ const ParticleDefs: Record<string, ParticleDef> = {
             return util.rgbToInt(util.hsvToRgb(0, 0, util.random(0.9, 0.95)));
         },
     },
+    "227fury": {
+        image: ["part-shell-04.img"],
+        life: new Range(0.75, 1),
+        drag: new Range(1.5, 2.5),
+        rotVel: new Range(Math.PI * 2.5, Math.PI * 2.5),
+        scale: {
+            start: 0.075,
+            end: 0.045,
+            lerp: new Range(0, 1),
+        },
+        alpha: {
+            start: 1,
+            end: 0,
+            lerp: new Range(0.925, 1),
+        },
+        color: function() {
+            return util.rgbToInt(util.hsvToRgb(0, 0, util.random(0.9, 0.95)));
+        },
+    },
     potato_ammo: {
         image: ["part-wedge-01.img"],
         life: new Range(0.5, 0.75),

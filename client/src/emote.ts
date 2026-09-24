@@ -977,6 +977,7 @@ export class EmoteBarn {
                                     "308sub": "emote_ammo308sub",
                                     flare: "emote_ammoflare",
                                     "45acp": "emote_ammo45acp",
+                                    "227fury": "emote_ammo227fury",
                                 } as Record<string, string>;
 
                                 const oldEmote = s.emote;

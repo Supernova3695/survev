@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="128"
+   height="128"
+   version="1.1"
+   id="svg3"
+   sodipodi:docname="ammo-227fury.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs3" />
+  <sodipodi:namedview
+     id="namedview3"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="6.0390625"
+     inkscape:cx="64"
+     inkscape:cy="64"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3" />
+  <g
+     transform="translate(8 -952.214) scale(3.64916)"
+     id="g3">
+    <rect
+       rx=".727"
+       y="263.133"
+       height="30.692"
+       width="30.692"
+       fill="#333"
+       id="rect1" />
+    <rect
+       rx=".597"
+       y="267.627"
+       x="4.494"
+       height="21.704"
+       width="21.704"
+       fill="#b3b3b3"
+       id="rect2"
+       style="fill:#6d0000;fill-opacity:1" />
+    <rect
+       rx=".71"
+       y="270.806"
+       x="11.17"
+       height="10.335"
+       width="11.369"
+       fill="#f2f2f2"
+       id="rect3"
+       style="fill:#8a0000;fill-opacity:1" />
+  </g>
+</svg>

@@ -250,6 +250,7 @@ export const GameConfig = {
                 "308sub": 0,
                 flare: 0,
                 "45acp": 0,
+                "227fury": 0,
                 frag: 0,
                 smoke: 0,
                 strobe: 0,
@@ -388,6 +389,12 @@ export const GameConfig = {
             chambered: 0xb500ff,
             apSaturated: 0x470349,
         } as TracerColors,
+        "227fury": {
+            regular: 0xff8d8d,
+            saturated: 0xb30000,
+            chambered: 0xb30000,
+            apSaturated: 0x902525,
+        } as TracerColors,
         shrapnel: {
             regular: 0x333333,
             saturated: 0x333333,
@@ -421,6 +428,7 @@ export const GameConfig = {
         "308sub": [20, 40, 60, 80, 100],
         flare: [2, 4, 6, 8, 10],
         "45acp": [90, 180, 240, 300, 360],
+        "227fury": [100, 200, 300, 400, 500],
         frag: [3, 6, 9, 12, 15],
         smoke: [3, 6, 9, 12, 15],
         strobe: [2, 3, 4, 5, 6],

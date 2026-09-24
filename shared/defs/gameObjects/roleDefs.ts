@@ -88,6 +88,7 @@ export function createDefaultItems(e: DeepPartial<DefaultItems>): DefaultItems {
             "308sub": 0,
             flare: 0,
             "45acp": 0,
+            "227fury": 0,
             frag: 0,
             smoke: 0,
             strobe: 0,
@@ -467,11 +468,11 @@ export const RoleDefs: Record<string, RoleDef> = {
                     getTeamWeapon(
                         {
                             [FactionTeam.Red]: util.weightedRandom([
-                                //{ type: "m249", ammo: 100, fillInv: true, weight: 1 },
+                                { type: "m250", ammo: 100, fillInv: true, weight: 1 },
                                 { type: "pkp_sp", ammo: 200, fillInv: true, weight: 1 },
                             ]),
                             [FactionTeam.Blue]: util.weightedRandom([
-                                //{ type: "m249", ammo: 100, fillInv: true, weight: 1 },
+                                { type: "m250", ammo: 100, fillInv: true, weight: 1 },
                                 { type: "pkp_sp", ammo: 200, fillInv: true, weight: 1 },
                             ]),
                         },

@@ -1765,6 +1765,7 @@ export function loadStaticDomImages() {
         "ui-loot-308sub": "img/loot/loot-ammo-box.svg",
         "ui-loot-flare": "img/loot/loot-ammo-box.svg",
         "ui-loot-45acp": "img/loot/loot-ammo-box.svg",
+        "ui-loot-227fury": "img/loot/loot-ammo-box.svg",
     };
 
     for (const [id, img] of Object.entries(lootImages)) {
