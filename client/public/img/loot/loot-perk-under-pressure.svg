@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="128"
+   height="128"
+   version="1.1"
+   id="svg3"
+   sodipodi:docname="loot-perk-under-pressure.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs3" />
+  <sodipodi:namedview
+     id="namedview3"
+     pagecolor="#666666"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="6.0390625"
+     inkscape:cx="64"
+     inkscape:cy="64"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g3" />
+  <g
+     fill="#fff"
+     id="g3">
+    <g
+       id="g2"
+       transform="rotate(-44.090612,29.387636,155.43508)">
+      <path
+         d="m 152.09994,78.027337 c -4.20287,-4.129921 -17.41048,2.497801 -26.85166,12.106384 l 15.21996,14.954529 c 9.43999,-9.608589 15.83455,-22.932188 11.6317,-27.060913 z M 98.889237,152.31569 137.5089,113.01091 a 3.1291266,3.1291266 0 0 0 -0.0394,-4.42407 L 121.80229,93.192302 a 3.1291266,3.1291266 0 0 0 -4.42406,0.03946 L 78.758557,132.53655 a 3.830998,3.830998 0 1 0 -5.369853,5.46432 l 20.130679,19.78033 a 3.8333895,3.8333895 0 0 0 5.417682,-0.0479 3.8321937,3.8321937 0 0 0 -0.04783,-5.41648 z m -8.656817,-24.35026 25.50651,-25.95968 a 2.298538,2.298538 0 1 1 3.27979,3.22119 l -25.507707,25.95968 a 2.2909464,2.2909464 0 0 1 -3.249896,0.0287 2.2981206,2.2981206 0 0 1 -0.02869,-3.24989 z"
+         id="path2"
+         style="fill:#ffffff;fill-opacity:0.597077;stroke-width:1.1957" />
+    </g>
+    <g
+       id="g4"
+       transform="matrix(1.484752,0,0,1.4159274,-65.573248,-20.92815)">
+      <ellipse
+         style="fill:#ffffff;fill-opacity:0;stroke:#ffffff;stroke-width:7.038;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+         id="path3"
+         cx="87.422073"
+         cy="59.943081"
+         rx="38.379002"
+         ry="40.853889" />
+      <rect
+         style="fill:#ffffff;stroke:#ffffff;stroke-width:3.038;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+         id="rect3"
+         width="2.152652"
+         height="24.838293"
+         x="35.777939"
+         y="70.474319"
+         transform="rotate(-34.931923)" />
+      <ellipse
+         style="fill:#ffffff;stroke:#ffffff;stroke-width:3.08679;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+         id="path4"
+         cx="87.430786"
+         cy="59.777489"
+         rx="3.7841411"
+         ry="3.9497297" />
+      <rect
+         style="fill:#ffffff;stroke:#ffffff;stroke-width:3.038;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+         id="rect4"
+         width="1.9870603"
+         height="18.214752"
+         x="90.924286"
+         y="-78.048698"
+         transform="rotate(64.987284)" />
+    </g>
+  </g>
+</svg>

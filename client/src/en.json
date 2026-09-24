@@ -797,6 +797,8 @@
   "game-ap_rounds-desc": "Bullets are more effective against armored enemies and obstacles.",
   "game-ricochet": "Ricochet",
   "game-ricochet-desc": "Bullets ricochet off of all obstacles.",
+  "game-underpressure": "Under Pressure",
+  "game-underpressure-desc": "Guns reload faster and the speed increases with less health.",
   "game-hyperpowered": "Hyperpowered",
   "game-hyperpowered-desc": "Guns have endless ammo, deal more damage, and hold more bullets.</br>Reload times are faster.</br>Explosions deal more damage.",
   "game-splinter": "Splinter Rounds",

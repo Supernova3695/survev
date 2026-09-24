@@ -50,7 +50,7 @@ export const PerkProperties = {
     hyperpowered: {
         bulletSpeedMult: 1.1,
         obstacleMult: 1.5,
-        reloadTimeMult: 0.80
+        reloadTimeMult: 0.10
     },
     ricochet: {
         obstacleMult: 0.65, //damage done to obsacles by all bullets
@@ -58,6 +58,11 @@ export const PerkProperties = {
         ricochetMultiplier: 1.25, //damage done to players by ricocheting bullets
         ricochetMultiplierApplyAbove: 1, //the amount of ricochets to trigger multiplier
         ricochetMultiplierApplyBelow: 2, //the amount of ricochets to stop increasing multiplier
+    },
+    underpressure: {
+        reloadTimeMult: 0.70,
+        reloadTimeBoostedMult: 0.50,
+        belowHealthToApplyBoost: 50,
     },
     // piercing_rounds: {
     //     piercingDepth: 3,
@@ -274,6 +279,20 @@ export const PerkDefs: Record<string, PerkDef> = {
         type: "perk",
         lootImg: {
             sprite: "loot-perk-ricochet.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-03.img",
+            borderTint: 0xffffff,
+            scale: 0.275,
+        },
+        sound: {
+            pickup: "perk_pickup_01",
+        },
+    },
+    underpressure: {
+        name: "Under Pressure",
+        type: "perk",
+        lootImg: {
+            sprite: "loot-perk-under-pressure.img",
             tint: 0xffffff,
             border: "loot-circle-outer-03.img",
             borderTint: 0xffffff,

@@ -524,7 +524,7 @@ export class WeaponManager {
             return;
         }
 
-        if (!this.player.hasPerk("hyperpowered")) {
+        if ((!this.player.hasPerk("hyperpowered") && !this.player.hasPerk("underpressure"))) {
             let duration = weaponDef.reloadTime;
             let action: number = GameConfig.Action.Reload;
             if (
@@ -538,7 +538,7 @@ export class WeaponManager {
 
             this.player.doAction(this.activeWeapon, action, duration);
         } else if (this.player.hasPerk("hyperpowered")) {
-            let duration = weaponDef.reloadTime *= PerkProperties.hyperpowered.reloadTimeMult;
+            let duration = weaponDef.reloadTime * PerkProperties.hyperpowered.reloadTimeMult;
             let action: number = GameConfig.Action.Reload;
             if (
                 weaponDef.reloadTimeAlt
@@ -550,6 +550,47 @@ export class WeaponManager {
             }
 
             this.player.doAction(this.activeWeapon, action, duration);
+        } else if (this.player.hasPerk("underpressure")) {
+            if ((this.player.health <= 100) && (this.player.health > PerkProperties.underpressure.belowHealthToApplyBoost)) {
+                let duration = weaponDef.reloadTime * PerkProperties.underpressure.reloadTimeMult;
+                let action: number = GameConfig.Action.Reload;
+                if (
+                    weaponDef.reloadTimeAlt
+                    && this.weapons[this.curWeapIdx].ammo === 0
+                    && invAmmo > stats.maxReload
+                ) {
+                    duration = weaponDef.reloadTimeAlt!;
+                    action = GameConfig.Action.ReloadAlt;
+                }
+
+                this.player.doAction(this.activeWeapon, action, duration);
+            } else if ((this.player.health <= PerkProperties.underpressure.belowHealthToApplyBoost) && (this.player.health > 0)) {
+                let duration = weaponDef.reloadTime * PerkProperties.underpressure.reloadTimeBoostedMult;
+                let action: number = GameConfig.Action.Reload;
+                if (
+                    weaponDef.reloadTimeAlt
+                    && this.weapons[this.curWeapIdx].ammo === 0
+                    && invAmmo > stats.maxReload
+                ) {
+                    duration = weaponDef.reloadTimeAlt!;
+                    action = GameConfig.Action.ReloadAlt;
+                }
+
+                this.player.doAction(this.activeWeapon, action, duration);
+            }  else {
+                let duration = weaponDef.reloadTime * PerkProperties.underpressure.reloadTimeMult;
+                let action: number = GameConfig.Action.Reload;
+                if (
+                    weaponDef.reloadTimeAlt
+                    && this.weapons[this.curWeapIdx].ammo === 0
+                    && invAmmo > stats.maxReload
+                ) {
+                    duration = weaponDef.reloadTimeAlt!;
+                    action = GameConfig.Action.ReloadAlt;
+                }
+
+                this.player.doAction(this.activeWeapon, action, duration);
+            }
         }
 
         // schedule an alt reload if ammo is 0 and we have more inventory ammo
