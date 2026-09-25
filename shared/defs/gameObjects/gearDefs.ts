@@ -104,6 +104,27 @@ const ChestDefs: Record<string, ChestDef> = {
             pickup: "chest_pickup_01",
         },
     },
+    chest05: {
+        name: "Level 5 Vest",
+        type: "chest",
+        noDrop: true,
+        level: 5,
+        damageReduction: 0.75,
+        skinImg: {
+            baseTint: 0x1c2e06,
+            baseSprite: "player-armor-base-01.img",
+        },
+        lootImg: {
+            sprite: "loot-chest-04.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-01.img",
+            borderTint: 0,
+            scale: 0.2,
+        },
+        sound: {
+            pickup: "chest_pickup_01",
+        },
+    },
 };
 
 export interface HelmetDef extends BaseGearDef {
@@ -192,6 +213,28 @@ const HelmetDefs: Record<string, HelmetDef> = {
         type: "helmet",
         level: 4,
         damageReduction: 0.7,
+        skinImg: {
+            baseTint: 0x252525,
+            baseTintRed: 0x260404,
+            baseTintBlue: 0x5192d,
+            baseSprite: "player-circle-base-01.img",
+        },
+        lootImg: {
+            sprite: "loot-helmet-03.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-01.img",
+            borderTint: 0,
+            scale: 0.2,
+        },
+        sound: {
+            pickup: "helmet_pickup_01",
+        },
+    },
+    helmet05: {
+        name: "Level 5 Helmet",
+        type: "helmet",
+        level: 5,
+        damageReduction: 0.85,
         skinImg: {
             baseTint: 0x252525,
             baseTintRed: 0x260404,
@@ -560,6 +603,21 @@ const AmmoDefs: Record<string, AmmoDef> = {
             pickup: "ammo_pickup_01",
         },
     },
+    "227fury": {
+        name: ".227 Fury",
+        type: "ammo",
+        special: true,
+        minStackSize: 10,
+        lootImg: {
+            sprite: "loot-ammo-box.img",
+            scale: 0.2,
+            tint: 0x8c0000,
+            tintDark: 0x690000,
+        },
+        sound: {
+            pickup: "ammo_pickup_01",
+        },
+    },
     potato_ammo: {
         name: "Potato Ammo",
         type: "ammo",
@@ -726,7 +784,7 @@ const SkinDefs = {
     }),
     helmet03_lt_aged: defineSkin("helmet03", {
         name: "Lieutenant Helmet",
-        perk: "firepower",
+        role: "lieutenant_aged",
         skinImg: {
             baseTint: 0xffffff,
             baseTintRed: 0xffffff,
@@ -736,6 +794,21 @@ const SkinDefs = {
         },
         lootImg: {
             sprite: "player-helmet-lieutenant.img",
+            rot: 0.5 * Math.PI,
+        },
+    }),
+    helmet03_sergeant: defineSkin("helmet03", {
+        name: "Sergeant Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-sergeant.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-sergeant.img",
             rot: 0.5 * Math.PI,
         },
     }),
@@ -767,6 +840,21 @@ const SkinDefs = {
         lootImg: {
             sprite: "player-helmet-marksman.img",
             scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
+    helmet03_marksman_aged: defineSkin("helmet03", {
+        name: "Marksman Helmet",
+        role: "marksman_aged",
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-marksman.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-marksman.img",
             rot: 0.5 * Math.PI,
         },
     }),
@@ -834,6 +922,21 @@ const SkinDefs = {
             rot: 0.5 * Math.PI,
         },
     }),
+    helmet04_medic_aged: defineSkin("helmet04", {
+        name: "Medic Helmet",
+        role: "medic_aged",
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-medic.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-medic.img",
+            rot: 0.5 * Math.PI,
+        },
+    }),
     helmet04_last_man_red: defineSkin("helmet04", {
         name: "Lone Survivr Helmet",
         noDrop: true,
@@ -882,6 +985,21 @@ const SkinDefs = {
             rot: 0.5 * Math.PI,
         },
     }),
+    helmet04_leader_aged: defineSkin("helmet04", {
+        name: "Commander Helmet",
+        role: "leader_aged",
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-leader.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-leader.img",
+            rot: 0.5 * Math.PI,
+        },
+    }),
     helmet04_captain: defineSkin("helmet04", {
         name: "Captain Helmet",
         noDrop: true,
@@ -913,6 +1031,37 @@ const SkinDefs = {
             rot: 0.5 * Math.PI,
         },
     }),
+    helmet05_last_man_hyperpowered_red: defineSkin("helmet05", {
+        name: "Hyperpowered Lone Survivr Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-last-man-hyperpowered-red.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-last-man-hyperpowered-red.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
+    helmet05_last_man_hyperpowered_blue: defineSkin("helmet05", {
+        name: "Hyperpowered Lone Survivr Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-last-man-hyperpowered-blue.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-last-man-hyperpowered-blue.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
 
     backpack04_cloud: defineSkin("backpack04", {
         name: "Experimental Pack",

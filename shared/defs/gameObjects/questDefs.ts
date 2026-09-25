@@ -587,6 +587,38 @@ export const QuestDefs: Record<string, QuestDef> = {
             },
         ],
     },
+    quest_heal_medic: {
+        type: "quest",
+        event: "item_used",
+        target: 10,
+        xp: 30,
+        icon: {
+            urls: [
+                "img/loot/player-helmet-medic.svg",
+            ],
+        },
+        filters: [
+            {
+                type: "item",
+                subType: "category",
+                itemCategory: ["heal"],
+            },
+            {
+                type: "role",
+                role: [
+                    "leader",
+                    "captain",
+                    "lieutenant",
+                    "medic",
+                    "marksman",
+                    "recon",
+                    "grenadier",
+                    "bugler",
+                    "last_man",
+                ],
+            },
+        ],
+    },
     quest_boost: {
         type: "quest",
         event: "item_used",

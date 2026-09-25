@@ -166,6 +166,7 @@ export class Player implements AbstractObject {
     chestSprite = createSprite();
     flakSprite = createSprite();
     steelskinSprite = createSprite();
+    leadskinSprite = createSprite();
     helmetSprite = createSprite();
     visorSprite = createSprite();
     backpackSprite = createSprite();
@@ -379,6 +380,7 @@ export class Player implements AbstractObject {
         this.bodyContainer.addChild(this.chestSprite);
         this.bodyContainer.addChild(this.flakSprite);
         this.bodyContainer.addChild(this.steelskinSprite);
+        this.bodyContainer.addChild(this.leadskinSprite);
         this.bodyContainer.addChild(this.hipSprite);
         this.bodyContainer.addChild(this.patchSprite);
         this.bodyContainer.addChild(this.bodyEffectSprite);
@@ -1585,6 +1587,16 @@ export class Player implements AbstractObject {
             this.steelskinSprite.visible = true;
         } else {
             this.steelskinSprite.visible = false;
+        }
+        //leadskin - better steelskin
+        if (this.m_hasPerk("leadskin") && !outfitDef.ghillie) {
+            this.leadskinSprite.texture = PIXI.Texture.from("loot-melee-leadskin-pan-black.img");
+            this.leadskinSprite.scale.set(0.4, 0.4);
+            this.leadskinSprite.anchor.set(0.575, 0.5);
+            this.leadskinSprite.tint = 0x888888; //gray
+            this.leadskinSprite.visible = true;
+        } else {
+            this.leadskinSprite.visible = false;
         }
 
         // Helmet

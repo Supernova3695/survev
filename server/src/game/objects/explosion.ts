@@ -10,7 +10,7 @@ import type { Game } from "../game.ts";
 import type { DamageParams, GameObject } from "./gameObject.ts";
 import { type Loot } from "./loot.ts";
 import type { Obstacle } from "./obstacle.ts";
-import type { Player } from "./player.ts";
+import { Player, PlayerBarn } from "./player.ts";
 
 interface LineCollision {
     obj: GameObject;
@@ -23,7 +23,7 @@ export class ExplosionBarn {
     explosions: Explosion[] = [];
     newExplosions: Explosion[] = [];
 
-    constructor(readonly game: Game) {}
+    constructor(readonly game: Game, public playerBarn: PlayerBarn,) {}
 
     update() {
         for (let i = 0; i < this.explosions.length; i++) {
@@ -143,7 +143,7 @@ export class ExplosionBarn {
             ? explosion.damageParams.source
             : undefined;
 
-        const hasAmped = sourcePlayer?.hasPerk?.("amped_explosives");
+        const hasAmped = (sourcePlayer?.hasPerk?.("amped_explosives") || sourcePlayer?.hasPerk?.("hyperpowered"));
 
         const shrapnelSpeedMult = hasAmped
             ? PerkProperties.amped_explosives.shrapnelSpeedMult
@@ -232,7 +232,6 @@ export class ExplosionBarn {
                         obj.dropRandomLoot();
                     }
                 }
-
                 if (explosion.type === "explosion_potato_smgshot") {
                     obj.incrementFat();
                 }

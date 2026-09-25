@@ -215,8 +215,8 @@ export const StructureDefs: Record<string, StructureDef> = {
             },
             {
                 type: "statue_underground_03",
-                pos: v2.create(0, 0),
-                ori: 0,
+                pos: v2.create(7.6, 0),
+                ori: 1,
             },
         ],
         stairs: [
@@ -244,8 +244,8 @@ export const StructureDefs: Record<string, StructureDef> = {
             },
             {
                 type: "statue_underground_04",
-                pos: v2.create(0, 0),
-                ori: 0,
+                pos: v2.create(7.6, 0),
+                ori: 1,
             },
         ],
         stairs: [

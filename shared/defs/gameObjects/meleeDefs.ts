@@ -995,7 +995,7 @@ const BaseDefs: Record<string, MeleeDef> = {
         type: "melee",
         quality: 1,
         cleave: false,
-        autoAttack: false,
+        autoAttack: true,
         switchDelay: 0.25,
         damage: 40,
         obstacleDamage: 1.3,
@@ -1323,6 +1323,26 @@ const SkinDefs: Record<string, MeleeDef> = {
             sprite: "loot-melee-bonesaw-rusted.img",
         },
     }),
+    bonesaw_hyperpowered_red: defineMeleeSkin("saw", {
+        name: "Hyperpowered Bonesaw Red",
+        noPotatoSwap: false,
+        lootImg: {
+            sprite: "loot-melee-bonesaw-hyperpowered-red.img",
+        },
+        worldImg: {
+            sprite: "loot-melee-bonesaw-hyperpowered-red.img",
+        },
+    }),
+    bonesaw_hyperpowered_blue: defineMeleeSkin("saw", {
+        name: "Hyperpowered Bonesaw Blue",
+        noPotatoSwap: false,
+        lootImg: {
+            sprite: "loot-melee-bonesaw-hyperpowered-blue.img",
+        },
+        worldImg: {
+            sprite: "loot-melee-bonesaw-hyperpowered-blue.img",
+        },
+    }),
     woodaxe_bloody: defineMeleeSkin("woodaxe", {
         name: "Axe Bloodstained",
         lootImg: {
@@ -1345,6 +1365,22 @@ const SkinDefs: Record<string, MeleeDef> = {
         lootImg: { sprite: "loot-melee-katana-orchid.img" },
         worldImg: {
             sprite: "loot-melee-katana-orchid.img",
+        },
+    }),
+    katana_vengance_red: defineMeleeSkin("katana", {
+        name: "Red Vengance Katana",
+        quality: 1,
+        lootImg: { sprite: "loot-melee-katana-vengance-red.img" },
+        worldImg: {
+            sprite: "loot-melee-katana-vengance-red.img",
+        },
+    }),
+    katana_vengance_blue: defineMeleeSkin("katana", {
+        name: "Blue Vengance Katana",
+        quality: 1,
+        lootImg: { sprite: "loot-melee-katana-vengance-blue.img" },
+        worldImg: {
+            sprite: "loot-melee-katana-vengance-blue.img",
         },
     }),
     sledgehammer: defineMeleeSkin("stonehammer", {

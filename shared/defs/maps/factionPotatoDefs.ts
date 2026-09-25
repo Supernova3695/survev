@@ -97,6 +97,7 @@ const mapDef: PartialMapDef = {
         factionMode: true,
         potatoMode: true,
         factions: 2,
+        hasHyperpoweredLastMan: true,
     },
     /* STRIP_FROM_PROD_CLIENT:START */
     gameConfig: {

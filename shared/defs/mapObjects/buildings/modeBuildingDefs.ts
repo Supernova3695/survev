@@ -1045,7 +1045,7 @@ function createOasis(overrides: DeepPartial<BuildingDef>): BuildingDef {
                 ori: 0,
             },
             {
-                type: "crate_09de",
+                type: randomObstacleType({ crate_09de: 4, crate_23: 1 }), //"crate_09de",
                 pos: v2.create(5, 0),
                 scale: 1,
                 ori: 0,
@@ -4173,12 +4173,275 @@ function createStatueUnderground(overrides: DeepPartial<BuildingDef>, params: { 
     return util.mergeDeep(baseDef, overrides);
 }
 
+function createStatueLargeUnderground(overrides: DeepPartial<BuildingDef>, params: { crate: string, case: string }): BuildingDef {
+    const baseDef: BuildingDef = {
+        type: "building",
+        map: { display: false, color: 0x665a4e, scale: 1 },
+        terrain: { grass: true, beach: false },
+        zIdx: 0,
+        floor: {
+            surfaces: [
+                {
+                    type: "bunker",
+                    collision: [
+                        collider.createAabbExtents(v2.create(0, -4.5), v2.create(10, 9)),
+                    ],
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-statue-chamber-floor-01a.img",
+                    pos: v2.create(-0.15, -4.6),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+                {
+                    sprite: "map-bunker-egg-chamber-floor-01b.img",
+                    pos: v2.create(0, 9.24),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+        },
+        ceiling: {
+            zoomRegions: [
+                {
+                    zoomIn: collider.createAabbExtents(
+                        v2.create(0, -4.5),
+                        v2.create(10, 9),
+                    ),
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-egg-chamber-ceiling-01.img",
+                    scale: 1,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+            vision: { dist: 5, width: 3 },
+        },
+        mapObjects: [
+            {
+                type: "concrete_wall_ext_6",
+                pos: v2.create(0, 11.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_8",
+                pos: v2.create(-3.5, 8),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_8",
+                pos: v2.create(3.5, 8),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_4",
+                pos: v2.create(-7, 5.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_4",
+                pos: v2.create(7, 5.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_20",
+                pos: v2.create(-10.5, -3),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_20",
+                pos: v2.create(10.5, -3),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_24",
+                pos: v2.create(0, -14.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "house_door_02",
+                pos: v2.create(-2, 5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: params.crate,
+                pos: v2.create(0, -4.5),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: params.case,
+                pos: v2.create(0, -11),
+                scale: 1,
+                ori: 2,
+                inheritOri: true,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-7, -11),
+                scale: 0.9,
+                ori: 0,
+            },
+        ],
+    };
+    return util.mergeDeep(baseDef, overrides);
+}
+
+function createStatueLargeUnderground2(overrides: DeepPartial<BuildingDef>, params: { crate: string, case: string }): BuildingDef {
+    const baseDef: BuildingDef = {
+        type: "building",
+        map: { display: false, color: 0x665a4e, scale: 1 },
+        terrain: { grass: true, beach: false },
+        zIdx: 0,
+        floor: {
+            surfaces: [
+                {
+                    type: "bunker",
+                    collision: [
+                        collider.createAabbExtents(v2.create(0, -4.5), v2.create(10, 9)),
+                    ],
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-statue-chamber-floor-01a.img",
+                    pos: v2.create(-0.15, -4.6),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+                {
+                    sprite: "map-bunker-egg-chamber-floor-01b.img",
+                    pos: v2.create(0, 9.24),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+        },
+        ceiling: {
+            zoomRegions: [
+                {
+                    zoomIn: collider.createAabbExtents(
+                        v2.create(0, -4.5),
+                        v2.create(10, 9),
+                    ),
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-egg-chamber-ceiling-01.img",
+                    scale: 1,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+            vision: { dist: 5, width: 3 },
+        },
+        mapObjects: [
+            {
+                type: "concrete_wall_ext_6",
+                pos: v2.create(0, 11.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_8",
+                pos: v2.create(-3.5, 8),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_8",
+                pos: v2.create(3.5, 8),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_4",
+                pos: v2.create(-7, 5.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_4",
+                pos: v2.create(7, 5.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_20",
+                pos: v2.create(-10.5, -3),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_20",
+                pos: v2.create(10.5, -3),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_24",
+                pos: v2.create(0, -14.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "house_door_02",
+                pos: v2.create(-2, 5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: params.crate,
+                pos: v2.create(0, -4.5),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: params.case,
+                pos: v2.create(0, -11),
+                scale: 1,
+                ori: 2,
+                inheritOri: true,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-7, -11),
+                scale: 0.9,
+                ori: 0,
+            },
+        ],
+    };
+    return util.mergeDeep(baseDef, overrides);
+}
+
 function createSavannahPatch(
     overrides: DeepPartial<BuildingDef>,
     params: {
         grass_color?: number;
         tree_large?: BuildingChildObjType;
         tree_small?: BuildingChildObjType;
+        center_object?: BuildingChildObjType;
     },
 ): BuildingDef {
     const baseDef: BuildingDef = {
@@ -4241,7 +4504,7 @@ function createSavannahPatch(
         ceiling: { zoomRegions: [], imgs: [] },
         mapObjects: [
             {
-                type: "crate_21",
+                type: params.center_object || "crate_21", //"crate_21",
                 pos: v2.create(0, 0),
                 scale: 1,
                 ori: 0,
@@ -5323,6 +5586,12 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
             },
         ],
     },
+    savannah_patch_02: createSavannahPatch({
+        terrain: { grass: true, beach: false, spawnPriority: 1 },
+    }, {
+        grass_color: 0xebc634,
+        center_object: "crate_21d",
+    }),
     bank_01b: createBank({}, { vault: "vault_01b" }),
     vault_01b: createBankVault({}, {
         gold_box: 9,
@@ -6061,6 +6330,16 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
                 ori: 0,
             },
             {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(85, -13),
+                scale: 1,
+                ori: 1,
+            },
+            {
                 type: "tree_05c",
                 pos: v2.create(0, 2),
                 scale: 2,
@@ -6779,9 +7058,11 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
         ],
     },
     statue_building_04: createStatue({}, { statue: "statue_04" }),
-    statue_underground_04: createStatueUnderground({}, { crate: "crate_22d" }),
+    //statue_underground_04: createStatueUnderground({}, { crate: "crate_22d" }),
+    statue_underground_04: createStatueLargeUnderground2({}, { crate: "crate_22d", case: "case_04" }),
     statue_building_03: createStatue({}, { statue: "statue_03" }),
-    statue_underground_03: createStatueUnderground({}, { crate: "crate_02d" }),
+    //statue_underground_03: createStatueUnderground({}, { crate: "crate_02d" }),
+    statue_underground_03: createStatueLargeUnderground({}, { crate: "crate_02d", case: "case_04" }),
 
     // Faction
 
@@ -8529,6 +8810,7 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
         terrain: { grass: true, beach: false, spawnPriority: 1 },
     }, {
         grass_color: 0xebc634,
+        center_object: "crate_21",
     }),
     kopje_patch_01: createKopjePatch({
         terrain: { grass: true, beach: false, spawnPriority: 2 },
