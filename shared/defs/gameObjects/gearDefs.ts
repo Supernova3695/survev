@@ -790,21 +790,6 @@ const SkinDefs = {
             rot: 0.5 * Math.PI,
         },
     }),
-    helmet03_spy: defineSkin("helmet03", {
-        name: "Spy Helmet",
-        noDrop: true,
-        skinImg: {
-            baseTint: 0xffffff,
-            baseTintRed: 0xffffff,
-            baseTintBlue: 0xffffff,
-            baseSprite: "player-helmet-spy.img",
-            spriteScale: 0.3,
-        },
-        lootImg: {
-            sprite: "player-helmet-spy.img",
-            rot: 0.5 * Math.PI,
-        },
-    }),
     helmet03_lt_aged: defineSkin("helmet03", {
         name: "Lieutenant Helmet",
         perk: "firepower",
