@@ -160,6 +160,13 @@ export const RoleDefs: Record<string, RoleDef> = {
             },
         }),
     },
+    leader_aged: {
+        type: "role",
+        announce: false,
+        killFeed: {},
+        sound: {},
+        perks: ["leadership", "high_velocity"],
+    },
     captain: {
         type: "role",
         announce: true,
@@ -224,6 +231,13 @@ export const RoleDefs: Record<string, RoleDef> = {
             },
         }),
     },
+    lieutenant_aged: {
+        type: "role",
+        announce: false,
+        killFeed: {},
+        sound: {},
+        perks: ["firepower", "underpressure"],
+    },
     sergeant: {
         type: "role",
         announce: true,
@@ -285,6 +299,13 @@ export const RoleDefs: Record<string, RoleDef> = {
             },
         }),
     },
+    medic_aged: {
+        type: "role",
+        announce: false,
+        killFeed: {},
+        sound: {},
+        perks: ["field_medic", "self_revive"],
+    },
     marksman: {
         type: "role",
         announce: true,
@@ -319,6 +340,13 @@ export const RoleDefs: Record<string, RoleDef> = {
                 bandage: 5,
             },
         }),
+    },
+    marksman_aged: {
+        type: "role",
+        announce: false,
+        killFeed: {},
+        sound: {},
+        perks: ["targeting", "chambered"],
     },
     recon: {
         type: "role",

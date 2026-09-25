@@ -422,7 +422,7 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         health: 140,
         loot: [
             autoLoot("m1014", 1),
-            autoLoot("helmet03_lt_aged", 1),
+            autoLoot("helmet04_leader_aged", 1),
             autoLoot("outfitRedLeaderAged", 1),
             autoLoot("machete_taiga", 1),
         ],
@@ -961,6 +961,18 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         img: { sprite: "map-crate-21.img" },
         sound: { explode: "crate_break_01" },
     }),
+    crate_21d: createCrate({
+        health: 140,
+        loot: [
+            tierLoot("tier_guns", 1, 2),
+            tierLoot("tier_cloud_02", 1, 1),
+            tierLoot("tier_aged_faction_helmet_sp", 1, 1),
+        ],
+        map: { display: false, color: 0x496f, scale: 0.875 },
+        terrain: { grass: true, beach: false },
+        img: { sprite: "map-crate-21.img" },
+        sound: { explode: "crate_break_01" },
+    }),
     crate_22: createCrate({
         health: 140,
         loot: [
@@ -982,7 +994,7 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         health: 140,
         loot: [
             autoLoot("an94", 1),
-            autoLoot("helmet03_lt_aged", 1),
+            autoLoot("helmet04_leader_aged", 1),
             autoLoot("outfitBlueLeaderAged", 1),
             autoLoot("kukri_trad", 1),
         ],
@@ -990,6 +1002,25 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         terrain: { grass: true, beach: false },
         img: { sprite: "map-crate-22.img" },
         sound: { explode: "crate_break_01" },
+    }),
+    crate_23: createCrate({
+        health: 140,
+        loot: [
+            tierLoot("tier_guns", 1, 2, { preloadGuns: true }),
+            tierLoot("tier_armor", 1, 2),
+            tierLoot("tier_packs", 1, 1),
+            tierLoot("tier_medical", 1, 3),
+            autoLoot("helmet04_medic_aged", 1)
+        ],
+        map: { display: true, color: 32511 },
+        terrain: {
+            grass: true,
+            beach: false,
+            minDistanceFromSameType: 32,
+        },
+        img: { sprite: "map-crate-23.img" },
+        sound: { explode: "crate_break_01" },
+        teamId: 2,
     }),
     airdrop_crate_01: createAirdrop({
         button: {

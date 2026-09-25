@@ -381,4 +381,8 @@ export const BuildingSprites = {
         "map/map-bunker-chrys-compartment-floor-02c.svg",
         "map/map-bunker-chrys-compartment-floor-03a.svg",
     ],
+
+    bunker_statue: [
+        "map/map-bunker-statue-chamber-floor-01a.svg",
+    ],
 };

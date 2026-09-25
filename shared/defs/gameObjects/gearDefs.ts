@@ -775,6 +775,21 @@ const SkinDefs = {
             spriteScale: 0.3,
         },
     }),
+    helmet03_lt_aged: defineSkin("helmet03", {
+        name: "Lieutenant Helmet",
+        role: "lieutenant_aged",
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-lieutenant.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-lieutenant.img",
+            rot: 0.5 * Math.PI,
+        },
+    }),
     helmet03_sergeant: defineSkin("helmet03", {
         name: "Sergeant Helmet",
         noDrop: true,
@@ -787,21 +802,6 @@ const SkinDefs = {
         },
         lootImg: {
             sprite: "player-helmet-sergeant.img",
-            rot: 0.5 * Math.PI,
-        },
-    }),
-    helmet03_lt_aged: defineSkin("helmet03", {
-        name: "Lieutenant Helmet",
-        perk: "firepower",
-        skinImg: {
-            baseTint: 0xffffff,
-            baseTintRed: 0xffffff,
-            baseTintBlue: 0xffffff,
-            baseSprite: "player-helmet-lieutenant.img",
-            spriteScale: 0.3,
-        },
-        lootImg: {
-            sprite: "player-helmet-lieutenant.img",
             rot: 0.5 * Math.PI,
         },
     }),
@@ -833,6 +833,21 @@ const SkinDefs = {
         lootImg: {
             sprite: "player-helmet-marksman.img",
             scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
+    helmet03_marksman_aged: defineSkin("helmet03", {
+        name: "Marksman Helmet",
+        role: "marksman_aged",
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-marksman.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-marksman.img",
             rot: 0.5 * Math.PI,
         },
     }),
@@ -900,6 +915,21 @@ const SkinDefs = {
             rot: 0.5 * Math.PI,
         },
     }),
+    helmet04_medic_aged: defineSkin("helmet04", {
+        name: "Medic Helmet",
+        role: "medic_aged",
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-medic.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-medic.img",
+            rot: 0.5 * Math.PI,
+        },
+    }),
     helmet04_last_man_red: defineSkin("helmet04", {
         name: "Lone Survivr Helmet",
         noDrop: true,
@@ -945,6 +975,21 @@ const SkinDefs = {
         lootImg: {
             sprite: "player-helmet-leader.img",
             scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
+    helmet04_leader_aged: defineSkin("helmet04", {
+        name: "Commander Helmet",
+        role: "leader_aged",
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-leader.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-leader.img",
             rot: 0.5 * Math.PI,
         },
     }),

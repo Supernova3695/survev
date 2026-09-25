@@ -23,7 +23,7 @@ const mapDef: PartialMapDef = {
             { name: "potato_pickup_01", channel: "ui" },
             { name: "piano_music_01", channel: "ambient" },
         ],
-        atlases: ["loadout", "shared", "desert"],
+        atlases: ["loadout", "shared", "desert", "faction"],
     },
     biome: {
         colors: {
@@ -227,6 +227,10 @@ const mapDef: PartialMapDef = {
             { name: "awc", count: 1, weight: 0.3 },
             { name: "m249", count: 1, weight: 0.25 },
         ],
+        tier_aged_faction_helmet_sp: [
+            { name: "helmet03_lt_aged", count: 1, weight: 1 },
+            { name: "helmet03_marksman_aged", count: 1, weight: 1 },
+        ],
     },
     mapGen: {
         map: {
@@ -334,6 +338,7 @@ const mapDef: PartialMapDef = {
                 desert_town_01: 1,
                 desert_town_02: 1,
                 greenhouse_02: 1,
+                savannah_patch_02: 1,
                 stone_05: 6,
             },
         ],

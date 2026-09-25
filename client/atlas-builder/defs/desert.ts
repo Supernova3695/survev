@@ -7,6 +7,7 @@ export const DesertAtlas: AtlasDef = {
         ...BuildingSprites.saloon,
         ...BuildingSprites.greenhouse_aged,
         ...BuildingSprites.bunker_chrys_aged,
+        ...BuildingSprites.bunker_statue,
 
         "map/map-building-archway-ceiling-01.svg",
         "map/map-airdrop-05.svg",
@@ -15,6 +16,9 @@ export const DesertAtlas: AtlasDef = {
         "map/map-bush-05.svg",
         "map/map-bush-07sp.svg",
         "map/map-bush-res-05.svg",
+        "map/map-brush-01sv.svg",
+        "map/map-brush-02sv.svg",
+        "map/map-brush-res-02sv.svg",
 
         "map/map-decal-camera-01.svg",
         "map/map-web-01.svg",
@@ -30,6 +34,7 @@ export const DesertAtlas: AtlasDef = {
         "map/map-statue-03.svg",
         "map/map-statue-04.svg",
         "map/map-complex-warehouse-floor-05.svg",
+        "map/map-crate-23.svg",
         "map/map-crate-22.svg",
         "map/map-crate-02f.svg",
         "map/map-case-meteor-01.svg",
@@ -46,6 +51,9 @@ export const DesertAtlas: AtlasDef = {
 
         "map/map-tree-05c.svg",
         "map/map-tree-06.svg",
+        "map/map-tree-03sv.svg",
+        "map/map-tree-12.svg",
+        "map/map-tree-res-12.svg",
 
         "map/map-safe-01.svg",
 
@@ -55,5 +63,7 @@ export const DesertAtlas: AtlasDef = {
         "map/map-toilet-res-03.svg",
         "map/map-sink-01.svg",
         "map/map-sink-res-01.svg",
+
+        "map/map-crate-21.svg"
     ],
 };
