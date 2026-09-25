@@ -198,6 +198,7 @@ export class GameMap {
     desertMode: boolean;
     potatoMode: boolean;
     sniperMode: boolean;
+    //hardpointMode: boolean;
 
     mapStream = new MsgStream(new ArrayBuffer(1 << 16));
 
@@ -292,6 +293,7 @@ export class GameMap {
         this.desertMode = !!this.mapDef.gameMode.desertMode;
         this.potatoMode = !!this.mapDef.gameMode.potatoMode;
         this.sniperMode = !!this.mapDef.gameMode.sniperMode;
+        //this.hardpointMode = !!this.mapDef.gameMode.hardpointMode;
 
         this.center = v2.create(this.width / 2, this.height / 2);
         this.grassInset = mapConfig.grassInset;

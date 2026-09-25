@@ -33,7 +33,7 @@ export function getConfig(isProduction: boolean, dir: string) {
         modes: [
             { mapName: "main", teamMode: TeamMode.Solo, enabled: true },
             { mapName: "main", teamMode: TeamMode.Duo, enabled: true },
-            { mapName: "faction", teamMode: TeamMode.Squad, enabled: true },
+            { mapName: "hardpoint", teamMode: TeamMode.Squad, enabled: true },
         ],
         clientTheme: "main",
         passType: "pass_survivr2",

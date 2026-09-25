@@ -5,7 +5,7 @@ import type { MapDef } from "../mapDefs.ts";
 import { Main, type PartialMapDef } from "./baseDefs.ts";
 
 const mapDef: PartialMapDef = {
-    mapId: GameConfig.MapId.Hardpoint,
+    mapId: GameConfig.MapId.Faction,
     desc: {
         name: "Hardpoint",
         icon: "img/gui/star.svg",
@@ -411,7 +411,7 @@ const mapDef: PartialMapDef = {
                         odds: 1,
                         innerRad: 32,
                         outerRad: 96,
-                        centerObj: "teapavilion_01w",
+                        //centerObj: "teapavilion_01w",
                         spawnBound: {
                             pos: v2.create(0.5, 0.5),
                             rad: 100,
@@ -419,6 +419,9 @@ const mapDef: PartialMapDef = {
                     },
                 ],
                 weights: [
+                    { weight: 1, widths: [20] },
+                    { weight: 1, widths: [20, 4] },
+                    { weight: 1, widths: [20, 8, 4] },
                     { weight: 1, widths: [20] },
                     { weight: 1, widths: [20, 4] },
                     { weight: 1, widths: [20, 8, 4] },
