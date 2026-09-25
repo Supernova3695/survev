@@ -1,15 +1,20 @@
 import { type DeepPartial, util } from "../../utils/util.ts";
-import type { BaseLootDef } from "./itemTypes.ts";
+import type { BaseLootDef, LootImg } from "./itemTypes.ts";
 
 type GearDef = HealDef | AmmoDef | BoostDef | BackpackDef | HelmetDef | ChestDef;
 
 function defineSkin<T extends GearDef>(baseType: string, params: DeepPartial<T>): T {
-    return util.mergeDeep({}, BaseDefs[baseType], { baseType }, params);
+    return util.mergeDeep<T>({}, BaseDefs[baseType] as T, { baseType } as T, params);
 }
 
-export interface ChestDef extends BaseLootDef {
+export interface BaseGearDef extends BaseLootDef {
+    level: 0 | 1 | 2 | 3 | 4;
+    hasDesc?: boolean;
+    desc?: string;
+}
+
+export interface ChestDef extends BaseGearDef {
     type: "chest";
-    level: number;
     damageReduction: number;
     skinImg: {
         baseTint: number;
@@ -101,11 +106,10 @@ const ChestDefs: Record<string, ChestDef> = {
     },
 };
 
-export interface HelmetDef extends BaseLootDef {
+export interface HelmetDef extends BaseGearDef {
     type: "helmet";
     perk?: string;
     role?: string;
-    level: number;
     damageReduction: number;
     skinImg: {
         baseTint: number;
@@ -207,11 +211,11 @@ const HelmetDefs: Record<string, HelmetDef> = {
     },
 };
 
-export interface BackpackDef extends BaseLootDef {
+export interface BackpackDef extends BaseGearDef {
     type: "backpack";
-    level: number;
     playerRad: number;
     tint: number;
+    maxPerks?: number;
 }
 
 const BackpackDefs: Record<string, BackpackDef> = {
@@ -274,6 +278,23 @@ const BackpackDefs: Record<string, BackpackDef> = {
         playerRad: 1,
         lootImg: {
             sprite: "loot-pack-03.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-01.img",
+            borderTint: 0,
+            scale: 0.2,
+        },
+        sound: {
+            pickup: "pack_pickup_01",
+        },
+    },
+    backpack04: {
+        name: "Tactical Pack",
+        type: "backpack",
+        level: 4,
+        tint: 0x666633,
+        playerRad: 1,
+        lootImg: {
+            sprite: "loot-pack-04.img",
             tint: 0xffffff,
             border: "loot-circle-outer-01.img",
             borderTint: 0,
@@ -417,6 +438,9 @@ export interface AmmoDef extends BaseLootDef {
     special?: boolean;
     minStackSize: number;
     hideUi?: boolean;
+    lootImg: LootImg & {
+        tintDark: number;
+    };
 }
 
 const AmmoDefs: Record<string, AmmoDef> = {
@@ -937,6 +961,13 @@ const SkinDefs = {
             sprite: "player-helmet-classless.img",
             rot: 0.5 * Math.PI,
         },
+    }),
+
+    backpack04_cloud: defineSkin("backpack04", {
+        name: "Experimental Pack",
+        hasDesc: true,
+        desc: "You can equip an extra perk.",
+        maxPerks: 2,
     }),
 };
 
