@@ -8,7 +8,7 @@ function defineSkin<T extends GearDef>(baseType: string, params: DeepPartial<T>)
 }
 
 export interface BaseGearDef extends BaseLootDef {
-    level: 0 | 1 | 2 | 3 | 4;
+    level: 0 | 1 | 2 | 3 | 4 | 5;
     hasDesc?: boolean;
     desc?: string;
 }
@@ -1062,6 +1062,7 @@ const SkinDefs = {
             scale: 0.3,
             rot: 0.5 * Math.PI,
         },
+    }),
 
     backpack04_cloud: defineSkin("backpack04", {
         name: "Experimental Pack",
