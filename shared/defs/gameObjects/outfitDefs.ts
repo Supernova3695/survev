@@ -1195,6 +1195,7 @@ const SkinDefs: Record<string, OutfitDef> = {
         name: "Rainy Day",
         rarity: Rarity.Common,
         lore: "Feeling a little blue there?",
+        noDropOnDeath: true,
         skinImg: {
             baseTint: 0x335ba3,
             baseSprite: "player-base-01.img",
@@ -1215,6 +1216,7 @@ const SkinDefs: Record<string, OutfitDef> = {
         name: "Cowz Cloak",
         rarity: Rarity.Common,
         lore: "Also play cowz.io!",
+        noDropOnDeath: true,
         skinImg: {
             baseTint: 0xffffff,
             baseSprite: "player-base-outfitCowz.img",
@@ -1234,6 +1236,7 @@ const SkinDefs: Record<string, OutfitDef> = {
         name: "The Chameleon",
         rarity: Rarity.Uncommon,
         lore: "Jack of all trades, master of none.",
+        noDropOnDeath: true,
         skinImg: {
             baseTint: 0x47cbc6,
             baseSprite: "player-base-01.img",
@@ -1253,6 +1256,7 @@ const SkinDefs: Record<string, OutfitDef> = {
         name: "Pastel Sky",
         rarity: Rarity.Uncommon,
         lore: "What an artistic phenomenon!",
+        noDropOnDeath: true,
         skinImg: {
             baseTint: 0xffffff,
             baseSprite: "player-base-outfitPastel.img",
@@ -1272,7 +1276,8 @@ const SkinDefs: Record<string, OutfitDef> = {
     outfitChrys: defineOutfitSkin("outfitBase", {
         name: "Chrysanthemum Garb",
         rarity: Rarity.Rare,
-        lore: "Sourced from the luxurious plants of Bunker 17.",
+        lore: "Sourced from the luxurious plants of Bunker 16.",
+        noDropOnDeath: true,
         skinImg: {
             baseTint: 0xffffff,
             baseSprite: "player-base-outfitChrys.img",
@@ -1292,6 +1297,7 @@ const SkinDefs: Record<string, OutfitDef> = {
         name: "Fahrenheit 5182",
         rarity: Rarity.Rare,
         lore: "It was a pleasure to boil.",
+        noDropOnDeath: true,
         skinImg: {
             baseTint: 0xffffff,
             baseSprite: "player-base-outfitFahrenheit.img",
@@ -1312,6 +1318,7 @@ const SkinDefs: Record<string, OutfitDef> = {
         name: "Potatoskin",
         rarity: Rarity.Epic,
         lore: "Mama didn't raise no spud.",
+        noDropOnDeath: true,
         skinImg: {
             baseTint: 0xffffff,
             baseSprite: "player-base-outfitPotatoskin.img",
@@ -1331,6 +1338,7 @@ const SkinDefs: Record<string, OutfitDef> = {
         name: "Auroric Ascension",
         rarity: Rarity.Mythic,
         lore: "As the island is coated with blood, the skies are lit aflame by the borealis.",
+        noDropOnDeath: true,
         skinImg: {
             baseTint: 0xffffff,
             baseSprite: "player-base-outfitAurora.img",

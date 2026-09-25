@@ -130,7 +130,6 @@ export class PlayerBarn {
      * Assigned once at game end
      */
     factionsMvp?: Player = undefined;
-    sentMvpQuestUpdate = false;
 
     constructor(readonly game: Game) {
         this.bagSizes = util.mergeDeep<typeof GameConfig["bagSizes"]>(
@@ -291,12 +290,6 @@ export class PlayerBarn {
                 sendWinEmotes = true;
                 this.sentWinEmotes = true;
             }
-        }
-
-        if (!this.sentMvpQuestUpdate && this.game.over) {
-            this.sentMvpQuestUpdate = true;
-            const mvp = this.factionsMvp;
-            mvp?.questManager.trackEvent("be_mvp", { role: mvp.role });
         }
 
         if (this.game.isTeamMode || this.game.map.factionMode) {
@@ -776,6 +769,29 @@ export class Player extends BaseGameObject {
             return 0;
         }
         return (GameObjectDefs.typeToDef(type) as BackpackDef | HelmetDef | ChestDef).level;
+    }
+
+    /**
+     * Handles knowing if a gear item is better or worse, to show the "better item equipped" toast
+     */
+    getGearQuality(type: string) {
+        if (!type) {
+            return 0;
+        }
+
+        const def = GameObjectDefs.typeToDef(type) as BackpackDef | HelmetDef | ChestDef;
+        let level = def.level * 10;
+        if (def.type === "helmet") {
+            if (def.perk) {
+                level += 1;
+            }
+            if (def.role) {
+                level += 1;
+            }
+        } else if (def.type === "backpack") {
+            level += def.maxPerks ?? 1;
+        }
+        return level;
     }
 
     layer: number;
@@ -2065,9 +2081,9 @@ export class Player extends BaseGameObject {
                     case "helmet":
                     case "chest":
                     case "backpack": {
-                        const thisLevel = this.getGearLevel(this[itemDef.type]);
-                        const thatLevel = this.getGearLevel(closestLoot.type);
-                        if (thisLevel < thatLevel) {
+                        const thisQuality = this.getGearQuality(this[itemDef.type]);
+                        const thatQuality = this.getGearQuality(closestLoot.type);
+                        if (thisQuality < thatQuality) {
                             this.pickupLoot(closestLoot);
                         }
                         break;
@@ -2965,7 +2981,7 @@ export class Player extends BaseGameObject {
 
         for (const item of Object.keys(this.invManager.items) as InventoryItem[]) {
             // const def = GameObjectDefs[item] as AmmoDef | HealDef;
-            if (item == "1xscope") {
+            if (item == "1xscope" || (this.game.map.sniperMode && item == "2xscope")) {
                 continue;
             }
 
@@ -3877,20 +3893,13 @@ export class Player extends BaseGameObject {
             case "chest":
             case "backpack":
                 {
-                    const objLevel = this.getGearLevel(obj.type);
+                    const objQuality = this.getGearQuality(obj.type);
                     const thisType = this[def.type];
                     const thisDef = GameObjectDefs.typeToDefSafe(thisType);
-                    const thisLevel = this.getGearLevel(thisType);
+                    const thisQuality = this.getGearQuality(thisType);
                     amountLeft = 1;
 
-                    // role helmets and perk helmets can't be dropped in favor of another helmet, they're the "highest" tier
-                    if (
-                        def.type == "helmet"
-                        && (this.hasRoleHelmet
-                            || (thisDef && (thisDef as HelmetDef).perk)
-                            || (thisDef && (thisDef as HelmetDef).role))
-                    ) {
-                        amountLeft = 1;
+                    if ((def.type == "helmet" && this.hasRoleHelmet) || thisQuality > objQuality) {
                         lootToAdd = obj.type;
                         pickupMsg.type = net.PickupMsgType.BetterItemEquipped;
                         break;
@@ -3899,7 +3908,7 @@ export class Player extends BaseGameObject {
                     if (thisType === obj.type) {
                         lootToAdd = obj.type;
                         pickupMsg.type = net.PickupMsgType.AlreadyEquipped;
-                    } else if (thisLevel <= objLevel) {
+                    } else {
                         lootToAdd = thisType;
                         this[def.type] = obj.type;
                         pickupMsg.type = net.PickupMsgType.Success;
@@ -3923,9 +3932,6 @@ export class Player extends BaseGameObject {
                         }
 
                         this.setDirty();
-                    } else {
-                        lootToAdd = obj.type;
-                        pickupMsg.type = net.PickupMsgType.BetterItemEquipped;
                     }
                     if (this.getGearLevel(lootToAdd) === 0) lootToAdd = "";
                 }
@@ -3979,9 +3985,10 @@ export class Player extends BaseGameObject {
                     this.game.playerBarn.addEmote(emoteType, this.__id);
                 }
 
-                const perkSlotType = this.perks.find(
+                const perkSlots = this.perks.filter(
                     (p) => p.droppable || p.replaceOnDeath === "halloween_mystery",
-                )?.type;
+                );
+                const perkSlotType = perkSlots[0]?.type;
 
                 // The client can only show 4 perks in the UI.
                 // If the player already has 4 or more perks, they cannot pick up a new one.
@@ -3990,7 +3997,10 @@ export class Player extends BaseGameObject {
                     pickupMsg.type = net.PickupMsgType.MaxPerks;
                     break;
                 }
-                if (perkSlotType) {
+                if (
+                    perkSlotType
+                    && perkSlots.length >= (GameObjectDefs.typeToDef(this.backpack, "backpack").maxPerks ?? 1)
+                ) {
                     amountLeft = 1;
                     lootToAdd = isMistery ? "" : perkSlotType;
                     this.removePerk(perkSlotType);

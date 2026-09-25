@@ -1839,7 +1839,7 @@ export const EmotesDefs: Record<string, EmoteDef> = {
     emote_traumatizedface: {
         type: "emote",
         name: "Traumatized Face",
-        rarity: Rarity.Uncommon,
+        rarity: Rarity.Rare,
         texture: "face-traumatized.img",
         sound: "emote_01",
         channel: "ui",
@@ -1869,7 +1869,7 @@ export const EmotesDefs: Record<string, EmoteDef> = {
     emote_salutingface: {
         type: "emote",
         name: "Saluting Face",
-        rarity: Rarity.Rare,
+        rarity: Rarity.Uncommon,
         texture: "face-salute.img",
         sound: "emote_01",
         channel: "ui",

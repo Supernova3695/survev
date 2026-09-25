@@ -1,6 +1,6 @@
 {
   "name": "survev",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "type": "module",
   "description": "Open Source Surviv.io Server",
   "scripts": {
@@ -25,7 +25,7 @@
     "@types/node": "~22.12.0",
     "concurrently": "^10.0.5",
     "dprint": "^0.55.2",
-    "oxlint": "^1.81.0",
+    "oxlint": "^1.83.0",
     "typescript": "^6.0.3"
   },
   "dependencies": {

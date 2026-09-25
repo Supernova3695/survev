@@ -2592,6 +2592,10 @@ img {
     transform: translateX(-50%);
 }
 
+.tooltip-perk .tooltip-text.tooltip-shifted {
+    transform: translate(-50%, -40%);
+}
+
 .tooltip-perk .tooltip-text::after {
     content: " ";
     position: absolute;

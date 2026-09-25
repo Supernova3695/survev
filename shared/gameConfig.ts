@@ -155,7 +155,7 @@ export const GameConfig = {
     // the protocol we originated from was 78
     // remember to bump this every time a serialization function is changed
     // or a definition item added, removed or moved
-    protocolVersion: 1026,
+    protocolVersion: 1027,
     Action,
     Anim,
     DamageType,
@@ -424,8 +424,8 @@ export const GameConfig = {
         "762mm": [90, 180, 240, 300, 360],
         "556mm": [90, 180, 240, 300, 360],
         "12gauge": [15, 30, 60, 90, 120],
-        "50AE": [49, 98, 147, 196, 250],
-        "308sub": [20, 40, 60, 80, 100],
+        "50AE": [50, 100, 150, 200, 250],
+        "308sub": [20, 40, 55, 70, 85],
         flare: [2, 4, 6, 8, 10],
         "45acp": [90, 180, 240, 300, 360],
         "227fury": [100, 200, 300, 400, 500],
@@ -446,7 +446,7 @@ export const GameConfig = {
         "4xscope": [1, 1, 1, 1, 1],
         "8xscope": [1, 1, 1, 1, 1],
         "15xscope": [1, 1, 1, 1, 1],
-    },
+    } satisfies Record<string, [number, number, number, number, number]>,
     lootRadius: {
         outfit: 1,
         melee: 1.25,
