@@ -660,11 +660,16 @@ export class Bullet {
             } else if (col.type == "player") {
                 if (!shooterDead) {
                     const isHighValueTarget = this.player?.hasPerk("targeting") && col.player!.perks.length;
+                    const targetHasDefender = col.player?.hasPerk("defender") && col.player.health <= PerkProperties.defender.damageReductionThreshold;
                     // const shooterHasPiercingRounds = this.player?.hasPerk("piercing_rounds")
 
                     let multiplier = 1;
                     if (isHighValueTarget) {
                         multiplier *= PerkProperties.targeting.damageMult;
+                    }
+
+                    if (targetHasDefender) {
+                        multiplier *= PerkProperties.defender.damageReductionMult;
                     }
 
                     this.bulletManager.damages.push({
@@ -688,7 +693,7 @@ export class Bullet {
                 this.reflect(col.point, col.normal, col.obj?.__id ?? 0);
             } else if (this.player?.hasPerk("ricochet")) {
                 this.reflect(col.point, col.normal, col.obj!.__id);
-            } 
+            }
             //else if (this.player?.hasPerk("piercing_rounds")) {
             //     const piercingCount = 0
             //     let multiplier = 1;

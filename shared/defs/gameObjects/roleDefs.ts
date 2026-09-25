@@ -168,7 +168,7 @@ export const RoleDefs: Record<string, RoleDef> = {
         mapIcon: {
             alive: "player-captain.img",
         },
-        perks: ["assume_leadership", "firepower"],
+        perks: ["assume_leadership", "firepower", "underpressure"],
         defaultItems: createDefaultItems({
             weapons: [
                 { type: "", ammo: 0 },
@@ -215,6 +215,37 @@ export const RoleDefs: Record<string, RoleDef> = {
             ],
             backpack: "backpack03",
             helmet: "helmet03_lt",
+            chest: "chest03",
+            inventory: {
+                "4xscope": 1,
+                bandage: 10,
+                healthkit: 1,
+                soda: 2,
+            },
+        }),
+    },
+    sergeant: {
+        type: "role",
+        announce: true,
+        killFeed: { assign: true },
+        sound: { assign: "lt_assigned_01" },
+        perks: ["scavenger", "defender"],
+        defaultItems: createDefaultItems({
+            weapons: [
+                { type: "", ammo: 0 },
+                (teamcolor: FactionTeam) =>
+                    getTeamWeapon(
+                        {
+                            [FactionTeam.Red]: { type: "vss", ammo: 20, fillInv: true },
+                            [FactionTeam.Blue]: { type: "scar", ammo: 20, fillInv: true },
+                        },
+                        teamcolor,
+                    ),
+                { type: "woodaxe", ammo: 0 },
+                { type: "", ammo: 0 },
+            ],
+            backpack: "backpack03",
+            helmet: "helmet03_sergeant",
             chest: "chest03",
             inventory: {
                 "4xscope": 1,

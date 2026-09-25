@@ -50,7 +50,7 @@ export const PerkProperties = {
     hyperpowered: {
         bulletSpeedMult: 1.1,
         obstacleMult: 1.5,
-        reloadTimeMult: 0.10
+        reloadTimeMult: 0.80
     },
     ricochet: {
         obstacleMult: 0.65, //damage done to obsacles by all bullets
@@ -63,6 +63,10 @@ export const PerkProperties = {
         reloadTimeMult: 0.70,
         reloadTimeBoostedMult: 0.50,
         belowHealthToApplyBoost: 50,
+    },
+    defender: {
+        damageReductionMult: 0.25,
+        damageReductionThreshold: 30,
     },
     // piercing_rounds: {
     //     piercingDepth: 3,
@@ -293,6 +297,20 @@ export const PerkDefs: Record<string, PerkDef> = {
         type: "perk",
         lootImg: {
             sprite: "loot-perk-under-pressure.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-03.img",
+            borderTint: 0xffffff,
+            scale: 0.275,
+        },
+        sound: {
+            pickup: "perk_pickup_01",
+        },
+    },
+    defender: {
+        name: "Defender",
+        type: "perk",
+        lootImg: {
+            sprite: "loot-perk-defender.img",
             tint: 0xffffff,
             border: "loot-circle-outer-03.img",
             borderTint: 0xffffff,
