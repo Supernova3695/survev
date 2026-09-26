@@ -459,6 +459,18 @@
                                 <div id="ui-map-counter-faction">
                                     <span class="ui-players-alive-red js-ui-players-alive-red">0</span>:
                                     <span class="ui-players-alive-blue js-ui-players-alive-blue">0</span>:
+                                    <!--<span class="ui-players-alive-green js-ui-players-alive-green">0</span>:
+                                    <span class="ui-players-alive-orange js-ui-players-alive-orange">0</span>-->
+                                </div>
+                                <!-- <div id="ui-leaderboard-alive-faction" class="mode-4-faction">
+                                    <span class="ui-players-alive-red js-ui-players-alive-red">0</span>
+                                    <span class="ui-players-alive-blue js-ui-players-alive-blue">0</span>
+                                    <span class="ui-players-alive-green js-ui-players-alive-green">0</span>
+                                    <span class="ui-players-alive-orange js-ui-players-alive-orange">0</span>
+                                </div> -->
+                                <div id="ui-map-counter-multi-faction">
+                                    <span class="ui-players-alive-red js-ui-players-alive-red">0</span>:
+                                    <span class="ui-players-alive-blue js-ui-players-alive-blue">0</span>:
                                     <span class="ui-players-alive-green js-ui-players-alive-green">0</span>:
                                     <span class="ui-players-alive-orange js-ui-players-alive-orange">0</span>
                                 </div>
@@ -481,13 +493,32 @@
                     </div>
                 </div>
                 <div id="ui-leaderboard-wrapper">
-                    <div id="ui-leaderboard" class="js-ui-hud-show">
+                    <!--<div id="ui-leaderboard" class="js-ui-hud-show">
                         <div id="ui-leaderboard-alive">
                             <span class="ui-players-alive js-ui-players-alive">0</span>
                         </div>
                         <div id="ui-leaderboard-alive-faction">
                             <span class="ui-players-alive-red js-ui-players-alive-red">0</span>
                             <span class="ui-players-alive-blue js-ui-players-alive-blue">0</span>
+                        </div>
+                        <div id="ui-leaderboard-alive-faction" class="mode-4-faction">
+                            <span class="ui-players-alive-red js-ui-players-alive-red">0</span>
+                            <span class="ui-players-alive-blue js-ui-players-alive-blue">0</span>
+                            <span class="ui-players-alive-green js-ui-players-alive-green">0</span>
+                            <span class="ui-players-alive-orange js-ui-players-alive-orange">0</span>
+                        </div>-->
+                        <div id="ui-leaderboard" class="js-ui-hud-show">
+                            <!-- Solo / FFA alive counter -->
+                            <div id="ui-leaderboard-alive">
+                                <span class="ui-players-alive js-ui-players-alive">0</span>
+                            </div>
+                            <div id="ui-leaderboard-alive-faction">
+                                <span class="ui-players-alive-red js-ui-players-alive-red">0</span>
+                                <span class="ui-players-alive-blue js-ui-players-alive-blue">0</span>
+                                <span class="ui-players-alive-green js-ui-players-alive-green">0</span>
+                                <span class="ui-players-alive-orange js-ui-players-alive-orange">0</span>
+                            </div>
+                            <div class="ui-leaderboard-header" data-l10n="game-alive">Alive</div>
                         </div>
                         <div class="ui-leaderboard-header" data-l10n="game-alive">Alive</div>
                     </div>

@@ -129,8 +129,8 @@ export const RoleDefs: Record<string, RoleDef> = {
                         {
                             [FactionTeam.Red]: { type: "m1014", ammo: 8, fillInv: true },
                             [FactionTeam.Blue]: { type: "an94", ammo: 45, fillInv: true },
-                            [FactionTeam.Green]: { type: "mk12", ammo: 20, fillInv: true },
-                            [FactionTeam.Orange]: { type: "vss", ammo: 20, fillInv: true },
+                            [FactionTeam.Green]: { type: "qbb97", ammo: 75, fillInv: true },
+                            [FactionTeam.Orange]: { type: "p30l_dual", ammo: 30, fillInv: true },
                         },
                         teamcolor,
                     ),
@@ -140,8 +140,8 @@ export const RoleDefs: Record<string, RoleDef> = {
                         {
                             [FactionTeam.Red]: { type: "machete_taiga", ammo: 0 },
                             [FactionTeam.Blue]: { type: "kukri_trad", ammo: 0 },
-                            [FactionTeam.Green]: { type: "machete_taiga", ammo: 0 },
-                            [FactionTeam.Orange]: { type: "kukri_trad", ammo: 0 },
+                            [FactionTeam.Green]: { type: "cutlass", ammo: 0 },
+                            [FactionTeam.Orange]: { type: "falchion", ammo: 0 },
                         },
                         teamcolor,
                     ),
@@ -154,10 +154,10 @@ export const RoleDefs: Record<string, RoleDef> = {
                 ({
                     [FactionTeam.Red]: "outfitRedLeader",
                     [FactionTeam.Blue]: "outfitBlueLeader",
-                    [FactionTeam.Green]: "outfitSpetsnaz", //"outfitGreenLeader",
+                    [FactionTeam.Green]: "outfitGreenLeader",
                     [FactionTeam.Orange]: "outfitOrangeLeader",
                 })[teamcolor],
-            noDropOutfit: false,
+            noDropOutfit: true,
             inventory: {
                 "8xscope": 1,
                 bandage: 10,

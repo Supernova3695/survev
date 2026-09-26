@@ -1498,7 +1498,7 @@ export class Player implements AbstractObject {
 
             const teamSprites = map.potatoMode
                 ? ["player-patch-01po.img", "player-patch-02po.img"]
-                : ["player-patch-01.img", "player-patch-02.img", "player-patch-01.img", "player-patch-02.img"];
+                : ["player-patch-01.img", "player-patch-02.img", "player-patch-03.img", "player-patch-04.img"];
 
             const teamIdx = (teamId - 1) % teamSprites.length;
             const sprite = teamSprites[teamIdx];

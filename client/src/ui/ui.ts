@@ -32,6 +32,7 @@ import type { Localization } from "./localization.ts";
 import { PieTimer } from "./pieTimer.ts";
 import type { Touch } from "./touch.ts";
 import type { UiManager2 } from "./ui2.ts";
+import { FactionMulti } from "../../../shared/defs/maps/factionMultiDefs.ts";
 
 function humanizeTime(time: number) {
     const hours = Math.floor(time / 3600);
@@ -120,10 +121,15 @@ export class UiManager {
     playersAlive = $(".js-ui-players-alive");
     playersAliveCounter = 0;
     leaderboardAliveFaction = $("#ui-leaderboard-alive-faction");
+    leaderboardAliveMultiFaction = $("#ui-leaderboard-alive-faction-multi");
     playersAliveRed = $(".js-ui-players-alive-red");
     playersAliveBlue = $(".js-ui-players-alive-blue");
+    playersAliveGreen = $(".js-ui-players-alive-green");
+    playersAliveOrange = $(".js-ui-players-alive-orange");
     playersAliveRedCounter = 0;
     playersAliveBlueCounter = 0;
+    playersAliveGreenCounter = 0;
+    playersAliveOrangeCounter = 0;
     playerKills = $(".js-ui-player-kills");
     announcement = $("#ui-announcement");
     killLeaderName = $("#ui-kill-leader-name");
@@ -617,6 +623,7 @@ export class UiManager {
         $(".js-ui-map-hidden").css("display", "block");
         $("#ui-map-counter-default").css("display", "inline-block");
         $("#ui-map-counter-faction").css("display", "none");
+        $("#ui-map-counter-multi-faction").css("display", "none");
         this.flairElems.css("display", "none");
         this.clearStatsElems();
         this.setSpectating(false);
@@ -1367,11 +1374,59 @@ export class UiManager {
         teamRank: number,
         teamKills: number,
         factionMode: boolean,
+        multiFactionMode: boolean,
     ) {
-        if (factionMode) {
+        if (factionMode && !multiFactionMode) {
             const redTeamTxt = this.localization.translate("game-red-team");
             const blueTeamTxt = this.localization.translate("game-blue-team");
-            return `<div class="ui-stats-header-right ui-stats-header-red-team"><span class="ui-stats-header-stat">${redTeamTxt} </span><span class="ui-stats-header-value">${this.playersAliveRedCounter}</span></div><div class="ui-stats-header-left ui-stats-header-blue-team"><span class="ui-stats-header-stat">${blueTeamTxt} </span><span class="ui-stats-header-value">${this.playersAliveBlueCounter}</span></div>`;
+            return `
+                <div class="ui-stats-header-right ui-stats-header-red-team">
+                <span class="ui-stats-header-stat">${redTeamTxt} </span>
+                <span class="ui-stats-header-value">${this.playersAliveRedCounter}</span></div>
+                <div class="ui-stats-header-left ui-stats-header-blue-team">
+                <span class="ui-stats-header-stat">${blueTeamTxt} </span>
+                <span class="ui-stats-header-value">${this.playersAliveBlueCounter}</span></div>`;
+        } else if (multiFactionMode) {
+            const is4Faction = factionMode && multiFactionMode
+            const redTeamTxt = this.localization.translate("game-red-team");
+            const blueTeamTxt = this.localization.translate("game-blue-team");
+            const greenTeamTxt = this.localization.translate("game-green-team");
+            const orangeTeamTxt = this.localization.translate("game-orange-team");
+            const teams = [
+                { name: "red", count: this.playersAliveRedCounter, label: redTeamTxt, showAlways: true, align: "right" },
+                { name: "blue", count: this.playersAliveBlueCounter, label: blueTeamTxt, showAlways: true, align: "left" },
+                { name: "green", count: this.playersAliveGreenCounter, label: greenTeamTxt, showAlways: false, align: "right" },
+                { name: "orange", count: this.playersAliveOrangeCounter, label: orangeTeamTxt, showAlways: false, align: "left" },
+            ];
+
+            teams.forEach(team => {
+                const $elem =$(`.js-ui-players-alive-${team.name}`);
+                $elem.text(team.count);
+                const isVisible = team.showAlways || is4Faction;
+                $elem.toggle(isVisible);
+            });
+
+            $('#ui-leaderboard-alive-faction').toggleClass('mode-4-faction', multiFactionMode);
+
+            $('.js-ui-players-alive-green').toggle(multiFactionMode);
+            $('.js-ui-players-alive-orange').toggle(multiFactionMode);
+
+            $('.js-ui-players-alive-red').text(this.playersAliveRedCounter);
+            $('.js-ui-players-alive-blue').text(this.playersAliveBlueCounter);
+
+            if (multiFactionMode) {
+                $('.js-ui-players-alive-green').text(this.playersAliveGreenCounter);
+                $('.js-ui-players-alive-orange').text(this.playersAliveOrangeCounter);
+            }
+
+            return teams
+                .map(team => 
+                    `<div class="ui-stats-header-${team.align} ui-stats-header-${team.name}-team">
+                        <span class="ui-stats-header-stat">${team.label} </span>
+                        <span class="ui-stats-header-value js-ui-players-alive-${team.name}">${team.count}</span>
+                    </div>`
+                .trim())
+                .join('');
         }
         if (teamMode == TeamMode.Solo) {
             return `<div><span class="ui-stats-header-stat">${
@@ -1454,6 +1509,7 @@ export class UiManager {
                 teamRank,
                 teamKills,
                 map.getMapDef().gameMode.factionMode!,
+                map.getMapDef().gameMode.multiFactionMode!,
             );
             const I = $("<div/>")
                 .append(
@@ -1518,7 +1574,7 @@ export class UiManager {
                         ),
                     )
                     .append(T(this.localization.translate("game-survived"), D));
-                if (map.getMapDef().gameMode.factionMode && gameOver) {
+                if ((map.getMapDef().gameMode.factionMode && !map.getMapDef().gameMode.multiFactionMode) && gameOver) {
                     switch (C) {
                         case 1:
                             B.append(
@@ -1545,6 +1601,61 @@ export class UiManager {
                             );
                         }
                     }
+                } else if (map.getMapDef().gameMode.multiFactionMode && gameOver) {
+                    switch (C) {
+                        case 1:
+                            B.append(
+                                $("<div/>", {
+                                    class: "ui-stats-info-player-badge ui-stats-info-player-red-leader",
+                                }),
+                            );
+                            break;
+                        case 2:
+                            B.append(
+                                $("<div/>", {
+                                    class: "ui-stats-info-player-badge ui-stats-info-player-blue-leader",
+                                }),
+                            );
+                            break;
+                        case 3:
+                            B.append(
+                                $("<div/>", {
+                                    class: "ui-stats-info-player-badge ui-stats-info-player-green-leader",
+                                }),
+                            );
+                            break;
+                        case 4:
+                            B.append(
+                                $("<div/>", {
+                                    class: "ui-stats-info-player-badge ui-stats-info-player-orange-leader",
+                                }),
+                            );
+                            break;
+                        case 5: {
+                            // const R = playerInfo.teamId == GameConfig.FactionTeam.Red
+                            //     ? "ui-stats-info-player-red-ribbon"
+                            //     : "ui-stats-info-player-blue-ribbon";
+                            // B.append(
+                            //     $("<div/>", {
+                            //         class: `ui-stats-info-player-badge ${R}`,
+                            //     }),
+                            // );
+                            const ribbonClasses: Record<number, string> = {
+                                [GameConfig.FactionTeam.Red]: "ui-stats-info-player-red-ribbon",
+                                [GameConfig.FactionTeam.Blue]: "ui-stats-info-player-blue-ribbon",
+                                [GameConfig.FactionTeam.Green]: "ui-stats-info-player-green-ribbon",
+                                [GameConfig.FactionTeam.Orange]: "ui-stats-info-player-orange-ribbon",
+                            };
+
+                            const R = ribbonClasses[playerInfo.teamId] ?? "ui-stats-info-player-red-ribbon";
+
+                            B.append(
+                                $("<div/>", {
+                                    class: `ui-stats-info-player-badge ${R}`,
+                                }),
+                            );
+                        }
+                    }
                 }
                 this.statsInfoBox.append(B);
                 P += 10;
@@ -1559,7 +1670,7 @@ export class UiManager {
                 });
             });
             this.statsOptions.append(restartButton);
-            const alive = this.playersAliveCounter + this.playersAliveRedCounter + this.playersAliveBlueCounter;
+            const alive = this.playersAliveCounter + this.playersAliveRedCounter + this.playersAliveBlueCounter + this.playersAliveGreenCounter + this.playersAliveOrangeCounter;
             if (gameOver || alive === 0) {
                 restartButton.css({
                     width: device.uiLayout != device.UiLayout.Sm || device.tablet
@@ -1840,6 +1951,7 @@ export class UiManager {
 
         this.leaderboardAlive.css("display", "block");
         this.leaderboardAliveFaction.css("display", "none");
+        this.leaderboardAliveMultiFaction.css("display", "none");
     }
 
     updatePlayersAliveRed(alive: number) {
@@ -1848,9 +1960,11 @@ export class UiManager {
 
         this.leaderboardAlive.css("display", "none");
         this.leaderboardAliveFaction.css("display", "block");
+        this.leaderboardAliveMultiFaction.css("display", "block");
 
         $("#ui-map-counter-default").css("display", "none");
         $("#ui-map-counter-faction").css("display", "inline-block");
+        $("#ui-map-counter-multi-faction").css("display", "inline-block");
     }
 
     updatePlayersAliveBlue(alive: number) {
@@ -1859,31 +1973,37 @@ export class UiManager {
 
         this.leaderboardAlive.css("display", "none");
         this.leaderboardAliveFaction.css("display", "block");
+        this.leaderboardAliveMultiFaction.css("display", "block");
 
         $("#ui-map-counter-default").css("display", "none");
         $("#ui-map-counter-faction").css("display", "inline-block");
+        $("#ui-map-counter-multi-faction").css("display", "inline-block");
     }
 
     updatePlayersAliveGreen(alive: number) {
-        this.playersAliveBlue.html(alive);
-        this.playersAliveBlueCounter = alive;
+        this.playersAliveGreen.html(alive);
+        this.playersAliveGreenCounter = alive;
 
         this.leaderboardAlive.css("display", "none");
-        this.leaderboardAliveFaction.css("display", "block");
+        //this.leaderboardAliveFaction.css("display", "block");
+        this.leaderboardAliveMultiFaction.css("display", "block");
 
         $("#ui-map-counter-default").css("display", "none");
-        $("#ui-map-counter-faction").css("display", "inline-block");
+        //$("#ui-map-counter-faction").css("display", "inline-block");
+        $("#ui-map-counter-multi-faction").css("display", "inline-block");
     }
 
     updatePlayersAliveOrange(alive: number) {
-        this.playersAliveBlue.html(alive);
-        this.playersAliveBlueCounter = alive;
+        this.playersAliveOrange.html(alive);
+        this.playersAliveOrangeCounter = alive;
 
         this.leaderboardAlive.css("display", "none");
-        this.leaderboardAliveFaction.css("display", "block");
+        //this.leaderboardAliveFaction.css("display", "block");
+        this.leaderboardAliveMultiFaction.css("display", "block");
 
         $("#ui-map-counter-default").css("display", "none");
-        $("#ui-map-counter-faction").css("display", "inline-block");
+        //$("#ui-map-counter-faction").css("display", "inline-block");
+        $("#ui-map-counter-multi-faction").css("display", "inline-block");
     }
 
     updateKillLeader(

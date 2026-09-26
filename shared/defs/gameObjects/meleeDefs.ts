@@ -1427,6 +1427,13 @@ const SkinDefs: Record<string, MeleeDef> = {
         lootImg: { sprite: "loot-melee-cutlass-gold.img" },
         worldImg: { sprite: "loot-melee-cutlass-gold.img" },
     }),
+    falchion: defineMeleeSkin("cutlass", {
+        name: "Falchion",
+        noPotatoSwap: true,
+        damage: 33,
+        lootImg: { sprite: "loot-melee-falchion.img" },
+        worldImg: { sprite: "loot-melee-falchion.img" },
+    }),
 };
 
 export const MeleeDefs: Record<string, MeleeDef> = { ...BaseDefs, ...SkinDefs };

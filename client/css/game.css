@@ -453,6 +453,23 @@ img {
     position: relative;
 }
 
+/*#ui-map-counter-faction-multi {
+    bottom: 3px;
+    display: none;
+    font-size: 24px;
+    left: 12px;
+    position: absolute;
+    text-align: center;
+    width: 92px;
+}
+
+#ui-map-counter-faction-multi span {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    position: relative;
+}*/
+
 #ui-map-expand-mobile {
     height: 190px;
     width: 190px;
@@ -1586,7 +1603,7 @@ img {
     width: 72px;
 }
 
-#ui-leaderboard-alive-faction {
+/* #ui-leaderboard-alive-faction {
     display: none;
     background: rgba(0, 0, 0, 0.4);
     border-radius: 5px;
@@ -1595,6 +1612,18 @@ img {
     margin-bottom: 8px;
     padding: 4px;
     width: 78px;
+}
+
+#ui-leaderboard-alive-faction-multi {
+    display: none;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    padding: 8px;
+    width: 110px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    text-align: center;
 }
 
 .ui-players-alive-red {
@@ -1610,6 +1639,94 @@ img {
     font-size: 36px;
     position: relative;
 }
+
+.ui-players-alive-green {
+    color: #00ff22;
+    display: block;
+    font-size: 36px;
+    position: relative;
+}
+
+.ui-players-alive-orange {
+    color: #FFA500;
+    display: block;
+    font-size: 36px;
+    position: relative;
+} */
+
+/* ==========================================
+   2 factions
+   ========================================== */
+#ui-leaderboard-alive-faction {
+    /* display: none;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    height: 74px;
+    width: 78px;
+    padding: 4px;
+    margin-bottom: 8px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: border-box; */
+    display: block;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    height: 74px;
+    line-height: 38px;
+    margin-bottom: 8px;
+    padding: 4px;
+    width: 78px;
+}
+.ui-players-alive-red,
+.ui-players-alive-blue,
+.ui-players-alive-green,
+.ui-players-alive-orange {
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+    position: relative;
+}
+
+.ui-players-alive-green,
+.ui-players-alive-orange {
+    display: none !important;
+}
+
+.ui-players-alive-red    { color: #ff0000; }
+.ui-players-alive-blue   { color: #00d2ff; }
+.ui-players-alive-green  { color: #00ff22; }
+.ui-players-alive-orange { color: #FFA500; }
+
+
+/* ==========================================
+   4 factions
+   ========================================== */
+#ui-leaderboard-alive-faction.mode-4-faction {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 4px;
+    width: 110px;
+    height: 74px;
+    padding: 8px 6px;
+    align-items: center;
+    justify-items: center;
+}
+
+#ui-leaderboard-alive-faction.mode-4-faction .ui-players-alive-green,
+#ui-leaderboard-alive-faction.mode-4-faction .ui-players-alive-orange {
+    display: block !important;
+}
+#ui-leaderboard-alive-faction.mode-4-faction .ui-players-alive-red,
+#ui-leaderboard-alive-faction.mode-4-faction .ui-players-alive-blue,
+#ui-leaderboard-alive-faction.mode-4-faction .ui-players-alive-green,
+#ui-leaderboard-alive-faction.mode-4-faction .ui-players-alive-orange {
+    font-size: 30px;
+}
+
+/*end faction counters*/
 
 .ui-players-alive {
     position: relative;
@@ -2933,6 +3050,16 @@ img {
     font-weight: bold;
 }
 
+.ui-stats-header-green-team {
+    color: #09ff00;
+    font-weight: bold;
+}
+
+.ui-stats-header-orange-team {
+    color: #ffa500;
+    font-weight: bold;
+}
+
 span.ui-stats-header-stat {
     font-size: 32px;
 }
@@ -3031,6 +3158,22 @@ span.ui-stats-header-value {
 
 .ui-stats-info-player-blue-ribbon {
     background-image: url(/img/gui/ribbon-blue.svg);
+}
+
+.ui-stats-info-player-green-leader {
+    background-image: url(/img/gui/star-green.svg);
+}
+
+.ui-stats-info-player-green-ribbon {
+    background-image: url(/img/gui/ribbon-green.svg);
+}
+
+.ui-stats-info-player-orange-leader {
+    background-image: url(/img/gui/star-orange.svg);
+}
+
+.ui-stats-info-player-orange-ribbon {
+    background-image: url(/img/gui/ribbon-orange.svg);
 }
 
 .ui-stats-info {

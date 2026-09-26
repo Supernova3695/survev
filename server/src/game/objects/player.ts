@@ -985,7 +985,7 @@ export class Player extends BaseGameObject {
 
         if (roleDef.defaultItems) {
             // for non faction modes where teamId > 2, just cycles between blue and red teamId
-            const clampedTeamId = ((this.teamId - 1) % 2) + 1;
+            const clampedTeamId = ((this.teamId - 1) % 4) + 1; //code used to have % 2 but it broke multifactions so i changed it
 
             // give backpack before heals/ammos
             if (roleDef.defaultItems.backpack) {
@@ -1016,7 +1016,7 @@ export class Player extends BaseGameObject {
 
             const roleHelmet = roleDef.defaultItems.helmet instanceof Function
                 ? roleDef.defaultItems.helmet(clampedTeamId)
-                : roleDef.defaultItems.helmet;
+                : roleDef.defaultItems.helmet; 
 
             if (roleHelmet) {
                 // armor
