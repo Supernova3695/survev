@@ -157,7 +157,7 @@ export const RoleDefs: Record<string, RoleDef> = {
                     [FactionTeam.Green]: "outfitSpetsnaz", //"outfitGreenLeader",
                     [FactionTeam.Orange]: "outfitOrangeLeader",
                 })[teamcolor],
-            noDropOutfit: true,
+            noDropOutfit: false,
             inventory: {
                 "8xscope": 1,
                 bandage: 10,
