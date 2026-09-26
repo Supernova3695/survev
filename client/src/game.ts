@@ -1587,6 +1587,8 @@ export class Game {
                 } else if (msg.teamAliveCounts.length >= 2) {
                     this.m_uiManager.updatePlayersAliveRed(msg.teamAliveCounts[0]);
                     this.m_uiManager.updatePlayersAliveBlue(msg.teamAliveCounts[1]);
+                    this.m_uiManager.updatePlayersAliveGreen(msg.teamAliveCounts[2]);
+                    this.m_uiManager.updatePlayersAliveOrange(msg.teamAliveCounts[3]);
                 }
                 break;
             }

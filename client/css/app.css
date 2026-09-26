@@ -3384,6 +3384,45 @@ a:active {
     }
 }
 
+.btn-mode-faction-multi {
+    animation-name: faction-pulse-multi;
+    animation-duration: 4s;
+    border-bottom: 4px solid #00448a;
+}
+
+@media (max-width: 850px), (max-width: 900px) and (min-resolution: 3dppx) {
+    .btn-mode-faction-multi {
+        border-bottom: 2px solid #00448a;
+    }
+}
+@keyframes faction-pulse-multi {
+    from {
+        background-color: #007eff;
+        border-bottom-color: #00448a;
+        -webkit-box-shadow: 0 0 9px #007eff;
+    }
+    25% {
+        background-color: #cc0000;
+        border-bottom-color: #8d0000;
+        -webkit-box-shadow: 0 0 18px #cc0000;
+    }
+    50% {
+        background-color: #22ff00;
+        border-bottom-color: #008d13;
+        -webkit-box-shadow: 0 0 18px #0acc00;
+    }
+    75% {
+        background-color: #c9cc00;
+        border-bottom-color: #7a8d00;
+        -webkit-box-shadow: 0 0 18px #c5cc00;
+    }
+    to {
+        background-color: #007eff;
+        border-bottom-color: #00448a;
+        -webkit-box-shadow: 0 0 9px #007eff;
+    }
+}
+
 .btn-mode-faction-potato {
     animation-name: faction-potato-pulse;
     background-image: url(/img/gui/star.svg);

@@ -143,6 +143,35 @@ const mapDef: PartialMapDef = {
                                                 weight: 0.2,
                                             },
                                         ]),
+                                        [FactionTeam.Green]: util.weightedRandom([
+                                            {
+                                                type: "m4a1",
+                                                ammo: 40,
+                                                fillInv: true,
+                                                weight: 0.8,
+                                            },
+                                            {
+                                                type: "potato_smg",
+                                                ammo: 40,
+                                                fillInv: false,
+                                                weight: 0.2,
+                                            },
+                                        ]),
+                                        [FactionTeam.Orange]: util.weightedRandom([
+                                            {
+                                                type: "grozas",
+                                                ammo: 40,
+                                                fillInv: true,
+                                                weight: 0.8,
+                                            },
+                                            {
+                                                type: "potato_smg",
+                                                ammo: 40,
+                                                fillInv: false,
+                                                weight: 0.2,
+                                            },
+                                        ]),
+                                        
                                     },
                                     teamcolor,
                                 ),
@@ -197,6 +226,46 @@ const mapDef: PartialMapDef = {
                                             },
                                         ]),
                                         [FactionTeam.Blue]: util.weightedRandom([
+                                            {
+                                                type: "m249",
+                                                ammo: 100,
+                                                fillInv: true,
+                                                weight: 0.3,
+                                            },
+                                            {
+                                                type: "pkp",
+                                                ammo: 200,
+                                                fillInv: true,
+                                                weight: 0.3,
+                                            },
+                                            {
+                                                type: "potato_lmg",
+                                                ammo: 150,
+                                                fillInv: false,
+                                                weight: 0.4,
+                                            },
+                                        ]),
+                                        [FactionTeam.Green]: util.weightedRandom([
+                                            {
+                                                type: "m249",
+                                                ammo: 100,
+                                                fillInv: true,
+                                                weight: 0.3,
+                                            },
+                                            {
+                                                type: "pkp",
+                                                ammo: 200,
+                                                fillInv: true,
+                                                weight: 0.3,
+                                            },
+                                            {
+                                                type: "potato_lmg",
+                                                ammo: 150,
+                                                fillInv: false,
+                                                weight: 0.4,
+                                            },
+                                        ]),
+                                        [FactionTeam.Orange]: util.weightedRandom([
                                             {
                                                 type: "m249",
                                                 ammo: 100,

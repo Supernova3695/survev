@@ -150,6 +150,12 @@ export class Game {
             }
         }
 
+        // if (this.map.multiFactionMode) {
+        //     for (let i = 1; i <= this.map.mapDef.gameMode.factions!; i++) {
+        //         this.playerBarn.addTeam(i);
+        //     }
+        // }
+
         this.map.init();
 
         this.logger.info(`Created in ${Date.now() - start} ms`);

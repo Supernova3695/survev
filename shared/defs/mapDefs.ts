@@ -9,6 +9,7 @@ import { Birthday } from "./maps/birthdayDefs.ts";
 import { Cobalt } from "./maps/cobaltDefs.ts";
 import { Desert } from "./maps/desertDefs.ts";
 import { Faction } from "./maps/factionDefs.ts";
+import { FactionMulti } from "./maps/factionMultiDefs.ts";
 import { FactionPotato } from "./maps/factionPotatoDefs.ts";
 import { Halloween } from "./maps/halloweenDefs.ts";
 import { MainSpring } from "./maps/mainSpringDefs.ts";
@@ -46,6 +47,7 @@ const _MapDefs = {
     desert: Desert,
     faction: Faction,
     faction_potato: FactionPotato,
+    faction_multi: FactionMulti,
     halloween: Halloween,
     potato: Potato,
     potato_spring: PotatoSpring,
@@ -120,6 +122,7 @@ export interface MapDef {
         killLeaderEnabled: boolean;
         desertMode?: boolean;
         factionMode?: boolean;
+        multiFactionMode?: boolean;
         factions?: number;
         potatoMode?: boolean;
         woodsMode?: boolean;

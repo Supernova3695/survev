@@ -1498,8 +1498,29 @@ export class Player implements AbstractObject {
 
             const teamSprites = map.potatoMode
                 ? ["player-patch-01po.img", "player-patch-02po.img"]
-                : ["player-patch-01.img", "player-patch-02.img"];
+                : ["player-patch-01.img", "player-patch-02.img", "player-patch-01.img", "player-patch-02.img"];
 
+            const teamIdx = (teamId - 1) % teamSprites.length;
+            const sprite = teamSprites[teamIdx];
+            const rot = math.oriToRad(3) + Math.PI * 0.5;
+
+            this.patchSprite.texture = PIXI.Texture.from(sprite);
+            this.patchSprite.rotation = rot;
+            this.patchSprite.scale.set(0.25, 0.25);
+            this.patchSprite.visible = true;
+
+            if (map.potatoMode) {
+                this.patchSprite.tint = 0xffffff;
+            } else {
+                const tint = GameConfig.teamColors[teamIdx];
+                this.patchSprite.tint = tint;
+            }
+        } else if (map.multiFactionMode && !outfitDef.ghillie) {
+            const playerInfo = playerBarn.getPlayerInfo(this.__id);
+            const teamId = playerInfo.teamId;
+
+            const teamSprites = ["player-patch-01.img", "player-patch-02.img", "player-patch-01.img", "player-patch-02.img"];
+            //red. blue, green, orange
             const teamIdx = (teamId - 1) % teamSprites.length;
             const sprite = teamSprites[teamIdx];
             const rot = math.oriToRad(3) + Math.PI * 0.5;
@@ -1605,10 +1626,30 @@ export class Player implements AbstractObject {
                 this.helmetSprite.scale.set(0.15, 0.15);
             }
             let helmetTint = helmetSkin.baseTint;
-            if (map.factionMode) {
+            if (map.factionMode && !map.multiFactionMode) {
                 helmetTint = playerBarn.getPlayerInfo(this.__id).teamId == GameConfig.FactionTeam.Red
                     ? helmetSkin.baseTintRed
                     : helmetSkin.baseTintBlue;
+            } else if (map.multiFactionMode) {
+                const teamId = playerBarn.getPlayerInfo(this.__id).teamId;
+
+                switch (teamId) {
+                    case GameConfig.FactionTeam.Red:
+                        helmetTint = helmetSkin.baseTintRed;
+                        break;
+                    case GameConfig.FactionTeam.Blue:
+                        helmetTint = helmetSkin.baseTintBlue;
+                        break;
+                    case GameConfig.FactionTeam.Green:
+                        helmetTint = helmetSkin.baseTintGreen;
+                        break;
+                    case GameConfig.FactionTeam.Orange:
+                        helmetTint = helmetSkin.baseTintOrange;
+                        break;
+                    default:
+                        helmetTint = helmetSkin.baseTintRed;
+                        break;
+                }
             }
             this.helmetSprite.tint = helmetTint;
             this.helmetSprite.visible = true;

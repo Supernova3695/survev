@@ -236,26 +236,30 @@ export class GameModeManager {
             case GameMode.Faction: {
                 const redLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Red - 1].leader;
                 const blueLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Blue - 1].leader;
+                const greenLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Green - 1].leader;
+                const orangeLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Orange - 1].leader;
 
-                if (!redLeader || !blueLeader) {
+                if (!redLeader || !blueLeader || !greenLeader || !orangeLeader) {
                     return [player];
                 }
 
                 if (this.game.playerBarn.factionsMvp === undefined) {
-                    return [player, redLeader, blueLeader];
+                    return [player, redLeader, blueLeader, greenLeader, orangeLeader];
                 }
 
-                return [player, redLeader, blueLeader, this.game.playerBarn.factionsMvp];
+                return [player, redLeader, blueLeader, greenLeader, orangeLeader, this.game.playerBarn.factionsMvp];
             }
         }
     }
 
     getFactionMvp(): Player | undefined {
         if (this.mode !== GameMode.Faction) return;
-        const redLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Red - 1].leader;
-        const blueLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Blue - 1].leader;
+            const redLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Red - 1].leader;
+            const blueLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Blue - 1].leader;
+            const greenLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Green - 1].leader;
+            const orangeLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Orange - 1].leader;
 
-        if (!redLeader || !blueLeader) {
+        if (!redLeader || !blueLeader || !greenLeader || !orangeLeader) {
             return;
         }
 

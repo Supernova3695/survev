@@ -4555,6 +4555,12 @@ export class Player extends BaseGameObject {
             if (player.teamId == GameConfig.FactionTeam.Blue && player.__id != this.__id) {
                 this.game.playerBarn.addEmote("emote_bugle_final_blue", player.__id);
             }
+            if (player.teamId == GameConfig.FactionTeam.Green && player.__id != this.__id) {
+                this.game.playerBarn.addEmote("emote_bugle_final_red", player.__id);
+            }
+            if (player.teamId == GameConfig.FactionTeam.Orange && player.__id != this.__id) {
+                this.game.playerBarn.addEmote("emote_bugle_final_blue", player.__id);
+            }
             player.recalculateScale();
         }
     }
@@ -4574,10 +4580,13 @@ export class Player extends BaseGameObject {
                 this.game.playerBarn.addEmote("emote_bugle_inspiration_red", player.__id);
             }
             if (player.teamId == GameConfig.FactionTeam.Blue && player.__id != this.__id) {
-                this.game.playerBarn.addEmote(
-                    "emote_bugle_inspiration_blue",
-                    player.__id,
-                );
+                this.game.playerBarn.addEmote("emote_bugle_inspiration_blue", player.__id,);
+            }
+            if (player.teamId == GameConfig.FactionTeam.Green && player.__id != this.__id) {
+                this.game.playerBarn.addEmote("emote_bugle_inspiration_red", player.__id);
+            }
+            if (player.teamId == GameConfig.FactionTeam.Orange && player.__id != this.__id) {
+                this.game.playerBarn.addEmote("emote_bugle_inspiration_blue", player.__id,);
             }
         }
     }

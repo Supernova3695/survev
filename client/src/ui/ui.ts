@@ -894,12 +894,34 @@ export class UiManager {
         }
 
         // Faction specific rendering
-        if (map.factionMode) {
+        if (map.factionMode && !map.factionMode) {
             const localPlayerInfo = playerBarn.getPlayerInfo(localPlayer.__id);
             if (this.flairId != localPlayerInfo.teamId) {
                 this.flairId = localPlayerInfo.teamId;
                 // Assume red or blue for now
                 const flairColor = this.flairId == GameConfig.FactionTeam.Red ? "red" : "blue";
+                this.flairElems.css({
+                    display: "block",
+                    "background-image": `url(../img/gui/player-patch-${flairColor}.svg)`,
+                });
+            }
+        } else if (map.multiFactionMode && map.factionMode) {
+            const localPlayerInfo = playerBarn.getPlayerInfo(localPlayer.__id);
+
+                if (this.flairId != localPlayerInfo.teamId) {
+                    this.flairId = localPlayerInfo.teamId;
+
+                // Map each team ID enum to its corresponding image color name string
+                const teamColorMap: Record<number, string> = {
+                    [GameConfig.FactionTeam.Red]: "red",
+                    [GameConfig.FactionTeam.Blue]: "blue",
+                    [GameConfig.FactionTeam.Green]: "green",
+                    [GameConfig.FactionTeam.Orange]: "orange",
+                };
+
+                // Fall back to "red" if the teamId is missing or invalid
+                const flairColor = teamColorMap[this.flairId] ?? "red";
+
                 this.flairElems.css({
                     display: "block",
                     "background-image": `url(../img/gui/player-patch-${flairColor}.svg)`,
@@ -1832,6 +1854,28 @@ export class UiManager {
     }
 
     updatePlayersAliveBlue(alive: number) {
+        this.playersAliveBlue.html(alive);
+        this.playersAliveBlueCounter = alive;
+
+        this.leaderboardAlive.css("display", "none");
+        this.leaderboardAliveFaction.css("display", "block");
+
+        $("#ui-map-counter-default").css("display", "none");
+        $("#ui-map-counter-faction").css("display", "inline-block");
+    }
+
+    updatePlayersAliveGreen(alive: number) {
+        this.playersAliveBlue.html(alive);
+        this.playersAliveBlueCounter = alive;
+
+        this.leaderboardAlive.css("display", "none");
+        this.leaderboardAliveFaction.css("display", "block");
+
+        $("#ui-map-counter-default").css("display", "none");
+        $("#ui-map-counter-faction").css("display", "inline-block");
+    }
+
+    updatePlayersAliveOrange(alive: number) {
         this.playersAliveBlue.html(alive);
         this.playersAliveBlueCounter = alive;
 

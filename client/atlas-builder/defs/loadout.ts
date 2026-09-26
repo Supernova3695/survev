@@ -261,6 +261,8 @@ export const LoadoutAtlas: AtlasDef = {
         "gui/player-medic.svg",
         "gui/player-captain.svg",
         "gui/player-last-man.svg",
+        "gui/player-patch-orange.svg",
+        "gui/player-patch-green.svg",
         "gui/player-patch-blue.svg",
         "gui/player-patch-red.svg",
         "gui/player-star.svg",

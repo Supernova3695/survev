@@ -3629,7 +3629,12 @@ export const BaseDefs: Record<string, GunDef> = {
         },
         sound: {
             shoot: "bugle_01",
-            shootTeam: { [FactionTeam.Red]: "bugle_01", [FactionTeam.Blue]: "bugle_02" },
+            shootTeam: { 
+                [FactionTeam.Red]: "bugle_01", 
+                [FactionTeam.Blue]: "bugle_02", 
+                [FactionTeam.Green]: "bugle_01", 
+                [FactionTeam.Orange]: "bugle_02" 
+            },
             shootAlt: "bugle_03",
             reload: "",
             pickup: "stow_weapon_01",

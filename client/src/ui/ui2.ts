@@ -1510,10 +1510,25 @@ export class UiManager2 {
         return helpers.colorToHexString(playerBarn.getTeamColor(teamId));
     }
 
+    // getRoleTranslation(role: string, teamId: number) {
+    //     let roleTxt = `game-${role}`;
+    //     if (role == "leader") {
+    //         roleTxt = teamId == GameConfig.FactionTeam.Red ? "game-red-leader" : "game-blue-leader";
+    //     }
+    //     return this.localization.translate(roleTxt);
+    // }
     getRoleTranslation(role: string, teamId: number) {
         let roleTxt = `game-${role}`;
-        if (role == "leader") {
-            roleTxt = teamId == GameConfig.FactionTeam.Red ? "game-red-leader" : "game-blue-leader";
+
+        if (role === "leader") {
+            const leaderKeys: Record<number, string> = {
+                [GameConfig.FactionTeam.Red]: "game-red-leader",
+                [GameConfig.FactionTeam.Blue]: "game-blue-leader",
+                [GameConfig.FactionTeam.Green]: "game-green-leader",
+                [GameConfig.FactionTeam.Orange]: "game-orange-leader",
+            };
+
+            roleTxt = leaderKeys[teamId] ?? "game-red-leader";
         }
         return this.localization.translate(roleTxt);
     }
