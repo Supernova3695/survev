@@ -5239,6 +5239,121 @@ function createWorkshopComplex(overrides: DeepPartial<BuildingDef>): BuildingDef
     return util.mergeDeep(baseDef, overrides);
 }
 
+function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
+    center_object?: BuildingChildObjType;
+}): BuildingDef {
+    const baseDef: BuildingDef = {
+        type: "building",
+        map: {
+            display: true,
+            shapes: [
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(0, 0),
+                        v2.create(-35, -35),
+                    ),
+                    color: 0x3a3a3a,
+                },
+            ],
+        },
+        terrain: {
+            spawnPriority: 100,
+            grass: true,
+            beach: false
+        },
+        mapObstacleBounds: [
+            collider.createAabbExtents(v2.create(0, 0), v2.create(45, 45)),
+            collider.createAabbExtents(v2.create(80, 0), v2.create(40, 18)),
+            collider.createAabbExtents(v2.create(-80, 0), v2.create(40, 18)),
+            collider.createAabbExtents(v2.create(0, 80), v2.create(18, 40)),
+            collider.createAabbExtents(v2.create(0, -80), v2.create(18, 40)),
+        ],
+        mapGroundPatches: [
+            {
+                bound: collider.createAabbExtents(v2.create(0, 0), v2.create(-35, -35)),
+                color: 0x3a3a3a,
+                roughness: 0.05,
+                offsetDist: 1,
+            },
+        ],
+        ori: 0,
+        ceiling: {
+            zoomRegions: [],
+            imgs: [],
+        },
+        floor: {
+            surfaces: [
+                {
+                    type: "grass",
+                    collision: [
+                        collider.createAabbExtents(v2.create(0, 0), v2.create(0, 0)),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(
+                            v2.create(70.75, 0.5),
+                            v2.create(30, 54.5),
+                        ),
+                        collider.createAabbExtents(
+                            v2.create(77.5, 64),
+                            v2.create(23, 10),
+                        ),
+                        collider.createAabbExtents(
+                            v2.create(111, -29.5),
+                            v2.create(10.5, 24.5),
+                        ),
+                    ],
+                },
+            ],
+            imgs: [
+                // {
+                //     sprite: "map-complex-warehouse-floor-04.img",
+                //     pos: v2.create(81, 10),
+                //     scale: 1,
+                //     alpha: 1,
+                //     tint: 0xffffff,
+                // },
+            ],
+        },
+        mapObjects: [
+            {
+                type: "bridge_xlg_structure_02",
+                pos: v2.create(80, 0),
+                scale: 2,
+                ori: 0,
+            },
+            {
+                type: "bridge_xlg_structure_02",
+                pos: v2.create(-80, 0),
+                scale: 2,
+                ori: 0,
+            },
+            {
+                type: "bridge_xlg_structure_02",
+                pos: v2.create(0, 80),
+                scale: 2,
+                ori: 1,
+            },
+            {
+                type: "bridge_xlg_structure_02",
+                pos: v2.create(0, -80),
+                scale: 2,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(0, 0),
+                scale: 1,
+                ori: 0,
+            },
+        ],
+    };
+    return util.mergeDeep(baseDef, overrides);
+}
+
+
 export const ModeBuildingDefs: Record<string, BuildingDef> = {
     // Beach
 
@@ -7198,6 +7313,72 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
         botRightObs: "crate_01",
         ignoreMapSpawnReplacement: false,
     }),
+
+    // Multi Faction
+    faction_fortress_01: createFactionFortress({}, {}),
+    multi_faction_statue_structure_01: {
+        type: "building",
+        ori: 0,
+        terrain: {},
+        floor: {
+            surfaces: [],
+            imgs: [
+                {
+                    sprite: "",
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+        },
+        ceiling: { zoomRegions: [], imgs: [] },
+        mapObjects: [
+            {
+                type: "statue_01",
+                pos: v2.create(0, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "statue_top_01",
+                pos: v2.create(0, 0),
+                scale: 1,
+                ori: 0,
+            },
+        ],
+    },
+    multi_faction_statue_structure_02: {
+        type: "building",
+        ori: 0,
+        terrain: {},
+        floor: {
+            surfaces: [],
+            imgs: [
+                {
+                    sprite: "",
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+        },
+        ceiling: { zoomRegions: [], imgs: [] },
+        mapObjects: [
+            {
+                type: "statue_01",
+                pos: v2.create(0, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "statue_top_02",
+                pos: v2.create(0, 0),
+                scale: 1,
+                ori: 0,
+            },
+        ],
+    },
+
     // Halloween
 
     barn_01h: createBarn({}, {

@@ -17,26 +17,34 @@ export class RiverCreator {
         this.randomGenerator = randomGenerator;
     }
 
-    private getStartPoint(isFactionRiver: boolean): Vec2 {
-        if (isFactionRiver) {
+    private getStartPoint(isFactionRiver: boolean, hasMultiFactionRiver1: boolean, hasMultiFactionRiver2: boolean): Vec2 {
+        if (isFactionRiver && !hasMultiFactionRiver1 && !hasMultiFactionRiver2) {
             switch (this.map.factionModeSplitOri) {
                 case 0:
                     return v2.create(0, this.map.height / 2);
                 case 1:
                     return v2.create(this.map.width / 2, 0);
             }
+        } else if (!isFactionRiver && hasMultiFactionRiver1 && hasMultiFactionRiver2) {
+            if (hasMultiFactionRiver1 && hasMultiFactionRiver2) {
+                return v2.create(0, this.map.height / 1.75);
+            }
         }
 
         return this.map.randomPointOnMapEdge(this.randomGenerator);
     }
 
-    private getEndPoint(start: Vec2, isFactionRiver: boolean): Vec2 {
-        if (isFactionRiver) {
+    private getEndPoint(start: Vec2, isFactionRiver: boolean, hasMultiFactionRiver1: boolean, hasMultiFactionRiver2: boolean): Vec2 {
+        if (isFactionRiver && !hasMultiFactionRiver1 && !hasMultiFactionRiver2) {
             switch (this.map.factionModeSplitOri) {
                 case 0:
                     return v2.create(this.map.width, this.map.height / 2);
                 case 1:
                     return v2.create(this.map.width / 2, this.map.height);
+            }
+        } else if (!isFactionRiver && hasMultiFactionRiver1 && hasMultiFactionRiver2) {
+            if (hasMultiFactionRiver1 && hasMultiFactionRiver2) {
+                return v2.create(this.map.width / 1.75, 0); //(this.map.width / 2, 0);
             }
         }
 
@@ -109,9 +117,9 @@ export class RiverCreator {
         }
     }
 
-    create(riverWidth: number, isFactionRiver: boolean): Vec2[] {
-        const start = this.getStartPoint(isFactionRiver);
-        const end = this.getEndPoint(start, isFactionRiver);
+    create(riverWidth: number, isFactionRiver: boolean, hasMultiFactionRiver1: boolean, hasMultiFactionRiver2: boolean): Vec2[] {
+        const start = this.getStartPoint(isFactionRiver, hasMultiFactionRiver1, hasMultiFactionRiver2);
+        const end = this.getEndPoint(start, isFactionRiver, hasMultiFactionRiver1, hasMultiFactionRiver2);
 
         const slope = (end.y - start.y) / (end.x - start.x);
         const slopeAngle = Math.atan(slope);
@@ -132,7 +140,12 @@ export class RiverCreator {
                 // not the cleanest but forces the factionRiver to be straight...
                 // since the first midpoint of the river determines its overall structure
                 // will replace will a cleaner solution when i figure out one lmao
-                if (isFactionRiver && i == 0) {
+                if ((isFactionRiver && !(hasMultiFactionRiver1 || hasMultiFactionRiver2)) && i == 0) {
+                    midPoint = v2.add(
+                        v2.midpoint(lastPoint, nextPoint),
+                        util.randomPointInCircle(16, this.randomGenerator),
+                    );
+                } else if ( !isFactionRiver && (hasMultiFactionRiver1 || hasMultiFactionRiver2) && i == 0) {
                     midPoint = v2.add(
                         v2.midpoint(lastPoint, nextPoint),
                         util.randomPointInCircle(16, this.randomGenerator),

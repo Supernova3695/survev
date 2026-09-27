@@ -902,6 +902,42 @@ const SkinDefs = {
             rot: 0.5 * Math.PI,
         },
     }),
+    helmet04_last_man_green: defineSkin("helmet04", {
+        name: "Lone Survivr Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseTintGreen: 0xffffff,
+            baseTintOrange: 0xffffff,
+            baseSprite: "player-helmet-last-man-03.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-last-man-03.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
+    helmet04_last_man_orange: defineSkin("helmet04", {
+        name: "Lone Survivr Helmet",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseTintGreen: 0xffffff,
+            baseTintOrange: 0xffffff,
+            baseSprite: "player-helmet-last-man-04.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-last-man-04.img",
+            scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
     helmet04_leader: defineSkin("helmet04", {
         name: "Leader Helmet",
         noDrop: true,

@@ -35,7 +35,7 @@ export function getConfig(isProduction: boolean, dir: string) {
             { mapName: "faction", teamMode: TeamMode.Duo, enabled: true },
             { mapName: "faction_multi", teamMode: TeamMode.Squad, enabled: true },
         ],
-        clientTheme: "main",
+        clientTheme: "faction",
         passType: "pass_survivr2",
         gameTps: 100,
         netSyncTps: 33,

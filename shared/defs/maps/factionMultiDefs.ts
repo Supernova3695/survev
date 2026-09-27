@@ -79,7 +79,7 @@ const mapDef: PartialMapDef = {
             { name: "vault_change_03", channel: "sfx" },
             { name: "watering_01", channel: "sfx" },
         ],
-        atlases: ["loadout", "shared", "faction"],
+        atlases: ["loadout", "shared", "faction", "multifaction"],
     },
     biome: {
         colors: {
@@ -407,21 +407,46 @@ const mapDef: PartialMapDef = {
             shoreInset: 48,
             grassInset: 18,
             rivers: {
+                lakes: [
+                    {
+                        odds: 1,
+                        innerRad: 50,
+                        outerRad: 90,
+                        centerObj: "faction_fortress_01",
+                        spawnBound: {
+                            pos: v2.create(0.50, 0.50),
+                            rad: 90,
+                        },
+                    },
+                ],
                 weights: [
                     { weight: 1, widths: [20] },
-                    { weight: 1, widths: [20, 4] },
-                    { weight: 1, widths: [20, 8, 4] },
+                    { weight: 1, widths: [20] },
                 ],
                 smoothness: 0.15,
             },
         },
         places: [
-            { name: "Riverside", pos: v2.create(0.51, 0.5) },
+            { 
+                name: "Riverside", 
+                pos: v2.create(0.51, 0.5) 
+            },
             {
-                name: "Pineapple",
+                name: "Todesfelde",
                 pos: v2.create(0.84, 0.18),
             },
-            { name: "Tarkhany", pos: v2.create(0.21, 0.79) },
+            { 
+                name: "Tarkhany", 
+                pos: v2.create(0.21, 0.79) 
+            },
+            {
+                name: "Ytyk-Kyuyol",
+                pos: v2.create(0.25, 0.25),
+            },
+            {
+                name: "Pineapple",
+                pos: v2.create(0.81, 0.85),
+            },
         ],
         bridgeTypes: {
             medium: "bridge_md_structure_01",
@@ -438,8 +463,10 @@ const mapDef: PartialMapDef = {
                 barrel_01: 76,
                 silo_01: 8,
                 crate_01: 38,
-                crate_02f: 5,
-                crate_22: 5,
+                crate_02f: 6,
+                crate_22: 6,
+                crate_19f: 6,
+                crate_23f: 6,
                 crate_03: 8,
                 bush_01: 78,
                 tree_08f: 320,

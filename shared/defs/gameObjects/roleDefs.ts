@@ -214,8 +214,8 @@ export const RoleDefs: Record<string, RoleDef> = {
                         {
                             [FactionTeam.Red]: { type: "m4a1", ammo: 40, fillInv: true },
                             [FactionTeam.Blue]: { type: "grozas", ammo: 40, fillInv: true },
-                            [FactionTeam.Green]: { type: "m4a1", ammo: 40, fillInv: true },
-                            [FactionTeam.Orange]: { type: "grozas", ammo: 40, fillInv: true },
+                            [FactionTeam.Green]: { type: "scar", ammo: 30, fillInv: true },
+                            [FactionTeam.Orange]: { type: "vss", ammo: 30, fillInv: true },
                         },
                         teamcolor,
                     ),
@@ -284,11 +284,11 @@ export const RoleDefs: Record<string, RoleDef> = {
                                 { type: "scarssr", ammo: 10, fillInv: true, weight: 0.1 },
                             ]),
                             [FactionTeam.Green]: util.weightedRandom([
-                                { type: "l86", ammo: 30, fillInv: true, weight: 0.9 },
+                                { type: "mk12", ammo: 30, fillInv: true, weight: 0.9 },
                                 { type: "scarssr", ammo: 10, fillInv: true, weight: 0.1 },
                             ]),
                             [FactionTeam.Orange]: util.weightedRandom([
-                                { type: "svd", ammo: 10, fillInv: true, weight: 0.9 },
+                                { type: "garand", ammo: 8, fillInv: true, weight: 0.9 },
                                 { type: "scarssr", ammo: 10, fillInv: true, weight: 0.1 },
                             ]),
                         },
@@ -431,8 +431,8 @@ export const RoleDefs: Record<string, RoleDef> = {
                     {
                         [FactionTeam.Red]: "helmet04_last_man_red",
                         [FactionTeam.Blue]: "helmet04_last_man_blue",
-                        [FactionTeam.Green]: "helmet04_last_man_red",
-                        [FactionTeam.Orange]: "helmet04_last_man_blue",
+                        [FactionTeam.Green]: "helmet04_last_man_green",
+                        [FactionTeam.Orange]: "helmet04_last_man_orange",
                     },
                     teamcolor,
                 ),

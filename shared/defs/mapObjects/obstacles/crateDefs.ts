@@ -938,6 +938,19 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         img: { sprite: "map-crate-19.img" },
         sound: { explode: "crate_break_01" },
     }),
+    crate_19f: createCrate({
+        health: 140,
+        loot: [
+            tierLoot("tier_guns", 3, 3, { preloadGuns: true }),
+            tierLoot("tier_armor", 2, 2),
+            tierLoot("tier_packs", 1, 1),
+        ],
+        map: { display: true, color: 0x44ab00, scale: 0.875 },
+        terrain: { grass: true, beach: false },
+        img: { sprite: "map-crate-19.img" },
+        sound: { explode: "crate_break_01" },
+        teamId: 3,
+    }),
     crate_20: createCrate({
         collision: collider.createAabbExtents(v2.create(0, 0), v2.create(1.7, 1.7)),
         health: 75,
@@ -1004,6 +1017,39 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         terrain: { grass: true, beach: false },
         img: { sprite: "map-crate-22.img" },
         sound: { explode: "crate_break_01" },
+    }),
+    crate_23: createCrate({
+        health: 140,
+        loot: [
+            tierLoot("tier_guns", 3, 3, { preloadGuns: true }),
+            tierLoot("tier_armor", 2, 2),
+            tierLoot("tier_packs", 1, 1),
+        ],
+        map: { display: true, color: 16753920 },
+        terrain: {
+            grass: true,
+            beach: false,
+            minDistanceFromSameType: 32,
+        },
+        img: { sprite: "map-crate-23.img" },
+        sound: { explode: "crate_break_01" },
+    }),
+    crate_23f: createCrate({
+        health: 140,
+        loot: [
+            tierLoot("tier_guns", 3, 3, { preloadGuns: true }),
+            tierLoot("tier_armor", 2, 2),
+            tierLoot("tier_packs", 1, 1),
+        ],
+        map: { display: true, color: 16753920 },
+        terrain: {
+            grass: true,
+            beach: false,
+            minDistanceFromSameType: 32,
+        },
+        img: { sprite: "map-crate-23.img" },
+        sound: { explode: "crate_break_01" },
+        teamId: 4,
     }),
     airdrop_crate_01: createAirdrop({
         button: {

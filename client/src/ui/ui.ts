@@ -1403,7 +1403,7 @@ export class UiManager {
                 const $elem =$(`.js-ui-players-alive-${team.name}`);
                 $elem.text(team.count);
                 const isVisible = team.showAlways || is4Faction;
-                $elem.toggle(isVisible);
+                //$elem.toggle(isVisible);
             });
 
             $('#ui-leaderboard-alive-faction').toggleClass('mode-4-faction', multiFactionMode);

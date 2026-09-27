@@ -31,6 +31,7 @@ export type Atlas =
     | "main"
     | "desert"
     | "faction"
+    | "multifaction"
     | "halloween"
     | "potato"
     | "snow"

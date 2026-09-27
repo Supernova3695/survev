@@ -705,14 +705,15 @@ export class GameMap {
 
         for (let i = 0; i < widths.length; i++) {
             // in factions mode, we always assume the first width in widths is the main faction river
-            const isFactionRiver = this.factionMode;
-            const isMultiFactionRiver = this.multiFactionMode
+            const isFactionRiver = this.factionMode && !this.multiFactionMode;
+            const hasMultiFactionRiver1 = this.multiFactionMode
+            const hasMultiFactionRiver2 = this.multiFactionMode
 
             this.trySpawn(`river_${widths[i]}`, () => {
-                const riverPoints = riverCreator.create(widths[i], isFactionRiver);
-                const altRiverPoints = riverCreator.create(widths[i], isMultiFactionRiver)
+                const riverPoints = riverCreator.create(widths[i], isFactionRiver, hasMultiFactionRiver1, hasMultiFactionRiver2);
+                //const altRiverPoints = riverCreator.create(widths[i], isMultiFactionRiver, isMultiFactionRiver)
                 if (riverPoints.length < 12) return false;
-                if (altRiverPoints.length < 12) return false
+                //if (altRiverPoints.length < 12) return false
 
                 this.riverDescs.push({
                     width: widths[i],
@@ -862,7 +863,7 @@ export class GameMap {
         // generate faction bridges here
         // so we can abort and restart map gen if they fail to spawn
 
-        if (this.factionMode && this.normalRivers.length) {
+        if ((this.factionMode && !this.multiFactionMode) && this.normalRivers.length) {
             this.timerStart();
             const bridges = this.generateFactionBridges();
             this.timerEnd("Generating faction bridges");
@@ -1559,7 +1560,7 @@ export class GameMap {
         };
 
         let getPos = (spawnAabb: AABB) => {
-            if (this.factionMode) {
+            if (this.factionMode && !this.multiFactionMode) {
                 // obstacles, buildings, and structures that need to spawn on either team's side
                 // doesn't matter which team, just as long as theyre grouped with the team specific buildings
                 const edgeObjects = [

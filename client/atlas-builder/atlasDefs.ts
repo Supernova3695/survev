@@ -3,6 +3,7 @@ import { BeachAtlas } from "./defs/beach.ts";
 import { CobaltAtlas } from "./defs/cobalt.ts";
 import { DesertAtlas } from "./defs/desert.ts";
 import { FactionAtlas } from "./defs/faction.ts";
+import { MultiFactionAtlas } from "./defs/multiFaction.ts";
 import { HalloweenAtlas } from "./defs/halloween.ts";
 import { LoadoutAtlas } from "./defs/loadout.ts";
 import { MainAtlas } from "./defs/main.ts";
@@ -23,6 +24,7 @@ export const Atlases: Record<Atlas, AtlasDef> = {
     main: MainAtlas,
     desert: DesertAtlas,
     faction: FactionAtlas,
+    multifaction: MultiFactionAtlas,
     halloween: HalloweenAtlas,
     potato: PotatoAtlas,
     snow: SnowAtlas,
