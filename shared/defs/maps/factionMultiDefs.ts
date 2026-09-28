@@ -410,12 +410,12 @@ const mapDef: PartialMapDef = {
                 lakes: [
                     {
                         odds: 1,
-                        innerRad: 50,
-                        outerRad: 90,
+                        innerRad: 60,
+                        outerRad: 95,
                         centerObj: "faction_fortress_01",
                         spawnBound: {
                             pos: v2.create(0.50, 0.50),
-                            rad: 90,
+                            rad: 20,
                         },
                     },
                 ],
@@ -519,7 +519,7 @@ const mapDef: PartialMapDef = {
             },
         ],
         importantSpawns: [
-            "river_town_01",
+            "faction_fortress_01",
             "police_01",
             "bank_01",
             "mansion_structure_01",

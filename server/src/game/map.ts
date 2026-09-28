@@ -698,30 +698,32 @@ export class GameMap {
         // Generate rivers
         //
 
-        const widths = util.weightedRandom(
-            mapConfig.rivers.weights,
-            randomGenerator,
-        ).widths;
+        if (!this.multiFactionMode) {
+            const widths = util.weightedRandom(
+                mapConfig.rivers.weights,
+                randomGenerator,
+            ).widths;
 
-        for (let i = 0; i < widths.length; i++) {
-            // in factions mode, we always assume the first width in widths is the main faction river
-            const isFactionRiver = this.factionMode && !this.multiFactionMode;
-            const hasMultiFactionRiver1 = this.multiFactionMode
-            const hasMultiFactionRiver2 = this.multiFactionMode
+            for (let i = 0; i < widths.length; i++) {
+                // in factions mode, we always assume the first width in widths is the main faction river
+                const isFactionRiver = this.factionMode && !this.multiFactionMode;
+                const hasMultiFactionRiver1 = this.multiFactionMode
+                const hasMultiFactionRiver2 = this.multiFactionMode
 
-            this.trySpawn(`river_${widths[i]}`, () => {
-                const riverPoints = riverCreator.create(widths[i], isFactionRiver, hasMultiFactionRiver1, hasMultiFactionRiver2);
-                //const altRiverPoints = riverCreator.create(widths[i], isMultiFactionRiver, isMultiFactionRiver)
-                if (riverPoints.length < 12) return false;
-                //if (altRiverPoints.length < 12) return false
+                this.trySpawn(`river_${widths[i]}`, () => {
+                    const riverPoints = riverCreator.create(widths[i], isFactionRiver, hasMultiFactionRiver1, hasMultiFactionRiver2);
+                    //const altRiverPoints = riverCreator.create(widths[i], isMultiFactionRiver, isMultiFactionRiver)
+                    if (riverPoints.length < 12) return false;
+                    //if (altRiverPoints.length < 12) return false
 
-                this.riverDescs.push({
-                    width: widths[i],
-                    points: riverPoints,
-                    looped: false,
+                    this.riverDescs.push({
+                        width: widths[i],
+                        points: riverPoints,
+                        looped: false,
+                    });
+                    return true;
                 });
-                return true;
-            });
+            }
         }
     }
 
