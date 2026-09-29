@@ -9,6 +9,8 @@ export const MultiFactionAtlas: AtlasDef = {
 
         ...BuildingSprites.greenhouse,
         ...BuildingSprites.bunker_chrys,
+        ...BuildingSprites.bunker_hatchet,
+        ...BuildingSprites.bunker_fortress,
 
         "map/map-chest-03f.svg",
 
@@ -19,6 +21,7 @@ export const MultiFactionAtlas: AtlasDef = {
         "map/map-crate-02f.svg",
         "map/map-crate-19.svg",
         "map/map-crate-23.svg",
+        "map/map-crate-24.svg",
 
         "map/map-crate-12.svg",
         "map/map-crate-13.svg",

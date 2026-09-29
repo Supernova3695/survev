@@ -9751,7 +9751,7 @@ export const BaseBuildingDefs: Record<string, BuildingDef> = {
             ],
         },
     }),
-    teahouse_01: createTeahouse({}, {}),
+    teahouse_01: createTeahouse({ teamId: 4 }, {}),
     teahouse_complex_01s: createTeaHouseComplex({}, {}),
     warehouse_01: createWarehouse({}, {
         topLeftObs: "crate_01",

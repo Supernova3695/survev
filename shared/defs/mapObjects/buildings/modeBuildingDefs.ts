@@ -5240,7 +5240,7 @@ function createWorkshopComplex(overrides: DeepPartial<BuildingDef>): BuildingDef
 }
 
 function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
-    center_object?: BuildingChildObjType;
+    fortress_bunker?: BuildingChildObjType;
     north_west_center_object?: BuildingChildObjType;
     north_east_center_object?: BuildingChildObjType;
     south_west_center_object?: BuildingChildObjType;
@@ -5512,7 +5512,10 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
             //
             //center
             {
-                type: params.center_object,
+                type: randomObstacleType({
+                    case_04: 19,
+                    case_12: 1,
+                }),
                 pos: v2.create(0, 0),
                 scale: 1,
                 ori: 0,
@@ -5543,13 +5546,13 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
             },
             {
                 type: "crate_04",
-                pos: v2.create(0, 5),
+                pos: v2.create(0, -5),
                 scale: 1,
                 ori: 0,
             },
             {
                 type: "crate_04",
-                pos: v2.create(0, -5),
+                pos: v2.create(0, 5),
                 scale: 1,
                 ori: 0,
             },
@@ -5636,6 +5639,12 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 pos: v2.create(-11, -11),
                 scale: 1,
                 ori: 3,
+            },
+            {
+                type: "mil_crate_06",
+                pos: v2.create(-11, 15.5),
+                scale: 1,
+                ori: 0,
             },
             {
                 type: "sandbags_01",
@@ -5850,14 +5859,10 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 0,
             },
             {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(28.5, 14),
+                type: params.fortress_bunker,
+                pos: v2.create(30, 14),
                 scale: 1,
-                ori: 3,
+                ori: 1,
             },
             {
                 type: "barrel_01",
@@ -5980,6 +5985,12 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 1,
             },
             {
+                type: "shack_02",
+                pos: v2.create(18, -32),
+                scale: 1,
+                ori: 3,
+            },
+            {
                 type: "barrel_01",
                 pos: v2.create(-26, 30),
                 scale: 1,
@@ -5996,6 +6007,12 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 pos: v2.create(-25, 21.5),
                 scale: 1,
                 ori: 0,
+            },
+            {
+                type: "shack_02",
+                pos: v2.create(-18, 32),
+                scale: 1,
+                ori: 1,
             },
             { //south
                 type: "barn_01",
@@ -8454,7 +8471,7 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
 
     // Multi Faction
     faction_fortress_01: createFactionFortress({}, {
-        center_object: "case_04",
+        fortress_bunker: "bunker_structure_11",
         north_west_center_object: "crate_19f",
         north_east_center_object: "crate_23f",
         south_west_center_object: "crate_02f",
@@ -10717,9 +10734,9 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
         floor_loot: "loot_tier_2",
     }),
     workshop_complex_01: createWorkshopComplex({}),
-    logging_complex_01: createLoggingComplex({}, {}),
-    logging_complex_02: createLoggingComplex2({}, {}),
-    logging_complex_03: createLoggingComplex3({}, {}),
+    logging_complex_01: createLoggingComplex({ teamId: 3 }, {}),
+    logging_complex_02: createLoggingComplex2({ teamId: 3 }, {}),
+    logging_complex_03: createLoggingComplex3({ teamId: 3 }, {}),
     camp_01: createCamp({}, {}),
     teapavilion_01: createTeaPavilion({}, {}),
     teapavilion_complex_01: {

@@ -102,6 +102,16 @@ const mapDef: PartialMapDef = {
     },
     /* STRIP_FROM_PROD_CLIENT:START */
     gameConfig: {
+        unlocks: {
+            timings: [
+                {
+                    type: "bunker_fortress_sublevel_01",
+                    stagger: 0.2,
+                    circleIdx: 1,
+                    wait: 30,
+                },
+            ],
+        },
         planes: {
             timings: [
                 {
@@ -397,6 +407,21 @@ const mapDef: PartialMapDef = {
                 weight: 1,
             },
         ],
+        tier_fortress: [
+            { name: "saiga", count: 1, weight: 1 },
+            { name: "vss", count: 1, weight: 1 },
+            { name: "scorpion", count: 1, weight: 1 },
+            { name: "garand", count: 1, weight: 1 },
+            { name: "mk12", count: 1, weight: 1 },
+            { name: "deagle", count: 1, weight: 1 },
+        ],
+        tier_fortress_weapon: [
+            { name: "saiga", count: 1, weight: 5 },
+            { name: "awc", count: 1, weight: 1 },
+            { name: "scarssr", count: 1, weight: 1 },
+            { name: "ash12", count: 1, weight: 5 },
+            { name: "sv98", count: 1, weight: 5 },
+        ]
     },
     mapGen: {
         map: {
@@ -489,6 +514,8 @@ const mapDef: PartialMapDef = {
                 barn_01: 4,
                 bank_01: 1,
                 police_01: 1,
+                logging_complex_02: 1,
+                teahouse_01: 2,
                 hut_01: 4,
                 hut_02: 1,
                 shack_03a: 2,
@@ -524,6 +551,7 @@ const mapDef: PartialMapDef = {
             "bank_01",
             "mansion_structure_01",
             "warehouse_complex_01",
+            "logging_complex_02"
         ],
     },
     /* STRIP_FROM_PROD_CLIENT:END */

@@ -7773,4 +7773,830 @@ export const BunkerDefs: Record<string, BuildingDef> = {
             },
         ],
     },
+    bunker_fortress_01: {
+        type: "building",
+        map: {
+            display: true,
+            shapes: [
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(0, 0),
+                        v2.create(5.5, 2.5),
+                    ),
+                    color: 0x29414e,
+                },
+            ],
+        },
+        terrain: { grass: true, beach: false },
+        zIdx: 0,
+        floor: {
+            surfaces: [
+                // {
+                //     type: "container",
+                //     collision: [
+                //         collider.createAabbExtents(
+                //             v2.create(16.25, 3.5),
+                //             v2.create(3.25, 2),
+                //         ),
+                //         collider.createAabbExtents(
+                //             v2.create(22, 3.35),
+                //             v2.create(8, 2.5),
+                //         ),
+                //     ],
+                // },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-conch-floor-01.img",
+                    pos: v2.create(1.5, 0.1),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+        },
+        ceiling: {
+            zoomRegions: [
+                {
+                    zoomIn: collider.createAabbExtents(
+                        v2.create(0, 0),
+                        v2.create(5.5, 2.5),
+                    ),
+                    zoomOut: collider.createAabbExtents(
+                        v2.create(3, 0),
+                        v2.create(8, 2.5),
+                    ),
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-conch-ceiling-01.img",
+                    pos: v2.create(0, 0),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+            vision: {},
+        },
+        mapObjects: [
+            {
+                type: "container_wall_top",
+                pos: v2.create(-5.45, 0),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "container_wall_side",
+                pos: v2.create(0.25, 2.3),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "container_wall_side",
+                pos: v2.create(0.25, -2.3),
+                scale: 1,
+                ori: 1,
+            },
+        ],
+    },
+    bunker_fortress_sublevel_01: {
+        type: "building",
+        map: { display: false, color: 0x665a4e, scale: 1 },
+        terrain: { grass: true, beach: false },
+        zIdx: 1,
+        floor: {
+            surfaces: [
+                {
+                    type: "bunker",
+                    collision: [
+                        collider.createAabbExtents(v2.create(-3, -4.4), v2.create(13, 9)),
+                    ],
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-fortress-chamber-floor-01a.img",
+                    pos: v2.create(0, -4.5),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+                {
+                    sprite: "map-bunker-hatchet-chamber-floor-01b.img",
+                    pos: v2.create(0, 9.25),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+                {
+                    sprite: "map-bunker-hatchet-chamber-floor-01c.img",
+                    pos: v2.create(-15, -9.475),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+        },
+        ceiling: {
+            zoomRegions: [
+                {
+                    zoomIn: collider.createAabbExtents(
+                        v2.create(-3, -4.4),
+                        v2.create(13, 9.25),
+                    ),
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-hatchet-chamber-ceiling-01.img",
+                    pos: v2.create(-3, -4.5),
+                    scale: 1,
+                    alpha: 1,
+                    tint: 0x5f5f5f,
+                },
+            ],
+            vision: { dist: 5, width: 3 },
+        },
+        mapObjects: [
+            {
+                type: "concrete_wall_ext_6",
+                pos: v2.create(0, 11.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_8",
+                pos: v2.create(-3.5, 8),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_8",
+                pos: v2.create(3.5, 8),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_7",
+                pos: v2.create(-8.5, 5.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_7",
+                pos: v2.create(8.5, 5.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_20",
+                pos: v2.create(10.5, -6),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_10",
+                pos: v2.create(-10.5, -1),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_14",
+                pos: v2.create(-16, -7.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_25",
+                pos: v2.create(-3.5, -14.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "lab_door_locked_01",
+                pos: v2.create(-2, 5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-3, 1),
+                scale: 0.9,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-2.5, -2),
+                scale: 0.9,
+                ori: 1,
+            },
+            {
+                type: "crate_02f",
+                pos: v2.create(-7, 2),
+                scale: 0.85,
+                ori: 3,
+            },
+            {
+                type: "crate_19",
+                pos: v2.create(-7, -2),
+                scale: 0.85,
+                ori: 3,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(6.75, -10.75),
+                scale: 0.85,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(0, -11),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(7, -4),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "bunker_fortress_compartment_01",
+                pos: v2.create(-32, -1.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "bunker_fortress_compartment_02",
+                pos: v2.create(-63.5, -4),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "bunker_fortress_compartment_03",
+                pos: v2.create(-55, 20.5),
+                scale: 1,
+                ori: 0,
+            },
+        ],
+    },
+    bunker_fortress_compartment_01: {
+        type: "building",
+        map: { display: false, color: 0x665a4e, scale: 1 },
+        terrain: { grass: true, beach: false },
+        zIdx: 2,
+        floor: {
+            surfaces: [
+                {
+                    type: "tile",
+                    collision: [
+                        collider.createAabbExtents(v2.create(0, 0), v2.create(16, 13)),
+                    ],
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-hatchet-compartment-floor-01.img",
+                    pos: v2.create(0, 0.5),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+        },
+        ceiling: {
+            zoomRegions: [
+                {
+                    zoomIn: collider.createAabbExtents(
+                        v2.create(0, 0),
+                        v2.create(16, 12.5),
+                    ),
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-hatchet-compartment-ceiling-01.img",
+                    pos: v2.create(0, 0),
+                    scale: 1,
+                    alpha: 1,
+                    tint: 0x5f5f5f,
+                },
+            ],
+        },
+        mapObjects: [
+            {
+                type: "metal_wall_ext_thicker_13",
+                pos: v2.create(10.5, 2),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_11",
+                pos: v2.create(3.5, 7),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_18",
+                pos: v2.create(-3.5, 14.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_21",
+                pos: v2.create(-10.5, 6),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_32",
+                pos: v2.create(0, -13),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_14",
+                pos: v2.create(-16, -6),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "lab_door_01",
+                pos: v2.create(16, -7.5),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "lab_door_01",
+                pos: v2.create(-16, -7.5),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "lab_door_01",
+                pos: v2.create(-9, 12.5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "metal_wall_ext_10",
+                pos: v2.create(8.65, -0.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_10",
+                pos: v2.create(3, 5.15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({ locker_01: 3, locker_02: 1, locker_03: 4 }),
+                pos: v2.create(0.5, 5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({ locker_01: 7, locker_03: 1 }),
+                pos: v2.create(5.5, 5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({ locker_01: 7, locker_03: 1 }),
+                pos: v2.create(8.5, 2),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({ locker_01: 7, locker_03: 1 }),
+                pos: v2.create(8.5, -3),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(1.5, -0.5),
+                scale: 0.9,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(1.5, -5),
+                scale: 0.9,
+                ori: 0,
+            },
+            {
+                type: "fire_ext_01",
+                pos: v2.create(0.5, -11.25),
+                scale: 0.9,
+                ori: 1,
+            },
+            {
+                type: "case_11",
+                pos: v2.create(-7.5, -5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "mil_crate_06",
+                pos: v2.create(-7.5, 0),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-12.5, -9.5),
+                scale: 0.85,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-7, 8.5),
+                scale: 0.85,
+                ori: 0,
+            },
+        ],
+    },
+    bunker_fortress_compartment_02: {
+        type: "building",
+        map: { display: false, color: 0x665a4e, scale: 1 },
+        terrain: { grass: true, beach: false },
+        zIdx: 2,
+        floor: {
+            surfaces: [
+                {
+                    type: "tile",
+                    collision: [
+                        collider.createAabbExtents(v2.create(0, 0), v2.create(16, 15)),
+                    ],
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-hatchet-compartment-floor-02a.img",
+                    pos: v2.create(4, -8.25),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+                {
+                    sprite: "map-bunker-hatchet-compartment-floor-02b.img",
+                    pos: v2.create(0.75, 6),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+                {
+                    sprite: "map-bunker-hatchet-compartment-floor-02c.img",
+                    pos: v2.create(-14, 0.5),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+                {
+                    sprite: "map-bunker-hatchet-compartment-floor-02d.img",
+                    pos: v2.create(-6.27, 14.25),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+        },
+        ceiling: {
+            zoomRegions: [
+                {
+                    zoomIn: collider.createAabbExtents(
+                        v2.create(-0.5, 0),
+                        v2.create(16, 15),
+                    ),
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-hatchet-compartment-ceiling-02.img",
+                    pos: v2.create(-0.5, -0.5),
+                    scale: 1,
+                    alpha: 1,
+                    tint: 0x5f5f5f,
+                },
+            ],
+        },
+        mapObjects: [
+            {
+                type: "metal_wall_ext_thicker_8",
+                pos: v2.create(11.5, -10.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_13",
+                pos: v2.create(10, 4.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_11",
+                pos: v2.create(3, 9.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_8",
+                pos: v2.create(6, -13),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_12",
+                pos: v2.create(-1.5, -16.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_7",
+                pos: v2.create(-9, -13.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_11",
+                pos: v2.create(-13, -8.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_15",
+                pos: v2.create(-17, 0.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_6",
+                pos: v2.create(-12.5, 6.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_25",
+                pos: v2.create(-11, 20.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_14",
+                pos: v2.create(-4, 15),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "lab_door_01",
+                pos: v2.create(-5.5, 15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(3, 2.5),
+                scale: 0.85,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-7.5, 11),
+                scale: 0.85,
+                ori: 0,
+            },
+            {
+                type: "control_panel_06",
+                pos: v2.create(2, 6.25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "control_panel_06",
+                pos: v2.create(6.75, 1.5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-3, 6.20),
+                scale: 0.85,
+                ori: 0,
+            },
+            {
+                type: "mil_crate_04",
+                pos: v2.create(-3, 2.75),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(6.70, -3.5),
+                scale: 0.85,
+                ori: 3,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-2, -3.5),
+                scale: 0.85,
+                ori: 3,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-4, -5.75),
+                scale: 0.85,
+                ori: 3,
+            },
+            {
+                type: "loot_tier_hatchet_melee",
+                pos: v2.create(6.75, 6.25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "glass_wall_12_2",
+                pos: v2.create(-10.5, -1),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "glass_wall_12_2",
+                pos: v2.create(-1.5, -10),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_24",
+                pos: v2.create(-13.5, -5),
+                scale: 0.90,
+                ori: 3,
+            },
+            {
+                type: "loot_tier_fortress_weapon",
+                pos: v2.create(-13.5, -1),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_fortress_armor",
+                pos: v2.create(-13.5, 2.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_24",
+                pos: v2.create(-5.5, -13),
+                scale: 0.90,
+                ori: 3,
+            },
+            {
+                type: "loot_tier_fortress_weapon",
+                pos: v2.create(-1.5, -13),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_fortress_armor",
+                pos: v2.create(2, -13),
+                scale: 1,
+                ori: 0,
+            },
+        ],
+    },
+    bunker_fortress_compartment_03: {
+        type: "building",
+        map: { display: false, color: 0x665a4e, scale: 1 },
+        terrain: { grass: true, beach: false },
+        zIdx: 2,
+        floor: {
+            surfaces: [
+                {
+                    type: "tile",
+                    collision: [
+                        collider.createAabbExtents(v2.create(0, 0), v2.create(19, 10)),
+                    ],
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-hatchet-compartment-floor-03a.img",
+                    pos: v2.create(-14.5, -8.5),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+                {
+                    sprite: "map-bunker-hatchet-compartment-floor-03b.img",
+                    pos: v2.create(-9, 3),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+                {
+                    sprite: "map-bunker-hatchet-compartment-floor-03c.img",
+                    pos: v2.create(5.5, -0.25),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+                {
+                    sprite: "map-bunker-hatchet-compartment-floor-03d.img",
+                    pos: v2.create(14.5, -3.75),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+        },
+        ceiling: {
+            zoomRegions: [
+                {
+                    zoomIn: collider.createAabbExtents(
+                        v2.create(0, 0),
+                        v2.create(19, 9.5),
+                    ),
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-hatchet-compartment-ceiling-03.img",
+                    pos: v2.create(0, 0),
+                    scale: 1,
+                    alpha: 1,
+                    tint: 0x5f5f5f,
+                },
+            ],
+        },
+        mapObjects: [
+            {
+                type: "metal_wall_ext_thicker_25",
+                pos: v2.create(1.5, -4),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_18",
+                pos: v2.create(12, 3),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_10",
+                pos: v2.create(1.5, 6.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_21",
+                pos: v2.create(-10.5, 10),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-16, -5),
+                scale: 0.85,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(3, -0.5),
+                scale: 0.85,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(-11.75, -1.05),
+                scale: 0.85,
+                ori: 0,
+            },
+            {
+                type: "mil_crate_06",
+                pos: v2.create(-6, -1.05),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "case_03",
+                pos: v2.create(-2.5, 6.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-7, 6.75),
+                scale: 0.9,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-11, 5.5),
+                scale: 0.9,
+                ori: 0,
+            },
+        ],
+    },
 };
