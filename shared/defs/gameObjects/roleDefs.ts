@@ -129,8 +129,8 @@ export const RoleDefs: Record<string, RoleDef> = {
                         {
                             [FactionTeam.Red]: { type: "m1014", ammo: 8, fillInv: true },
                             [FactionTeam.Blue]: { type: "an94", ammo: 45, fillInv: true },
-                            [FactionTeam.Green]: { type: "qbb97", ammo: 75, fillInv: true },
-                            [FactionTeam.Orange]: { type: "p30l_dual", ammo: 30, fillInv: true },
+                            [FactionTeam.Green]: { type: "aek972", ammo: 30, fillInv: true },
+                            [FactionTeam.Orange]: { type: "sig_mpx_k", ammo: 35, fillInv: true },
                         },
                         teamcolor,
                     ),
@@ -140,8 +140,8 @@ export const RoleDefs: Record<string, RoleDef> = {
                         {
                             [FactionTeam.Red]: { type: "machete_taiga", ammo: 0 },
                             [FactionTeam.Blue]: { type: "kukri_trad", ammo: 0 },
-                            [FactionTeam.Green]: { type: "cutlass", ammo: 0 },
-                            [FactionTeam.Orange]: { type: "falchion", ammo: 0 },
+                            [FactionTeam.Green]: { type: "cutlass_covert", ammo: 0 },
+                            [FactionTeam.Orange]: { type: "falchion_woodland", ammo: 0 },
                         },
                         teamcolor,
                     ),
@@ -284,7 +284,7 @@ export const RoleDefs: Record<string, RoleDef> = {
                                 { type: "scarssr", ammo: 10, fillInv: true, weight: 0.1 },
                             ]),
                             [FactionTeam.Green]: util.weightedRandom([
-                                { type: "mk12", ammo: 30, fillInv: true, weight: 0.9 },
+                                { type: "mk14ebr", ammo: 20, fillInv: true, weight: 0.9 },
                                 { type: "scarssr", ammo: 10, fillInv: true, weight: 0.1 },
                             ]),
                             [FactionTeam.Orange]: util.weightedRandom([

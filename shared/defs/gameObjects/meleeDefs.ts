@@ -1427,12 +1427,26 @@ const SkinDefs: Record<string, MeleeDef> = {
         lootImg: { sprite: "loot-melee-cutlass-gold.img" },
         worldImg: { sprite: "loot-melee-cutlass-gold.img" },
     }),
+    cutlass_covert: defineMeleeSkin("cutlass", {
+        name: "Covert Cutlass",
+        noPotatoSwap: true,
+        damage: 33,
+        lootImg: { sprite: "loot-melee-cutlass-forest.img" },
+        worldImg: { sprite: "loot-melee-cutlass-forest.img" },
+    }),
     falchion: defineMeleeSkin("cutlass", {
         name: "Falchion",
         noPotatoSwap: true,
         damage: 33,
         lootImg: { sprite: "loot-melee-falchion.img" },
         worldImg: { sprite: "loot-melee-falchion.img" },
+    }),
+    falchion_woodland: defineMeleeSkin("cutlass", {
+        name: "Falchion Woodland",
+        noPotatoSwap: true,
+        damage: 33,
+        lootImg: { sprite: "loot-melee-falchion-woodland.img" },
+        worldImg: { sprite: "loot-melee-falchion-woodland.img" },
     }),
 };
 
