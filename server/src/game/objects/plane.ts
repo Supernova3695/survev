@@ -230,31 +230,89 @@ export class PlaneBarn {
         return threshold >= 0.1 || difference >= 5;
     }
 
+    isOneTeamWinningMF(): boolean {
+        if (this.sentHelp || this.game.gas.circleIdx == 0) return false;
+
+        const redConnectedPlayers = this.game.playerBarn.teams[0].livingPlayers.filter(
+            (p) => !p.disconnected,
+        );
+        const blueConnectedPlayers = this.game.playerBarn.teams[1].livingPlayers.filter(
+            (p) => !p.disconnected,
+        );
+        const greenConnectedPlayers = this.game.playerBarn.teams[2].livingPlayers.filter(
+            (p) => !p.disconnected,
+        );
+        const orangeConnectedPlayers = this.game.playerBarn.teams[3].livingPlayers.filter(
+            (p) => !p.disconnected,
+        );
+
+        const redAliveCount = redConnectedPlayers.length;
+        const blueAliveCount = blueConnectedPlayers.length;
+        const greenAliveCount = greenConnectedPlayers.length;
+        const orangeAliveCount = orangeConnectedPlayers.length;
+
+        const maxAliveCountRB = math.max(redAliveCount, blueAliveCount);
+        const maxAliveCountGO = math.max(greenAliveCount, orangeAliveCount);
+        const minAliveCountRB = math.min(redAliveCount, blueAliveCount);
+        const minAliveCountGO = math.min(greenAliveCount, orangeAliveCount);
+
+        const maxAliveCount = math.max(maxAliveCountRB, maxAliveCountGO);
+        const minAliveCount = math.min(minAliveCountRB, minAliveCountGO);
+
+        const threshold = (maxAliveCount - minAliveCount) / (maxAliveCount + minAliveCount);
+        const difference = maxAliveCount - minAliveCount;
+        return threshold >= 0.1 || difference >= 5;
+    }
+
     helpLosingTeam(): void {
         if (!this.game.playerBarn.teams.length) return;
 
         // Special airdrop
-        const losingTeam = this.game.playerBarn.teams.reduce((losingTeam, team) =>
-            losingTeam.livingPlayers.length < team.livingPlayers.length
-                ? losingTeam
-                : team
+        const losingTeam = this.game.playerBarn.teams.reduce((losing, team) =>
+            losing.livingPlayers.length < team.livingPlayers.length ? losing : team
         );
-        const winningTeam = this.game.playerBarn.teams.reduce((winningTeam, team) =>
-            winningTeam.livingPlayers.length > team.livingPlayers.length
-                ? winningTeam
-                : team
+
+        const winningTeam = this.game.playerBarn.teams.reduce((winning, team) =>
+            winning.livingPlayers.length > team.livingPlayers.length ? winning : team
         );
 
         const winningTeamMean = v2.create(0, 0);
+        let activePlayerCount = 0;
+
         for (let i = 0; i < winningTeam.livingPlayers.length; i++) {
             const player = winningTeam.livingPlayers[i];
             if (player.disconnected) continue;
+
             winningTeamMean.x += player.pos.x;
             winningTeamMean.y += player.pos.y;
+            activePlayerCount++;
         }
 
-        winningTeamMean.x /= winningTeam.livingPlayers.length;
-        winningTeamMean.y /= winningTeam.livingPlayers.length;
+        if (activePlayerCount > 0) {
+            winningTeamMean.x /= activePlayerCount;
+            winningTeamMean.y /= activePlayerCount;
+        }
+        // const losingTeam = this.game.playerBarn.teams.reduce((losingTeam, team) =>
+        //     losingTeam.livingPlayers.length < team.livingPlayers.length
+        //         ? losingTeam
+        //         : team
+        // );
+        // const winningTeam = this.game.playerBarn.teams.reduce((winningTeam, team) =>
+        //     winningTeam.livingPlayers.length > team.livingPlayers.length
+        //         ? winningTeam
+        //         : team
+        // );
+
+        // const winningTeamMean = v2.create(0, 0);
+        // for (let i = 0; i < winningTeam.livingPlayers.length; i++) {
+        //     const player = winningTeam.livingPlayers[i];
+        //     if (player.disconnected) continue;
+        //     winningTeamMean.x += player.pos.x;
+        //     winningTeamMean.y += player.pos.y;
+        // }
+
+        // winningTeamMean.x /= winningTeam.livingPlayers.length;
+        // winningTeamMean.y /= winningTeam.livingPlayers.length;
 
         const players = losingTeam.livingPlayers.filter(
             (p) => !p.disconnected && !this.game.gas.isInGas(p.pos),

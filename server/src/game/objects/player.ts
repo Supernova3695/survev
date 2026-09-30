@@ -2628,7 +2628,7 @@ export class Player extends BaseGameObject {
         this.game.clientBarn.broadcastMsg(net.MsgType.Kill, downedMsg);
 
         // lone survivr can be given on knock or kill
-        if (this.game.map.factionMode) {
+        if (this.game.map.factionMode || this.game.map.multiFactionMode) {
             this.team!.checkAndApplyLastMan();
             this.team!.checkAndApplyCaptain();
         }
@@ -2823,13 +2823,15 @@ export class Player extends BaseGameObject {
             );
         }
 
-        if (this.game.map.factionMode) {
+        if (this.game.map.factionMode || this.game.map.multiFactionMode) {
             // lone survivr can be given on knock or kill
             this.team!.checkAndApplyLastMan();
             this.team!.checkAndApplyCaptain();
 
             // golden airdrops depend on alive counts, so we only do this logic on kill
-            if (this.game.planeBarn.isOneTeamWinning()) {
+            if (this.game.planeBarn.isOneTeamWinning() && (this.game.map.factionMode && !this.game.map.multiFactionMode)) {
+                this.game.planeBarn.helpLosingTeam();
+            } else if (this.game.planeBarn.isOneTeamWinning() && (this.game.map.multiFactionMode && !this.game.map.factionMode)) {
                 this.game.planeBarn.helpLosingTeam();
             }
         }
