@@ -32,6 +32,7 @@ export const MultiFactionAtlas: AtlasDef = {
         "map/map-statue-top-02.svg",
 
         "map/map-bush-01f.svg",
+        "map/map-tree-08.svg",
         "map/map-tree-08f.svg",
 
         "map/map-stone-03f.svg",

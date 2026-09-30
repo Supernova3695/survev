@@ -130,7 +130,7 @@ export const RoleDefs: Record<string, RoleDef> = {
                             [FactionTeam.Red]: { type: "m1014", ammo: 8, fillInv: true },
                             [FactionTeam.Blue]: { type: "an94", ammo: 45, fillInv: true },
                             [FactionTeam.Green]: { type: "aek972", ammo: 30, fillInv: true },
-                            [FactionTeam.Orange]: { type: "sig_mpx_k", ammo: 35, fillInv: true },
+                            [FactionTeam.Orange]: { type: "ar19", ammo: 35, fillInv: true },
                         },
                         teamcolor,
                     ),
@@ -288,7 +288,7 @@ export const RoleDefs: Record<string, RoleDef> = {
                                 { type: "scarssr", ammo: 10, fillInv: true, weight: 0.1 },
                             ]),
                             [FactionTeam.Orange]: util.weightedRandom([
-                                { type: "garand", ammo: 8, fillInv: true, weight: 0.9 },
+                                { type: "sr25", ammo: 20, fillInv: true, weight: 0.9 },
                                 { type: "scarssr", ammo: 10, fillInv: true, weight: 0.1 },
                             ]),
                         },
