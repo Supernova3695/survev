@@ -421,6 +421,10 @@ const mapDef: PartialMapDef = {
             { name: "scarssr", count: 1, weight: 1 },
             { name: "ash12", count: 1, weight: 5 },
             { name: "sv98", count: 1, weight: 5 },
+        ],
+        tier_safe: [
+            { name: "tier_airdrop_uncommon", count: 1, weight: 9 },
+            { name: "tier_airdrop_rare", count: 1, weight: 1 },
         ]
     },
     mapGen: {

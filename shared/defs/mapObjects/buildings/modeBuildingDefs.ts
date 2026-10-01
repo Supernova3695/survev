@@ -5423,23 +5423,15 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                         collider.createAabbExtents(v2.create(0, 0), v2.create(0, 0)),
                     ],
                 },
-                // {
-                //     type: "asphalt",
-                //     collision: [
-                //         collider.createAabbExtents(
-                //             v2.create(70.75, 0.5),
-                //             v2.create(30, 54.5),
-                //         ),
-                //         collider.createAabbExtents(
-                //             v2.create(77.5, 64),
-                //             v2.create(23, 10),
-                //         ),
-                //         collider.createAabbExtents(
-                //             v2.create(111, -29.5),
-                //             v2.create(10.5, 24.5),
-                //         ),
-                //     ],
-                // },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(
+                            v2.create(0, 0),
+                            v2.create(-37.5, -37.5),
+                        ),
+                    ],
+                },
             ],
             imgs: [
                 {
