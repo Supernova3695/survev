@@ -8,9 +8,11 @@ export const MultiFactionAtlas: AtlasDef = {
         "map/map-building-bridge-xlg-floor.svg",
 
         ...BuildingSprites.greenhouse,
+        ...BuildingSprites.workshop,
         ...BuildingSprites.bunker_chrys,
         ...BuildingSprites.bunker_hatchet,
         ...BuildingSprites.bunker_fortress,
+        ...BuildingSprites.bunker_hydra,
 
         "map/map-chest-03f.svg",
 
@@ -37,5 +39,13 @@ export const MultiFactionAtlas: AtlasDef = {
 
         "map/map-stone-03f.svg",
         "map/map-stone-res-02f.svg",
+
+        "map/map-web-01.svg",
+        "map/map-safe-01.svg",
+
+        "map/map-woodpile-02.svg",
+        "map/map-woodpile-03.svg",
+        "map/map-woodpile-res-02.svg",
+        "map/map-woodpile-res-03.svg",
     ],
 };

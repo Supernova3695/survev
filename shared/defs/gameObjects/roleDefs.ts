@@ -240,7 +240,7 @@ export const RoleDefs: Record<string, RoleDef> = {
         sound: { assign: "medic_assigned_01" },
         mapIcon: {
             alive: "player-medic.img",
-            dead: "skull-leader.img",
+            dead: "skull-medic.img",
         },
         perks: ["aoe_heal", "self_revive"],
         defaultItems: createDefaultItems({

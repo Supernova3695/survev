@@ -1641,11 +1641,12 @@ export class GameMap {
                 // obstacles, buildings, and structures that need to spawn away from the sides and closer to the center river
                 const centerObjects = [
                     "greenhouse_01",
+                    "bunker_structure_02", // hydra bunker
                     "bunker_structure_03", // storm bunker
                 ];
 
                 if ("teamId" in def && def.teamId) {
-                    const teamId = def.teamId; // 1: Top-Left, 2: Top-Right, 3: Bottom-Left, 4: Bottom-Right
+                    const teamId = def.teamId; // 1: green team, 2: orange team, 3: red team, 4: blue team
                     const idx = teamId - 1;
 
                     const isRight = (idx % 2) === 1;
@@ -1655,7 +1656,6 @@ export class GameMap {
                     const height = spawnAabb.max.y - spawnAabb.min.y;
 
                     if (teamObjects.includes(type)) {
-                        // Spawn anywhere within the team's entire corner quadrant (0% to 50% on X and Y)
                         const minX = isRight ? spawnAabb.min.x + width * 0.50 : spawnAabb.min.x;
                         const maxX = isRight ? spawnAabb.max.x : spawnAabb.min.x + width * 0.50;
 
@@ -1666,10 +1666,7 @@ export class GameMap {
                             min: v2.create(minX, minY),
                             max: v2.create(maxX, maxY)
                         });
-
                     } else {
-                        // "edgeObjects" for a team (or fallback for team-bound non-general objects):
-                        // Spawn in the extreme outer corner (e.g., outer 25% of the map)
                         const minX = isRight ? spawnAabb.max.x - width * 0.25 : spawnAabb.min.x;
                         const maxX = isRight ? spawnAabb.max.x : spawnAabb.min.x + width * 0.25;
 
@@ -1681,9 +1678,7 @@ export class GameMap {
                             max: v2.create(maxX, maxY)
                         });
                     }
-
                 } else if (edgeObjects.includes(type)) {
-                    // Pick one of the 4 extreme corners at random
                     const randomTeamId = util.randomInt(1, 4);
                     const idx = randomTeamId - 1;
 
@@ -1693,11 +1688,11 @@ export class GameMap {
                     const width = spawnAabb.max.x - spawnAabb.min.x;
                     const height = spawnAabb.max.y - spawnAabb.min.y;
 
-                    const minX = isRight ? spawnAabb.max.x - width * 0.25 : spawnAabb.min.x;
-                    const maxX = isRight ? spawnAabb.max.x : spawnAabb.min.x + width * 0.25;
+                    const minX = isRight ? spawnAabb.max.x - width * 0.28 : spawnAabb.min.x;
+                    const maxX = isRight ? spawnAabb.max.x : spawnAabb.min.x + width * 0.28;
 
-                    const minY = isBottom ? spawnAabb.max.y - height * 0.25 : spawnAabb.min.y;
-                    const maxY = isBottom ? spawnAabb.max.y : spawnAabb.min.y + height * 0.25;
+                    const minY = isBottom ? spawnAabb.max.y - height * 0.28 : spawnAabb.min.y;
+                    const maxY = isBottom ? spawnAabb.max.y : spawnAabb.min.y + height * 0.28;
 
                     return util.randomPointInAabb({
                         min: v2.create(minX, minY),
@@ -1705,21 +1700,18 @@ export class GameMap {
                     });
 
                 } else if (centerObjects.includes(type)) {
-                    // Spawn in the central zone of the map (middle 50% between all 4 corners)
                     const width = spawnAabb.max.x - spawnAabb.min.x;
                     const height = spawnAabb.max.y - spawnAabb.min.y;
 
                     return util.randomPointInAabb({
-                        min: v2.create(spawnAabb.min.x + width * 0.25, spawnAabb.min.y + height * 0.25),
-                        max: v2.create(spawnAabb.max.x - width * 0.25, spawnAabb.max.y - height * 0.25)
+                        min: v2.create(spawnAabb.min.x + width * 0.95, spawnAabb.min.y + height * 0.95), // 0.25
+                        max: v2.create(spawnAabb.max.x - width * 0.95, spawnAabb.max.y - height * 0.95)
                     });
 
                 } else {
-                    // General objects: anywhere in the full map bounding box
                     return util.randomPointInAabb(spawnAabb);
                 }
             }
-
             return util.randomPointInAabb(spawnAabb);
         };
 

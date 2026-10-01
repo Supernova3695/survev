@@ -284,6 +284,7 @@ export const LoadoutAtlas: AtlasDef = {
         "gui/role-sniper.svg",
         "gui/role-tank.svg",
         "gui/skull-leader.svg",
+        "gui/skull-medic.svg",
         "gui/skull-outlined.svg",
         "gui/skull-team.svg",
         "gui/skull.svg",

@@ -10733,7 +10733,7 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
         left_loot: "loot_tier_1",
         floor_loot: "loot_tier_2",
     }),
-    workshop_complex_01: createWorkshopComplex({}),
+    workshop_complex_01: createWorkshopComplex({ teamId: 3 }),
     logging_complex_01: createLoggingComplex({ teamId: 3 }, {}),
     logging_complex_02: createLoggingComplex2({ teamId: 3 }, {}),
     logging_complex_03: createLoggingComplex3({ teamId: 3 }, {}),
@@ -10973,4 +10973,7 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
         tree_small: "tree_08su",
         tree_large: "tree_08su",
     }),
+
+    // Multi-faction
+    logging_complex_02f: createLoggingComplex2({ teamId: 3 }, { groundTintDk: 0x455722 }),
 };

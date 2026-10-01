@@ -514,7 +514,8 @@ const mapDef: PartialMapDef = {
                 barn_01: 4,
                 bank_01: 1,
                 police_01: 1,
-                logging_complex_02: 1,
+                logging_complex_02f: 1,
+                workshop_complex_01: 1,
                 teahouse_01: 2,
                 hut_01: 4,
                 hut_02: 1,
@@ -526,6 +527,7 @@ const mapDef: PartialMapDef = {
                 cache_07f: 1,
                 mansion_structure_01: 1,
                 bunker_structure_01: { odds: 1 },
+                bunker_structure_02: 1,
                 bunker_structure_03: 1,
                 bunker_structure_04: 1,
                 warehouse_complex_01: 1,
@@ -551,7 +553,7 @@ const mapDef: PartialMapDef = {
             "bank_01",
             "mansion_structure_01",
             "warehouse_complex_01",
-            "logging_complex_02"
+            "logging_complex_02f"
         ],
     },
     /* STRIP_FROM_PROD_CLIENT:END */

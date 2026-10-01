@@ -431,6 +431,25 @@ const SkinDefs: Record<string, OutfitDef> = {
         },
         teamId: FactionTeam.Orange,
     }),
+    // just for the code diggers
+    outfitPurpleLeader: defineOutfitSkin("outfitBase", {
+        name: "Purple Leader",
+        noDrop: false,
+        skinImg: {
+            baseTint: 0x601f9e,
+            baseSprite: "player-base-02.img",
+            handTint: 0x522081,
+            handSprite: "player-hands-02.img",
+            footTint: 0x522081,
+            footSprite: "player-feet-02.img",
+            backpackTint: 0x522081,
+            backpackSprite: "player-circle-base-02.img",
+        },
+        lootImg: {
+            sprite: "loot-shirt-02.img",
+            tint: 0x601f9e,
+        },
+    }),
     outfitSpetsnaz: defineOutfitSkin("outfitBase", {
         name: "Siberian Assault",
         skinImg: {
