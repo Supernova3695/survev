@@ -42,6 +42,10 @@ export interface BulletParams {
     lastShot?: boolean;
     splinter?: boolean;
     apRounds?: boolean;
+    hematicRoundsThreshold1?: boolean;
+    hematicRoundsThreshold2?: boolean;
+    hematicRoundsThreshold3?: boolean;
+    hematicRoundsThreshold4?: boolean;
     highVelocity?: boolean;
     combatStims?: boolean;
     shotAlt?: boolean;
@@ -153,6 +157,10 @@ export class Bullet {
     shotAlt!: boolean;
     splinter!: boolean;
     apRounds!: boolean;
+    hematicRoundsThreshold1!: boolean;
+    hematicRoundsThreshold2!: boolean;
+    hematicRoundsThreshold3!: boolean;
+    hematicRoundsThreshold4!: boolean;
     highVelocity!: boolean;
     combatStims!: boolean;
     trailSaturated!: boolean;
@@ -248,6 +256,10 @@ export class Bullet {
         this.shotAlt = params.shotAlt ?? false;
         this.splinter = params.splinter ?? false;
         this.apRounds = params.apRounds ?? false;
+        this.hematicRoundsThreshold1 = params.hematicRoundsThreshold1 ?? false;
+        this.hematicRoundsThreshold2 = params.hematicRoundsThreshold2 ?? false;
+        this.hematicRoundsThreshold3 = params.hematicRoundsThreshold3 ?? false;
+        this.hematicRoundsThreshold4 = params.hematicRoundsThreshold4 ?? false;
         this.highVelocity = params.highVelocity ?? false;
         this.combatStims = params.combatStims ?? false;
         this.trailSaturated = params.trailSaturated ?? false;
@@ -274,6 +286,10 @@ export class Bullet {
         this.hasSpecialFx = this.shotAlt
             || this.splinter
             || this.apRounds
+            || this.hematicRoundsThreshold1
+            || this.hematicRoundsThreshold2
+            || this.hematicRoundsThreshold3
+            || this.hematicRoundsThreshold4
             || this.highVelocity
             || this.combatStims
             || this.trailSaturated
@@ -578,6 +594,14 @@ export class Bullet {
             finalDamage *= falloff;
         }
 
+        if (this.player?.hasPerk("ricochet") 
+            && GameConfig.bullet.falloff 
+            && (this.reflectCount >= PerkProperties.ricochet.ricochetMultiplierApplyAbove 
+                && this.reflectCount <= PerkProperties.ricochet.ricochetMultiplierApplyBelow
+            )) {
+            finalDamage *= PerkProperties.ricochet.ricochetMultiplier;
+        }
+
         for (let i = 0; i < collisions.length; i++) {
             const col = collisions[i];
 
@@ -585,6 +609,14 @@ export class Bullet {
                 if (this.damagedObjIds.has(col.obj.__id)) continue;
 
                 this.damagedObjIds.add(col.obj.__id);
+            }
+
+            if (this.player?.hasPerk("ricochet") && col.type == "obstacle" 
+                && GameConfig.bullet.falloff 
+                && (this.reflectCount >= PerkProperties.ricochet.ricochetMultiplierApplyAbove 
+                    && this.reflectCount <= PerkProperties.ricochet.ricochetMultiplierApplyBelow
+            )) {
+                finalDamage *= PerkProperties.ricochet.obstacleRicochetMultiplier;
             }
 
             if (col.type == "obstacle") {
@@ -609,6 +641,11 @@ export class Bullet {
 
                 if (mapDef.reflectBullets) {
                     this.reflect(col.point, col.normal, col.obj!.__id);
+                }
+
+                if (this.player?.hasPerk("ricochet")) {
+                    this.reflect(col.point, col.normal, col.obj!.__id);
+                    obstacleMult *= PerkProperties.ricochet.obstacleMult;
                 }
 
                 // Continue travelling if non-collidable
@@ -641,6 +678,39 @@ export class Bullet {
             } else if (col.type == "pan") {
                 hit = col.collidable;
                 this.reflect(col.point, col.normal, col.obj?.__id ?? 0);
+            } else if (this.player?.hasPerk("ricochet")) {
+                this.reflect(col.point, col.normal, col.obj!.__id);
+            } else if (this.player?.hasPerk("vampiric_rounds") && col.type == "player") {
+                const healthHealed = this.damage * PerkProperties.vampiric_rounds.healthHealedPercent
+                this.player.health += healthHealed;
+            } else if (this.player?.hasPerk("hematic_rounds")) {
+                let multiplier = 1;
+                if ((this.player.health <= PerkProperties.hematic_rounds.thres1high) && (this.player.health > PerkProperties.hematic_rounds.thres1low)) {
+                    multiplier *= PerkProperties.hematic_rounds.damageMultThreshold1;
+                } else if ((this.player.health <= PerkProperties.hematic_rounds.thres2high) && (this.player.health > PerkProperties.hematic_rounds.thres2low)) {
+                    multiplier *= PerkProperties.hematic_rounds.damageMultThreshold2;
+                } else if ((this.player.health <= PerkProperties.hematic_rounds.thres3high) && (this.player.health > PerkProperties.hematic_rounds.thres3low)) {
+                    multiplier *= PerkProperties.hematic_rounds.damageMultThreshold3;
+                } else if ((this.player.health <= PerkProperties.hematic_rounds.thres4high) && (this.player.health > PerkProperties.hematic_rounds.thres4low)) {
+                    multiplier *= PerkProperties.hematic_rounds.damageMultThreshold4;
+                } else {
+                    multiplier *= PerkProperties.hematic_rounds.fallbackMult;
+                }
+                    
+                this.bulletManager.damages.push({
+                    obj: col.player!,
+                    gameSourceType: this.shotSourceType,
+                    weaponSourceType: this.shotSourceType,
+                    mapSourceType: this.mapSourceType,
+                    source: this.player,
+                    damageType: this.damageType,
+                    amount: multiplier * finalDamage,
+                    dir: this.dir,
+                    isExplosion: this.isShrapnel,
+                    armorPenetration: this.apRounds
+                        ? PerkProperties.ap_rounds.armorPenetration
+                        : undefined,
+                    });
             }
             if (hit) {
                 this.pos = col.point;
@@ -663,7 +733,7 @@ export class Bullet {
         if (this.clipDistance) {
             distance = math.max(1, this.distance - this.distanceTraveled)
                 / Math.pow(GameConfig.bullet.reflectDistDecay, this.reflectCount);
-        }
+        } 
 
         this.bulletManager.fireBullet({
             bulletType: this.bulletType,
@@ -684,6 +754,10 @@ export class Bullet {
             shotAlt: this.shotAlt,
             splinter: this.splinter,
             apRounds: this.apRounds,
+            hematicRoundsThreshold1: this.hematicRoundsThreshold1,
+            hematicRoundsThreshold2: this.hematicRoundsThreshold2,
+            hematicRoundsThreshold3: this.hematicRoundsThreshold3,
+            hematicRoundsThreshold4: this.hematicRoundsThreshold4,
             highVelocity: this.highVelocity,
             combatStims: this.combatStims,
             trailSaturated: this.trailSaturated,

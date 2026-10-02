@@ -524,23 +524,76 @@ export class WeaponManager {
             return;
         }
 
-        let duration = weaponDef.reloadTime;
-        let action: number = GameConfig.Action.Reload;
+        if (!this.player.hasPerk("underpressure")) {
+            let duration = weaponDef.reloadTime;
+            let action: number = GameConfig.Action.Reload;
+            if (
+                weaponDef.reloadTimeAlt
+                && this.weapons[this.curWeapIdx].ammo === 0
+                && invAmmo > stats.maxReload
+            ) {
+                duration = weaponDef.reloadTimeAlt!;
+                action = GameConfig.Action.ReloadAlt;
+            }
+
+            this.player.doAction(this.activeWeapon, action, duration);
+        } else if (this.player.hasPerk("underpressure")) {
+            if ((this.player.health <= 100) && (this.player.health > PerkProperties.underpressure.belowHealthToApplyBoost)) {
+                let duration = weaponDef.reloadTime * PerkProperties.underpressure.reloadTimeMult;
+                let action: number = GameConfig.Action.Reload;
+                if (
+                    weaponDef.reloadTimeAlt
+                    && this.weapons[this.curWeapIdx].ammo === 0
+                    && invAmmo > stats.maxReload
+                ) {
+                    duration = weaponDef.reloadTimeAlt!;
+                    action = GameConfig.Action.ReloadAlt;
+                }
+
+                this.player.doAction(this.activeWeapon, action, duration);
+            } else if ((this.player.health <= PerkProperties.underpressure.belowHealthToApplyBoost) && (this.player.health > 0)) {
+                let duration = weaponDef.reloadTime * PerkProperties.underpressure.reloadTimeBoostedMult;
+                let action: number = GameConfig.Action.Reload;
+                if (
+                    weaponDef.reloadTimeAlt
+                    && this.weapons[this.curWeapIdx].ammo === 0
+                    && invAmmo > stats.maxReload
+                ) {
+                    duration = weaponDef.reloadTimeAlt!;
+                    action = GameConfig.Action.ReloadAlt;
+                }
+
+                this.player.doAction(this.activeWeapon, action, duration);
+            }  else {
+                let duration = weaponDef.reloadTime * PerkProperties.underpressure.reloadTimeMult;
+                let action: number = GameConfig.Action.Reload;
+                if (
+                    weaponDef.reloadTimeAlt
+                    && this.weapons[this.curWeapIdx].ammo === 0
+                    && invAmmo > stats.maxReload
+                ) {
+                    duration = weaponDef.reloadTimeAlt!;
+                    action = GameConfig.Action.ReloadAlt;
+                }
+
+                this.player.doAction(this.activeWeapon, action, duration);
+            }
+        }
 
         // schedule an alt reload if ammo is 0 and we have more inventory ammo
         // than a single reload
         // so if you have a mosin with 0 ammo and 1 ammo in the inventory it will
         // schedule the single bullet reload instead of longer 5 bullets reload
-        if (
-            weaponDef.reloadTimeAlt
-            && this.weapons[this.curWeapIdx].ammo === 0
-            && invAmmo > stats.maxReload
-        ) {
-            duration = weaponDef.reloadTimeAlt!;
-            action = GameConfig.Action.ReloadAlt;
-        }
+        // if (
+        //     weaponDef.reloadTimeAlt
+        //     && this.weapons[this.curWeapIdx].ammo === 0
+        //     && invAmmo > stats.maxReload
+        // ) {
+        //     duration = weaponDef.reloadTimeAlt!;
+        //     action = GameConfig.Action.ReloadAlt;
+        // }
 
-        this.player.doAction(this.activeWeapon, action, duration);
+        // this.player.doAction(this.activeWeapon, action, duration);
     }
 
     /**
@@ -810,6 +863,10 @@ export class WeaponManager {
         const hasExplosive = this.player.hasPerk("explosive");
         const hasSplinter = this.player.hasPerk("splinter");
         const hasApRounds = this.player.hasPerk("ap_rounds");
+        const hasHematicRoundsThreshold1 = (this.player.hasPerk("hematic_rounds") && (this.player.health <= PerkProperties.hematic_rounds.thres1high && this.player.health > PerkProperties.hematic_rounds.thres1low));
+        const hasHematicRoundsThreshold2 = (this.player.hasPerk("hematic_rounds") && (this.player.health <= PerkProperties.hematic_rounds.thres2high && this.player.health > PerkProperties.hematic_rounds.thres2low));
+        const hasHematicRoundsThreshold3 = (this.player.hasPerk("hematic_rounds") && (this.player.health <= PerkProperties.hematic_rounds.thres3high && this.player.health > PerkProperties.hematic_rounds.thres3low));
+        const hasHematicRoundsThreshold4 = (this.player.hasPerk("hematic_rounds") && (this.player.health <= PerkProperties.hematic_rounds.thres4high && this.player.health > PerkProperties.hematic_rounds.thres4low));
         const hasHighVelocity = this.player.hasPerk("high_velocity");
         const hasCombatStims = this.player.combatStimsActive;
         const shouldApplyChambered = this.player.hasPerk("chambered")
@@ -931,6 +988,10 @@ export class WeaponManager {
                 reflectCount: 0,
                 splinter: hasSplinter,
                 apRounds: hasApRounds,
+                hematicRoundsThreshold1: hasHematicRoundsThreshold1,
+                hematicRoundsThreshold2: hasHematicRoundsThreshold2,
+                hematicRoundsThreshold3: hasHematicRoundsThreshold3,
+                hematicRoundsThreshold4: hasHematicRoundsThreshold4,
                 highVelocity: hasHighVelocity,
                 combatStims: hasCombatStims,
                 lastShot: weapon.ammo <= 0,

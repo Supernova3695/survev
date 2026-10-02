@@ -1627,24 +1627,11 @@ export class Player implements AbstractObject {
                 this.helmetSprite.scale.set(0.15, 0.15);
             }
             let helmetTint = helmetSkin.baseTint;
-            // if (map.factionMode) {
-            //     helmetTint = playerBarn.getPlayerInfo(this.__id).teamId == GameConfig.FactionTeam.Red
-            //         ? helmetSkin.baseTintRed
-            //         ? helmetSkin.baseTintBlue;
-            //         ? helmetSkin.baseTintGreen;
-            //         : helmetSkin.baseTintYellow;
-            // }
             if (map.factionMode) {
-                const teamId = playerBarn.getPlayerInfo(this.__id).teamId;
-    
-                helmetTint = teamId === GameConfig.FactionTeam.Red
+                helmetTint = playerBarn.getPlayerInfo(this.__id).teamId == GameConfig.FactionTeam.Red
                     ? helmetSkin.baseTintRed
-                    : teamId === GameConfig.FactionTeam.Blue
-                    ? helmetSkin.baseTintBlue
-                    : teamId === GameConfig.FactionTeam.Green
-                    ? helmetSkin.baseTintGreen
-                    : helmetSkin.baseTintYellow;
-                }
+                    : helmetSkin.baseTintBlue;
+            }
             this.helmetSprite.tint = helmetTint;
             this.helmetSprite.visible = true;
         }

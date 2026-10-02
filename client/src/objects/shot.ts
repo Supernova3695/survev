@@ -20,6 +20,10 @@ interface Shot {
     splinter?: boolean;
     trailSaturated?: boolean;
     apRounds?: boolean;
+    hematicRoundsThreshold1?: boolean;
+    hematicRoundsThreshold2?: boolean;
+    hematicRoundsThreshold3?: boolean;
+    hematicRoundsThreshold4?: boolean;
     highVelocity?: boolean;
 }
 
@@ -95,6 +99,10 @@ export class ShotBarn {
         shot.splinter = bullet.splinter;
         shot.trailSaturated = bullet.trailSaturated;
         shot.apRounds = bullet.apRounds;
+        shot.hematicRoundsThreshold1 = bullet.hematicRoundsThreshold1;
+        shot.hematicRoundsThreshold2 = bullet.hematicRoundsThreshold2;
+        shot.hematicRoundsThreshold3 = bullet.hematicRoundsThreshold3;
+        shot.hematicRoundsThreshold4 = bullet.hematicRoundsThreshold4;
         shot.highVelocity = bullet.highVelocity;
     }
 
@@ -166,7 +174,7 @@ export class ShotBarn {
                         });
                     }
 
-                    if (shot.apRounds) {
+                    if (shot.apRounds || (shot.hematicRoundsThreshold1 || shot.hematicRoundsThreshold2 || shot.hematicRoundsThreshold3 || shot.hematicRoundsThreshold4)) {
                         audioManager.playSound(shotSound, {
                             channel: shot.playerId == activePlayerId
                                 ? "activePlayer"

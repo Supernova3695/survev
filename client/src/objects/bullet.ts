@@ -166,6 +166,14 @@ export class BulletBarn {
             tracerTint = tracerColors.apSaturated;
         } else if (bullet.trailSaturated) {
             tracerTint = tracerColors.chambered || tracerColors.saturated;
+        } else if (bullet.hematicRoundsThreshold1 && tracerColors.hematicRoundsThreshold1) {
+            tracerTint = tracerColors.hematicRoundsThreshold1;
+        } else if (bullet.hematicRoundsThreshold2 && tracerColors.hematicRoundsThreshold2) {
+            tracerTint = tracerColors.hematicRoundsThreshold2;
+        } else if (bullet.hematicRoundsThreshold3 && tracerColors.hematicRoundsThreshold3) {
+            tracerTint = tracerColors.hematicRoundsThreshold3;
+        } else if (bullet.hematicRoundsThreshold4 && tracerColors.hematicRoundsThreshold4) {
+            tracerTint = tracerColors.hematicRoundsThreshold4;
         } else if (player?.surface?.data.isBright) {
             tracerTint = tracerColors.saturated;
         }

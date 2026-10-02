@@ -125,6 +125,36 @@ export const PerkProperties = {
         rareChance: 0.12,
         rareTier: "tier_pirate_rare",
     },
+    ricochet: {
+        obstacleMult: 0.65, //damage done to obsacles by all bullets
+        obstacleRicochetMultiplier: 2.00, //damage done to obstacles by ricocheting bullets
+        ricochetMultiplier: 1.25, //damage done to players by ricocheting bullets
+        ricochetMultiplierApplyAbove: 1, //the amount of ricochets to trigger multiplier
+        ricochetMultiplierApplyBelow: 2, //the amount of ricochets to stop increasing multiplier
+    },
+    underpressure: {
+        reloadTimeMult: 0.80,
+        reloadTimeBoostedMult: 0.60,
+        belowHealthToApplyBoost: 50,
+    },
+    vampiric_rounds: {
+        healthHealedPercent: 0.05,
+    },
+    hematic_rounds: {
+        damageMultThreshold1: 1.10,
+        damageMultThreshold2: 1.30,
+        damageMultThreshold3: 1.50,
+        damageMultThreshold4: 1.75,
+        fallbackMult: 1.00,
+        thres1high: 80,
+        thres1low: 60,
+        thres2high: 60,
+        thres2low: 30,
+        thres3high: 30,
+        thres3low: 10,
+        thres4high: 10,
+        thres4low: 1,
+    },
     bonus_9mm: {
         spreadMul: 1.1,
         speedMult: 1.25,
@@ -216,6 +246,62 @@ export const PerkDefs: Record<string, PerkDef> = {
         type: "perk",
         lootImg: {
             sprite: "loot-perk-firepower.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-03.img",
+            borderTint: 0xffffff,
+            scale: 0.275,
+        },
+        sound: {
+            pickup: "perk_pickup_01",
+        },
+    },
+    ricochet: {
+        name: "Ricochet",
+        type: "perk",
+        lootImg: {
+            sprite: "loot-perk-ricochet.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-03.img",
+            borderTint: 0xffffff,
+            scale: 0.275,
+        },
+        sound: {
+            pickup: "perk_pickup_01",
+        },
+    },
+    underpressure: {
+        name: "Under Pressure",
+        type: "perk",
+        lootImg: {
+            sprite: "loot-perk-under-pressure.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-03.img",
+            borderTint: 0xffffff,
+            scale: 0.275,
+        },
+        sound: {
+            pickup: "perk_pickup_01",
+        },
+    },
+    vampiric_rounds: {
+        name: "Vampiric Rounds",
+        type: "perk",
+        lootImg: {
+            sprite: "loot-perk-vampiric-rounds.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-03.img",
+            borderTint: 0xffffff,
+            scale: 0.275,
+        },
+        sound: {
+            pickup: "perk_pickup_01",
+        },
+    },
+    hematic_rounds: {
+        name: "Hematic Rounds",
+        type: "perk",
+        lootImg: {
+            sprite: "loot-perk-hotw.img",
             tint: 0xffffff,
             border: "loot-circle-outer-03.img",
             borderTint: 0xffffff,

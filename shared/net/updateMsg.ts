@@ -402,6 +402,10 @@ export class UpdateMsg implements AbstractMsg {
                     s.writeBoolean(bullet.splinter);
                     s.writeBoolean(bullet.trailSaturated);
                     s.writeBoolean(bullet.apRounds);
+                    s.writeBoolean(bullet.hematicRoundsThreshold1);
+                    s.writeBoolean(bullet.hematicRoundsThreshold2);
+                    s.writeBoolean(bullet.hematicRoundsThreshold3);
+                    s.writeBoolean(bullet.hematicRoundsThreshold4);
                     s.writeBoolean(bullet.highVelocity);
                     s.writeBoolean(bullet.combatStims);
                     s.writeBoolean(bullet.trailSmall);
@@ -625,6 +629,10 @@ export class UpdateMsg implements AbstractMsg {
                     bullet.splinter = s.readBoolean();
                     bullet.trailSaturated = s.readBoolean();
                     bullet.apRounds = s.readBoolean();
+                    bullet.hematicRoundsThreshold1 = s.readBoolean();
+                    bullet.hematicRoundsThreshold2 = s.readBoolean();
+                    bullet.hematicRoundsThreshold3 = s.readBoolean();
+                    bullet.hematicRoundsThreshold4 = s.readBoolean();
                     bullet.highVelocity = s.readBoolean();
                     bullet.combatStims = s.readBoolean();
                     bullet.trailSmall = s.readBoolean();
@@ -752,6 +760,10 @@ export interface Bullet {
     splinter: boolean;
     trailSaturated: boolean;
     apRounds: boolean;
+    hematicRoundsThreshold1: boolean;
+    hematicRoundsThreshold2: boolean;
+    hematicRoundsThreshold3: boolean;
+    hematicRoundsThreshold4: boolean;
     highVelocity: boolean;
     combatStims: boolean;
     trailSmall: boolean;
