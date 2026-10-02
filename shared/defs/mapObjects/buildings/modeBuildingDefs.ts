@@ -5503,6 +5503,12 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
             //obstacles
             //
             //center
+            // {
+            //     type: "bunker_structure_12",
+            //     pos: v2.create(0, 0),
+            //     scale: 1,
+            //     ori: 0,
+            // },
             {
                 type: randomObstacleType({
                     case_04: 19,
@@ -6146,7 +6152,7 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 scale: 1,
                 ori: 2,
             },
-            {
+            { //BUNKER ENTRANCE?
                 type: randomObstacleType({
                     container_01: 1,
                     container_02: 1,

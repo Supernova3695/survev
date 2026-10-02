@@ -8599,4 +8599,566 @@ export const BunkerDefs: Record<string, BuildingDef> = {
             },
         ],
     },
+    bunker_core_stairs_01: createBunkerStairs({
+        map: {
+            display: true,
+            shapes: [
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(0, 1),
+                        v2.create(2, 3.25),
+                    ),
+                    color: 0x4d4d4d,
+                },
+            ],
+        },
+        ceiling: {
+            zoomRegions: [
+                {
+                    zoomIn: collider.createAabbExtents(
+                        v2.create(0, 0.75),
+                        v2.create(2, 3.25),
+                    ),
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-core-ceiling-01.img",
+                    pos: v2.create(0, 0),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                    rot: 0,
+                },
+            ],
+        },
+    }),
+    bunker_core_01: {
+        type: "building",
+        map: {
+            // display: true,
+            // shapes: [
+            //     {
+            //         collider: collider.createAabbExtents(
+            //             v2.create(20.25, 3.5),
+            //             v2.create(6.25, 5.5),
+            //         ),
+            //         color: 0x2c2c2c,
+            //     },
+            //     {
+            //         collider: collider.createAabbExtents(
+            //             v2.create(32.25, 3.5),
+            //             v2.create(6.75, 9.25),
+            //         ),
+            //         color: 0x3a3a3a,
+            //     },
+            // ],
+        },
+        terrain: { grass: true, beach: false },
+        zIdx: 0,
+        floor: {
+            surfaces: [
+            ],
+            imgs: [
+            ],
+        },
+        ceiling: {
+            zoomRegions: [   
+            ],
+            imgs: [ 
+            ],
+            vision: {},
+        },
+        mapObjects: [
+            { //north entrance
+                type: "bunker_core_stairs_01",
+                pos: v2.create(125, -50),
+                scale: 1,
+                ori: 2,
+            },
+            { //south entrance
+                type: "bunker_core_stairs_01",
+                pos: v2.create(-125, -50),
+                scale: 1,
+                ori: 0,
+            },
+            { //east entrance
+                type: "bunker_core_stairs_01",
+                pos: v2.create(-60, -124),
+                scale: 1,
+                ori: 1,
+            },
+            { //west entrance
+                type: "bunker_core_stairs_01",
+                pos: v2.create(-60, 124),
+                scale: 1,
+                ori: 3,
+            },
+        ],
+    },
+    bunker_core_sublevel_01: {
+        type: "building",
+        map: { display: false, color: 0x665a4e, scale: 1 },
+        terrain: { grass: true, beach: false },
+        zIdx: 1,
+        floor: {
+            surfaces: [],
+            imgs: [],
+        },
+        ceiling: {
+            zoomRegions: [],
+            imgs: [],
+            vision: { dist: 10, width: 3 },
+        },
+        mapObjects: [
+            { // north entrance
+                type: "bunker_core_compartment_01",
+                pos: v2.create(37.5, 124),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "bunker_core_compartment_02",
+                pos: v2.create(37.5, 92.5),
+                scale: 1,
+                ori: 0,
+            },
+            { // south entrance
+                type: "bunker_core_compartment_01",
+                pos: v2.create(62.5, -124),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "bunker_core_compartment_02",
+                pos: v2.create(62.5, -92.5),
+                scale: 1,
+                ori: 2,
+            },
+            { // east entrance
+                type: "bunker_core_compartment_01",
+                pos: v2.create(123.07, -47.5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "bunker_core_compartment_02",
+                pos: v2.create(91.5, -47.5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "bunker_core_compartment_03",
+                pos: v2.create(43.25, -44.0),
+                scale: 1,
+                ori: 0,
+            },
+            { // west entrance
+                type: "bunker_core_compartment_01",
+                pos: v2.create(-123.07, -72.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "bunker_core_compartment_02",
+                pos: v2.create(-91.5, -72.5),
+                scale: 1,
+                ori: 1,
+            },
+        ],
+    },
+    bunker_core_compartment_01: {
+        type: "building",
+        map: { display: false, color: 0x665a4e, scale: 1 },
+        terrain: { grass: true, beach: false },
+        zIdx: 2,
+        floor: {
+            surfaces: [
+                // {
+                //     type: "tile",
+                //     collision: [
+                //         collider.createAabbExtents(
+                //             v2.create(0, 1.5),
+                //             v2.create(9.5, 12.5),
+                //         ),
+                //     ],
+                // },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-core-chamber-floor-01a.img",
+                    pos: v2.create(14, 1),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+                {
+                    sprite: "map-bunker-core-chamber-floor-01b.img",
+                    pos: v2.create(0, 0),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+        },
+        ceiling: {
+            zoomRegions: [
+                {
+                    zoomIn: collider.createAabbExtents(
+                        v2.create(0, 0),
+                        v2.create(10, 10),
+                    ),
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-core-chamber-ceiling-01.img",
+                    pos: v2.create(3.30, 0),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0x5f5f5f,
+                },
+            ],
+        },
+        mapObjects: [
+            { //entrance walls
+                type: "metal_wall_ext_thicker_7",
+                pos: v2.create(10.60, -4.468),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_7",
+                pos: v2.create(10.60, 6.450),
+                scale: 1,
+                ori: 0,
+            },
+            { //top wall
+                type: "metal_wall_ext_thicker_18",
+                pos: v2.create(-0.0, 11),
+                scale: 1,
+                ori: 1,
+            },
+            { //left wall
+                type: "metal_wall_ext_thicker_18",
+                pos: v2.create(-10.5, 1.25),
+                scale: 1,
+                ori: 0,
+            },
+            { //bottom walls
+                type: "metal_wall_ext_thicker_7",
+                pos: v2.create(-7.5, -9.15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_8",
+                pos: v2.create(8, -9.15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "lab_door_01",
+                pos: v2.create(-4, -10),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "lab_door_01",
+                pos: v2.create(4, -10),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-5, 5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(6.7, 7),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_08",
+                pos: v2.create(2, 7),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(4, -5.5),
+                scale: 1,
+                ori: 2,
+            },
+        ],
+    },
+    bunker_core_compartment_02: {
+        type: "building",
+        map: { display: false, color: 0x665a4e, scale: 1 },
+        terrain: { grass: true, beach: false },
+        zIdx: 2,
+        floor: {
+            surfaces: [
+                // {
+                //     type: "tile",
+                //     collision: [
+                //         collider.createAabbExtents(
+                //             v2.create(0, 1.5),
+                //             v2.create(9.5, 12.5),
+                //         ),
+                //     ],
+                // },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-core-chamber-floor-02a.img",
+                    pos: v2.create(0, 0),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+        },
+        ceiling: {
+            zoomRegions: [
+                {
+                    zoomIn: collider.createAabbExtents(
+                        v2.create(0, 0.80),
+                        v2.create(10, 20.5),
+                    ),
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-core-chamber-ceiling-02.img",
+                    pos: v2.create(3.30, 0),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0x5f5f5f,
+                },
+            ],
+        },
+        mapObjects: [
+            { //thicc / wide wall
+                type: "metal_wall_ext_thicker_18",
+                pos: v2.create(-7.5, 10),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_18",
+                pos: v2.create(-5.5, -4),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_7",
+                pos: v2.create(-5.5, -15),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_18",
+                pos: v2.create(5.5, 10),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_18",
+                pos: v2.create(5.5, -8),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_7",
+                pos: v2.create(-7.5, 19.25),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_8",
+                pos: v2.create(8, 19.25),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_7",
+                pos: v2.create(-7.5, -18),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_8",
+                pos: v2.create(8, -18),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "lab_door_01",
+                pos: v2.create(-4, -18),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "lab_door_01",
+                pos: v2.create(4, -18),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(-1.6, -10),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    locker_01: 6,
+                    locker_02: 1,
+                    locker_03: 3,
+                }),
+                pos: v2.create(-5.75, 7),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    locker_01: 6,
+                    locker_02: 1,
+                    locker_03: 3,
+                }),
+                pos: v2.create(-5.75, 11.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    locker_01: 6,
+                    locker_02: 1,
+                    locker_03: 3,
+                }),
+                pos: v2.create(-5.75, 16),
+                scale: 1,
+                ori: 1,
+            },
+        ],
+    },
+    bunker_core_compartment_03: {
+        type: "building",
+        map: { display: false, color: 0x665a4e, scale: 1 },
+        terrain: { grass: true, beach: false },
+        zIdx: 2,
+        floor: {
+            surfaces: [
+                // {
+                //     type: "tile",
+                //     collision: [
+                //         collider.createAabbExtents(
+                //             v2.create(0, 1.5),
+                //             v2.create(9.5, 12.5),
+                //         ),
+                //     ],
+                // },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-core-chamber-floor-03a.img",
+                    pos: v2.create(0, 0),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+        },
+        ceiling: {
+            zoomRegions: [
+                {
+                    zoomIn: collider.createAabbExtents(
+                        v2.create(0, 0.80),
+                        v2.create(10, 20.5),
+                    ),
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-core-chamber-ceiling-02.img",
+                    pos: v2.create(3.30, 0),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0x5f5f5f,
+                },
+            ],
+        },
+        mapObjects: [
+            { //thicc / wide wall
+                type: "metal_wall_ext_thicker_18",
+                pos: v2.create(-7.5, 10),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_18",
+                pos: v2.create(-5.5, -4),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_7",
+                pos: v2.create(-5.5, -15),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_18",
+                pos: v2.create(5.5, 10),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_18",
+                pos: v2.create(5.5, -8),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_7",
+                pos: v2.create(-7.5, 19.25),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_8",
+                pos: v2.create(8, 19.25),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_7",
+                pos: v2.create(-7.5, -18),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_8",
+                pos: v2.create(8, -18),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "lab_door_01",
+                pos: v2.create(-4, -18),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "lab_door_01",
+                pos: v2.create(4, -18),
+                scale: 1,
+                ori: 1,
+            },
+        ],
+    },
 };

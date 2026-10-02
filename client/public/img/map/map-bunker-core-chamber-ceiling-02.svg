@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="864"
+   height="1280"
+   viewBox="0 0 228.6 338.66727"
+   version="1.1"
+   id="svg14"
+   sodipodi:docname="map-bunker-core-chamber-ceiling-02.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview14"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.38820564"
+     inkscape:cx="552.54221"
+     inkscape:cy="835.89718"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg14" />
+  <defs
+     id="defs7">
+    <pattern
+       xlink:href="#a"
+       id="e"
+       patternTransform="translate(-29.634 177.8) scale(.06615)" />
+    <pattern
+       xlink:href="#a"
+       id="d"
+       patternTransform="translate(50.8 249.767) scale(.06615)" />
+    <pattern
+       xlink:href="#b"
+       id="a"
+       patternTransform="translate(-159.834 378.683) scale(.06615)" />
+    <clipPath
+       id="f">
+      <path
+         d="M 39.132,200.883 22.2,217.816 H -113.267 L -130.2,200.883 Z"
+         fill="#3f3c34"
+         stroke-width="2.117"
+         stroke-opacity="0.706"
+         id="path1" />
+    </clipPath>
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="32"
+       height="32"
+       patternTransform="translate(-159.834 378.683) scale(.26458)"
+       id="b">
+      <path
+         fill="none"
+         stroke-width="3.78"
+         d="M0 0h32v32H0z"
+         id="path2" />
+      <path
+         fill="none"
+         stroke-width="4"
+         d="M0 0h32v32H0z"
+         id="path3" />
+      <path
+         d="M16 0v32M0 16h32"
+         fill="none"
+         stroke="#000"
+         stroke-width="4"
+         id="path4" />
+    </pattern>
+    <clipPath
+       id="g">
+      <path
+         d="M 169.333,-0.002 152.402,16.93 H 16.934 L 0.002,-0.002 H 50.8 l 8.468,8.466 h 50.8 l 8.466,-8.467 z"
+         fill="#3a3a3a"
+         stroke-width="2.117"
+         stroke-opacity="0.706"
+         id="path5" />
+    </clipPath>
+    <clipPath
+       id="h">
+      <path
+         d="M 16.933,16.932 16.935,165.1 H 152.4 L 152.398,16.932 Z m 25.4,16.933 a 8.467,8.467 0 1 1 0,16.933 8.467,8.467 0 0 1 0,-16.933 z m 80.432,67.733 c 7.014,0 12.7,5.686 12.7,12.7 0,7.014 -5.686,12.7 -12.7,12.7 -7.014,0 -12.7,-5.686 -12.7,-12.7 0,-7.014 5.686,-12.7 12.7,-12.7 z"
+         fill="#565656"
+         stroke-width="1.682"
+         stroke-opacity="0.706"
+         id="path7" />
+    </clipPath>
+  </defs>
+  <path
+     d="m 0,0 16.932,16.933 0.340778,303.56172 -16.9320001,16.934 z"
+     clip-path="none"
+     fill="#3a3a3a"
+     stroke-width="2.117"
+     stroke="#000000"
+     id="path8"
+     sodipodi:nodetypes="ccccc" />
+  <rect
+     width="33.867001"
+     height="8.467"
+     x="118.533"
+     y="325.96213"
+     rx="0.52899998"
+     ry="0.52899998"
+     fill="#ffffff"
+     fill-opacity="0.409"
+     stroke="#000000"
+     stroke-width="1.588"
+     id="rect11" />
+  <rect
+     ry="0.52899998"
+     rx="0.52899998"
+     y="325.96213"
+     x="16.933001"
+     height="8.467"
+     width="33.867001"
+     fill="#ffffff"
+     fill-opacity="0.409"
+     stroke="#000000"
+     stroke-width="1.588"
+     id="rect12" />
+  <path
+     transform="rotate(180,84.667,169.32907)"
+     d="M 169.333,-0.002 152.402,16.93 H 16.934 L 0.002,-0.002 H 50.8 l 8.468,8.466 h 50.8 l 8.466,-8.467 z"
+     clip-path="url(#g)"
+     fill="#3a3a3a"
+     stroke="#000000"
+     stroke-width="2.117"
+     id="path12" />
+  <path
+     clip-path="none"
+     d="M -0.41829657,0.75161381 16.932,16.933 l -0.340778,304.24328 -16.9319999,16.934 z"
+     transform="matrix(-1,0,0,1,169.332,0)"
+     fill="#3a3a3a"
+     stroke="#000000"
+     stroke-width="2.117"
+     id="path13"
+     sodipodi:nodetypes="ccccc" />
+  <path
+     d="m 17.154202,16.944686 c -0.132254,4.2e-5 -0.23875,0.106491 -0.238746,0.238745 l 0.0095,304.580859 c 0.173194,0.004 135.456233,-0.0371 135.456233,-0.0371 -0.0139,0.0278 0.0158,-304.565047 0.0158,-304.565047 2e-5,-0.132254 -0.19168,-0.260086 -0.32393,-0.260044 z"
+     style="fill:#575757;fill-opacity:1;stroke-width:1.5875;stroke-linecap:square;paint-order:fill markers stroke"
+     id="path15"
+     sodipodi:nodetypes="ssccsss" />
+  <path
+     transform="matrix(-1,0,0,1.0930078,169.24881,-0.10951561)"
+     d="M 169.333,-0.002 152.402,16.93 H 16.934 L 0.002,-0.002 H 50.8 l 8.468,8.466 h 50.8 l 8.466,-8.467 z"
+     clip-path="url(#g)"
+     fill="#3a3a3a"
+     stroke="#000000"
+     stroke-width="2.117"
+     id="path9" />
+</svg>

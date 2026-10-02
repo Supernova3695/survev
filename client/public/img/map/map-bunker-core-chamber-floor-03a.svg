@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="2000"
+   height="2000"
+   viewBox="0 0 529.16761 529.16797"
+   version="1.1"
+   id="svg24"
+   sodipodi:docname="map-bunker-core-chamber-floor-03a.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview24"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.37744141"
+     inkscape:cx="1122.0285"
+     inkscape:cy="1288.9418"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg24" />
+  <defs
+     id="defs5">
+    <pattern
+       xlink:href="#a"
+       id="c"
+       patternTransform="matrix(1.8534672e-4,0.06614974,-0.06614974,1.8534672e-4,488.2882,25.977036)" />
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="128"
+       height="128"
+       patternTransform="matrix(.26458 0 0 .26458 0 -38.1)"
+       id="a">
+      <path
+         fill="none"
+         stroke-width="3.78"
+         d="M0 0h128v128H0z"
+         id="path1" />
+      <path
+         fill="none"
+         stroke-width="3.78"
+         d="M0 0h128v128H0z"
+         id="path2" />
+      <path
+         d="M0 0h128v128H0z"
+         fill="#2e2d2a"
+         stroke-width="15.118"
+         stroke-miterlimit="10"
+         id="path3" />
+      <path
+         d="M60 128V68H0v-8h60V0h8v60h60v8H68v60z"
+         fill="#6f6f6f"
+         fill-opacity=".303"
+         stroke-width="1.414"
+         id="path4" />
+    </pattern>
+    <clipPath
+       id="d">
+      <path
+         d="M 0,127 H 169.334 V 16.934 L 50.8,16.933 v -25.4 H 42.333 V 25.4 h 118.534 v 93.074 H 8.467 V -8.466 H 0 Z"
+         fill="#1b1e25"
+         stroke-width="2.226"
+         id="path5" />
+    </clipPath>
+    <filter
+       id="b"
+       x="-0.024000001"
+       width="1.048"
+       y="-0.020750854"
+       height="1.0415017"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         stdDeviation="1.672"
+         id="feGaussianBlur5" />
+    </filter>
+    <clipPath
+       id="e">
+      <path
+         d="m 496.26,-65.722 v -10.054 h -25.4 v 10.054 z"
+         fill="#252525"
+         stroke-width="1.467"
+         id="path1-7" />
+    </clipPath>
+    <clipPath
+       id="clipPath2">
+      <path
+         d="m 496.26,-65.722 v -10.054 h -25.4 v 10.054 z"
+         fill="#252525"
+         stroke-width="1.467"
+         id="path2-6" />
+    </clipPath>
+    <clipPath
+       id="clipPath3">
+      <path
+         d="m 496.26,-65.722 v -10.054 h -25.4 v 10.054 z"
+         fill="#252525"
+         stroke-width="1.467"
+         id="path3-1" />
+    </clipPath>
+    <clipPath
+       id="d-4">
+      <path
+         d="M 50.8,138.112 V 124.883 H 19.05 V 19.05 H 50.8 V 6.879 H 6.88 v 131.233 z"
+         fill="#3b3b3b"
+         stroke-width="4.7"
+         id="path7-2" />
+    </clipPath>
+    <pattern
+       xlink:href="#a-2"
+       id="c-3"
+       patternTransform="matrix(0.06615,0,0,0.06615,327.70786,70.91499)" />
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="128"
+       height="128"
+       patternTransform="translate(0 -38.1) scale(.26458)"
+       id="a-2">
+      <path
+         fill="none"
+         stroke-width="3.78"
+         d="M0 0h128v128H0z"
+         id="path4-2" />
+      <path
+         fill="none"
+         stroke-width="3.78"
+         d="M0 0h128v128H0z"
+         id="path5-1" />
+      <path
+         d="M0 0h128v128H0z"
+         fill="#2e2d2a"
+         stroke-width="15.118"
+         stroke-miterlimit="10"
+         id="path6-6" />
+      <path
+         d="M60 128V68H0v-8h60V0h8v60h60v8H68v60z"
+         fill="#6f6f6f"
+         fill-opacity=".303"
+         stroke-width="1.414"
+         id="path8" />
+    </pattern>
+    <filter
+       id="b-8"
+       x="-0.023371695"
+       width="1.0467434"
+       y="-0.013703152"
+       height="1.0274063"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         stdDeviation="1.651"
+         id="feGaussianBlur9" />
+    </filter>
+  </defs>
+  <g
+     id="g24"
+     transform="rotate(-89.854477,559.647,156.78104)">
+    <path
+       transform="matrix(1.06645,0,0,1.20379,427.81586,-140.29901)"
+       d="M -99.231,200.075 H 70.102 l 0.205411,289.15975 h -169.333 z"
+       fill="#130902"
+       fill-opacity="0.944"
+       filter="url(#b)"
+       id="path10"
+       sodipodi:nodetypes="ccccc"
+       style="filter:url(#b-8)" />
+    <path
+       fill="#555555"
+       d="m 327.70786,109.01499 h 169.334 l 1.98271,338.89506 -172.80374,-1.48703 z"
+       id="path11"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       d="m 327.70786,117.48099 h 169.333 l -0.21906,329.84987 h -169.333 z"
+       fill="url(#c)"
+       id="path12"
+       sodipodi:nodetypes="ccccc"
+       style="fill:url(#c-3)" />
+    <path
+       d="m 447.00857,446.42782 50.03329,-0.13691 V 104.78199 l -49.56859,0.13691 z"
+       clip-path="none"
+       fill="#1a1c21"
+       stroke="#000000"
+       stroke-width="3.175"
+       stroke-opacity="0.706"
+       id="path29"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       d="m 447.1834,447.60527 h 50.29658 l -0.43812,-342.82328 h -50.29658 z"
+       fill="#1b1e25"
+       stroke-width="2.226"
+       id="path9"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       d="m 378.50786,446.29091 h -50.8 V 104.78199 h 50.25235 z"
+       clip-path="none"
+       fill="#1a1c21"
+       stroke="#000000"
+       stroke-width="3.175"
+       stroke-opacity="0.706"
+       id="path30"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       d="m 377.41256,446.94809 h -50.14282 l 0.43812,-342.1661 h 50.14282 l -0.0812,12.42517 0.0822,127.27384 z"
+       fill="#1b1e25"
+       stroke-width="2.226"
+       id="path17"
+       sodipodi:nodetypes="ccccccc" />
+    <path
+       d="m 412.37486,103.11399 -6.35,6.35 h 12.7 z"
+       fill="none"
+       stroke="#2e2e2e"
+       stroke-width="1.588"
+       stroke-linecap="square"
+       id="path32" />
+  </g>
+  <g
+     id="g36"
+     transform="rotate(0.15673872,120.89138,348.74117)">
+    <path
+       transform="matrix(0.00297955,1.0633959,-0.74429708,0.00208547,317.03175,363.68221)"
+       d="m -98.167,166.776 h 55.733 v 34.126 H 69.033 v 159.254 h -167.2 z"
+       fill="#130902"
+       fill-opacity="0.944"
+       filter="url(#b)"
+       id="path6" />
+    <path
+       d="m 179.91965,263.909 0.14234,50.7998 -16.93294,0.0474 0.33212,118.53253 -110.066568,0.3084 -0.474457,-169.33233 z"
+       fill="url(#c)"
+       id="path7" />
+    <g
+       transform="matrix(-0.33117511,-0.29453232,0.29453232,-0.33117511,19.539472,479.68121)"
+       fill="#391212"
+       id="g19">
+      <circle
+         r="11.264"
+         cy="278.017"
+         cx="19.162001"
+         id="circle7" />
+      <circle
+         r="3.7249999"
+         cy="270.02899"
+         cx="10.187"
+         id="circle8" />
+      <circle
+         r="2.6930001"
+         cy="265.85599"
+         cx="28.093"
+         id="circle9" />
+      <circle
+         r="4.8920002"
+         cy="276.40201"
+         cx="27.868"
+         id="circle10" />
+      <circle
+         r="2.8269999"
+         cy="285.82599"
+         cx="5.4299998"
+         id="circle11" />
+      <circle
+         r="2.9619999"
+         cy="287.66599"
+         cx="23.605"
+         id="circle12" />
+      <circle
+         r="2.0190001"
+         cy="263.388"
+         cx="16.829"
+         id="circle13" />
+      <circle
+         r="0.76300001"
+         cy="270.29901"
+         cx="32.445999"
+         id="circle14" />
+      <circle
+         r="1.84"
+         cy="284.92801"
+         cx="33.702"
+         id="circle15" />
+      <circle
+         r="2.1989999"
+         cy="291.66"
+         cx="29.573"
+         id="circle16" />
+      <circle
+         r="0.85299999"
+         cy="277.20999"
+         cx="3.276"
+         id="circle17" />
+      <circle
+         r="3.2309999"
+         cy="289.19199"
+         cx="14.63"
+         id="circle18" />
+      <circle
+         r="1.436"
+         cy="278.95999"
+         cx="8.1669998"
+         id="circle19" />
+    </g>
+    <path
+       fill="#555555"
+       d="m 179.94337,272.37496 0.0949,33.86687 -6.37498,0.0178 -0.0949,-33.86687 z"
+       id="path22" />
+    <path
+       d="M 0,127 H 169.334 V 16.934 L 50.8,16.933 v -25.4 H 42.333 V 25.4 h 118.534 v 93.074 H 8.467 V -8.466 H 0 Z"
+       clip-path="url(#d)"
+       transform="rotate(89.839462,-42.364921,222.16674)"
+       fill="#1a1c21"
+       stroke="#000000"
+       stroke-width="3.175"
+       stroke-opacity="0.706"
+       id="path23" />
+    <path
+       d="m 182.88581,289.30078 -6.36777,-6.33218 0.0356,12.69995 z"
+       fill="none"
+       stroke="#2e2e2e"
+       stroke-width="1.588"
+       stroke-linecap="square"
+       id="path24" />
+  </g>
+  <g
+     id="g35"
+     transform="rotate(-0.13660209,170902.03,-6175.1261)">
+    <path
+       transform="matrix(1.06645,0,0,1.20379,427.81586,-140.29901)"
+       d="M -99.231,200.075 H 70.102 l 0.205411,289.15975 h -169.333 z"
+       fill="#130902"
+       fill-opacity="0.944"
+       filter="url(#b)"
+       id="path25"
+       sodipodi:nodetypes="ccccc"
+       style="filter:url(#b-8)" />
+    <path
+       fill="#555555"
+       d="m 327.70786,109.01499 h 169.334 l 1.98271,338.89506 -172.80374,-1.48703 z"
+       id="path26"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       d="m 327.70786,117.48099 h 169.333 l -0.21906,329.84987 h -169.333 z"
+       fill="url(#c)"
+       id="path27"
+       sodipodi:nodetypes="ccccc"
+       style="fill:url(#c-3)" />
+    <path
+       d="m 447.00857,446.42782 50.03329,-0.13691 V 104.78199 l -49.56859,0.13691 z"
+       clip-path="none"
+       fill="#1a1c21"
+       stroke="#000000"
+       stroke-width="3.175"
+       stroke-opacity="0.706"
+       id="path28"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       d="m 447.1834,447.60527 h 50.29658 l -0.43812,-342.82328 h -50.29658 z"
+       fill="#1b1e25"
+       stroke-width="2.226"
+       id="path31"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       d="m 378.50786,446.29091 h -50.8 V 104.78199 h 50.25235 z"
+       clip-path="none"
+       fill="#1a1c21"
+       stroke="#000000"
+       stroke-width="3.175"
+       stroke-opacity="0.706"
+       id="path33"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       d="m 377.41256,446.94809 h -50.14282 l 0.43812,-342.1661 h 50.14282 l -0.0812,12.42517 0.0822,127.27384 z"
+       fill="#1b1e25"
+       stroke-width="2.226"
+       id="path34"
+       sodipodi:nodetypes="ccccccc" />
+    <path
+       d="m 412.37486,103.11399 -6.35,6.35 h 12.7 z"
+       fill="none"
+       stroke="#2e2e2e"
+       stroke-width="1.588"
+       stroke-linecap="square"
+       id="path35" />
+  </g>
+</svg>

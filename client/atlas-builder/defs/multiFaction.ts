@@ -13,6 +13,7 @@ export const MultiFactionAtlas: AtlasDef = {
         ...BuildingSprites.bunker_hatchet,
         ...BuildingSprites.bunker_fortress,
         ...BuildingSprites.bunker_hydra,
+        ...BuildingSprites.bunker_core,
 
         "map/map-chest-03f.svg",
 

@@ -242,6 +242,16 @@ export const BuildingSprites = {
         "map/map-gun-mount-07.svg",
     ],
 
+    bunker_core: [
+        "map/map-bunker-core-ceiling-01.svg",
+        "map/map-bunker-core-chamber-ceiling-01.svg",
+        "map/map-bunker-core-chamber-ceiling-02.svg",
+        "map/map-bunker-core-chamber-floor-01a.svg",
+        "map/map-bunker-core-chamber-floor-01b.svg",
+        "map/map-bunker-core-chamber-floor-02a.svg",
+        "map/map-bunker-core-chamber-floor-03a.svg",
+    ],
+
     bunker_hydra: [
         "map/map-bunker-hydra-ceiling-01.svg",
         "map/map-bunker-hydra-chamber-ceiling-01.svg",
