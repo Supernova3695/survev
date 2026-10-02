@@ -992,7 +992,14 @@ function createLoggingComplex3(
     return util.mergeDeep(baseDef, overrides);
 }
 
-function createOasis(overrides: DeepPartial<BuildingDef>): BuildingDef {
+function createOasis(
+    overrides: DeepPartial<BuildingDef>,
+    params: {
+        groundTint?: number;
+        centralCrate?: string;
+        outerCrate?: string;
+    },
+): BuildingDef {
     const baseDef: BuildingDef = {
         type: "building",
         map: { display: true, shapes: [] },
@@ -1001,7 +1008,7 @@ function createOasis(overrides: DeepPartial<BuildingDef>): BuildingDef {
         mapGroundPatches: [
             {
                 bound: collider.createCircle(v2.create(0, 0), 40),
-                color: 0xa6af48,
+                color: params.groundTint || 0xa6af48,
                 roughness: 0.3,
                 offsetDist: 2,
             },
@@ -1013,7 +1020,7 @@ function createOasis(overrides: DeepPartial<BuildingDef>): BuildingDef {
         ceiling: { zoomRegions: [], imgs: [] },
         soundEmitters: [
             {
-                sound: "ambient_wind_01",
+                sound: "ambient_waves_01",
                 channel: "ambient",
                 pos: v2.create(0, 0),
                 range: { min: 15, max: 35 },
@@ -1188,7 +1195,7 @@ function createOasis(overrides: DeepPartial<BuildingDef>): BuildingDef {
                 ori: 0,
             },
             {
-                type: "crate_02",
+                type: params.outerCrate || "crate_02",
                 pos: v2.create(25, -25),
                 scale: 1,
                 ori: 0,
@@ -6109,7 +6116,7 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
             },
         ],
     },
-    oasis_01: createOasis({}),
+    oasis_01: createOasis({}, {}),
     river_town_02: {
         type: "building",
         map: { display: true, shapes: [] },
@@ -8818,6 +8825,13 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
         grass_color: 0x7a9e19,
     }),
     perch_01: createPerch({}),
+
+    oasis_01sv: createOasis({}, {
+        groundTint: 0x7a9e19,
+        centralCrate: "crate_21",
+        outerCrate: "crate_02sv_lake",
+    }),
+
     // Winter
 
     hut_01x: createHut({
