@@ -21,9 +21,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="0.37744141"
-     inkscape:cx="1122.0285"
-     inkscape:cy="1288.9418"
+     inkscape:zoom="0.26689138"
+     inkscape:cx="893.62197"
+     inkscape:cy="1455.6484"
      inkscape:window-width="1920"
      inkscape:window-height="991"
      inkscape:window-x="-9"
@@ -32,6 +32,11 @@
      inkscape:current-layer="svg24" />
   <defs
      id="defs5">
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#c-3"
+       id="pattern40"
+       patternTransform="matrix(0.06614981,-1.5771184e-4,1.5771184e-4,0.06614981,345.88841,134.78695)" />
     <pattern
        xlink:href="#a"
        id="c"
@@ -224,7 +229,7 @@
   </g>
   <g
      id="g36"
-     transform="rotate(0.15673872,120.89138,348.74117)">
+     transform="rotate(0.15673872,106.17052,-10413.661)">
     <path
        transform="matrix(0.00297955,1.0633959,-0.74429708,0.00208547,317.03175,363.68221)"
        d="m -98.167,166.776 h 55.733 v 34.126 H 69.033 v 159.254 h -167.2 z"
@@ -388,4 +393,40 @@
        stroke-linecap="square"
        id="path35" />
   </g>
+  <path
+     d="m 133.59847,179.95083 387.34143,0.99827 -0.13364,347.37428 -387.34143,-0.99827 z"
+     fill="url(#c)"
+     id="path40"
+     sodipodi:nodetypes="ccccc"
+     style="fill:url(#pattern40)" />
+  <path
+     d="m 393.72908,508.80986 -0.16401,-50.03321 -252.48271,0.88596 0.16376,49.5685 z"
+     clip-path="none"
+     fill="#1a1c21"
+     stroke="#000000"
+     stroke-width="3.175"
+     stroke-opacity="0.706"
+     id="path36"
+     sodipodi:nodetypes="ccccc" />
+  <path
+     d="m 394.90644,508.63439 -0.0272,-50.29657 -254.93596,0.44854 0.0272,50.29657 z"
+     fill="#1b1e25"
+     stroke-width="2.226"
+     id="path37"
+     sodipodi:nodetypes="ccccc" />
+  <path
+     d="m 462.48336,508.97103 50.03273,-0.27299 -0.20919,-170.46396 -49.56802,0.27173 z"
+     clip-path="none"
+     fill="#1a1c21"
+     stroke="#000000"
+     stroke-width="3.175"
+     stroke-opacity="0.706"
+     id="path38"
+     sodipodi:nodetypes="ccccc" />
+  <path
+     d="m 462.66139,510.14801 50.29639,-0.13676 0.22289,-172.91816 -50.29639,0.13676 z"
+     fill="#1b1e25"
+     stroke-width="2.226"
+     id="path39"
+     sodipodi:nodetypes="ccccc" />
 </svg>

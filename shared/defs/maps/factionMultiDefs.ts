@@ -429,8 +429,8 @@ const mapDef: PartialMapDef = {
     },
     mapGen: {
         map: {
-            baseWidth: 512,
-            baseHeight: 512,
+            baseWidth: 530,
+            baseHeight: 530,
             scale: { small: 1.5, large: 1.5 },
             extension: 112,
             shoreInset: 48,
