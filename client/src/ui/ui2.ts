@@ -32,7 +32,7 @@ import type { Localization } from "./localization.ts";
 
 const maxKillFeedLines = 6;
 const touchHoldDuration = 0.75 * 1000;
-const perkUiCount = 4;
+const perkUiCount = 7;
 
 enum InteractionType {
     None,
@@ -899,7 +899,8 @@ export class UiManager2 {
         let remainingWeaponAmmo = 0;
         if (weaponDef.type === "gun") {
             const infiniteAmmo = weaponDef.ammoInfinite
-                || (activePlayer.m_hasPerk("endless_ammo") && !weaponDef.ignoreEndlessAmmo);
+                || ((activePlayer.m_hasPerk("endless_ammo") || activePlayer.m_hasPerk("hyperpowered")) 
+                    && !weaponDef.ignoreEndlessAmmo);
             remainingWeaponAmmo = infiniteAmmo
                 ? Number.MAX_VALUE
                 : activePlayer.m_localData.m_inventory[weaponDef.ammo];
@@ -1307,7 +1308,7 @@ export class UiManager2 {
                 gearDom.divTooltip.style.display = gearDef?.hasDesc ? "block" : "none";
                 gearDom.divTitle.innerHTML = this.localization.translate(`game-${gearState.item}`);
                 gearDom.divDesc.innerHTML = this.localization.translate(`game-${gearState.item}-desc`);
-                gearDom.level.style.color = gearLevel === 4 ? "#b30000" : gearLevel === 3 ? "#ff9900" : "#ffffff";
+                gearDom.level.style.color = gearLevel === 5 ? "#323232" : gearLevel === 4 ? "#b30000" : gearLevel === 3 ? "#ff9900" : "#ffffff";
                 gearDom.image.src = helpers.getSvgFromGameType(gearState.item);
             }
             if (gearPatch.selectable) {
@@ -1586,6 +1587,60 @@ export class UiManager2 {
         return `${youTxt} ${killTxt} ${targetTxt}`;
     }
 
+    getKillTextFactions(
+        killerName: string,
+        killerTeam: number,
+        killerTeamId: number,
+        targetName: string,
+        targetTeam: number,
+        completeKill: boolean,
+        downed: boolean,
+        killed: boolean,
+        suicide: boolean,
+        sourceType: string,
+        damageType: DamageType,
+        spectating: boolean,
+    ) {
+        const knockedOut = downed && !killed;
+        const youTxt = spectating
+            ? (killerTeamId === GameConfig.FactionTeam.Red 
+                ? `<span style="color: red;">${killerName}</span>` 
+                : killerTeamId === GameConfig.FactionTeam.Blue
+                ? `<span style="color: blue;">${killerName}</span>`
+                : killerName
+            )
+            : this.localization.translate("game-you").toUpperCase();
+        const killKey = knockedOut
+            ? "game-knocked-out"
+            : completeKill
+            ? "game-killed"
+            : "game-finally-killed";
+        const killTxt = this.localization.translate(killKey);
+        const targetTxt = suicide
+            ? spectating
+                ? this.localization.translate("game-themselves")
+                : this.localization.translate("game-yourself").toUpperCase()
+            // ? (targetTeam === 1 
+            //     ? `<span style="color: red;">${targetName}</span>` 
+            //     : targetTeam === 2
+            //     ? `<span style="color: blue;">${targetName}</span>`
+            //     : targetName
+            // )
+            : `<span style="color: ${targetTeam}">${targetName}</span>`
+            //: targetName;
+        const damageTxt = this.localization.translate(
+            damageType == GameConfig.DamageType.Airstrike
+                ? "game-an-air-strike"
+                : `game-${sourceType}`,
+        );
+        const withTxt = this.localization.translate("game-with");
+
+        if (damageTxt && (completeKill || knockedOut)) {
+            return `${youTxt} ${killTxt} ${targetTxt} ${withTxt} ${damageTxt}`;
+        }
+        return `${youTxt} ${killTxt} ${targetTxt}`;
+    }
+
     getKillCountText(killCount: number) {
         return `${killCount} ${
             this.localization.translate(
@@ -1724,6 +1779,7 @@ export function loadStaticDomImages() {
         "ui-loot-308sub": "img/loot/loot-ammo-box.svg",
         "ui-loot-flare": "img/loot/loot-ammo-box.svg",
         "ui-loot-45acp": "img/loot/loot-ammo-box.svg",
+        "ui-loot-227fury": "img/loot/loot-ammo-box.svg",
     };
 
     for (const [id, img] of Object.entries(lootImages)) {

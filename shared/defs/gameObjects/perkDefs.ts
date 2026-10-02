@@ -14,17 +14,22 @@ export const PerkProperties = {
         scale: 0.4,
         damageReduction: 0.45,
     },
+    leadskin: {
+        scale: 0.4,
+        damageReduction: 0.55,
+        explosionDamageReduction: 0.50,
+    },
     flak_jacket: {
         scale: 0.1,
         damageReduction: 0.1,
-        explosionDamageReduction: 0.9,
+        explosionDamageReduction: 0.90,
         bonuses: {
             frag: 3,
             mirv: 2,
         } as Partial<Record<InventoryItem, number>>,
     },
     amped_explosives: {
-        throwableRangeMult: 1.75,
+        throwableRangeMult: 1.75, //these settings also control hyperpowered settings that are amped_explosives intergrations
         throwableSpeedMult: 2,
         shrapnelCountMult: 2,
         shrapnelDamageMult: 1.5,
@@ -39,9 +44,35 @@ export const PerkProperties = {
         splitsDamageMult: 0.5,
     },
     ap_rounds: {
-        armorPenetration: 0.8,
+        armorPenetration: 0.8,//also supplies hyperpowered armor penetration
         obstacleMult: 1.5,
     },
+    hyperpowered: {
+        bulletSpeedMult: 1.1,
+        obstacleMult: 1.5,
+        reloadTimeMult: 0.80
+    },
+    ricochet: {
+        obstacleMult: 0.65, //damage done to obsacles by all bullets
+        obstacleRicochetMultiplier: 2.00, //damage done to obstacles by ricocheting bullets
+        ricochetMultiplier: 1.25, //damage done to players by ricocheting bullets
+        ricochetMultiplierApplyAbove: 1, //the amount of ricochets to trigger multiplier
+        ricochetMultiplierApplyBelow: 2, //the amount of ricochets to stop increasing multiplier
+    },
+    underpressure: {
+        reloadTimeMult: 0.70,
+        reloadTimeBoostedMult: 0.50,
+        belowHealthToApplyBoost: 50,
+    },
+    defender: {
+        damageReductionMult: 0.25,
+        damageReductionThreshold: 30,
+    },
+    // piercing_rounds: {
+    //     piercingDepth: 3,
+    //     piercingDamageDegradation: 0.15,
+    //     finalDamageMultiplier: 0.20,
+    // },
     trick_size: {
         scale: 0.25,
     },
@@ -86,6 +117,14 @@ export const PerkProperties = {
         hpReward: 25,
         boostReward: 25,
         hasteDuration: 3,
+    },
+    bloodlust: {
+        hpReward: 30,
+        hpRewardOnDown: 10,
+        boostReward: 25,
+        boostRewardOnDown: 10,
+        hasteDuration: 5,
+        hasteDuarationOnDown: 1.5,
     },
     lifeline: {
         decayMult: 0.75, // Adrenaline decay multiplier
@@ -230,6 +269,76 @@ export const PerkDefs: Record<string, PerkDef> = {
             pickup: "perk_pickup_01",
         },
     },
+    hyperpowered: {
+        name: "Hyperpowered",
+        type: "perk",
+        lootImg: {
+            sprite: "loot-perk-hyperpowered.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-03.img",
+            borderTint: 0xffffff,
+            scale: 0.275,
+        },
+        sound: {
+            pickup: "perk_pickup_01",
+        },
+    },
+    ricochet: {
+        name: "Ricochet",
+        type: "perk",
+        lootImg: {
+            sprite: "loot-perk-ricochet.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-03.img",
+            borderTint: 0xffffff,
+            scale: 0.275,
+        },
+        sound: {
+            pickup: "perk_pickup_01",
+        },
+    },
+    underpressure: {
+        name: "Under Pressure",
+        type: "perk",
+        lootImg: {
+            sprite: "loot-perk-under-pressure.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-03.img",
+            borderTint: 0xffffff,
+            scale: 0.275,
+        },
+        sound: {
+            pickup: "perk_pickup_01",
+        },
+    },
+    defender: {
+        name: "Defender",
+        type: "perk",
+        lootImg: {
+            sprite: "loot-perk-defender.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-03.img",
+            borderTint: 0xffffff,
+            scale: 0.275,
+        },
+        sound: {
+            pickup: "perk_pickup_01",
+        },
+    },
+    // piercing_rounds: {
+    //     name: "Piercing Rounds",
+    //     type: "perk",
+    //     lootImg: {
+    //         sprite: "loot-perk-ricochet.img",
+    //         tint: 0xffffff,
+    //         border: "loot-circle-outer-03.img",
+    //         borderTint: 0xffffff,
+    //         scale: 0.275,
+    //     },
+    //     sound: {
+    //         pickup: "perk_pickup_01",
+    //     },
+    // },
     gotw: {
         name: "Gift of the Wild",
         type: "perk",
@@ -314,6 +423,20 @@ export const PerkDefs: Record<string, PerkDef> = {
             pickup: "perk_pickup_01",
         },
     },
+    leadskin: {
+        name: "Leadskin",
+        type: "perk",
+        lootImg: {
+            sprite: "loot-perk-steelskin.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-03.img",
+            borderTint: 0xffffff,
+            scale: 0.275,
+        },
+        sound: {
+            pickup: "perk_pickup_01",
+        },
+    },
     ap_rounds: {
         name: "AP Rounds",
         type: "perk",
@@ -361,6 +484,20 @@ export const PerkDefs: Record<string, PerkDef> = {
         type: "perk",
         lootImg: {
             sprite: "loot-perk-takedown.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-03.img",
+            borderTint: 0xffffff,
+            scale: 0.275,
+        },
+        sound: {
+            pickup: "perk_pickup_01",
+        },
+    },
+    bloodlust: {
+        name: "Bloodlust",
+        type: "perk",
+        lootImg: {
+            sprite: "loot-perk-bloodlust.img",
             tint: 0xffffff,
             border: "loot-circle-outer-03.img",
             borderTint: 0xffffff,

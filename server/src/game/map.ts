@@ -199,6 +199,8 @@ export class GameMap {
     potatoMode: boolean;
     sniperMode: boolean;
 
+    hasHyperpoweredLastMan?: boolean;
+
     mapStream = new MsgStream(new ArrayBuffer(1 << 16));
 
     grassBounds: AABB;

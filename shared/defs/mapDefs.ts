@@ -134,6 +134,7 @@ export interface MapDef {
         perkModeRoles?: string[];
         turkeyMode?: boolean;
         spookyKillSounds?: boolean;
+        hasHyperpoweredLastMan?: boolean;
     };
     gameConfig: {
         planes: {

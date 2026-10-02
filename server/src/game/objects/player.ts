@@ -927,6 +927,14 @@ export class Player extends BaseGameObject {
                 this.boost = 100;
                 this.giveHaste(GameConfig.HasteType.Windwalk, 5);
                 break;
+            case "last_man_hyperpowered":
+                this.health = 100;
+                this.boost = 100;
+                this.giveHaste(GameConfig.HasteType.Windwalk, 10);
+                break;
+            case "lieutenant":
+                this.boost = 100;
+                break;
         }
 
         // A list of the new perks to add must be built first
@@ -944,7 +952,7 @@ export class Player extends BaseGameObject {
         } else if (roleDef.perks) {
             // client can only show 4 perks in the UI
             // if this role has 4 or more perks, drop all our droppable perks
-            if (roleDef.perks.length >= 4) {
+            if (roleDef.perks.length >= 6) {
                 for (const perk of this.perks) {
                     if (perk.droppable) {
                         this.dropLoot(perk.type);
@@ -1235,6 +1243,9 @@ export class Player extends BaseGameObject {
                 this.fabricateThrowablesLeft = [];
                 break;
             case "firepower":
+                this.weaponManager.clampGunsAmmo();
+                break;
+            case "hyperpowered":
                 this.weaponManager.clampGunsAmmo();
                 break;
             case "aoe_heal": {
@@ -2475,8 +2486,20 @@ export class Player extends BaseGameObject {
                 );
             }
 
+            if (this.hasPerk("leadskin")) {
+                reduceDamage(
+                    params.isExplosion
+                        ? PerkProperties.leadskin.explosionDamageReduction
+                        : PerkProperties.leadskin.damageReduction,
+                );
+            }
+
             if (this.hasPerk("steelskin")) {
                 reduceDamage(PerkProperties.steelskin.damageReduction);
+            }
+
+            if (this.hasPerk("leadskin")) {
+                reduceDamage(PerkProperties.leadskin.damageReduction);
             }
 
             const chest = GameObjectDefs.typeToDefSafe(this.chest) as ChestDef | undefined;
@@ -2619,17 +2642,30 @@ export class Player extends BaseGameObject {
         downedMsg.targetId = this.__id;
         downedMsg.downed = true;
 
+
         if (params.source?.__type === ObjectType.Player) {
             this.downedBy = params.source;
             downedMsg.killerId = params.source.__id;
             downedMsg.killCreditId = params.source.__id;
+            //bloodlust down rewards
+            const downedBy = this.downedBy
+            if (downedBy !== this && downedBy.teamId !== this.teamId) {
+                downedBy.health += PerkProperties.bloodlust.hpRewardOnDown;
+                downedBy.boost += PerkProperties.bloodlust.boostRewardOnDown;
+                downedBy.giveHaste(GameConfig.HasteType.Takedown, PerkProperties.bloodlust.hasteDuarationOnDown);
+            }
         }
 
         this.game.clientBarn.broadcastMsg(net.MsgType.Kill, downedMsg);
 
         // lone survivr can be given on knock or kill
-        if (this.game.map.factionMode) {
+        if (this.game.map.factionMode  && !this.game.map.hasHyperpoweredLastMan) {
             this.team!.checkAndApplyLastMan();
+            this.team!.checkAndApplyCaptain();
+        }
+
+        if (this.game.map.factionMode && this.game.map.hasHyperpoweredLastMan) {
+            this.team!.checkAndApplyHyperpoweredLastMan();
             this.team!.checkAndApplyCaptain();
         }
     }
@@ -2722,6 +2758,10 @@ export class Player extends BaseGameObject {
                     killCreditSource.health += PerkProperties.takedown.hpReward;
                     killCreditSource.boost += PerkProperties.takedown.boostReward;
                     killCreditSource.giveHaste(GameConfig.HasteType.Takedown, PerkProperties.takedown.hasteDuration);
+                } else if (killCreditSource.hasPerk("bloodlust")) {
+                    killCreditSource.health += PerkProperties.bloodlust.hpReward;
+                    killCreditSource.boost += PerkProperties.bloodlust.boostReward;
+                    killCreditSource.giveHaste(GameConfig.HasteType.Takedown, PerkProperties.bloodlust.hasteDuration);
                 }
 
                 // Pirate's Bounty (Cutlass-specific)
@@ -2811,6 +2851,7 @@ export class Player extends BaseGameObject {
             this.hasPerk("martyrdom")
             || this.role == "grenadier"
             || this.role == "demo"
+            || this.role == "last_man_hyperpowered"
         ) {
             this.game.projectileBarn.addSplitProjectiles(
                 this.__id,
@@ -3951,7 +3992,7 @@ export class Player extends BaseGameObject {
 
                 // The client can only show 4 perks in the UI.
                 // If the player already has 4 or more perks, they cannot pick up a new one.
-                if (!perkSlotType && this.perks.length >= 4) {
+                if (!perkSlotType && this.perks.length >= 7) {
                     amountLeft = 1;
                     pickupMsg.type = net.PickupMsgType.MaxPerks;
                     break;
@@ -4045,7 +4086,7 @@ export class Player extends BaseGameObject {
     /** just used in potato mode, swaps oldWeapon with a random weapon of the same type (mosin -> m9) */
     randomWeaponSwap(params: DamageParams): void {
         if (this.dead) return;
-        if (this.role === "last_man") return;
+        if (this.role === "last_man" || this.role === "last_man_hyperpowered") return;
         const oldWeapon = params.weaponSourceType || params.gameSourceType;
         if (!oldWeapon) return;
 

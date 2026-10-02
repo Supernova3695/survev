@@ -42,6 +42,7 @@ export interface BulletParams {
     lastShot?: boolean;
     splinter?: boolean;
     apRounds?: boolean;
+    hyperpowered?: boolean;
     highVelocity?: boolean;
     combatStims?: boolean;
     shotAlt?: boolean;
@@ -153,6 +154,7 @@ export class Bullet {
     shotAlt!: boolean;
     splinter!: boolean;
     apRounds!: boolean;
+    hyperpowered!: boolean;
     highVelocity!: boolean;
     combatStims!: boolean;
     trailSaturated!: boolean;
@@ -248,6 +250,7 @@ export class Bullet {
         this.shotAlt = params.shotAlt ?? false;
         this.splinter = params.splinter ?? false;
         this.apRounds = params.apRounds ?? false;
+        this.hyperpowered = params.hyperpowered ?? false;
         this.highVelocity = params.highVelocity ?? false;
         this.combatStims = params.combatStims ?? false;
         this.trailSaturated = params.trailSaturated ?? false;
@@ -274,6 +277,7 @@ export class Bullet {
         this.hasSpecialFx = this.shotAlt
             || this.splinter
             || this.apRounds
+            || this.hyperpowered
             || this.highVelocity
             || this.combatStims
             || this.trailSaturated
@@ -528,7 +532,22 @@ export class Bullet {
                         collidable: true,
                         dist: v2.lengthSqr(v2.sub(collision.point, this.startPos)),
                     });
-                    if (obj.hasPerk("steelskin")) {
+                    if (obj.hasPerk("steelskin") && !obj.hasPerk("leadskin")) {
+                        const point = v2.add(
+                            collision.point,
+                            v2.mul(collision.normal, 0.1),
+                        );
+                        collisions.push({
+                            type: "pan",
+                            point,
+                            normal: collision.normal,
+                            layer: obj.layer,
+                            collidable: false,
+                            obj: obj,
+                            dist: v2.lengthSqr(v2.sub(point, this.startPos)),
+                        });
+                    }
+                    if (obj.hasPerk("leadskin") && !obj.hasPerk("steelskin")) {
                         const point = v2.add(
                             collision.point,
                             v2.mul(collision.normal, 0.1),
@@ -578,6 +597,14 @@ export class Bullet {
             finalDamage *= falloff;
         }
 
+        if (this.player?.hasPerk("ricochet") 
+            && GameConfig.bullet.falloff 
+            && (this.reflectCount >= PerkProperties.ricochet.ricochetMultiplierApplyAbove 
+                && this.reflectCount <= PerkProperties.ricochet.ricochetMultiplierApplyBelow
+            )) {
+            finalDamage *= PerkProperties.ricochet.ricochetMultiplier;
+        }
+
         for (let i = 0; i < collisions.length; i++) {
             const col = collisions[i];
 
@@ -587,6 +614,14 @@ export class Bullet {
                 this.damagedObjIds.add(col.obj.__id);
             }
 
+            if (this.player?.hasPerk("ricochet") && col.type == "obstacle" 
+                && GameConfig.bullet.falloff 
+                && (this.reflectCount >= PerkProperties.ricochet.ricochetMultiplierApplyAbove 
+                    && this.reflectCount <= PerkProperties.ricochet.ricochetMultiplierApplyBelow
+            )) {
+                finalDamage *= PerkProperties.ricochet.obstacleRicochetMultiplier;
+            }
+
             if (col.type == "obstacle") {
                 const mapDef = MapObjectDefs.typeToDef(col.obstacleType!, "obstacle");
 
@@ -594,6 +629,10 @@ export class Bullet {
                 let obstacleMult = this.obstacleDamageMult;
                 if (this.apRounds) {
                     obstacleMult *= PerkProperties.ap_rounds.obstacleMult;
+                }
+
+                if (this.hyperpowered) {
+                    obstacleMult *= PerkProperties.hyperpowered.obstacleMult;
                 }
 
                 this.bulletManager.damages.push({
@@ -611,15 +650,26 @@ export class Bullet {
                     this.reflect(col.point, col.normal, col.obj!.__id);
                 }
 
+                if (this.player?.hasPerk("ricochet")) {
+                    this.reflect(col.point, col.normal, col.obj!.__id);
+                    obstacleMult *= PerkProperties.ricochet.obstacleMult;
+                }
+
                 // Continue travelling if non-collidable
                 hit = col.collidable;
             } else if (col.type == "player") {
                 if (!shooterDead) {
                     const isHighValueTarget = this.player?.hasPerk("targeting") && col.player!.perks.length;
+                    const targetHasDefender = col.player?.hasPerk("defender") && col.player.health <= PerkProperties.defender.damageReductionThreshold;
+                    // const shooterHasPiercingRounds = this.player?.hasPerk("piercing_rounds")
 
                     let multiplier = 1;
                     if (isHighValueTarget) {
                         multiplier *= PerkProperties.targeting.damageMult;
+                    }
+
+                    if (targetHasDefender) {
+                        multiplier *= PerkProperties.defender.damageReductionMult;
                     }
 
                     this.bulletManager.damages.push({
@@ -632,7 +682,7 @@ export class Bullet {
                         amount: multiplier * finalDamage,
                         dir: this.dir,
                         isExplosion: this.isShrapnel,
-                        armorPenetration: this.apRounds
+                        armorPenetration: this.apRounds || this.hyperpowered
                             ? PerkProperties.ap_rounds.armorPenetration
                             : undefined,
                     });
@@ -641,7 +691,53 @@ export class Bullet {
             } else if (col.type == "pan") {
                 hit = col.collidable;
                 this.reflect(col.point, col.normal, col.obj?.__id ?? 0);
+            } else if (this.player?.hasPerk("ricochet")) {
+                this.reflect(col.point, col.normal, col.obj!.__id);
             }
+            //else if (this.player?.hasPerk("piercing_rounds")) {
+            //     const piercingCount = 0
+            //     let multiplier = 1;
+            //     if (piercingCount <= PerkProperties.piercing_rounds.piercingDepth) {
+            //         piercingCount + 1
+
+            //         multiplier *= PerkProperties.piercing_rounds.piercingDamageDegradation
+
+            //         this.bulletManager.damages.push({
+            //             obj: col.player!,
+            //             gameSourceType: this.shotSourceType,
+            //             weaponSourceType: this.shotSourceType,
+            //             mapSourceType: this.mapSourceType,
+            //             source: this.player,
+            //             damageType: this.damageType,
+            //             amount: multiplier * finalDamage,
+            //             dir: this.dir,
+            //             isExplosion: this.isShrapnel,
+            //             armorPenetration: this.apRounds
+            //                 ? PerkProperties.ap_rounds.armorPenetration
+            //                 : undefined,
+            //         });
+            //         break;
+            //     } else if (piercingCount > PerkProperties.piercing_rounds.piercingDepth) {
+            //         hit = col.collidable;
+
+            //         multiplier *= PerkProperties.piercing_rounds.finalDamageMultiplier
+
+            //         this.bulletManager.damages.push({
+            //             obj: col.player!,
+            //             gameSourceType: this.shotSourceType,
+            //             weaponSourceType: this.shotSourceType,
+            //             mapSourceType: this.mapSourceType,
+            //             source: this.player,
+            //             damageType: this.damageType,
+            //             amount: multiplier * finalDamage,
+            //             dir: this.dir,
+            //             isExplosion: this.isShrapnel,
+            //             armorPenetration: this.apRounds
+            //                 ? PerkProperties.ap_rounds.armorPenetration
+            //                 : undefined,
+            //         });
+            //     }
+            // }
             if (hit) {
                 this.pos = col.point;
                 this.alive = false;
@@ -663,7 +759,7 @@ export class Bullet {
         if (this.clipDistance) {
             distance = math.max(1, this.distance - this.distanceTraveled)
                 / Math.pow(GameConfig.bullet.reflectDistDecay, this.reflectCount);
-        }
+        } 
 
         this.bulletManager.fireBullet({
             bulletType: this.bulletType,
@@ -684,6 +780,7 @@ export class Bullet {
             shotAlt: this.shotAlt,
             splinter: this.splinter,
             apRounds: this.apRounds,
+            hyperpowered: this.hyperpowered,
             highVelocity: this.highVelocity,
             combatStims: this.combatStims,
             trailSaturated: this.trailSaturated,

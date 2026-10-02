@@ -88,6 +88,7 @@ export function createDefaultItems(e: DeepPartial<DefaultItems>): DefaultItems {
             "308sub": 0,
             flare: 0,
             "45acp": 0,
+            "227fury": 0,
             frag: 0,
             smoke: 0,
             strobe: 0,
@@ -159,6 +160,13 @@ export const RoleDefs: Record<string, RoleDef> = {
             },
         }),
     },
+    leader_aged: {
+        type: "role",
+        announce: false,
+        killFeed: {},
+        sound: {},
+        perks: ["leadership", "high_velocity"],
+    },
     captain: {
         type: "role",
         announce: true,
@@ -167,7 +175,7 @@ export const RoleDefs: Record<string, RoleDef> = {
         mapIcon: {
             alive: "player-captain.img",
         },
-        perks: ["assume_leadership", "firepower"],
+        perks: ["assume_leadership", "firepower", "underpressure"],
         defaultItems: createDefaultItems({
             weapons: [
                 { type: "", ammo: 0 },
@@ -197,7 +205,7 @@ export const RoleDefs: Record<string, RoleDef> = {
         announce: true,
         killFeed: { assign: true },
         sound: { assign: "lt_assigned_01" },
-        perks: ["firepower"],
+        perks: ["firepower", "underpressure"],
         defaultItems: createDefaultItems({
             weapons: [
                 { type: "", ammo: 0 },
@@ -214,6 +222,44 @@ export const RoleDefs: Record<string, RoleDef> = {
             ],
             backpack: "backpack03",
             helmet: "helmet03_lt",
+            chest: "chest03",
+            inventory: {
+                "4xscope": 1,
+                bandage: 10,
+                healthkit: 1,
+                soda: 2,
+            },
+        }),
+    },
+    lieutenant_aged: {
+        type: "role",
+        announce: false,
+        killFeed: {},
+        sound: {},
+        perks: ["firepower", "underpressure"],
+    },
+    sergeant: {
+        type: "role",
+        announce: true,
+        killFeed: { assign: true },
+        sound: { assign: "lt_assigned_01" },
+        perks: ["scavenger", "defender"],
+        defaultItems: createDefaultItems({
+            weapons: [
+                { type: "", ammo: 0 },
+                (teamcolor: FactionTeam) =>
+                    getTeamWeapon(
+                        {
+                            [FactionTeam.Red]: { type: "vss", ammo: 20, fillInv: true },
+                            [FactionTeam.Blue]: { type: "scar", ammo: 20, fillInv: true },
+                        },
+                        teamcolor,
+                    ),
+                { type: "woodaxe", ammo: 0 },
+                { type: "", ammo: 0 },
+            ],
+            backpack: "backpack03",
+            helmet: "helmet03_sergeant",
             chest: "chest03",
             inventory: {
                 "4xscope": 1,
@@ -253,6 +299,13 @@ export const RoleDefs: Record<string, RoleDef> = {
             },
         }),
     },
+    medic_aged: {
+        type: "role",
+        announce: false,
+        killFeed: {},
+        sound: {},
+        perks: ["field_medic", "self_revive"],
+    },
     marksman: {
         type: "role",
         announce: true,
@@ -287,6 +340,13 @@ export const RoleDefs: Record<string, RoleDef> = {
                 bandage: 5,
             },
         }),
+    },
+    marksman_aged: {
+        type: "role",
+        announce: false,
+        killFeed: {},
+        sound: {},
+        perks: ["targeting", "chambered"],
     },
     recon: {
         type: "role",
@@ -415,6 +475,109 @@ export const RoleDefs: Record<string, RoleDef> = {
                 bandage: 10,
                 healthkit: 1,
                 soda: 2,
+            },
+        }),
+    },
+    last_man_hyperpowered: {
+        type: "role",
+        announce: true,
+        killFeed: { assign: true },
+        sound: { assign: "last_man_assigned_01" },
+        mapIcon: {
+            alive: "player-last-man.img",
+        },
+        perks: [
+            "hyperpowered",
+            "bloodlust",
+            "leadskin",
+            "lifeline",
+            "splinter",
+            () => //healing/speed perks
+                util.weightedRandom([
+                    { type: "windwalk", weight: 2 },
+                    { type: "field_medic", weight: 1 },
+                    { type: "combat_stims", weight: 1 },
+                ]).type,
+            () => //bullet perks
+                util.weightedRandom([
+                    { type: "ricochet", weight: 1 },
+                    { type: "explosive", weight: 1 },
+                    //{ type: "endless_ammo", weight: 1}
+                ]).type,
+        ],
+        defaultItems: createDefaultItems({
+            weapons: [
+                (teamcolor: FactionTeam) =>
+                    getTeamWeapon(
+                        {
+                            [FactionTeam.Red]: util.weightedRandom([
+                                { type: "scarssr", ammo: 10, fillInv: true, weight: 1 },
+                                { type: "saiga", ammo: 5, fillInv: true, weight: 4 },
+                                { type: "qbb97", ammo: 75, fillInv: true, weight: 5 },
+                            ]),
+                            [FactionTeam.Blue]: util.weightedRandom([
+                                { type: "scarssr", ammo: 10, fillInv: true, weight: 1 },
+                                { type: "saiga", ammo: 5, fillInv: true, weight: 4 },
+                                { type: "qbb97", ammo: 75, fillInv: true, weight: 5 },
+                            ]),
+                        },
+                        teamcolor,
+                    ),
+                (teamcolor: FactionTeam) =>
+                    getTeamWeapon(
+                        {
+                            [FactionTeam.Red]: util.weightedRandom([
+                                { type: "m250", ammo: 100, fillInv: true, weight: 1 },
+                                { type: "pkp_sp", ammo: 200, fillInv: true, weight: 1 },
+                            ]),
+                            [FactionTeam.Blue]: util.weightedRandom([
+                                { type: "m250", ammo: 100, fillInv: true, weight: 1 },
+                                { type: "pkp_sp", ammo: 200, fillInv: true, weight: 1 },
+                            ]),
+                        },
+                        teamcolor,
+                    ),
+                (teamcolor: FactionTeam) =>
+                    getTeamWeapon(
+                        {
+                            [FactionTeam.Red]: util.weightedRandom([
+                                { type: "katana_vengance_red", ammo: 0, weight: 1 },
+                                { type: "bonesaw_hyperpowered_red", ammo: 0, weight: 1 },
+                            ]),
+                            [FactionTeam.Blue]: util.weightedRandom([
+                                { type: "katana_vengance_blue", ammo: 0, weight: 1 },
+                                { type: "bonesaw_hyperpowered_blue", ammo: 0, weight: 1 },
+                            ]),
+                        },
+                        teamcolor,
+                    ),
+                { type: "mirv", ammo: 8 },
+            ],
+            backpack: "backpack04",
+            helmet: (teamcolor: FactionTeam) =>
+                getTeamHelmet(
+                    {
+                        [FactionTeam.Red]: "helmet05_last_man_hyperpowered_red",
+                        [FactionTeam.Blue]: "helmet05_last_man_hyperpowered_blue",
+                    },
+                    teamcolor,
+                ),
+            chest: "chest05",
+            outfit: (teamcolor: FactionTeam) =>
+                ({
+                    [FactionTeam.Red]: "outfitRedHyperpowered",
+                    [FactionTeam.Blue]: "outfitBlueHyperpowered",
+                })[teamcolor],
+            noDropOutfit: false,
+            inventory: {
+                mirv: 10,
+                strobe: 3,
+                frag: 15,
+                "8xscope": 1,
+                bandage: 10,
+                healthkit: 1,
+                soda: 2,
+                painkiller: 1,
             },
         }),
     },
