@@ -6092,6 +6092,731 @@ export function createTeaHouseComplex(
     return util.mergeDeep(baseDef, overrides);
 }
 
+export function createWarehouseComplex(
+    overrides: DeepPartial<BuildingDef>,
+    params: {
+    },
+): BuildingDef {
+    const baseDef: BuildingDef = {
+        type: "building",
+        map: {
+            display: true,
+            shapes: [
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(26, 70.5),
+                        v2.create(47, 7.5),
+                    ),
+                    color: 0x595959,
+                },
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(15.5, 52.5),
+                        v2.create(57.5, 10.5),
+                    ),
+                    color: 0x595959,
+                },
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(33, 11),
+                        v2.create(75, 31),
+                    ),
+                    color: 0x595959,
+                },
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(5, -30),
+                        v2.create(47, 10),
+                    ),
+                    color: 0x595959,
+                },
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(-39.75, 11.25),
+                        v2.create(2, 51),
+                    ),
+                    color: 0xf5d000,
+                },
+                {
+                    collider: collider.createCircle(v2.create(-39, 55), 1.25),
+                    color: 0x604a40,
+                },
+                {
+                    collider: collider.createCircle(v2.create(-39, 20.5), 1.25),
+                    color: 0x604a40,
+                },
+                {
+                    collider: collider.createCircle(v2.create(-39, 2), 1.25),
+                    color: 0x604a40,
+                },
+                {
+                    collider: collider.createCircle(v2.create(-39, -31.5), 1.25),
+                    color: 0x604a40,
+                },
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(-28, -30),
+                        v2.create(2, 2),
+                    ),
+                    color: 0x663300,
+                },
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(-23, -33),
+                        v2.create(2, 2),
+                    ),
+                    color: 0x663300,
+                },
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(7, 70),
+                        v2.create(2, 2),
+                    ),
+                    color: 0x663300,
+                },
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(12, 72),
+                        v2.create(2, 2),
+                    ),
+                    color: 0x663300,
+                },
+                {
+                    collider: collider.createCircle(v2.create(-26.5, 54.75), 1.75),
+                    color: 0x7a7a7a,
+                },
+                {
+                    collider: collider.createCircle(v2.create(-23.5, 57), 1.75),
+                    color: 0x7a7a7a,
+                },
+                {
+                    collider: collider.createCircle(v2.create(84, -15.5), 1.75),
+                    color: 0x7a7a7a,
+                },
+                {
+                    collider: collider.createCircle(v2.create(40, -35), 1.5),
+                    color: 0x7a7a7a,
+                },
+                {
+                    collider: collider.createCircle(v2.create(65, 61), 1.5),
+                    color: 0x7a7a7a,
+                },
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(44.5, -25),
+                        v2.create(1.4, 3.1),
+                    ),
+                    color: 0xca9c63,
+                },
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(58, 47.5),
+                        v2.create(1.4, 3.1),
+                    ),
+                    color: 0xca9c63,
+                },
+            ],
+        },
+        terrain: {
+            waterEdge: {
+                dir: v2.create(-1, 0),
+                distMin: 72,
+                distMax: 72,
+            },
+        },
+        mapObstacleBounds: [
+            collider.createAabbExtents(v2.create(26, 70.5), v2.create(47, 7.5)),
+            collider.createAabbExtents(v2.create(15.5, 52.5), v2.create(57.5, 10.5)),
+            collider.createAabbExtents(v2.create(33, 11), v2.create(75, 31)),
+            collider.createAabbExtents(v2.create(5, -30), v2.create(47, 10)),
+        ],
+        mapGroundPatches: [
+            {
+                bound: collider.createAabbExtents(v2.create(26, 60), v2.create(47, 18)),
+                color: 0x8e8573,
+                order: 1,
+            },
+            {
+                bound: collider.createAabbExtents(
+                    v2.create(5, 11.5),
+                    v2.create(47, 51.5),
+                ),
+                color: 0x8e8573,
+                order: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(80, 11), v2.create(28, 31)),
+                color: 0x8e8573,
+                order: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(26, 58), v2.create(46, 19)),
+                color: 0x595959,
+                order: 1,
+            },
+            {
+                bound: collider.createAabbExtents(
+                    v2.create(5, 11.5),
+                    v2.create(46, 50.5),
+                ),
+                color: 0x595959,
+                order: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(78, 11), v2.create(29, 30)),
+                color: 0x595959,
+                order: 1,
+            },
+            {
+                bound: collider.createAabbExtents(
+                    v2.create(-37.5, 38),
+                    v2.create(4.5, 10),
+                ),
+                color: 0x8e8573,
+                order: 1,
+            },
+            {
+                bound: collider.createAabbExtents(
+                    v2.create(-37.5, -15),
+                    v2.create(4.5, 10),
+                ),
+                color: 0x8e8573,
+                order: 1,
+            },
+            {
+                bound: collider.createAabbExtents(
+                    v2.create(-37.5, 38),
+                    v2.create(3.5, 9),
+                ),
+                color: 0x595959,
+                order: 1,
+            },
+            {
+                bound: collider.createAabbExtents(
+                    v2.create(-37.5, -15),
+                    v2.create(3.5, 9),
+                ),
+                color: 0x595959,
+                order: 1,
+            },
+        ],
+        floor: {
+            surfaces: [
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(26, 60), v2.create(47, 18)),
+                        collider.createAabbExtents(
+                            v2.create(5, 11.5),
+                            v2.create(47, 51.5),
+                        ),
+                        collider.createAabbExtents(v2.create(80, 11), v2.create(28, 31)),
+                    ],
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-complex-warehouse-floor-01.img",
+                    pos: v2.create(-39.2, 55),
+                    scale: 1,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+                {
+                    sprite: "map-complex-warehouse-floor-02.img",
+                    pos: v2.create(-39.2, 11.5),
+                    scale: 1,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+                {
+                    sprite: "map-complex-warehouse-floor-03.img",
+                    pos: v2.create(-39.2, -32),
+                    scale: 1,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+        },
+        ceiling: { zoomRegions: [], imgs: [] },
+        mapObjects: [
+            {
+                type: "warehouse_02",
+                pos: v2.create(5, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "warehouse_02",
+                pos: v2.create(70, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "warehouse_02",
+                pos: v2.create(18, 55),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "bollard_01",
+                pos: v2.create(-39, 55),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_06: 0.08,
+                }),
+                pos: v2.create(-37.5, 38),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "bollard_01",
+                pos: v2.create(-39, 20.5),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "bollard_01",
+                pos: v2.create(-39, 2),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_06: 0.08,
+                }),
+                pos: v2.create(-37.5, -15),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "bollard_01",
+                pos: v2.create(-39, -31.5),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-28, -30),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-23, -33),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "container_04",
+                pos: v2.create(-11.5, -26.575),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                    container_06: 0.08,
+                    "": 0.75,
+                }),
+                pos: v2.create(-6, -29),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                    container_06: 0.08,
+                    "": 0.75,
+                }),
+                pos: v2.create(9.5, -29),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "container_04",
+                pos: v2.create(15, -26.575),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "shack_02",
+                pos: v2.create(37, -30),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(44.5, -25),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(84, -15.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                    container_06: 0.08,
+                    "": 0.75,
+                }),
+                pos: v2.create(-3, 22),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "container_04",
+                pos: v2.create(-5.425, 27.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                    container_06: 0.08,
+                    "": 0.75,
+                }),
+                pos: v2.create(-3, 33),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "container_04",
+                pos: v2.create(28, 22),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "container_04",
+                pos: v2.create(28, 27.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "container_04",
+                pos: v2.create(28, 33),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                    container_06: 0.08,
+                    "": 0.75,
+                }),
+                pos: v2.create(53, 22),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "container_04",
+                pos: v2.create(55.425, 27.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                    container_06: 0.08,
+                    "": 0.75,
+                }),
+                pos: v2.create(53, 33),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "container_04",
+                pos: v2.create(84, 22),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                    container_06: 0.08,
+                    "": 0.75,
+                }),
+                pos: v2.create(86.425, 27.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-26.5, 54.75),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-23.5, 57),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(7, 70),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(12, 72),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "shack_02",
+                pos: v2.create(60, 58),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(58, 47.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "decal_oil_01",
+                pos: v2.create(-37.5, 59.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "decal_oil_02",
+                pos: v2.create(-29.5, 52.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "decal_oil_03",
+                pos: v2.create(-16.5, 61.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "decal_oil_04",
+                pos: v2.create(-15.5, 73.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "decal_oil_05",
+                pos: v2.create(2.5, 72.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "decal_oil_04",
+                pos: v2.create(33.5, 74),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "decal_oil_06",
+                pos: v2.create(62.5, 69),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "decal_oil_04",
+                pos: v2.create(105, 34),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "decal_oil_05",
+                pos: v2.create(101.5, 23),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "decal_oil_01",
+                pos: v2.create(84.5, 36),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "decal_oil_03",
+                pos: v2.create(73.5, 30),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "decal_oil_03",
+                pos: v2.create(56.5, 39),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "decal_oil_06",
+                pos: v2.create(60.5, 14),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "decal_oil_02",
+                pos: v2.create(40, 42),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "decal_oil_05",
+                pos: v2.create(41.5, 20),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "decal_oil_01",
+                pos: v2.create(35.5, 9),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "decal_oil_02",
+                pos: v2.create(38.5, -5),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "decal_oil_05",
+                pos: v2.create(36.5, -22),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "decal_oil_03",
+                pos: v2.create(83, -16),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "decal_oil_04",
+                pos: v2.create(28.5, -37),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "decal_oil_01",
+                pos: v2.create(22.5, -24),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "decal_oil_03",
+                pos: v2.create(7.5, -13.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "decal_oil_04",
+                pos: v2.create(6.5, -21),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "decal_oil_06",
+                pos: v2.create(-2.5, -32),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "decal_oil_05",
+                pos: v2.create(-22.5, -24),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "decal_oil_03",
+                pos: v2.create(-37.5, -29.75),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "decal_oil_04",
+                pos: v2.create(-37.25, 9.5),
+                scale: 0.75,
+                ori: 1,
+            },
+            {
+                type: "decal_oil_02",
+                pos: v2.create(-25.5, 15.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "decal_oil_04",
+                pos: v2.create(-12.5, 22.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "decal_oil_05",
+                pos: v2.create(-14.5, 33.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "decal_oil_03",
+                pos: v2.create(-26.5, 40.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "decal_oil_06",
+                pos: v2.create(3.5, 28.5),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "decal_oil_02",
+                pos: v2.create(15.5, 38.5),
+                scale: 1,
+                ori: 2,
+            },
+        ],
+        teamId: 2,
+    };
+    return util.mergeDeep(baseDef, overrides);
+}
+
 export function createPoliceStation(overrides: DeepPartial<BuildingDef>): BuildingDef {
     const baseDef: BuildingDef = {
         type: "building",
@@ -8793,7 +9518,7 @@ export const BaseBuildingDefs: Record<string, BuildingDef> = {
         ],
     },
     barn_01: createBarn({}, { bonus_door: "house_door_02" }),
-    barn_02: createBarn({ map: { displayType: "barn_01" } }, {
+    barn_02: createBarn({ map: { displayType: "barn_01" }, teamId: 4 }, {
         bonus_room: "barn_basement_structure_01",
         bonus_door: "",
     }),
@@ -9761,722 +10486,6 @@ export const BaseBuildingDefs: Record<string, BuildingDef> = {
     }),
     warehouse_02: createWarehouse2({}),
     warehouse_03: createWarehouse3({}, {}),
-    warehouse_complex_01: {
-        type: "building",
-        map: {
-            display: true,
-            shapes: [
-                {
-                    collider: collider.createAabbExtents(
-                        v2.create(26, 70.5),
-                        v2.create(47, 7.5),
-                    ),
-                    color: 0x595959,
-                },
-                {
-                    collider: collider.createAabbExtents(
-                        v2.create(15.5, 52.5),
-                        v2.create(57.5, 10.5),
-                    ),
-                    color: 0x595959,
-                },
-                {
-                    collider: collider.createAabbExtents(
-                        v2.create(33, 11),
-                        v2.create(75, 31),
-                    ),
-                    color: 0x595959,
-                },
-                {
-                    collider: collider.createAabbExtents(
-                        v2.create(5, -30),
-                        v2.create(47, 10),
-                    ),
-                    color: 0x595959,
-                },
-                {
-                    collider: collider.createAabbExtents(
-                        v2.create(-39.75, 11.25),
-                        v2.create(2, 51),
-                    ),
-                    color: 0xf5d000,
-                },
-                {
-                    collider: collider.createCircle(v2.create(-39, 55), 1.25),
-                    color: 0x604a40,
-                },
-                {
-                    collider: collider.createCircle(v2.create(-39, 20.5), 1.25),
-                    color: 0x604a40,
-                },
-                {
-                    collider: collider.createCircle(v2.create(-39, 2), 1.25),
-                    color: 0x604a40,
-                },
-                {
-                    collider: collider.createCircle(v2.create(-39, -31.5), 1.25),
-                    color: 0x604a40,
-                },
-                {
-                    collider: collider.createAabbExtents(
-                        v2.create(-28, -30),
-                        v2.create(2, 2),
-                    ),
-                    color: 0x663300,
-                },
-                {
-                    collider: collider.createAabbExtents(
-                        v2.create(-23, -33),
-                        v2.create(2, 2),
-                    ),
-                    color: 0x663300,
-                },
-                {
-                    collider: collider.createAabbExtents(
-                        v2.create(7, 70),
-                        v2.create(2, 2),
-                    ),
-                    color: 0x663300,
-                },
-                {
-                    collider: collider.createAabbExtents(
-                        v2.create(12, 72),
-                        v2.create(2, 2),
-                    ),
-                    color: 0x663300,
-                },
-                {
-                    collider: collider.createCircle(v2.create(-26.5, 54.75), 1.75),
-                    color: 0x7a7a7a,
-                },
-                {
-                    collider: collider.createCircle(v2.create(-23.5, 57), 1.75),
-                    color: 0x7a7a7a,
-                },
-                {
-                    collider: collider.createCircle(v2.create(84, -15.5), 1.75),
-                    color: 0x7a7a7a,
-                },
-                {
-                    collider: collider.createCircle(v2.create(40, -35), 1.5),
-                    color: 0x7a7a7a,
-                },
-                {
-                    collider: collider.createCircle(v2.create(65, 61), 1.5),
-                    color: 0x7a7a7a,
-                },
-                {
-                    collider: collider.createAabbExtents(
-                        v2.create(44.5, -25),
-                        v2.create(1.4, 3.1),
-                    ),
-                    color: 0xca9c63,
-                },
-                {
-                    collider: collider.createAabbExtents(
-                        v2.create(58, 47.5),
-                        v2.create(1.4, 3.1),
-                    ),
-                    color: 0xca9c63,
-                },
-            ],
-        },
-        terrain: {
-            waterEdge: {
-                dir: v2.create(-1, 0),
-                distMin: 72,
-                distMax: 72,
-            },
-        },
-        mapObstacleBounds: [
-            collider.createAabbExtents(v2.create(26, 70.5), v2.create(47, 7.5)),
-            collider.createAabbExtents(v2.create(15.5, 52.5), v2.create(57.5, 10.5)),
-            collider.createAabbExtents(v2.create(33, 11), v2.create(75, 31)),
-            collider.createAabbExtents(v2.create(5, -30), v2.create(47, 10)),
-        ],
-        mapGroundPatches: [
-            {
-                bound: collider.createAabbExtents(v2.create(26, 60), v2.create(47, 18)),
-                color: 0x8e8573,
-                order: 1,
-            },
-            {
-                bound: collider.createAabbExtents(
-                    v2.create(5, 11.5),
-                    v2.create(47, 51.5),
-                ),
-                color: 0x8e8573,
-                order: 1,
-            },
-            {
-                bound: collider.createAabbExtents(v2.create(80, 11), v2.create(28, 31)),
-                color: 0x8e8573,
-                order: 1,
-            },
-            {
-                bound: collider.createAabbExtents(v2.create(26, 58), v2.create(46, 19)),
-                color: 0x595959,
-                order: 1,
-            },
-            {
-                bound: collider.createAabbExtents(
-                    v2.create(5, 11.5),
-                    v2.create(46, 50.5),
-                ),
-                color: 0x595959,
-                order: 1,
-            },
-            {
-                bound: collider.createAabbExtents(v2.create(78, 11), v2.create(29, 30)),
-                color: 0x595959,
-                order: 1,
-            },
-            {
-                bound: collider.createAabbExtents(
-                    v2.create(-37.5, 38),
-                    v2.create(4.5, 10),
-                ),
-                color: 0x8e8573,
-                order: 1,
-            },
-            {
-                bound: collider.createAabbExtents(
-                    v2.create(-37.5, -15),
-                    v2.create(4.5, 10),
-                ),
-                color: 0x8e8573,
-                order: 1,
-            },
-            {
-                bound: collider.createAabbExtents(
-                    v2.create(-37.5, 38),
-                    v2.create(3.5, 9),
-                ),
-                color: 0x595959,
-                order: 1,
-            },
-            {
-                bound: collider.createAabbExtents(
-                    v2.create(-37.5, -15),
-                    v2.create(3.5, 9),
-                ),
-                color: 0x595959,
-                order: 1,
-            },
-        ],
-        floor: {
-            surfaces: [
-                {
-                    type: "asphalt",
-                    collision: [
-                        collider.createAabbExtents(v2.create(26, 60), v2.create(47, 18)),
-                        collider.createAabbExtents(
-                            v2.create(5, 11.5),
-                            v2.create(47, 51.5),
-                        ),
-                        collider.createAabbExtents(v2.create(80, 11), v2.create(28, 31)),
-                    ],
-                },
-            ],
-            imgs: [
-                {
-                    sprite: "map-complex-warehouse-floor-01.img",
-                    pos: v2.create(-39.2, 55),
-                    scale: 1,
-                    alpha: 1,
-                    tint: 0xffffff,
-                },
-                {
-                    sprite: "map-complex-warehouse-floor-02.img",
-                    pos: v2.create(-39.2, 11.5),
-                    scale: 1,
-                    alpha: 1,
-                    tint: 0xffffff,
-                },
-                {
-                    sprite: "map-complex-warehouse-floor-03.img",
-                    pos: v2.create(-39.2, -32),
-                    scale: 1,
-                    alpha: 1,
-                    tint: 0xffffff,
-                },
-            ],
-        },
-        ceiling: { zoomRegions: [], imgs: [] },
-        mapObjects: [
-            {
-                type: "warehouse_02",
-                pos: v2.create(5, 0),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "warehouse_02",
-                pos: v2.create(70, 0),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "warehouse_02",
-                pos: v2.create(18, 55),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "bollard_01",
-                pos: v2.create(-39, 55),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                    container_06: 0.08,
-                }),
-                pos: v2.create(-37.5, 38),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "bollard_01",
-                pos: v2.create(-39, 20.5),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: "bollard_01",
-                pos: v2.create(-39, 2),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                    container_06: 0.08,
-                }),
-                pos: v2.create(-37.5, -15),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: "bollard_01",
-                pos: v2.create(-39, -31.5),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: "crate_01",
-                pos: v2.create(-28, -30),
-                scale: 1,
-                ori: 0,
-                inheritOri: false,
-            },
-            {
-                type: "crate_01",
-                pos: v2.create(-23, -33),
-                scale: 1,
-                ori: 0,
-                inheritOri: false,
-            },
-            {
-                type: "container_04",
-                pos: v2.create(-11.5, -26.575),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                    container_05: 2,
-                    container_06: 0.08,
-                    "": 0.75,
-                }),
-                pos: v2.create(-6, -29),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                    container_05: 2,
-                    container_06: 0.08,
-                    "": 0.75,
-                }),
-                pos: v2.create(9.5, -29),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "container_04",
-                pos: v2.create(15, -26.575),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "shack_02",
-                pos: v2.create(37, -30),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(44.5, -25),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(84, -15.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                    container_05: 2,
-                    container_06: 0.08,
-                    "": 0.75,
-                }),
-                pos: v2.create(-3, 22),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "container_04",
-                pos: v2.create(-5.425, 27.5),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                    container_05: 2,
-                    container_06: 0.08,
-                    "": 0.75,
-                }),
-                pos: v2.create(-3, 33),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "container_04",
-                pos: v2.create(28, 22),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "container_04",
-                pos: v2.create(28, 27.5),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "container_04",
-                pos: v2.create(28, 33),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                    container_05: 2,
-                    container_06: 0.08,
-                    "": 0.75,
-                }),
-                pos: v2.create(53, 22),
-                scale: 1,
-                ori: 3,
-            },
-            {
-                type: "container_04",
-                pos: v2.create(55.425, 27.5),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                    container_05: 2,
-                    container_06: 0.08,
-                    "": 0.75,
-                }),
-                pos: v2.create(53, 33),
-                scale: 1,
-                ori: 3,
-            },
-            {
-                type: "container_04",
-                pos: v2.create(84, 22),
-                scale: 1,
-                ori: 3,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                    container_05: 2,
-                    container_06: 0.08,
-                    "": 0.75,
-                }),
-                pos: v2.create(86.425, 27.5),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(-26.5, 54.75),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(-23.5, 57),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_01",
-                pos: v2.create(7, 70),
-                scale: 1,
-                ori: 0,
-                inheritOri: false,
-            },
-            {
-                type: "crate_01",
-                pos: v2.create(12, 72),
-                scale: 1,
-                ori: 0,
-                inheritOri: false,
-            },
-            {
-                type: "shack_02",
-                pos: v2.create(60, 58),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(58, 47.5),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "decal_oil_01",
-                pos: v2.create(-37.5, 59.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "decal_oil_02",
-                pos: v2.create(-29.5, 52.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "decal_oil_03",
-                pos: v2.create(-16.5, 61.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "decal_oil_04",
-                pos: v2.create(-15.5, 73.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "decal_oil_05",
-                pos: v2.create(2.5, 72.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "decal_oil_04",
-                pos: v2.create(33.5, 74),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "decal_oil_06",
-                pos: v2.create(62.5, 69),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "decal_oil_04",
-                pos: v2.create(105, 34),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "decal_oil_05",
-                pos: v2.create(101.5, 23),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "decal_oil_01",
-                pos: v2.create(84.5, 36),
-                scale: 1,
-                ori: 3,
-            },
-            {
-                type: "decal_oil_03",
-                pos: v2.create(73.5, 30),
-                scale: 1,
-                ori: 3,
-            },
-            {
-                type: "decal_oil_03",
-                pos: v2.create(56.5, 39),
-                scale: 1,
-                ori: 3,
-            },
-            {
-                type: "decal_oil_06",
-                pos: v2.create(60.5, 14),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "decal_oil_02",
-                pos: v2.create(40, 42),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "decal_oil_05",
-                pos: v2.create(41.5, 20),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "decal_oil_01",
-                pos: v2.create(35.5, 9),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "decal_oil_02",
-                pos: v2.create(38.5, -5),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: "decal_oil_05",
-                pos: v2.create(36.5, -22),
-                scale: 1,
-                ori: 3,
-            },
-            {
-                type: "decal_oil_03",
-                pos: v2.create(83, -16),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "decal_oil_04",
-                pos: v2.create(28.5, -37),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "decal_oil_01",
-                pos: v2.create(22.5, -24),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "decal_oil_03",
-                pos: v2.create(7.5, -13.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "decal_oil_04",
-                pos: v2.create(6.5, -21),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "decal_oil_06",
-                pos: v2.create(-2.5, -32),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "decal_oil_05",
-                pos: v2.create(-22.5, -24),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "decal_oil_03",
-                pos: v2.create(-37.5, -29.75),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "decal_oil_04",
-                pos: v2.create(-37.25, 9.5),
-                scale: 0.75,
-                ori: 1,
-            },
-            {
-                type: "decal_oil_02",
-                pos: v2.create(-25.5, 15.5),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "decal_oil_04",
-                pos: v2.create(-12.5, 22.5),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "decal_oil_05",
-                pos: v2.create(-14.5, 33.5),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "decal_oil_03",
-                pos: v2.create(-26.5, 40.5),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "decal_oil_06",
-                pos: v2.create(3.5, 28.5),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: "decal_oil_02",
-                pos: v2.create(15.5, 38.5),
-                scale: 1,
-                ori: 2,
-            },
-        ],
-        teamId: 2,
-    },
+    warehouse_complex_01: createWarehouseComplex({ teamId: 2 }, {}),
     vault_01: createBankVault({}, {}),
 };

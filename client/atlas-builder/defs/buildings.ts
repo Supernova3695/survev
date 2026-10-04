@@ -406,5 +406,14 @@ export const BuildingSprites = {
 
     bunker_fortress: [
         "map/map-bunker-fortress-chamber-floor-01a.svg",
-    ]
+    ],
+
+    faction_base: [
+        "map/map-building-faction-base-floor.svg"
+    ],
+
+    pillbox: [
+        "map/map-building-pillbox-floor.svg",
+        "map/map-building-pillbox-ceiling.svg",
+    ],
 };

@@ -1090,6 +1090,15 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         img: { sprite: "map-crate-24.img" },
         sound: { explode: "crate_break_01" },
     }),
+    crate_25: createCrate({
+        health: 100,
+        collision: collider.createAabbExtents(v2.create(0, 0), v2.create(1.575, 1.575)),
+        loot: [tierLoot("tier_outfit_crate", 3, 6)],
+        map: { color: 0x4d4d1e, scale: 0.875 },
+        terrain: { grass: true, beach: false },
+        img: { sprite: "map-crate-25.img", scale: 0.35 },
+        sound: { explode: "crate_break_01" },
+    }),
     airdrop_crate_01: createAirdrop({
         button: {
             useImg: "map-airdrop-02.img",

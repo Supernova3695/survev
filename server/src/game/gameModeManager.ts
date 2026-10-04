@@ -14,6 +14,7 @@ enum GameMode {
     Team,
     /** irrelevant to gamemode type, always the mode if faction map is selected */
     Faction,
+    MultiFaction,
 }
 
 export class GameModeManager {
@@ -41,6 +42,8 @@ export class GameModeManager {
                 return this.game.playerBarn.getAliveGroups().length;
             case GameMode.Faction:
                 return this.game.playerBarn.getAliveTeams().length;
+            case GameMode.MultiFaction:
+                return this.game.playerBarn.getAliveTeams().length;
         }
     }
 
@@ -56,6 +59,10 @@ export class GameModeManager {
                     return group.players.filter((p) => !p.canDespawn()).length > 0;
                 }).length;
             case GameMode.Faction:
+                return this.game.playerBarn.getAliveTeams().filter((team) => {
+                    return team.players.filter((p) => !p.canDespawn()).length;
+                }).length;
+            case GameMode.MultiFaction:
                 return this.game.playerBarn.getAliveTeams().filter((team) => {
                     return team.players.filter((p) => !p.canDespawn()).length;
                 }).length;
@@ -112,6 +119,38 @@ export class GameModeManager {
 
                 return data;
             }
+            case GameMode.MultiFaction: {
+                // the logic is basically the exact same for both
+                // just uses team instead of group on faction...
+
+                const key = this.mode === GameMode.MultiFaction ? "teams" : "groups";
+
+                // calculate each group killed index
+                // by basing it on the last player to die killed index
+                const groups = this.game.playerBarn[key].map((group) => {
+                    return {
+                        killedIndex: group.players.sort((a, b) => {
+                            return b.killedIndex - a.killedIndex;
+                        })[0].killedIndex ?? Infinity,
+                        players: group.players,
+                    };
+                });
+
+                groups.sort((a, b) => b.killedIndex - a.killedIndex);
+
+                let data: Array<{ player: Player; rank: number }> = [];
+
+                for (let i = 0; i < groups.length; i++) {
+                    for (const player of groups[i].players) {
+                        data.push({
+                            player,
+                            rank: i + 1,
+                        });
+                    }
+                }
+
+                return data;
+            }
         }
     }
 
@@ -126,6 +165,10 @@ export class GameModeManager {
                 return winner.id;
             }
             case GameMode.Faction: {
+                const winner = this.game.playerBarn.getAliveTeams()[0];
+                return winner.id;
+            }
+            case GameMode.MultiFaction: {
                 const winner = this.game.playerBarn.getAliveTeams()[0];
                 return winner.id;
             }
@@ -166,6 +209,8 @@ export class GameModeManager {
                 return this.game.playerBarn.groups.map((g) => g.livingPlayers);
             case GameMode.Faction:
                 return this.game.playerBarn.teams.map((t) => t.livingPlayers);
+            case GameMode.MultiFaction:
+                return this.game.playerBarn.teams.map((t) => t.livingPlayers);
         }
     }
 
@@ -177,6 +222,8 @@ export class GameModeManager {
                 return player.group!.players;
             case GameMode.Faction:
                 return this.game.playerBarn.players;
+            case GameMode.MultiFaction:
+                return this.game.playerBarn.players;
         }
     }
 
@@ -187,6 +234,8 @@ export class GameModeManager {
             case GameMode.Team:
                 return player.group!.livingPlayers;
             case GameMode.Faction:
+                return player.team!.livingPlayers;
+            case GameMode.MultiFaction:
                 return player.team!.livingPlayers;
         }
     }
@@ -224,6 +273,8 @@ export class GameModeManager {
                 return !player.group!.allDeadOrDisconnected && this.aliveCount() > 1;
             case GameMode.Faction:
                 return this.aliveCount() > 1;
+            case GameMode.MultiFaction:
+                return this.aliveCount() > 1;
         }
     }
 
@@ -234,6 +285,20 @@ export class GameModeManager {
             case GameMode.Team:
                 return player.group!.players;
             case GameMode.Faction: {
+                const redLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Red - 1].leader;
+                const blueLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Blue - 1].leader;
+
+                if (!redLeader || !blueLeader) {
+                    return [player];
+                }
+
+                if (this.game.playerBarn.factionsMvp === undefined) {
+                    return [player, redLeader, blueLeader];
+                }
+
+                return [player, redLeader, blueLeader, this.game.playerBarn.factionsMvp];
+            }
+            case GameMode.MultiFaction: {
                 const redLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Red - 1].leader;
                 const blueLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Blue - 1].leader;
                 const greenLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Green - 1].leader;
@@ -258,7 +323,6 @@ export class GameModeManager {
             const blueLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Blue - 1].leader;
             const greenLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Green - 1].leader;
             const orangeLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Orange - 1].leader;
-
         if (!redLeader || !blueLeader || !greenLeader || !orangeLeader) {
             return;
         }

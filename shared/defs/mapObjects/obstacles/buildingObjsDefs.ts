@@ -1214,6 +1214,46 @@ export const BuildingObjectDefs: Record<string, ObstacleDef> = {
         material: "concrete",
         extents: v2.create(1.5, 27),
     }),
+    faction_base_wall_01: createWall({
+        material: "concrete",
+        extents: v2.create(2.0, 4.4),
+    }),
+    faction_base_wall_02: createWall({
+        material: "concrete",
+        extents: v2.create(2.0, 15),
+    }),
+    pillbox_wall_01: createWall({
+        material: "concrete",
+        extents: v2.create(2.0, 6.5),
+    }),
+    pillbox_wall_02: createWall({
+        material: "concrete",
+        extents: v2.create(2.0, 15),
+    }),
+    pillbox_wall_03: createWall({
+        material: "concrete",
+        extents: v2.create(2.0, 4.5),
+    }),
+    pillbox_wall_04: createWall({
+        material: "concrete",
+        extents: v2.create(2.0, 12),
+    }),
+    pillbox_wall_05: createWall({
+        material: "concrete",
+        extents: v2.create(2.0, 18.5),
+    }),
+    pillbox_wall_06: createWall({
+        material: "concrete",
+        extents: v2.create(2.0, 8),
+    }),
+    pillbox_wall_07: createWall({
+        material: "concrete",
+        extents: v2.create(2.0, 25),
+    }),
+    pillbox_wall_08: createWall({
+        material: "concrete",
+        extents: v2.create(2.0, 10),
+    }),
     metal_wall_ext_2x2: createWall({
         material: "metal",
         extents: v2.create(1, 1),
@@ -2298,6 +2338,16 @@ export const BuildingObjectDefs: Record<string, ObstacleDef> = {
     }),
     brick_wall_ext_3_0_low: createLowWall({
         collision: collider.createAabbExtents(v2.create(0, 0), v2.create(0.5, 1.5)),
+        img: {
+            sprite: "",
+            scale: 0.5,
+            alpha: 1,
+            tint: 0x440000,
+            zIdx: 10,
+        },
+    }),
+    pillbox_low_wall: createLowWall({
+        collision: collider.createAabbExtents(v2.create(0, 0), v2.create(2.0, 7.70)),
         img: {
             sprite: "",
             scale: 0.5,

@@ -421,6 +421,7 @@ const mapDef: PartialMapDef = {
             { name: "scarssr", count: 1, weight: 1 },
             { name: "ash12", count: 1, weight: 5 },
             { name: "sv98", count: 1, weight: 5 },
+            { name: "m9", count: 1, weight: 0.5 },
         ],
         tier_safe: [
             { name: "tier_airdrop_uncommon", count: 1, weight: 9 },
@@ -483,7 +484,32 @@ const mapDef: PartialMapDef = {
             xlarge: "bridge_xlg_structure_01",
         },
         customSpawnRules: {
-            locationSpawns: [],
+            locationSpawns: [
+                {
+                    type: "faction_base_red",
+                    pos: v2.create(0.25, 0.25),
+                    rad: 30,
+                    retryOnFailure: true,
+                },
+                {
+                    type: "faction_base_blue",
+                    pos: v2.create(0.75, 0.25),
+                    rad: 30,
+                    retryOnFailure: true,
+                },
+                {
+                    type: "faction_base_green",
+                    pos: v2.create(0.25, 0.75),
+                    rad: 30,
+                    retryOnFailure: true,
+                },
+                {
+                    type: "faction_base_orange",
+                    pos: v2.create(0.75, 0.75),
+                    rad: 30,
+                    retryOnFailure: true,
+                },
+            ],
             placeSpawns: [],
         },
         densitySpawns: [
@@ -516,6 +542,7 @@ const mapDef: PartialMapDef = {
                 house_red_01: 4,
                 house_red_02: 4,
                 barn_01: 4,
+                barn_02: 1,
                 bank_01: 1,
                 police_01: 1,
                 logging_complex_02f: 1,

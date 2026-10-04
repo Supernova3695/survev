@@ -1392,41 +1392,54 @@ export class UiManager {
             const blueTeamTxt = this.localization.translate("game-blue-team");
             const greenTeamTxt = this.localization.translate("game-green-team");
             const orangeTeamTxt = this.localization.translate("game-orange-team");
-            const teams = [
-                { name: "red", count: this.playersAliveRedCounter, label: redTeamTxt, showAlways: true, align: "right" },
-                { name: "blue", count: this.playersAliveBlueCounter, label: blueTeamTxt, showAlways: true, align: "left" },
-                { name: "green", count: this.playersAliveGreenCounter, label: greenTeamTxt, showAlways: false, align: "right" },
-                { name: "orange", count: this.playersAliveOrangeCounter, label: orangeTeamTxt, showAlways: false, align: "left" },
-            ];
+            return `
+                <div class="ui-stats-header-right ui-stats-header-red-team">
+                <span class="ui-stats-header-stat">${redTeamTxt} </span>
+                <span class="ui-stats-header-value">${this.playersAliveRedCounter}</span></div>
+                <div class="ui-stats-header-left ui-stats-header-blue-team">
+                <span class="ui-stats-header-stat">${blueTeamTxt} </span>
+                <span class="ui-stats-header-value">${this.playersAliveBlueCounter}</span>
+                <div class="ui-stats-header-right ui-stats-header-green-team">
+                <span class="ui-stats-header-stat">${greenTeamTxt} </span>
+                <span class="ui-stats-header-value">${this.playersAliveGreenCounter}</span></div>
+                <div class="ui-stats-header-left ui-stats-header-orange-team">
+                <span class="ui-stats-header-stat">${orangeTeamTxt} </span>
+                <span class="ui-stats-header-value">${this.playersAliveOrangeCounter}</span></div>`;
+            // const teams = [
+            //     { name: "red", count: this.playersAliveRedCounter, label: redTeamTxt, showAlways: true, align: "right" },
+            //     { name: "blue", count: this.playersAliveBlueCounter, label: blueTeamTxt, showAlways: true, align: "left" },
+            //     { name: "green", count: this.playersAliveGreenCounter, label: greenTeamTxt, showAlways: false, align: "right" },
+            //     { name: "orange", count: this.playersAliveOrangeCounter, label: orangeTeamTxt, showAlways: false, align: "left" },
+            // ];
 
-            teams.forEach(team => {
-                const $elem =$(`.js-ui-players-alive-${team.name}`);
-                $elem.text(team.count);
-                const isVisible = team.showAlways || is4Faction;
-                //$elem.toggle(isVisible);
-            });
+            // teams.forEach(team => {
+            //     const $elem =$(`.js-ui-players-alive-${team.name}`);
+            //     $elem.text(team.count);
+            //     const isVisible = team.showAlways || is4Faction;
+            //     //$elem.toggle(isVisible);
+            // });
 
-            $('#ui-leaderboard-alive-faction').toggleClass('mode-4-faction', multiFactionMode);
+            // $('#ui-leaderboard-alive-faction').toggleClass('mode-4-faction', multiFactionMode);
 
-            $('.js-ui-players-alive-green').toggle(multiFactionMode);
-            $('.js-ui-players-alive-orange').toggle(multiFactionMode);
+            // $('.js-ui-players-alive-green').toggle(multiFactionMode);
+            // $('.js-ui-players-alive-orange').toggle(multiFactionMode);
 
-            $('.js-ui-players-alive-red').text(this.playersAliveRedCounter);
-            $('.js-ui-players-alive-blue').text(this.playersAliveBlueCounter);
+            // $('.js-ui-players-alive-red').text(this.playersAliveRedCounter);
+            // $('.js-ui-players-alive-blue').text(this.playersAliveBlueCounter);
 
-            if (multiFactionMode) {
-                $('.js-ui-players-alive-green').text(this.playersAliveGreenCounter);
-                $('.js-ui-players-alive-orange').text(this.playersAliveOrangeCounter);
-            }
+            // if (multiFactionMode) {
+            //     $('.js-ui-players-alive-green').text(this.playersAliveGreenCounter);
+            //     $('.js-ui-players-alive-orange').text(this.playersAliveOrangeCounter);
+            // }
 
-            return teams
-                .map(team => 
-                    `<div class="ui-stats-header-${team.align} ui-stats-header-${team.name}-team">
-                        <span class="ui-stats-header-stat">${team.label} </span>
-                        <span class="ui-stats-header-value js-ui-players-alive-${team.name}">${team.count}</span>
-                    </div>`
-                .trim())
-                .join('');
+            // return teams
+            //     .map(team => 
+            //         `<div class="ui-stats-header-${team.align} ui-stats-header-${team.name}-team">
+            //             <span class="ui-stats-header-stat">${team.label} </span>
+            //             <span class="ui-stats-header-value js-ui-players-alive-${team.name}">${team.count}</span>
+            //         </div>`
+            //     .trim())
+            //     .join('');
         }
         if (teamMode == TeamMode.Solo) {
             return `<div><span class="ui-stats-header-stat">${

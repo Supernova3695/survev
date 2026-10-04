@@ -7,8 +7,8 @@ import { Config } from "./config.ts";
 const config = {
     address: Config.gameServer.apiServerUrl,
     region: Config.gameServer.thisRegion,
-    gameModeIdx: 0,
-    botCount: 79,
+    gameModeIdx: 2,
+    botCount: 120,
     joinDelay: 100,
 };
 const bots = new Set<Bot>();

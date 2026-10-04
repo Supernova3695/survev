@@ -802,6 +802,13 @@ export const Main: MapDef = {
             { name: "m9", count: 1, weight: 0.01 },
         ],
         tier_knives: [],
+        tier_outfit_crate: [
+            { name: "outfitVerde", count: 1, weight: 1},
+            { name: "outfitWoodland", count: 1, weight: 3},
+            { name: "outfitCamo", count: 1, weight: 3},
+            { name: "outfitKhaki", count: 1, weight: 3},
+            { name: "outfitGhillie", count: 1, weight: 0.01},
+        ],
     },
     mapGen: {
         map: {
