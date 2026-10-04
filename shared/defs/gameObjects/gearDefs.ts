@@ -132,8 +132,8 @@ const HelmetDefs: Record<string, HelmetDef> = {
             baseTint: 0x317fff,
             baseTintRed: 0xa76b6b,
             baseTintBlue: 0x6290be,
-            baseTintGreen: 0x33FF44,
-            baseTintOrange: 0xFFA500,
+            baseTintGreen: 0x65BE62,
+            baseTintOrange: 0xDBB241,
             baseSprite: "player-circle-base-01.img",
         },
         lootImg: {
@@ -156,8 +156,8 @@ const HelmetDefs: Record<string, HelmetDef> = {
             baseTint: 0xc6c6c6,
             baseTintRed: 0x990000,
             baseTintBlue: 0x50a2,
-            baseTintGreen: 0x33FF44,
-            baseTintOrange: 0xFFA500,
+            baseTintGreen: 0x129900,
+            baseTintOrange: 0xB17200,
             baseSprite: "player-circle-base-01.img",
         },
         lootImg: {
@@ -180,8 +180,8 @@ const HelmetDefs: Record<string, HelmetDef> = {
             baseTint: 0x252525,
             baseTintRed: 0x260404,
             baseTintBlue: 0x5192d,
-            baseTintGreen: 0x33FF44,
-            baseTintOrange: 0xFFA500,
+            baseTintGreen: 0x052604,
+            baseTintOrange: 0x261A04,
             baseSprite: "player-circle-base-01.img",
         },
         lootImg: {
@@ -204,8 +204,8 @@ const HelmetDefs: Record<string, HelmetDef> = {
             baseTint: 0x252525,
             baseTintRed: 0x260404,
             baseTintBlue: 0x5192d,
-            baseTintGreen: 0x33FF44,
-            baseTintOrange: 0xFFA500,
+            baseTintGreen: 0x052604,
+            baseTintOrange: 0x261A04,
             baseSprite: "player-circle-base-01.img",
         },
         lootImg: {
