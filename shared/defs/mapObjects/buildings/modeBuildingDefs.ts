@@ -5241,6 +5241,9 @@ function createWorkshopComplex(overrides: DeepPartial<BuildingDef>): BuildingDef
 
 function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
     fortress_bunker?: BuildingChildObjType;
+    groundTintGp?: number;
+    groundTintPath?: number;
+    concreteColor?: number;
     north_west_center_object?: BuildingChildObjType;
     north_east_center_object?: BuildingChildObjType;
     south_west_center_object?: BuildingChildObjType;
@@ -5364,6 +5367,7 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
             collider.createAabbExtents(v2.create(32, 160), v2.create(16.5, 28)),//barn
             collider.createAabbExtents(v2.create(32, 125), v2.create(9, 6)),//lower shack
             collider.createAabbExtents(v2.create(28, 195), v2.create(9, 6)),//upper shack
+            collider.createAabbExtents(v2.create(-25, 208), v2.create(12.5, 8)),//grass patch
             //south side faction area clearing
             collider.createAabbExtents(v2.create(0, -160), v2.create(8, 45)),
             collider.createAabbExtents(v2.create(-30, -140), v2.create(18, 20)),//upper house
@@ -5375,61 +5379,98 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
             collider.createAabbExtents(v2.create(32, -160), v2.create(16.5, 28)),//barn
             collider.createAabbExtents(v2.create(28, -125), v2.create(9, 6)),//upper shack
             collider.createAabbExtents(v2.create(32, -195), v2.create(9, 6)),//lower shack
+            collider.createAabbExtents(v2.create(-25, -208), v2.create(12.5, 8)),//grass patch
         ],
         mapGroundPatches: [
             {//cross road
                 bound: collider.createAabbExtents(v2.create(0, 0), v2.create(6, 200)),
-                color: 0x653313,
+                color: params.groundTintPath || 0x653313,
                 roughness: 0.05,
                 offsetDist: 1,
             },
             {
                 bound: collider.createAabbExtents(v2.create(-7.5, 141), v2.create(9, 2)),
-                color: 0x653313,
+                color: params.groundTintPath || 0x653313,
                 roughness: 0.05,
                 offsetDist: 1,
             },
             {
                 bound: collider.createAabbExtents(v2.create(7.5, 160.0), v2.create(9, 2)),
-                color: 0x653313,
+                color: params.groundTintPath || 0x653313,
                 roughness: 0.05,
                 offsetDist: 1,
             },
             {
                 bound: collider.createAabbExtents(v2.create(-7.5, 170), v2.create(9, 2)),
-                color: 0x653313,
+                color: params.groundTintPath || 0x653313,
                 roughness: 0.05,
                 offsetDist: 1,
             },
             {
                 bound: collider.createAabbExtents(v2.create(-7.5, -139.475), v2.create(9, 2)),
-                color: 0x653313,
+                color: params.groundTintPath || 0x653313,
                 roughness: 0.05,
                 offsetDist: 1,
             },
             {
                 bound: collider.createAabbExtents(v2.create(7.5, -160), v2.create(9, 2)),
-                color: 0x653313,
+                color: params.groundTintPath || 0x653313,
                 roughness: 0.05,
                 offsetDist: 1,
             },
             {
                 bound: collider.createAabbExtents(v2.create(-7.5, -190), v2.create(9, 2)),
-                color: 0x653313,
+                color: params.groundTintPath || 0x653313,
                 roughness: 0.05,
                 offsetDist: 1,
             },
             {//docks cross road
                 bound: collider.createAabbExtents(v2.create(0, 0), v2.create(145, 6)),
-                color: 0x653313,
+                color: params.groundTintPath || 0x653313,
                 roughness: 0.05,
                 offsetDist: 1,
             },
             {//center patch
                 bound: collider.createAabbExtents(v2.create(0, 0), v2.create(-37.5, -37.5)),
-                color: 0x3a3a3a,
+                color: params.concreteColor || 0x3a3a3a,
                 roughness: 0.05,
                 offsetDist: 1,
+            },
+            { // north grass patch
+                bound: collider.createAabbExtents(
+                    v2.create(-25, 208),
+                    v2.create(12, 8),
+                ),
+                color: params.groundTintGp || 0x324319,
+                roughness: 0.05,
+                offsetDist: 0.5,
+            },
+            { // south grass patch
+                bound: collider.createAabbExtents(
+                    v2.create(-25, -208),
+                    v2.create(12, 8),
+                ),
+                color: params.groundTintGp || 0x324319,
+                roughness: 0.05,
+                offsetDist: 0.5,
+            },
+            { // east grass patch
+                bound: collider.createAabbExtents(
+                    v2.create(190, 25),
+                    v2.create(8, 15),
+                ),
+                color: params.groundTintGp || 0x324319,
+                roughness: 0.05,
+                offsetDist: 0.5,
+            },
+            { // west grass patch
+                bound: collider.createAabbExtents(
+                    v2.create(-190, 25),
+                    v2.create(8, 15),
+                ),
+                color: params.groundTintGp || 0x324319,
+                roughness: 0.05,
+                offsetDist: 0.5,
             },
         ],
         ori: 0,
@@ -6188,6 +6229,82 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 scale: 1,
                 ori: 0,
             },
+            {
+                type: randomObstacleType({
+                    crate_01: 5,
+                    crate_04: 4,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-33, -212),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 5,
+                    crate_04: 4,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-28, -212),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 5,
+                    crate_04: 4,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-16, -203),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-16, -208),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-18, -211),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(-21, -206),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 5,
+                    crate_04: 4,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-25, -203),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 2,
+                    crate_25: 1,
+                }),
+                pos: v2.create(-35, -203),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 2,
+                    crate_25: 1,
+                }),
+                pos: v2.create(-34, -206.5),
+                scale: 1,
+                ori: 0,
+            },
             { //north
                 type: "barn_01",
                 pos: v2.create(30, 160),
@@ -6248,6 +6365,82 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 scale: 1,
                 ori: 0,
             },
+            {
+                type: randomObstacleType({
+                    crate_01: 5,
+                    crate_04: 4,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-33, 212),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 5,
+                    crate_04: 4,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-28, 212),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 5,
+                    crate_04: 4,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-16, 203),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-16, 208),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-18, 211),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(-21, 206),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 5,
+                    crate_04: 4,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-25, 203),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 2,
+                    crate_25: 1,
+                }),
+                pos: v2.create(-35, 203),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 2,
+                    crate_25: 1,
+                }),
+                pos: v2.create(-34, 206.5),
+                scale: 1,
+                ori: 0,
+            },
             { //east
                 type: randomObstacleType({
                     container_01: 1,
@@ -6268,7 +6461,7 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 scale: 1,
                 ori: 2,
             },
-            { //BUNKER ENTRANCE?
+            {
                 type: randomObstacleType({
                     container_01: 1,
                     container_02: 1,
@@ -6429,6 +6622,91 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
             {
                 type: "warehouse_02",
                 pos: v2.create(166, -32),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 5,
+                    crate_04: 4,
+                    crate_08: 1,
+                }),
+                pos: v2.create(186, 36),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(190, 36),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(194, 36),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    barrel_01: 2,
+                    "": 1,
+                }),
+                pos: v2.create(196, 32),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 10,
+                    crate_04: 9,
+                    crate_08: 1,
+                }),
+                pos: v2.create(188, 31),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 10,
+                    crate_04: 9,
+                    crate_08: 1,
+                }),
+                pos: v2.create(190, 14),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "chest_02",
+                pos: v2.create(186, 14),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 10,
+                    crate_04: 9,
+                    crate_08: 1,
+                }),
+                pos: v2.create(194, 19),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    barrel_01: 2,
+                    "": 1,
+                }),
+                pos: v2.create(189, 21),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 2,
+                    crate_25: 1,
+                }),
+                pos: v2.create(194, 14.5),
                 scale: 1,
                 ori: 0,
             },
@@ -6614,6 +6892,91 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
             {
                 type: "warehouse_02",
                 pos: v2.create(-166, -32),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 5,
+                    crate_04: 4,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-186, 36),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(-190, 36),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-194, 36),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    barrel_01: 2,
+                    "": 1,
+                }),
+                pos: v2.create(-196, 32),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 10,
+                    crate_04: 9,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-188, 31),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 10,
+                    crate_04: 9,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-190, 14),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "chest_02",
+                pos: v2.create(-186, 14),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 10,
+                    crate_04: 9,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-194, 19),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    barrel_01: 2,
+                    "": 1,
+                }),
+                pos: v2.create(-189, 21),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 2,
+                    crate_25: 1,
+                }),
+                pos: v2.create(-194, 14.5),
                 scale: 1,
                 ori: 0,
             },

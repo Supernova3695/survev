@@ -2831,7 +2831,7 @@ export class Player extends BaseGameObject {
             // golden airdrops depend on alive counts, so we only do this logic on kill
             if (this.game.planeBarn.isOneTeamWinning() && (this.game.map.factionMode && !this.game.map.multiFactionMode)) {
                 this.game.planeBarn.helpLosingTeam();
-            } else if (this.game.planeBarn.isOneTeamWinning() && (this.game.map.multiFactionMode && !this.game.map.factionMode)) {
+            } else if (this.game.planeBarn.isOneTeamWinningMF() && (this.game.map.multiFactionMode && !this.game.map.factionMode)) {
                 this.game.planeBarn.helpLosingTeam();
             }
         }

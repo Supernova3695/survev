@@ -7791,19 +7791,15 @@ export const BunkerDefs: Record<string, BuildingDef> = {
         zIdx: 0,
         floor: {
             surfaces: [
-                // {
-                //     type: "container",
-                //     collision: [
-                //         collider.createAabbExtents(
-                //             v2.create(16.25, 3.5),
-                //             v2.create(3.25, 2),
-                //         ),
-                //         collider.createAabbExtents(
-                //             v2.create(22, 3.35),
-                //             v2.create(8, 2.5),
-                //         ),
-                //     ],
-                // },
+                {
+                    type: "container",
+                    collision: [
+                        collider.createAabbExtents(
+                            v2.create(2.5, 0),
+                            v2.create(8, 2.5),
+                        ),
+                    ],
+                },
             ],
             imgs: [
                 {

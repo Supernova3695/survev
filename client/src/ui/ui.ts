@@ -1396,12 +1396,15 @@ export class UiManager {
                 <div class="ui-stats-header-right ui-stats-header-red-team">
                 <span class="ui-stats-header-stat">${redTeamTxt} </span>
                 <span class="ui-stats-header-value">${this.playersAliveRedCounter}</span></div>
+
                 <div class="ui-stats-header-left ui-stats-header-blue-team">
                 <span class="ui-stats-header-stat">${blueTeamTxt} </span>
-                <span class="ui-stats-header-value">${this.playersAliveBlueCounter}</span>
+                <span class="ui-stats-header-value">${this.playersAliveBlueCounter}</span></div>
+
                 <div class="ui-stats-header-right ui-stats-header-green-team">
                 <span class="ui-stats-header-stat">${greenTeamTxt} </span>
                 <span class="ui-stats-header-value">${this.playersAliveGreenCounter}</span></div>
+
                 <div class="ui-stats-header-left ui-stats-header-orange-team">
                 <span class="ui-stats-header-stat">${orangeTeamTxt} </span>
                 <span class="ui-stats-header-value">${this.playersAliveOrangeCounter}</span></div>`;
@@ -1630,29 +1633,21 @@ export class UiManager {
                                 }),
                             );
                             break;
-                        case 3:
-                            B.append(
-                                $("<div/>", {
-                                    class: "ui-stats-info-player-badge ui-stats-info-player-green-leader",
-                                }),
-                            );
-                            break;
-                        case 4:
-                            B.append(
-                                $("<div/>", {
-                                    class: "ui-stats-info-player-badge ui-stats-info-player-orange-leader",
-                                }),
-                            );
-                            break;
-                        case 5: {
-                            // const R = playerInfo.teamId == GameConfig.FactionTeam.Red
-                            //     ? "ui-stats-info-player-red-ribbon"
-                            //     : "ui-stats-info-player-blue-ribbon";
-                            // B.append(
-                            //     $("<div/>", {
-                            //         class: `ui-stats-info-player-badge ${R}`,
-                            //     }),
-                            // );
+                        // case 3:
+                        //     B.append(
+                        //         $("<div/>", {
+                        //             class: "ui-stats-info-player-badge ui-stats-info-player-green-leader",
+                        //         }),
+                        //     );
+                        //     break;
+                        // case 4:
+                        //     B.append(
+                        //         $("<div/>", {
+                        //             class: "ui-stats-info-player-badge ui-stats-info-player-orange-leader",
+                        //         }),
+                        //     );
+                        //     break;
+                        case 3: {
                             const ribbonClasses: Record<number, string> = {
                                 [GameConfig.FactionTeam.Red]: "ui-stats-info-player-red-ribbon",
                                 [GameConfig.FactionTeam.Blue]: "ui-stats-info-player-blue-ribbon",
@@ -1664,7 +1659,8 @@ export class UiManager {
 
                             B.append(
                                 $("<div/>", {
-                                    class: `ui-stats-info-player-badge ${R}`,
+                                    //class: `ui-stats-info-player-badge ${R}`,
+                                    class: "ui-stats-info-player-badge ${R}",
                                 }),
                             );
                         }

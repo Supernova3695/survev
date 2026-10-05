@@ -321,6 +321,29 @@ export class GameModeManager {
         if (this.mode !== GameMode.Faction) return;
             const redLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Red - 1].leader;
             const blueLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Blue - 1].leader;
+        if (!redLeader || !blueLeader) {
+            return;
+        }
+
+        const highestKiller = this.game.playerBarn.players.reduce(
+            (highestKiller, p) => {
+                if (highestKiller.kills === p.kills) {
+                    return highestKiller.damageDealt > p.damageDealt
+                        ? highestKiller
+                        : p;
+                }
+
+                return highestKiller.kills > p.kills ? highestKiller : p;
+            },
+        );
+
+        return highestKiller;
+    }
+
+    getFactionMvpMF(): Player | undefined {
+        if (this.mode !== GameMode.Faction) return;
+            const redLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Red - 1].leader;
+            const blueLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Blue - 1].leader;
             const greenLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Green - 1].leader;
             const orangeLeader = this.game.playerBarn.teams[GameConfig.FactionTeam.Orange - 1].leader;
         if (!redLeader || !blueLeader || !greenLeader || !orangeLeader) {
