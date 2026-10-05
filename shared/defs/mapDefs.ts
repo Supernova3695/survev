@@ -122,6 +122,7 @@ export interface MapDef {
         killLeaderEnabled: boolean;
         desertMode?: boolean;
         factionMode?: boolean;
+        factionSnowMode?: boolean;
         factions?: number;
         potatoMode?: boolean;
         woodsMode?: boolean;

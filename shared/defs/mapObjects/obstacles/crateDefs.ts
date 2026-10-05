@@ -771,6 +771,33 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         },
         sound: { explode: "crate_break_01" },
     }),
+    crate_12x: createCrate({
+        collision: collider.createAabbExtents(v2.create(0, 0), v2.create(3.5, 3.5)),
+        scale: { destroy: 0.75 },
+        health: 500,
+        loot: [
+            tierLoot("tier_airdrop_rare", 2, 2, {
+                preloadGuns: true,
+            }),
+            tierLoot("tier_airdrop_uncommon", 7, 8, {
+                preloadGuns: true,
+            }),
+            tierLoot("tier_airdrop_armor", 5, 6),
+            tierLoot("tier_medical", 12, 15),
+            tierLoot("tier_airdrop_scopes", 7, 8),
+            tierLoot("tier_airdrop_outfits", 3, 4),
+            tierLoot("tier_airdrop_melee", 6, 7),
+            tierLoot("tier_airdrop_ammo", 10, 12),
+            tierLoot("tier_airdrop_throwables", 6, 8),
+            tierLoot("tier_airdrop_snow_outfits", 4, 6),
+        ],
+        map: { display: false },
+        img: {
+            sprite: "map-crate-12.img",
+            residue: "map-crate-res-03.img",
+        },
+        sound: { explode: "crate_break_01" },
+    }),
     crate_12po: createCrate({
         collision: collider.createAabbExtents(v2.create(0, 0), v2.create(3.5, 3.5)),
         scale: { destroy: 0.75 },
@@ -836,6 +863,37 @@ export const CrateDefs: Record<string, ObstacleDef> = {
             tierLoot("tier_airdrop_faction_melee", 3, 3),
             tierLoot("tier_airdrop_ammo", 10, 12),
             tierLoot("tier_airdrop_throwables", 6, 8),
+            autoLoot("strobe", 1),
+            autoLoot("strobe", 1),
+            autoLoot("strobe", 1),
+        ],
+        map: { display: false },
+        img: {
+            sprite: "map-crate-13.img",
+            residue: "map-crate-res-03.img",
+        },
+        sound: { explode: "crate_break_01" },
+    }),
+    crate_13x: createCrate({
+        collision: collider.createAabbExtents(v2.create(0, 0), v2.create(3.5, 3.5)),
+        scale: { destroy: 0.75 },
+        health: 200,
+        loot: [
+            tierLoot("tier_airdrop_mythic", 3, 4, {
+                preloadGuns: true,
+            }),
+            tierLoot("tier_airdrop_rare", 5, 5, {
+                preloadGuns: true,
+            }),
+            tierLoot("tier_airdrop_armor", 6, 8),
+            tierLoot("tier_medical", 12, 15),
+            tierLoot("tier_airdrop_scopes", 7, 8),
+            tierLoot("tier_airdrop_faction_outfits", 1, 2),
+            tierLoot("tier_airdrop_melee", 2, 3),
+            tierLoot("tier_airdrop_faction_melee", 3, 3),
+            tierLoot("tier_airdrop_ammo", 10, 12),
+            tierLoot("tier_airdrop_throwables", 6, 8),
+            tierLoot("tier_airdrop_snow_outfits", 4, 6),
             autoLoot("strobe", 1),
             autoLoot("strobe", 1),
             autoLoot("strobe", 1),
@@ -1069,6 +1127,20 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         destroyType: "crate_12",
         explodeParticle: "airdropCrate04",
     }),
+    airdrop_crate_03x: createAirdrop({
+        collision: collider.createAabbExtents(v2.create(0, 0), v2.create(4, 4)),
+        button: {
+            useImg: "map-airdrop-04.img",
+            useParticle: "airdropCrate03",
+            sound: { on: "airdrop_open_01", off: "" },
+        },
+        img: {
+            sprite: "map-airdrop-03.img",
+            residue: "none",
+        },
+        destroyType: "crate_12x",
+        explodeParticle: "airdropCrate04",
+    }),
     airdrop_crate_03po: createAirdrop({
         collision: collider.createAabbExtents(v2.create(0, 0), v2.create(4, 4)),
         button: {
@@ -1095,6 +1167,20 @@ export const CrateDefs: Record<string, ObstacleDef> = {
             residue: "none",
         },
         destroyType: "crate_12dev",
+        explodeParticle: "airdropCrate04",
+    }),
+    airdrop_crate_04x: createAirdrop({
+        collision: collider.createAabbExtents(v2.create(0, 0), v2.create(4, 4)),
+        button: {
+            useImg: "map-airdrop-04.img",
+            useParticle: "airdropCrate03",
+            sound: { on: "airdrop_open_01", off: "" },
+        },
+        img: {
+            sprite: "map-airdrop-03.img",
+            residue: "none",
+        },
+        destroyType: "crate_13x",
         explodeParticle: "airdropCrate04",
     }),
     airdrop_crate_04: createAirdrop({

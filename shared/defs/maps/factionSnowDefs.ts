@@ -101,6 +101,7 @@ const mapDef: PartialMapDef = {
     gameMode: {
         maxPlayers: 100,
         factionMode: true,
+        factionSnowMode: true,
         factions: 2,
     },
     /* STRIP_FROM_PROD_CLIENT:START */
@@ -193,7 +194,7 @@ const mapDef: PartialMapDef = {
                     },
                 },
             ],
-            crates: [{ name: "airdrop_crate_03", weight: 1 }],
+            crates: [{ name: "airdrop_crate_03x", weight: 1 }],
         },
         roles: {
             timings: [
@@ -370,13 +371,18 @@ const mapDef: PartialMapDef = {
         ],
         tier_airdrop_outfits: [
             { name: "", count: 1, weight: 20 },
-            { name: "outfitSpetsnaz", count: 1, weight: 5 },
+            { name: "outfitSpetsnaz", count: 1, weight: 1 },
+            { name: "outfitElf", count: 1, weight: 1 },
             { name: "outfitHeaven", count: 1, weight: 1 },
             {
                 name: "outfitGhillie",
                 count: 1,
-                weight: 0.5,
+                weight: 1,
             },
+        ],
+        tier_airdrop_snow_outfits: [
+            { name: "outfitSpetsnaz", count: 1, weight: 1 },
+            { name: "outfitElf", count: 1, weight: 1 },
         ],
         tier_airdrop_scopes: [
             { name: "", count: 1, weight: 12 },
@@ -412,7 +418,7 @@ const mapDef: PartialMapDef = {
             { name: "outfitCobaltShell", count: 1, weight: 0.3 },
             { name: "outfitWoodland", count: 1, weight: 0.3 },
             { name: "outfitBlackIce", count: 1, weight: 0.2 },
-            { name: "outfitSpetsnaz", count: 4, weight: 0.2 },
+            { name: "outfitSpetsnaz", count: 1, weight: 0.2 },
             { name: "outfitCamo", count: 1, weight: 0.15 },
             { name: "outfitSnow", count: 1, weight: 0.15 },
             { name: "outfitGhillie", count: 1, weight: 0.01 },
@@ -470,7 +476,7 @@ const mapDef: PartialMapDef = {
                 silo_01: 8,
                 crate_01x: 38,
                 crate_02fx: 6, //winter soviet crate
-                crate_22x: 6, //initiative crate
+                crate_22x: 6, //winter initiative crate
                 crate_03: 8,
                 crate_03x: 1,
                 bush_01x: 78,
