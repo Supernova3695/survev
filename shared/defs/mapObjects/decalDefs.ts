@@ -8,18 +8,23 @@ export interface DecalDef {
     collision: Collider;
     height: number;
     terrain?: TerrainSpawnDef;
-    img: {
-        sprite: string;
-        scale: number;
-        alpha: number;
-        tint: number;
-        zIdx: number;
-        flicker?: boolean;
-        flickerMin?: number;
-        flickerMax?: number;
-        flickerRate?: number;
-        ignoreAdjust?: boolean;
-    };
+    img:
+        & {
+            sprite: string;
+            scale: number;
+            alpha: number;
+            tint: number;
+            zIdx: number;
+            ignoreAdjust?: boolean;
+        }
+        & ({
+            flicker?: false;
+        } | {
+            flicker: true;
+            flickerMin: number;
+            flickerMax: number;
+            flickerRate: number;
+        });
     lifetime?:
         | {
             min: number;
@@ -28,7 +33,9 @@ export interface DecalDef {
         | number;
     fadeChance?: number;
     surface?: {
-        type: string;
+        // note: decal surfaces are currently hardcoded to water only
+        // need to change client logic
+        type: "water";
         data: {
             waterColor: number;
             rippleColor: number;

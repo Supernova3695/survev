@@ -2,6 +2,7 @@ import * as PIXI from "pixi.js-legacy";
 import { type MapDef, type MapDefKey, MapDefs } from "../../shared/defs/mapDefs.ts";
 import type { BuildingDef } from "../../shared/defs/mapObjects/buildings/buildingDefs.ts";
 import type { ObstacleDef } from "../../shared/defs/mapObjects/obstacles/obstacleDefs.ts";
+import type { SurfaceData, SurfaceType } from "../../shared/defs/mapObjectsTyping.ts";
 import { MapObjectDefs } from "../../shared/defs/register.ts";
 import { GameConfig } from "../../shared/gameConfig.ts";
 import type { GroundPatch, MapMsg } from "../../shared/net/mapMsg.ts";
@@ -539,6 +540,7 @@ export class Map {
                 }
                 screenScale *= math.min(device.pixelRatio, 2);
             }
+            screenScale = math.max(screenScale, 1);
             const scale = this.height / screenScale;
 
             // Background
@@ -663,7 +665,7 @@ export class Map {
                     resolution: 1,
                 });
             }
-            mapRender.scale = new PIXI.Point(
+            mapRender.scale.set(
                 screenScale / this.height,
                 screenScale / this.height,
             );
@@ -689,7 +691,24 @@ export class Map {
     }
 
     getGroundSurface(pos: Vec2, layer: number) {
-        const groundSurface = (type: string, data: Record<string, any> = {}) => {
+        type Surface = {
+            type: "water";
+            data: {
+                waterColor: number;
+                rippleColor: number;
+                isBright?: boolean;
+                river?: River;
+            };
+        } | {
+            type: Exclude<SurfaceType, "water">;
+            data: {
+                waterColor?: number;
+                rippleColor?: number;
+                isBright?: boolean;
+                river?: River;
+            };
+        };
+        const groundSurface = (type: SurfaceType, data: SurfaceData & { river?: River } = {}) => {
             if (type == "water") {
                 const mapColors = this.getMapDef().biome.colors;
                 const isLake = data.river?.looped ?? false;
@@ -707,10 +726,7 @@ export class Map {
             return {
                 type,
                 data,
-            } as {
-                type: string;
-                data: Required<typeof data>;
-            };
+            } as Surface;
         };
 
         // Check decals
