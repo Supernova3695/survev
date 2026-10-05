@@ -4,7 +4,7 @@ import type { LootDef } from "../../../shared/defs/gameObjectDefs.ts";
 import type { BoostDef, HealDef } from "./../../../shared/defs/gameObjects/gearDefs.ts";
 import type { GunDef } from "../../../shared/defs/gameObjects/gunDefs.ts";
 import { type MeleeDef } from "../../../shared/defs/gameObjects/meleeDefs.ts";
-import type { ThrowableDef, ThrowableHandImgKey } from "../../../shared/defs/gameObjects/throwableDefs.ts";
+import type { CookImg, ThrowableDef, ThrowableHandImgKey } from "../../../shared/defs/gameObjects/throwableDefs.ts";
 import type { ObstacleDef } from "../../../shared/defs/mapObjects/obstacles/obstacleDefs.ts";
 import { GameObjectDefs, MapObjectDefs } from "../../../shared/defs/register.ts";
 import { Action, Anim, GameConfig, HasteType, Input, type WeaponSlot } from "../../../shared/gameConfig.ts";
@@ -20,8 +20,7 @@ import { coldet } from "../../../shared/utils/coldet.ts";
 import { collider } from "../../../shared/utils/collider.ts";
 import { collisionHelpers } from "../../../shared/utils/collisionHelpers.ts";
 import { math } from "../../../shared/utils/math.ts";
-import type { River } from "../../../shared/utils/river.ts";
-import { util } from "../../../shared/utils/util.ts";
+import { assert, util } from "../../../shared/utils/util.ts";
 import { v2, type Vec2 } from "../../../shared/utils/v2.ts";
 import { Animations, Bones, IdlePoses, Pose } from "../animData.ts";
 import type { AudioManager } from "../audioManager.ts";
@@ -38,7 +37,7 @@ import type { SoundHandle } from "../lib/createJS.ts";
 import type { Map } from "../map.ts";
 import type { Renderer } from "../renderer.ts";
 import type { UiManager2 } from "../ui/ui2.ts";
-import { Pool } from "./objectPool.ts";
+import { AbstractObject, Pool } from "./objectPool.ts";
 import type { Obstacle } from "./obstacle.ts";
 import type { Emitter, EmitterOptions, ParticleBarn } from "./particles.ts";
 import { halloweenSpriteMap } from "./projectile.ts";
@@ -156,21 +155,6 @@ export interface AnimCtx {
     particleBarn: ParticleBarn;
 }
 
-export abstract class AbstractObject {
-    abstract __id: number;
-    abstract __type: ObjectType;
-    abstract active: boolean;
-
-    abstract m_init(): void;
-    abstract m_free(): void;
-    abstract m_updateData(
-        data: ObjectData<ObjectType>,
-        fullUpdate: boolean,
-        isNew: boolean,
-        ctx: Ctx,
-    ): void;
-}
-
 export class Player implements AbstractObject {
     __id!: number;
     __type!: ObjectType.Player;
@@ -238,15 +222,7 @@ export class Player implements AbstractObject {
     // Maintain a list of just the perk types as a hasPerk() optimization
     perkTypes: string[] = [];
     perksDirty = false;
-    surface: {
-        type: string;
-        data: {
-            river?: River;
-            waterColor?: number;
-            isBright?: boolean;
-            rippleColor?: number;
-        };
-    } | null = null;
+    surface: ReturnType<Map["getGroundSurface"]> | null = null;
 
     wasInWater = false;
     weapTypeOld = "";
@@ -907,8 +883,8 @@ export class Player implements AbstractObject {
                     );
                     if (
                         res
-                        && (obstacle.door.locked
-                            || (obstacle.door.openOneWay && v2.dot(toDoor, doorDir) < 0))
+                        && !obstacle.door!.open && (obstacle.door!.locked
+                            || (obstacle.door!.openOneWay && v2.dot(toDoor, doorDir) < 0))
                     ) {
                         doorErrorObstacle = obstacle;
                     }
@@ -1734,13 +1710,10 @@ export class Player implements AbstractObject {
             this.meleeSprite.visible = false;
         }
         if (activeWeapDef.type == "throwable") {
+            assert(activeWeapDef.handImg);
             const setThrowableSprite = function(
                 sprite: PIXI.Sprite,
-                def: {
-                    sprite: string;
-                    pos?: Vec2;
-                    scale?: number;
-                },
+                def: CookImg,
             ) {
                 if (def.sprite && def.sprite != "none") {
                     // Setup sprite
@@ -1750,17 +1723,17 @@ export class Player implements AbstractObject {
                         imgKey = halloweenSpriteMap[imgKey] || imgKey;
                     }
                     sprite.texture = PIXI.Texture.from(imgKey);
-                    sprite.position.set(def.pos?.x, def.pos?.y);
-                    sprite.scale.set(def.scale, def.scale);
+                    sprite.position.set(def.pos!.x, def.pos!.y);
+                    sprite.scale.set(def.scale!, def.scale!);
                     sprite.rotation = Math.PI * 0.5;
                     sprite.visible = true;
                 } else {
                     sprite.visible = false;
                 }
             };
-            const handImgs = activeWeapDef.handImg?.[this.throwableState];
-            setThrowableSprite(this.objectLSprite, handImgs!.left);
-            setThrowableSprite(this.objectRSprite, handImgs!.right);
+            const handImgs = activeWeapDef.handImg[this.throwableState];
+            setThrowableSprite(this.objectLSprite, handImgs.left);
+            setThrowableSprite(this.objectRSprite, handImgs.right);
         } else {
             this.objectLSprite.visible = false;
             this.objectRSprite.visible = false;
@@ -1794,7 +1767,8 @@ export class Player implements AbstractObject {
         } else {
             const actionItemDef = GameObjectDefs.typeToDefSafe(this.m_action.item) as
                 | HealDef
-                | BoostDef;
+                | BoostDef
+                | undefined;
             // Assume if there's no item defined, it's a revive circle
             const sprite = actionItemDef?.aura
                 ? actionItemDef.aura.sprite
@@ -2640,6 +2614,19 @@ export class Player implements AbstractObject {
     }
 }
 
+export interface ClientPlayerStatus extends PlayerStatus {
+    disconnected: boolean;
+    playerId: number;
+    posTarget: Vec2;
+    posDelta: number;
+    health: number;
+    posInterp: number;
+    timeSinceUpdate: number;
+    timeSinceVisible: number;
+    minimapAlpha: number;
+    minimapVisible: boolean;
+}
+
 export class PlayerBarn {
     playerPool = new Pool(Player);
     playerInfo: Record<number, PlayerInfo & { nameTruncated: string; anonName: string }> = {};
@@ -2661,7 +2648,7 @@ export class PlayerBarn {
         }
     > = {};
 
-    playerStatus: Record<number, PlayerStatus> = {};
+    playerStatus: Record<number, ClientPlayerStatus> = {};
     anonPlayerNames = false;
 
     m_update(
@@ -2712,6 +2699,7 @@ export class PlayerBarn {
         const activePlayer = this.getPlayerById(activeId)!;
 
         this.setPlayerStatus(activeId, {
+            hasData: true,
             pos: v2.copy(activePlayer.m_netData.m_pos),
             health: activePlayer.m_localData.m_health,
             disconnected: false,
@@ -2909,11 +2897,11 @@ export class PlayerBarn {
         }
     }
 
-    setPlayerStatus(playerId: number, newStatus: Partial<PlayerStatus>) {
+    setPlayerStatus(playerId: number, newStatus: PlayerStatus & { health?: number; disconnected?: boolean }) {
         const status = this.playerStatus[playerId] || {
             playerId,
-            pos: v2.copy(newStatus.pos!),
-            posTarget: v2.copy(newStatus.pos!),
+            pos: v2.copy(newStatus.pos),
+            posTarget: v2.copy(newStatus.pos),
             posDelta: v2.create(0, 0),
             health: 100,
             posInterp: 0,
@@ -2929,22 +2917,22 @@ export class PlayerBarn {
         };
 
         if (!status.minimapVisible) {
-            status.pos = v2.copy(newStatus.pos!);
+            status.pos = v2.copy(newStatus.pos);
             if (!status.visible && newStatus.visible) {
                 status.timeSinceVisible = 0;
             }
         }
 
-        status.visible = newStatus.visible!;
+        status.visible = newStatus.visible;
         if (status.visible) {
             status.timeSinceUpdate = 0;
         }
 
-        status.posTarget = v2.copy(newStatus.pos!);
-        status.posDelta = v2.length(v2.sub(newStatus.pos!, status.pos));
-        status.dead = newStatus.dead!;
-        status.downed = newStatus.downed!;
-        status.role = newStatus.role!;
+        status.posTarget = v2.copy(newStatus.pos);
+        status.posDelta = v2.length(v2.sub(newStatus.pos, status.pos));
+        status.dead = newStatus.dead;
+        status.downed = newStatus.downed;
+        status.role = newStatus.role;
         if (newStatus.health !== undefined) {
             status.health = newStatus.health;
         }
