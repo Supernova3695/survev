@@ -208,7 +208,12 @@ export class GameMap {
     seed!: number;
     msg!: net.MapMsg;
     terrain!: ReturnType<typeof generateTerrain>;
-    riverDescs!: MapRiverData[];
+    riverDescs!: Array<
+        MapRiverData & {
+            noRiverObjs: boolean;
+            aabb?: AABB;
+        }
+    >;
     riverMasks!: Array<Collider>;
     normalRivers!: Array<River & { looped: false }>;
     lakes!: Array<River & { looped: true }>;
@@ -720,6 +725,7 @@ export class GameMap {
                         width: widths[i],
                         points: riverPoints,
                         looped: false,
+                        noRiverObjs: false,
                     });
                     return true;
                 });
@@ -1073,11 +1079,12 @@ export class GameMap {
                 stone_03: 0.9,
                 bush_04: 0.4,
             };
-            for (const river of this.terrain.rivers) {
+            for (let i = 0; i < this.terrain.rivers.length; i++) {
+                const river = this.terrain.rivers[i];
+                const desc = this.riverDescs[i];
+                if (desc.noRiverObjs) continue;
                 const riverArea = this.riverAreas.get(river)!.water / 1000;
 
-                // HACK: desert lake shouldn't spawn stones and bushes
-                if (river.looped && this.desertMode) continue;
                 for (const type in riverObjs) {
                     const amount = math.min(riverArea * riverObjs[type], 30);
 

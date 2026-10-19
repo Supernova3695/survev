@@ -542,6 +542,7 @@ export class Map {
                 }
                 screenScale *= math.min(device.pixelRatio, 2);
             }
+            screenScale = math.max(screenScale, 1);
             const scale = this.height / screenScale;
 
             // Background
@@ -666,7 +667,7 @@ export class Map {
                     resolution: 1,
                 });
             }
-            mapRender.scale = new PIXI.Point(
+            mapRender.scale.set(
                 screenScale / this.height,
                 screenScale / this.height,
             );
