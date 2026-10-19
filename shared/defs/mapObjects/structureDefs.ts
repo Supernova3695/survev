@@ -133,6 +133,53 @@ export const StructureDefs: Record<string, StructureDef> = {
                 underground: false,
             },
         ],
+        mapObstacleBounds: [
+            collider.createAabbExtents(v2.create(0, 0), v2.create(60, 30)),
+        ],
+        bridgeLandBounds: [
+            collider.createAabbExtents(v2.create(-41, 0), v2.create(5, 10)),
+            collider.createAabbExtents(v2.create(41, 0), v2.create(5, 10)),
+        ],
+        bridgeWaterBounds: [collider.createAabbExtents(v2.create(0, 0), v2.create(5, 5))],
+        stairs: [
+            {
+                collision: collider.createAabbExtents(
+                    v2.create(0, -13.5),
+                    v2.create(11.5, 1.5),
+                ),
+                downDir: v2.create(0, 1),
+                lootOnly: true,
+            },
+            {
+                collision: collider.createAabbExtents(
+                    v2.create(0, 13.5),
+                    v2.create(11.5, 1.5),
+                ),
+                downDir: v2.create(0, -1),
+                lootOnly: true,
+            },
+        ],
+        mask: [collider.createAabbExtents(v2.create(0, 0), v2.create(12, 12))],
+    },
+    bridge_xlg_structure_02: {
+        type: "structure",
+        terrain: { bridge: { nearbyWidthMult: 5 } },
+        mapObstacleBounds: [
+            collider.createAabbExtents(v2.create(0, 0), v2.create(35, 14)),
+        ],
+        layers: [
+            {
+                type: "bridge_xlg_01",
+                pos: v2.create(0, 0),
+                ori: 0,
+            },
+            {
+                type: "bridge_xlg_under_01",
+                pos: v2.create(0, 0),
+                ori: 0,
+                underground: false,
+            },
+        ],
         bridgeLandBounds: [
             collider.createAabbExtents(v2.create(-41, 0), v2.create(5, 10)),
             collider.createAabbExtents(v2.create(41, 0), v2.create(5, 10)),
@@ -1103,5 +1150,84 @@ export const StructureDefs: Record<string, StructureDef> = {
             collider.createAabbExtents(v2.create(0, -38.5), v2.create(40, 36.8)),
             collider.createAabbExtents(v2.create(10, -80.31), v2.create(29, 5)),
         ],
+    },
+    bunker_structure_11: {
+        type: "structure",
+        terrain: { grass: true, beach: false },
+        mapObstacleBounds: [
+            collider.createAabbExtents(v2.create(0, 5), v2.create(7.5, 12.5)),
+        ],
+        layers: [
+            {
+                type: "bunker_fortress_01",
+                pos: v2.create(0, 0),
+                ori: 1,
+            },
+            {
+                type: "bunker_fortress_sublevel_01",
+                pos: v2.create(0, -10.75),
+                ori: 0,
+            },
+        ],
+        stairs: [
+            {
+                collision: collider.createAabbExtents(
+                    v2.create(0, -2.0),
+                    v2.create(2.5, 2.0),
+                ),
+                downDir: v2.create(0, -1),
+            },
+        ],
+        mask: [collider.createAabbExtents(v2.create(0, -3.7), v2.create(10, 9.5))],
+    },
+    bunker_structure_12: {
+        type: "structure",
+        terrain: { grass: true, beach: false },
+        mapObstacleBounds: [
+            collider.createAabbExtents(v2.create(0, 5), v2.create(7.5, 12.5)),
+        ],
+        layers: [
+            {
+                type: "bunker_core_01",
+                pos: v2.create(0, 0),
+                ori: 1,
+            },
+            {
+                type: "bunker_core_sublevel_01",
+                pos: v2.create(0, 0),
+                ori: 0,
+            },
+        ],
+        stairs: [
+            { //north entrance stairs
+                collision: collider.createAabbExtents(
+                    v2.create(50.2, 125),
+                    v2.create(2.0, 2.0),
+                ),
+                downDir: v2.create(-1, 0),
+            },
+            { //south entrance stairs
+                collision: collider.createAabbExtents(
+                    v2.create(49.75, -125),
+                    v2.create(2.0, 2.0),
+                ),
+                downDir: v2.create(1, 0),
+            },
+            { //east entrance stairs
+                collision: collider.createAabbExtents(
+                    v2.create(124, -60.15),
+                    v2.create(2.0, 2.0),
+                ),
+                downDir: v2.create(0, 1),
+            },
+            { //west entrance stairs
+                collision: collider.createAabbExtents(
+                    v2.create(-124, -60.15),
+                    v2.create(2.0, 2.0),
+                ),
+                downDir: v2.create(0, -1),
+            },
+        ],
+        mask: [collider.createAabbExtents(v2.create(0, -3.7), v2.create(10, 9.5))],
     },
 };

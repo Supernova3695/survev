@@ -129,6 +129,8 @@ export const RoleDefs: Record<string, RoleDef> = {
                         {
                             [FactionTeam.Red]: { type: "m1014", ammo: 8, fillInv: true },
                             [FactionTeam.Blue]: { type: "an94", ammo: 45, fillInv: true },
+                            [FactionTeam.Green]: { type: "aek972", ammo: 30, fillInv: true },
+                            [FactionTeam.Orange]: { type: "ar19", ammo: 35, fillInv: true },
                         },
                         teamcolor,
                     ),
@@ -138,6 +140,8 @@ export const RoleDefs: Record<string, RoleDef> = {
                         {
                             [FactionTeam.Red]: { type: "machete_taiga", ammo: 0 },
                             [FactionTeam.Blue]: { type: "kukri_trad", ammo: 0 },
+                            [FactionTeam.Green]: { type: "cutlass_covert", ammo: 0 },
+                            [FactionTeam.Orange]: { type: "falchion_woodland", ammo: 0 },
                         },
                         teamcolor,
                     ),
@@ -150,6 +154,8 @@ export const RoleDefs: Record<string, RoleDef> = {
                 ({
                     [FactionTeam.Red]: "outfitRedLeader",
                     [FactionTeam.Blue]: "outfitBlueLeader",
+                    [FactionTeam.Green]: "outfitGreenLeader",
+                    [FactionTeam.Orange]: "outfitOrangeLeader",
                 })[teamcolor],
             noDropOutfit: true,
             inventory: {
@@ -182,6 +188,8 @@ export const RoleDefs: Record<string, RoleDef> = {
                 ({
                     [FactionTeam.Red]: "outfitRedLeader",
                     [FactionTeam.Blue]: "outfitBlueLeader",
+                    [FactionTeam.Green]: "outfitGreenLeader",
+                    [FactionTeam.Orange]: "outfitOrangeLeader",
                 })[teamcolor],
             noDropOutfit: true,
             inventory: {
@@ -206,6 +214,8 @@ export const RoleDefs: Record<string, RoleDef> = {
                         {
                             [FactionTeam.Red]: { type: "m4a1", ammo: 40, fillInv: true },
                             [FactionTeam.Blue]: { type: "grozas", ammo: 40, fillInv: true },
+                            [FactionTeam.Green]: { type: "scar", ammo: 30, fillInv: true },
+                            [FactionTeam.Orange]: { type: "vss", ammo: 30, fillInv: true },
                         },
                         teamcolor,
                     ),
@@ -230,7 +240,7 @@ export const RoleDefs: Record<string, RoleDef> = {
         sound: { assign: "medic_assigned_01" },
         mapIcon: {
             alive: "player-medic.img",
-            dead: "skull-leader.img",
+            dead: "skull-medic.img",
         },
         perks: ["aoe_heal", "self_revive"],
         defaultItems: createDefaultItems({
@@ -271,6 +281,14 @@ export const RoleDefs: Record<string, RoleDef> = {
                             ]),
                             [FactionTeam.Blue]: util.weightedRandom([
                                 { type: "svd", ammo: 10, fillInv: true, weight: 0.9 },
+                                { type: "scarssr", ammo: 10, fillInv: true, weight: 0.1 },
+                            ]),
+                            [FactionTeam.Green]: util.weightedRandom([
+                                { type: "mk14ebr", ammo: 20, fillInv: true, weight: 0.9 },
+                                { type: "scarssr", ammo: 10, fillInv: true, weight: 0.1 },
+                            ]),
+                            [FactionTeam.Orange]: util.weightedRandom([
+                                { type: "sr25", ammo: 20, fillInv: true, weight: 0.9 },
                                 { type: "scarssr", ammo: 10, fillInv: true, weight: 0.1 },
                             ]),
                         },
@@ -393,6 +411,14 @@ export const RoleDefs: Record<string, RoleDef> = {
                                 { type: "m249", ammo: 100, fillInv: true, weight: 1 },
                                 { type: "pkp", ammo: 200, fillInv: true, weight: 1 },
                             ]),
+                            [FactionTeam.Green]: util.weightedRandom([
+                                { type: "m249", ammo: 100, fillInv: true, weight: 1 },
+                                { type: "pkp", ammo: 200, fillInv: true, weight: 1 },
+                            ]),
+                            [FactionTeam.Orange]: util.weightedRandom([
+                                { type: "m249", ammo: 100, fillInv: true, weight: 1 },
+                                { type: "pkp", ammo: 200, fillInv: true, weight: 1 },
+                            ]),
                         },
                         teamcolor,
                     ),
@@ -405,6 +431,8 @@ export const RoleDefs: Record<string, RoleDef> = {
                     {
                         [FactionTeam.Red]: "helmet04_last_man_red",
                         [FactionTeam.Blue]: "helmet04_last_man_blue",
+                        [FactionTeam.Green]: "helmet04_last_man_green",
+                        [FactionTeam.Orange]: "helmet04_last_man_orange",
                     },
                     teamcolor,
                 ),

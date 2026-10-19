@@ -150,6 +150,12 @@ export class Game {
             }
         }
 
+        // if (this.map.multiFactionMode) {
+        //     for (let i = 1; i <= this.map.mapDef.gameMode.factions!; i++) {
+        //         this.playerBarn.addTeam(i);
+        //     }
+        // }
+
         this.map.init();
 
         this.logger.info(`Created in ${Date.now() - start} ms`);
@@ -362,9 +368,20 @@ export class Game {
             // stop game after 1.8s
             this.stopTicker = 1.8;
 
-            const mvp = this.modeManager.getFactionMvp();
-            this.playerBarn.factionsMvp = mvp;
-            mvp?.questManager.trackEvent("be_mvp", { role: mvp.role });
+            // const mvp = this.modeManager.getFactionMvp();
+            // this.playerBarn.factionsMvp = mvp;
+            // mvp?.questManager.trackEvent("be_mvp", { role: mvp.role });
+
+            if (this.map.factionMode && !this.map.multiFactionMode) {
+                const mvp = this.modeManager.getFactionMvp();
+                this.playerBarn.factionsMvp = mvp;
+                mvp?.questManager.trackEvent("be_mvp", { role: mvp.role });
+            }
+            if (this.map.multiFactionMode && !this.map.factionMode) {
+                const mvp = this.modeManager.getFactionMvpMF();
+                this.playerBarn.factionsMvp = mvp;
+                mvp?.questManager.trackEvent("be_mvp", { role: mvp.role });
+            }
 
             this.winningTeamId = this.modeManager.getWinningTeamId();
             // forcefully flush progress, because after this point, any unsynced updates are lost

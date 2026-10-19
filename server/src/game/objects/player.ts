@@ -985,7 +985,7 @@ export class Player extends BaseGameObject {
 
         if (roleDef.defaultItems) {
             // for non faction modes where teamId > 2, just cycles between blue and red teamId
-            const clampedTeamId = ((this.teamId - 1) % 2) + 1;
+            const clampedTeamId = ((this.teamId - 1) % 4) + 1; //code used to have % 2 but it broke multifactions so i changed it
 
             // give backpack before heals/ammos
             if (roleDef.defaultItems.backpack) {
@@ -1016,7 +1016,7 @@ export class Player extends BaseGameObject {
 
             const roleHelmet = roleDef.defaultItems.helmet instanceof Function
                 ? roleDef.defaultItems.helmet(clampedTeamId)
-                : roleDef.defaultItems.helmet;
+                : roleDef.defaultItems.helmet; 
 
             if (roleHelmet) {
                 // armor
@@ -2628,7 +2628,7 @@ export class Player extends BaseGameObject {
         this.game.clientBarn.broadcastMsg(net.MsgType.Kill, downedMsg);
 
         // lone survivr can be given on knock or kill
-        if (this.game.map.factionMode) {
+        if (this.game.map.factionMode || this.game.map.multiFactionMode) {
             this.team!.checkAndApplyLastMan();
             this.team!.checkAndApplyCaptain();
         }
@@ -2823,13 +2823,15 @@ export class Player extends BaseGameObject {
             );
         }
 
-        if (this.game.map.factionMode) {
+        if (this.game.map.factionMode || this.game.map.multiFactionMode) {
             // lone survivr can be given on knock or kill
             this.team!.checkAndApplyLastMan();
             this.team!.checkAndApplyCaptain();
 
             // golden airdrops depend on alive counts, so we only do this logic on kill
-            if (this.game.planeBarn.isOneTeamWinning()) {
+            if (this.game.planeBarn.isOneTeamWinning() && (this.game.map.factionMode && !this.game.map.multiFactionMode)) {
+                this.game.planeBarn.helpLosingTeam();
+            } else if (this.game.planeBarn.isOneTeamWinningMF() && (this.game.map.multiFactionMode && !this.game.map.factionMode)) {
                 this.game.planeBarn.helpLosingTeam();
             }
         }
@@ -4555,6 +4557,12 @@ export class Player extends BaseGameObject {
             if (player.teamId == GameConfig.FactionTeam.Blue && player.__id != this.__id) {
                 this.game.playerBarn.addEmote("emote_bugle_final_blue", player.__id);
             }
+            if (player.teamId == GameConfig.FactionTeam.Green && player.__id != this.__id) {
+                this.game.playerBarn.addEmote("emote_bugle_final_green", player.__id);
+            }
+            if (player.teamId == GameConfig.FactionTeam.Orange && player.__id != this.__id) {
+                this.game.playerBarn.addEmote("emote_bugle_final_orange", player.__id);
+            }
             player.recalculateScale();
         }
     }
@@ -4574,10 +4582,13 @@ export class Player extends BaseGameObject {
                 this.game.playerBarn.addEmote("emote_bugle_inspiration_red", player.__id);
             }
             if (player.teamId == GameConfig.FactionTeam.Blue && player.__id != this.__id) {
-                this.game.playerBarn.addEmote(
-                    "emote_bugle_inspiration_blue",
-                    player.__id,
-                );
+                this.game.playerBarn.addEmote("emote_bugle_inspiration_blue", player.__id,);
+            }
+            if (player.teamId == GameConfig.FactionTeam.Green && player.__id != this.__id) {
+                this.game.playerBarn.addEmote("emote_bugle_inspiration_green", player.__id);
+            }
+            if (player.teamId == GameConfig.FactionTeam.Orange && player.__id != this.__id) {
+                this.game.playerBarn.addEmote("emote_bugle_inspiration_orange", player.__id,);
             }
         }
     }

@@ -10,6 +10,8 @@ export const FactionAtlas: AtlasDef = {
         ...BuildingSprites.greenhouse,
         ...BuildingSprites.bunker_chrys,
 
+        ...BuildingSprites.pillbox,
+
         "map/map-chest-03f.svg",
 
         ...BuildingSprites.warehouse_complex,

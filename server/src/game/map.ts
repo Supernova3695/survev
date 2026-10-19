@@ -192,6 +192,7 @@ export class GameMap {
     mapId: MapId;
 
     factionMode: boolean;
+    multiFactionMode: boolean;
     perkMode: boolean;
     turkeyMode: boolean;
     woodsMode: boolean;
@@ -291,6 +292,7 @@ export class GameMap {
             v2.create(this.width, this.height),
         );
         this.factionMode = !!this.mapDef.gameMode.factionMode;
+        this.multiFactionMode = !!this.mapDef.gameMode.multiFactionMode;
         this.perkMode = !!this.mapDef.gameMode.perkMode;
         this.turkeyMode = !!this.mapDef.gameMode.turkeyMode;
         this.woodsMode = !!this.mapDef.gameMode.woodsMode;
@@ -701,27 +703,33 @@ export class GameMap {
         // Generate rivers
         //
 
-        const widths = util.weightedRandom(
-            mapConfig.rivers.weights,
-            randomGenerator,
-        ).widths;
+        if (!this.multiFactionMode) {
+            const widths = util.weightedRandom(
+                mapConfig.rivers.weights,
+                randomGenerator,
+            ).widths;
 
-        for (let i = 0; i < widths.length; i++) {
-            // in factions mode, we always assume the first width in widths is the main faction river
-            const isFactionRiver = this.factionMode;
+            for (let i = 0; i < widths.length; i++) {
+                // in factions mode, we always assume the first width in widths is the main faction river
+                const isFactionRiver = this.factionMode && !this.multiFactionMode;
+                const hasMultiFactionRiver1 = this.multiFactionMode
+                const hasMultiFactionRiver2 = this.multiFactionMode
 
-            this.trySpawn(`river_${widths[i]}`, () => {
-                const riverPoints = riverCreator.create(widths[i], isFactionRiver);
-                if (riverPoints.length < 12) return false;
+                this.trySpawn(`river_${widths[i]}`, () => {
+                    const riverPoints = riverCreator.create(widths[i], isFactionRiver, hasMultiFactionRiver1, hasMultiFactionRiver2);
+                    //const altRiverPoints = riverCreator.create(widths[i], isMultiFactionRiver, isMultiFactionRiver)
+                    if (riverPoints.length < 12) return false;
+                    //if (altRiverPoints.length < 12) return false
 
-                this.riverDescs.push({
-                    width: widths[i],
-                    points: riverPoints,
-                    looped: false,
-                    noRiverObjs: false,
+                    this.riverDescs.push({
+                        width: widths[i],
+                        points: riverPoints,
+                        looped: false,
+                        noRiverObjs: false,
+                    });
+                    return true;
                 });
-                return true;
-            });
+            }
         }
     }
 
@@ -863,7 +871,7 @@ export class GameMap {
         // generate faction bridges here
         // so we can abort and restart map gen if they fail to spawn
 
-        if (this.factionMode && this.normalRivers.length) {
+        if ((this.factionMode && !this.multiFactionMode) && this.normalRivers.length) {
             this.timerStart();
             const bridges = this.generateFactionBridges();
             this.timerEnd("Generating faction bridges");
@@ -1561,7 +1569,7 @@ export class GameMap {
         };
 
         let getPos = (spawnAabb: AABB) => {
-            if (this.factionMode) {
+            if (this.factionMode && !this.multiFactionMode) {
                 // obstacles, buildings, and structures that need to spawn on either team's side
                 // doesn't matter which team, just as long as theyre grouped with the team specific buildings
                 const edgeObjects = [
@@ -1617,8 +1625,100 @@ export class GameMap {
                 return util.randomPointInAabb(
                     coldet.divideAabb(spawnAabb, vec, divisions)[divisionIdx],
                 );
-            }
+            } else if (this.multiFactionMode) {
+                // obstacles, buildings, and structures that need to spawn on either team's side
+                // doesn't matter which team, just as long as theyre grouped with the team specific buildings
+                const edgeObjects = [
+                    "warehouse_01f",
+                    "house_red_01",
+                    "house_red_02",
+                    "barn_01",
+                ];
 
+                // obstacles, buildings, and structures that are specific to a team but can spawn anywhere on their side.
+                const teamObjects = [
+                    "potato_01f",
+                    "potato_02f",
+                    "potato_03f",
+                    "tomato_01",
+                    "tomato_02",
+                    "tomato_03",
+                ];
+
+                // obstacles, buildings, and structures that need to spawn away from the sides and closer to the center river
+                const centerObjects = [
+                    "greenhouse_01",
+                    "bunker_structure_02", // hydra bunker
+                    "bunker_structure_03", // storm bunker
+                ];
+
+                if ("teamId" in def && def.teamId) {
+                    const teamId = def.teamId; // 1: green team, 2: orange team, 3: red team, 4: blue team
+                    const idx = teamId - 1;
+
+                    const isRight = (idx % 2) === 1;
+                    const isBottom = Math.floor(idx / 2) === 1;
+
+                    const width = spawnAabb.max.x - spawnAabb.min.x;
+                    const height = spawnAabb.max.y - spawnAabb.min.y;
+
+                    if (teamObjects.includes(type)) {
+                        const minX = isRight ? spawnAabb.min.x + width * 0.50 : spawnAabb.min.x;
+                        const maxX = isRight ? spawnAabb.max.x : spawnAabb.min.x + width * 0.50;
+
+                        const minY = isBottom ? spawnAabb.min.y + height * 0.50 : spawnAabb.min.y;
+                        const maxY = isBottom ? spawnAabb.max.y : spawnAabb.min.y + height * 0.50;
+
+                        return util.randomPointInAabb({
+                            min: v2.create(minX, minY),
+                            max: v2.create(maxX, maxY)
+                        });
+                    } else {
+                        const minX = isRight ? spawnAabb.max.x - width * 0.25 : spawnAabb.min.x;
+                        const maxX = isRight ? spawnAabb.max.x : spawnAabb.min.x + width * 0.25;
+
+                        const minY = isBottom ? spawnAabb.max.y - height * 0.25 : spawnAabb.min.y;
+                        const maxY = isBottom ? spawnAabb.max.y : spawnAabb.min.y + height * 0.25;
+
+                        return util.randomPointInAabb({
+                            min: v2.create(minX, minY),
+                            max: v2.create(maxX, maxY)
+                        });
+                    }
+                } else if (edgeObjects.includes(type)) {
+                    const randomTeamId = util.randomInt(1, 4);
+                    const idx = randomTeamId - 1;
+
+                    const isRight = (idx % 2) === 1;
+                    const isBottom = Math.floor(idx / 2) === 1;
+
+                    const width = spawnAabb.max.x - spawnAabb.min.x;
+                    const height = spawnAabb.max.y - spawnAabb.min.y;
+
+                    const minX = isRight ? spawnAabb.max.x - width * 0.28 : spawnAabb.min.x;
+                    const maxX = isRight ? spawnAabb.max.x : spawnAabb.min.x + width * 0.28;
+
+                    const minY = isBottom ? spawnAabb.max.y - height * 0.28 : spawnAabb.min.y;
+                    const maxY = isBottom ? spawnAabb.max.y : spawnAabb.min.y + height * 0.28;
+
+                    return util.randomPointInAabb({
+                        min: v2.create(minX, minY),
+                        max: v2.create(maxX, maxY)
+                    });
+
+                } else if (centerObjects.includes(type)) {
+                    const width = spawnAabb.max.x - spawnAabb.min.x;
+                    const height = spawnAabb.max.y - spawnAabb.min.y;
+
+                    return util.randomPointInAabb({
+                        min: v2.create(spawnAabb.min.x + width * 0.95, spawnAabb.min.y + height * 0.95), // 0.25
+                        max: v2.create(spawnAabb.max.x - width * 0.95, spawnAabb.max.y - height * 0.95)
+                    });
+
+                } else {
+                    return util.randomPointInAabb(spawnAabb);
+                }
+            }
             return util.randomPointInAabb(spawnAabb);
         };
 
@@ -2159,7 +2259,7 @@ export class GameMap {
                 spawnMax,
             );
 
-            if (this.factionMode && team) {
+            if ((this.factionMode && !this.multiFactionMode) && team) {
                 const rad = math.oriToRad(this.factionModeSplitOri ^ 1);
                 const vec = v2.create(Math.cos(rad), Math.sin(rad));
                 const idx = team.id - 1;
@@ -2170,6 +2270,32 @@ export class GameMap {
                     idx * (divisions - 1)
                 ];
             }
+
+            if (this.multiFactionMode && team) {
+                const idx = team.id - 1; // 0, 1, 2, or 3 for Teams 1, 2, 3, 4
+
+                // Team 1 (idx 0): Top-Left     | Team 2 (idx 1): Top-Right
+                // Team 3 (idx 2): Bottom-Left  | Team 4 (idx 3): Bottom-Right
+                const isRight = (idx % 2) === 1;
+                const isBottom = Math.floor(idx / 2) === 1;
+
+                // Define how large the corner spawn zone should be (e.g., 25% of map width/height)
+                const cornerRatio = 0.15; 
+
+                const width = spawnAabb.max.x - spawnAabb.min.x;
+                const height = spawnAabb.max.y - spawnAabb.min.y;
+
+                const minX = isRight ? spawnAabb.max.x - (width * cornerRatio) : spawnAabb.min.x;
+                const maxX = isRight ? spawnAabb.max.x : spawnAabb.min.x + (width * cornerRatio);
+
+                const minY = isBottom ? spawnAabb.max.y - (height * cornerRatio) : spawnAabb.min.y;
+                const maxY = isBottom ? spawnAabb.max.y : spawnAabb.min.y + (height * cornerRatio);
+
+                spawnAabb = {
+                    min: v2.create(minX, minY),
+                    max: v2.create(maxX, maxY)
+                };
+        }
 
             getPos = () => {
                 return util.randomPointInAabb(spawnAabb);

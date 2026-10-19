@@ -106,6 +106,7 @@ export enum MapId {
     Birthday = 8,
     Beach = 9,
     FactionPotato = 10,
+    MultiFaction = 11,
 }
 
 export enum Plane {
@@ -139,6 +140,8 @@ export enum TeamMode {
 export enum FactionTeam {
     Red = 1,
     Blue = 2,
+    Green = 3,
+    Orange = 4,
 }
 
 export interface TracerColors {
@@ -304,7 +307,7 @@ export const GameConfig = {
         fallOff: 1.25,
     },
     groupColors: [0xffff00, 0xff00ff, 0xffff, 0xff5400],
-    teamColors: [0xcc0000, 0x7eff],
+    teamColors: [0xcc0000, 0x7eff, 0x00CC00, 0xFFA500],
     bullet: {
         maxReflect: 3,
         reflectDistDecay: 1.5,

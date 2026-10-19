@@ -211,7 +211,9 @@ export const CrateDefs: Record<string, ObstacleDef> = {
             sprite: "map-case-flare-01.img",
             residue: "map-case-flare-res-01.img",
         },
-        loot: [autoLoot("flare_gun", 1)],
+        loot: [
+            autoLoot("flare_gun", 1, { preloadGuns: true })
+        ],
         hitParticle: "blackChip",
         map: { display: true, color: 0x6b3500, scale: 0.85 },
     }),
@@ -311,6 +313,27 @@ export const CrateDefs: Record<string, ObstacleDef> = {
             tierLoot("tier_medical", 2, 2),
         ],
         hitParticle: "blackChip",
+    }),
+    case_11: createCase({
+        health: 140,
+        img: {
+            sprite: "map-case-fortress-01.img",
+            residue: "map-case-hatchet-res-01.img",
+        },
+        loot: [tierLoot("tier_fortress", 1, 1)],
+        hitParticle: "blackChip",
+    }),
+    case_12: createCase({
+        health: 140,
+        img: {
+            sprite: "map-case-flare-02.img",
+            residue: "map-case-flare-res-01.img",
+        },
+        loot: [
+            autoLoot("flare_gun_dual", 1, { preloadGuns: true })
+        ],
+        hitParticle: "blackChip",
+        map: { display: true, color: 0x6b3500, scale: 0.85 },
     }),
     chest_01: createChest({
         loot: [
@@ -938,6 +961,19 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         img: { sprite: "map-crate-19.img" },
         sound: { explode: "crate_break_01" },
     }),
+    crate_19f: createCrate({
+        health: 140,
+        loot: [
+            tierLoot("tier_guns", 3, 3, { preloadGuns: true }),
+            tierLoot("tier_armor", 2, 2),
+            tierLoot("tier_packs", 1, 1),
+        ],
+        map: { display: true, color: 0x44ab00, scale: 0.875 },
+        terrain: { grass: true, beach: false },
+        img: { sprite: "map-crate-19.img" },
+        sound: { explode: "crate_break_01" },
+        teamId: 3,
+    }),
     crate_20: createCrate({
         collision: collider.createAabbExtents(v2.create(0, 0), v2.create(1.7, 1.7)),
         health: 75,
@@ -1003,6 +1039,64 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         map: { display: true, color: 0x7eff },
         terrain: { grass: true, beach: false },
         img: { sprite: "map-crate-22.img" },
+        sound: { explode: "crate_break_01" },
+    }),
+    crate_23: createCrate({
+        health: 140,
+        loot: [
+            tierLoot("tier_guns", 3, 3, { preloadGuns: true }),
+            tierLoot("tier_armor", 2, 2),
+            tierLoot("tier_packs", 1, 1),
+        ],
+        map: { display: true, color: 16753920 },
+        terrain: {
+            grass: true,
+            beach: false,
+            minDistanceFromSameType: 32,
+        },
+        img: { sprite: "map-crate-23.img" },
+        sound: { explode: "crate_break_01" },
+    }),
+    crate_23f: createCrate({
+        health: 140,
+        loot: [
+            tierLoot("tier_guns", 3, 3, { preloadGuns: true }),
+            tierLoot("tier_armor", 2, 2),
+            tierLoot("tier_packs", 1, 1),
+        ],
+        map: { display: true, color: 16753920 },
+        terrain: {
+            grass: true,
+            beach: false,
+            minDistanceFromSameType: 32,
+        },
+        img: { sprite: "map-crate-23.img" },
+        sound: { explode: "crate_break_01" },
+        teamId: 4,
+    }),
+    crate_24: createCrate({
+        health: 140,
+        loot: [
+            autoLoot("outfitCarbonFiber", 1),
+            tierLoot("tier_guns", 2, 2, { preloadGuns: true }),
+            tierLoot("tier_armor", 2, 2),
+            tierLoot("tier_packs", 2, 2),
+        ],
+        map: { display: true, color: 16753920 },
+        terrain: {
+            grass: true,
+            beach: false,
+        },
+        img: { sprite: "map-crate-24.img" },
+        sound: { explode: "crate_break_01" },
+    }),
+    crate_25: createCrate({
+        health: 100,
+        collision: collider.createAabbExtents(v2.create(0, 0), v2.create(1.575, 1.575)),
+        loot: [tierLoot("tier_outfit_crate", 3, 6)],
+        map: { color: 0x4d4d1e, scale: 0.875 },
+        terrain: { grass: true, beach: false },
+        img: { sprite: "map-crate-25.img", scale: 0.35 },
         sound: { explode: "crate_break_01" },
     }),
     airdrop_crate_01: createAirdrop({
@@ -1467,6 +1561,17 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         map: { display: true, color: 0x374626 },
         terrain: { grass: true, beach: true },
         img: { sprite: "map-crate-mil-05.img" },
+        sound: { explode: "crate_break_01" },
+    }),
+    mil_crate_06: createCrate({
+        collision: collider.createAabbExtents(v2.create(0, 0), v2.create(2.7, 1.25)),
+        health: 100,
+        loot: [
+            tierLoot("tier_shotguns", 1, 3)
+        ],
+        map: { display: true, color: 0x374626 },
+        terrain: { grass: true, beach: true },
+        img: { sprite: "map-crate-mil-06.img" },
         sound: { explode: "crate_break_01" },
     }),
 };

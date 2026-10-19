@@ -119,6 +119,8 @@ describe.for(Object.entries(RoleDefs))("Role $0", ([, def]) => {
                 } else if (typeof weapon === "function") {
                     expect(weapon(FactionTeam.Red).type).toBeValidLoot();
                     expect(weapon(FactionTeam.Blue).type).toBeValidLoot();
+                    expect(weapon(FactionTeam.Green).type).toBeValidLoot();
+                    expect(weapon(FactionTeam.Orange).type).toBeValidLoot();
                 }
             });
 
@@ -133,6 +135,8 @@ describe.for(Object.entries(RoleDefs))("Role $0", ([, def]) => {
                     } else {
                         expect(helmet(FactionTeam.Red)).toBeValidLoot(["helmet"]);
                         expect(helmet(FactionTeam.Blue)).toBeValidLoot(["helmet"]);
+                        expect(helmet(FactionTeam.Green)).toBeValidLoot(["helmet"]);
+                        expect(helmet(FactionTeam.Orange)).toBeValidLoot(["helmet"]);
                     }
                 }
                 if (def.defaultItems!.chest) {
@@ -145,6 +149,8 @@ describe.for(Object.entries(RoleDefs))("Role $0", ([, def]) => {
                     } else {
                         expect(outfit(FactionTeam.Red)).toBeValidLoot(["outfit"]);
                         expect(outfit(FactionTeam.Blue)).toBeValidLoot(["outfit"]);
+                        expect(outfit(FactionTeam.Green)).toBeValidLoot(["outfit"]);
+                        expect(outfit(FactionTeam.Orange)).toBeValidLoot(["outfit"]);
                     }
                 }
             });

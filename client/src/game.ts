@@ -1586,9 +1586,14 @@ export class Game {
                 msg.deserialize(stream);
                 if (msg.teamAliveCounts.length == 1) {
                     this.m_uiManager.updatePlayersAlive(msg.teamAliveCounts[0]);
-                } else if (msg.teamAliveCounts.length >= 2) {
+                } else if (msg.teamAliveCounts.length >= 2 && msg.teamAliveCounts.length < 4) {
                     this.m_uiManager.updatePlayersAliveRed(msg.teamAliveCounts[0]);
                     this.m_uiManager.updatePlayersAliveBlue(msg.teamAliveCounts[1]);
+                } else if (msg.teamAliveCounts.length >= 4) {
+                    this.m_uiManager.updatePlayersAliveRed(msg.teamAliveCounts[0]);
+                    this.m_uiManager.updatePlayersAliveBlue(msg.teamAliveCounts[1]);
+                    this.m_uiManager.updatePlayersAliveGreen(msg.teamAliveCounts[2]);
+                    this.m_uiManager.updatePlayersAliveOrange(msg.teamAliveCounts[3]);
                 }
                 break;
             }

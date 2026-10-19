@@ -393,6 +393,63 @@ const SkinDefs: Record<string, OutfitDef> = {
         },
         teamId: FactionTeam.Blue,
     }),
+    outfitGreenLeader: defineOutfitSkin("outfitBase", {
+        name: "Green Leader",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0x00AD0D,
+            baseSprite: "player-base-02.img",
+            handTint: 0x009E0B,
+            handSprite: "player-hands-02.img",
+            footTint: 0x009E0B,
+            footSprite: "player-feet-02.img",
+            backpackTint: 0x008209,
+            backpackSprite: "player-circle-base-02.img",
+        },
+        lootImg: {
+            sprite: "loot-shirt-02.img",
+            tint: 0x00AD0D,
+        },
+        teamId: FactionTeam.Green,
+    }),
+    outfitOrangeLeader: defineOutfitSkin("outfitBase", {
+        name: "Orange Leader",
+        noDrop: true,
+        skinImg: {
+            baseTint: 0xDC9300,
+            baseSprite: "player-base-02.img",
+            handTint: 0xE19400,
+            handSprite: "player-hands-02.img",
+            footTint: 0xE19400,
+            footSprite: "player-feet-02.img",
+            backpackTint: 0xC88200,
+            backpackSprite: "player-circle-base-02.img",
+        },
+        lootImg: {
+            sprite: "loot-shirt-02.img",
+            tint: 0xDC9300,
+        },
+        teamId: FactionTeam.Orange,
+    }),
+    // just for the code diggers
+    outfitPurpleLeader: defineOutfitSkin("outfitBase", {
+        name: "Purple Leader",
+        noDrop: false,
+        skinImg: {
+            baseTint: 0x601f9e,
+            baseSprite: "player-base-02.img",
+            handTint: 0x522081,
+            handSprite: "player-hands-02.img",
+            footTint: 0x522081,
+            footSprite: "player-feet-02.img",
+            backpackTint: 0x522081,
+            backpackSprite: "player-circle-base-02.img",
+        },
+        lootImg: {
+            sprite: "loot-shirt-02.img",
+            tint: 0x601f9e,
+        },
+    }),
     outfitSpetsnaz: defineOutfitSkin("outfitBase", {
         name: "Siberian Assault",
         skinImg: {
@@ -426,6 +483,7 @@ const SkinDefs: Record<string, OutfitDef> = {
             sprite: "loot-shirt-02.img",
             tint: 0x2aff00,
         },
+        teamId: FactionTeam.Green,
     }),
     outfitElf: defineOutfitSkin("outfitBase", {
         name: "Tallow's Little Helper",

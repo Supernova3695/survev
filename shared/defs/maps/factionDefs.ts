@@ -97,6 +97,7 @@ const mapDef: PartialMapDef = {
     gameMode: {
         maxPlayers: 100,
         factionMode: true,
+        multiFactionMode: false,
         factions: 2,
     },
     /* STRIP_FROM_PROD_CLIENT:START */
