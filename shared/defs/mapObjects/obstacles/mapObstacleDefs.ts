@@ -879,6 +879,20 @@ export const MapObstacleDefs: Record<string, ObstacleDef> = {
             zIdx: 60,
         },
     }),
+    statue_top_04: createStone({
+        health: 500,
+        height: 10,
+        collision: collider.createCircle(v2.create(0, 0), 2.45),
+        scale: { createMin: 1, createMax: 1, destroy: 0.8 },
+        destructible: true,
+        map: { display: false, color: 0x575757, scale: 1 },
+        img: {
+            sprite: "map-statue-top-04.img",
+            residue: "",
+            scale: 0.5,
+            zIdx: 60,
+        },
+    }),
 
     stone_01: createStone({}),
     stone_01b: createStone({
