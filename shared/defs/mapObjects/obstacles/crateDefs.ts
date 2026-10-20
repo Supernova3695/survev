@@ -974,6 +974,19 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         sound: { explode: "crate_break_01" },
         teamId: 3,
     }),
+    crate_19d: createCrate({
+        health: 140,
+        loot: [
+            autoLoot("aek972", 1),
+            autoLoot("helmet03_lt_aged", 1),
+            autoLoot("outfitGreenLeaderAged", 1),
+            autoLoot("cutlass_covert", 1),
+        ],
+        map: { display: true, color: 0x44ab00 },
+        terrain: { grass: true, beach: false },
+        img: { sprite: "map-crate-19.img" },
+        sound: { explode: "crate_break_01" },
+    }),
     crate_20: createCrate({
         collision: collider.createAabbExtents(v2.create(0, 0), v2.create(1.7, 1.7)),
         health: 75,
@@ -1073,6 +1086,19 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         img: { sprite: "map-crate-23.img" },
         sound: { explode: "crate_break_01" },
         teamId: 4,
+    }),
+    crate_23d: createCrate({
+        health: 140,
+        loot: [
+            autoLoot("ar19", 1),
+            autoLoot("helmet03_lt_aged", 1),
+            autoLoot("outfitOrangeLeaderAged", 1),
+            autoLoot("falchion_woodland", 1),
+        ],
+        map: { display: true, color: 16753920 },
+        terrain: { grass: true, beach: false },
+        img: { sprite: "map-crate-23.img" },
+        sound: { explode: "crate_break_01" },
     }),
     crate_24: createCrate({
         health: 140,

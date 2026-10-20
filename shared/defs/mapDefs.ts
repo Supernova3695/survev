@@ -8,6 +8,7 @@ import { Beach } from "./maps/beachDefs.ts";
 import { Birthday } from "./maps/birthdayDefs.ts";
 import { Cobalt } from "./maps/cobaltDefs.ts";
 import { Desert } from "./maps/desertDefs.ts";
+import { Remnant } from "./maps/remnantDefs.ts";
 import { Faction } from "./maps/factionDefs.ts";
 import { FactionMulti } from "./maps/factionMultiDefs.ts";
 import { FactionPotato } from "./maps/factionPotatoDefs.ts";
@@ -46,6 +47,7 @@ const _MapDefs = {
     main_spring: MainSpring,
     main_summer: MainSummer,
     desert: Desert,
+    remnant: Remnant,
     faction: Faction,
     faction_potato: FactionPotato,
     faction_multi: FactionMulti,

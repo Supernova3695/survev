@@ -32,6 +32,8 @@ export const DesertAtlas: AtlasDef = {
         "map/map-complex-warehouse-floor-05.svg",
         "map/map-crate-22.svg",
         "map/map-crate-02f.svg",
+        "map/map-crate-19.svg",
+        "map/map-crate-23.svg",
         "map/map-case-meteor-01.svg",
         "map/map-case-meteor-res-01.svg",
 

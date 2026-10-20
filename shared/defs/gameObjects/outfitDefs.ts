@@ -355,6 +355,42 @@ const SkinDefs: Record<string, OutfitDef> = {
         },
         teamId: FactionTeam.Blue,
     }),
+    outfitGreenLeaderAged: defineOutfitSkin("outfitBase", {
+        name: "Inhibited Green",
+        skinImg: {
+            baseTint: 0x00AD0D,
+            baseSprite: "player-base-02.img",
+            handTint: 0x009E0B,
+            handSprite: "player-hands-02.img",
+            footTint: 0x009E0B,
+            footSprite: "player-feet-02.img",
+            backpackTint: 0x008209,
+            backpackSprite: "player-circle-base-02.img",
+        },
+        lootImg: {
+            sprite: "loot-shirt-02.img",
+            tint: 0x00AD0D,
+        },
+        teamId: FactionTeam.Green,
+    }),
+    outfitOrangeLeaderAged: defineOutfitSkin("outfitBase", {
+        name: "Orange Leader",
+        skinImg: {
+            baseTint: 0xDC9300,
+            baseSprite: "player-base-02.img",
+            handTint: 0xE19400,
+            handSprite: "player-hands-02.img",
+            footTint: 0xE19400,
+            footSprite: "player-feet-02.img",
+            backpackTint: 0xC88200,
+            backpackSprite: "player-circle-base-02.img",
+        },
+        lootImg: {
+            sprite: "loot-shirt-02.img",
+            tint: 0xDC9300,
+        },
+        teamId: FactionTeam.Orange,
+    }),
     outfitRedLeader: defineOutfitSkin("outfitBase", {
         name: "Red Leader",
         noDrop: true,

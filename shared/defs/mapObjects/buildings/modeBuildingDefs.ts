@@ -6992,6 +6992,258 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
     return util.mergeDeep(baseDef, overrides);
 }
 
+function createFactionFortressDesert(overrides: DeepPartial<BuildingDef>, params: {
+    groundTintPath?: number;
+    concreteColor?: number;
+    north_west_center_object?: BuildingChildObjType;
+    north_east_center_object?: BuildingChildObjType;
+    south_west_center_object?: BuildingChildObjType;
+    south_east_center_object?: BuildingChildObjType;
+}): BuildingDef {
+    const baseDef: BuildingDef = {
+        type: "building",
+        map: { display: true, shapes: [] },
+        terrain: {
+            spawnPriority: 100,
+            grass: true,
+            beach: false
+        },
+        oris: [0, 1],
+        mapObstacleBounds: [
+            collider.createAabbExtents(v2.create(0, 10), v2.create(15, 5)),
+            collider.createAabbExtents(v2.create(20, 0), v2.create(15, 15)),
+            collider.createAabbExtents(v2.create(0, -32), v2.create(25, 5)),//small lower piece
+            collider.createAabbExtents(v2.create(22, 32), v2.create(15, 5)),//small upper piece
+            collider.createAabbExtents(v2.create(-27, -12), v2.create(10, 25)),//big wide left piece
+            collider.createAabbExtents(v2.create(-5, -5), v2.create(10, 10)),//big wide left piece
+            collider.createAabbExtents(v2.create(13, 64), v2.create(3, 5)),
+            // collider.createAabbExtents(v2.create(-13, 96), v2.create(3, 5)),
+            collider.createAabbExtents(v2.create(13, -64), v2.create(3, 5)),
+            // collider.createAabbExtents(v2.create(-13, -96), v2.create(3, 5)),
+            collider.createAabbExtents(v2.create(64, 13), v2.create(5, 3)),
+            // collider.createAabbExtents(v2.create(96, -13), v2.create(5, 3)),
+            collider.createAabbExtents(v2.create(-64, 13), v2.create(5, 3)),
+            // collider.createAabbExtents(v2.create(-96, -13), v2.create(5, 3)),
+            collider.createAabbExtents(v2.create(35, 0), v2.create(3, 5)),
+            collider.createAabbExtents(v2.create(-35, 0), v2.create(3, 5)),
+            collider.createAabbExtents(v2.create(0, 35), v2.create(5, 3)),
+            collider.createAabbExtents(v2.create(0, -35), v2.create(5, 3)),
+            collider.createAabbExtents(v2.create(-30, 30), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(30, -30), v2.create(5, 5)),
+        ],
+        mapGroundPatches: [
+            {
+                bound: collider.createAabbExtents(v2.create(0, 10), v2.create(15, 5)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(20, 0), v2.create(15, 15)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(0, -32), v2.create(25, 5)),//small lower piece
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(22, 32), v2.create(15, 5)),//small upper piece
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(-27, -12), v2.create(10, 25)),//big wide left piece
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+        ],
+        floor: {
+            surfaces: [
+                {
+                    type: "grass",
+                    collision: [
+                        collider.createAabbExtents(v2.create(0, 0), v2.create(0, 0)),
+                    ],
+                },
+                {//center asphalt
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(0, 10), v2.create(15, 5)),
+                        collider.createAabbExtents(v2.create(20, 0), v2.create(15, 15)),
+                        collider.createAabbExtents(v2.create(0, -32), v2.create(25, 5)),//small lower piece
+                        collider.createAabbExtents(v2.create(22, 32), v2.create(15, 5)),//small upper piece
+                        collider.createAabbExtents(v2.create(-27, -12), v2.create(10, 25)),//big wide left piece
+                    ],
+                },
+            ],
+            imgs: [
+            ],
+        },
+        ceiling: { zoomRegions: [], imgs: [] },
+        mapObjects: [
+            {
+                type: "stone_06",//northern bridge pillars
+                pos: v2.create(13, 64),
+                scale: 1,
+                ori: 1,
+                inheritOri: true,
+            },
+            // {
+            //     type: "stone_06",
+            //     pos: v2.create(-13, 96),
+            //     scale: 1,
+            //     ori: 1,
+            //     inheritOri: true,
+            // },
+            {
+                type: "stone_06",//southern bridge pillars
+                pos: v2.create(13, -64),
+                scale: 1,
+                ori: 1,
+                inheritOri: true,
+            },
+            // {
+            //     type: "stone_06",
+            //     pos: v2.create(-13, -96),
+            //     scale: 1,
+            //     ori: 1,
+            //     inheritOri: true,
+            // },
+            {
+                type: "stone_06",//eastern bridge pillars
+                pos: v2.create(64, 13),
+                scale: 1,
+                ori: 0,
+                inheritOri: true,
+            },
+            // {
+            //     type: "stone_06",
+            //     pos: v2.create(96, -13),
+            //     scale: 1,
+            //     ori: 0,
+            //     inheritOri: true,
+            // },
+            {
+                type: "stone_06",//western bridge pillars
+                pos: v2.create(-64, 13),
+                scale: 1,
+                ori: 0,
+                inheritOri: true,
+            },
+            // {
+            //     type: "stone_06",
+            //     pos: v2.create(-96, -13),
+            //     scale: 1,
+            //     ori: 0,
+            //     inheritOri: true,
+            // },
+            //center area structures
+            {
+                type: params.north_west_center_object,
+                pos: v2.create(-30, 30),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: params.north_east_center_object,
+                pos: v2.create(30, 30),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: params.south_west_center_object,
+                pos: v2.create(-30, -30),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: params.south_east_center_object,
+                pos: v2.create(30, -30),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "tree_05c",
+                pos: v2.create(0, 2),
+                scale: 2,
+                ori: 0,
+                inheritOri: true,
+            },
+            {
+                type: "case_05",
+                pos: v2.create(0, -2),
+                scale: 1,
+                ori: 0,
+                inheritOri: true,
+            },
+            {
+                type: "crate_18",
+                pos: v2.create(-10, -5),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-28.5, -14),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-34, -19.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-29, -19.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(35, 0),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-35, 0),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(0, 35),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(0, -35),
+                scale: 1,
+                ori: 2,
+            },
+        ],
+    };
+    return util.mergeDeep(baseDef, overrides);
+}
+
 function createFactionBase(
     overrides: DeepPartial<BuildingDef>,
     params: {
@@ -9321,6 +9573,14 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
     statue_underground_04: createStatueUnderground({}, { crate: "crate_22d" }),
     statue_building_03: createStatue({}, { statue: "statue_03" }),
     statue_underground_03: createStatueUnderground({}, { crate: "crate_02d" }),
+
+    // Remnant
+    faction_fortress_01d: createFactionFortressDesert({}, {
+        north_west_center_object: "crate_19d",
+        north_east_center_object: "crate_23d",
+        south_west_center_object: "crate_02d",
+        south_east_center_object: "crate_22d",
+    }),
 
     // Faction
 
