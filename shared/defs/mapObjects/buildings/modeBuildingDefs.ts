@@ -10138,7 +10138,7 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
             },
             {
                 type: "statue_top_03",
-                pos: v2.create(0.5, 0),
+                pos: v2.create(0, 0),
                 scale: 1,
                 ori: 0,
             },
