@@ -5251,6 +5251,10 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
     groundTintGp?: number;
     groundTintPath?: number;
     concreteColor?: number;
+    north_statue?: BuildingChildObjType;
+    south_statue?: BuildingChildObjType;
+    east_statue?: BuildingChildObjType;
+    west_statue?: BuildingChildObjType;
     north_west_center_object?: BuildingChildObjType;
     north_east_center_object?: BuildingChildObjType;
     south_west_center_object?: BuildingChildObjType;
@@ -5565,7 +5569,7 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 0,
             },
             {
-                type: "statue_structure_01",
+                type: params.east_statue,
                 pos: v2.create(130, 0),
                 scale: 2,
                 ori: 2,
@@ -5577,7 +5581,7 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 0,
             },
             {
-                type: "statue_structure_01",
+                type: params.west_statue,
                 pos: v2.create(-130, 0),
                 scale: 2,
                 ori: 0,
@@ -5589,7 +5593,7 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 1,
             },
             {
-                type: "statue_structure_01",
+                type: params.north_statue,
                 pos: v2.create(0, 130),
                 scale: 2,
                 ori: 3,
@@ -5601,7 +5605,7 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 1,
             },
             {
-                type: "statue_structure_01",
+                type: params.south_statue,
                 pos: v2.create(0, -130),
                 scale: 2,
                 ori: 1,
@@ -7010,12 +7014,11 @@ function createFactionFortressDesert(overrides: DeepPartial<BuildingDef>, params
         },
         oris: [0, 1],
         mapObstacleBounds: [
-            collider.createAabbExtents(v2.create(0, 10), v2.create(15, 5)),
             collider.createAabbExtents(v2.create(20, 0), v2.create(15, 15)),
             collider.createAabbExtents(v2.create(0, -32), v2.create(25, 5)),//small lower piece
-            collider.createAabbExtents(v2.create(22, 32), v2.create(15, 5)),//small upper piece
             collider.createAabbExtents(v2.create(-27, -12), v2.create(10, 25)),//big wide left piece
-            collider.createAabbExtents(v2.create(-5, -5), v2.create(10, 10)),//big wide left piece
+            collider.createAabbExtents(v2.create(-5, -5), v2.create(15, 15)),//big wide left piece
+            collider.createAabbExtents(v2.create(0, 22), v2.create(-37.5, 15)),
             collider.createAabbExtents(v2.create(13, 64), v2.create(3, 5)),
             // collider.createAabbExtents(v2.create(-13, 96), v2.create(3, 5)),
             collider.createAabbExtents(v2.create(13, -64), v2.create(3, 5)),
@@ -7033,25 +7036,19 @@ function createFactionFortressDesert(overrides: DeepPartial<BuildingDef>, params
         ],
         mapGroundPatches: [
             {
-                bound: collider.createAabbExtents(v2.create(0, 10), v2.create(15, 5)),
-                color: params.concreteColor || 0x3a3a3a,
-                roughness: 0.15,
-                offsetDist: 1,
-            },
-            {
                 bound: collider.createAabbExtents(v2.create(20, 0), v2.create(15, 15)),
                 color: params.concreteColor || 0x3a3a3a,
                 roughness: 0.15,
                 offsetDist: 1,
             },
             {
-                bound: collider.createAabbExtents(v2.create(0, -32), v2.create(25, 5)),//small lower piece
+                bound: collider.createAabbExtents(v2.create(0, -32), v2.create(35, 5)),//small lower piece
                 color: params.concreteColor || 0x3a3a3a,
                 roughness: 0.15,
                 offsetDist: 1,
             },
             {
-                bound: collider.createAabbExtents(v2.create(22, 32), v2.create(15, 5)),//small upper piece
+                bound: collider.createAabbExtents(v2.create(0, 22), v2.create(-37.5, 15)),
                 color: params.concreteColor || 0x3a3a3a,
                 roughness: 0.15,
                 offsetDist: 1,
@@ -7074,10 +7071,9 @@ function createFactionFortressDesert(overrides: DeepPartial<BuildingDef>, params
                 {//center asphalt
                     type: "asphalt",
                     collision: [
-                        collider.createAabbExtents(v2.create(0, 10), v2.create(15, 5)),
                         collider.createAabbExtents(v2.create(20, 0), v2.create(15, 15)),
-                        collider.createAabbExtents(v2.create(0, -32), v2.create(25, 5)),//small lower piece
-                        collider.createAabbExtents(v2.create(22, 32), v2.create(15, 5)),//small upper piece
+                        collider.createAabbExtents(v2.create(0, -32), v2.create(35, 5)),//small lower piece
+                        collider.createAabbExtents(v2.create(0, 22), v2.create(-37.5, 15)),
                         collider.createAabbExtents(v2.create(-27, -12), v2.create(10, 25)),//big wide left piece
                     ],
                 },
@@ -7185,6 +7181,26 @@ function createFactionFortressDesert(overrides: DeepPartial<BuildingDef>, params
                 scale: 1,
                 ori: 0,
                 inheritOri: true,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(20, 28.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(14, 28.5),
+                scale: 1,
+                ori: 0,
             },
             {
                 type: "crate_18",
@@ -10001,6 +10017,10 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
     // Multi Faction
     faction_fortress_01: createFactionFortress({}, {
         fortress_bunker: "bunker_structure_11",
+        south_statue: "statue_structure_red",
+        east_statue: "statue_structure_blue",
+        west_statue: "statue_structure_green",
+        north_statue: "statue_structure_orange",
         north_west_center_object: "crate_19f",
         north_east_center_object: "crate_23f",
         south_west_center_object: "crate_02f",
@@ -10031,7 +10051,7 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
         loot_tier: "loot_tier_surviv"
     }),
     pillbox_01: createPillbox({},{}),
-    multi_faction_statue_structure_01: {
+    statue_structure_red: {
         type: "building",
         ori: 0,
         terrain: {},
@@ -10062,7 +10082,7 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
             },
         ],
     },
-    multi_faction_statue_structure_02: {
+    statue_structure_blue: {
         type: "building",
         ori: 0,
         terrain: {},
@@ -10093,7 +10113,38 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
             },
         ],
     },
-    multi_faction_statue_structure_04: {
+    statue_structure_green: {
+        type: "building",
+        ori: 0,
+        terrain: {},
+        floor: {
+            surfaces: [],
+            imgs: [
+                {
+                    sprite: "",
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+        },
+        ceiling: { zoomRegions: [], imgs: [] },
+        mapObjects: [
+            {
+                type: "statue_01",
+                pos: v2.create(0, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "statue_top_03",
+                pos: v2.create(0.5, 0),
+                scale: 1,
+                ori: 0,
+            },
+        ],
+    },
+    statue_structure_orange: {
         type: "building",
         ori: 0,
         terrain: {},

@@ -2829,11 +2829,14 @@ export class Player extends BaseGameObject {
             this.team!.checkAndApplyCaptain();
 
             // golden airdrops depend on alive counts, so we only do this logic on kill
-            if (this.game.planeBarn.isOneTeamWinning() && (this.game.map.factionMode && !this.game.map.multiFactionMode)) {
-                this.game.planeBarn.helpLosingTeam();
-            } else if (this.game.planeBarn.isOneTeamWinningMF() && (this.game.map.multiFactionMode && !this.game.map.factionMode)) {
+            if (this.game.planeBarn.isOneTeamWinning()) {
                 this.game.planeBarn.helpLosingTeam();
             }
+            // if (this.game.planeBarn.isOneTeamWinning() && (this.game.map.factionMode && !this.game.map.multiFactionMode)) {
+            //     this.game.planeBarn.helpLosingTeam();
+            // } else if (this.game.planeBarn.isOneTeamWinningMF() && (this.game.map.multiFactionMode && !this.game.map.factionMode)) {
+            //     this.game.planeBarn.helpLosingTeam();
+            // }
         }
 
         // params.gameSourceType check ensures player didnt die by bleeding out

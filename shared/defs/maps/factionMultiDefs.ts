@@ -136,6 +136,11 @@ const mapDef: PartialMapDef = {
                 },
                 {
                     circleIdx: 2,
+                    wait: 12,
+                    options: { type: GameConfig.Plane.Airdrop },
+                },
+                {
+                    circleIdx: 2,
                     wait: 30,
                     options: {
                         type: GameConfig.Plane.Airstrike,
@@ -145,6 +150,21 @@ const mapDef: PartialMapDef = {
                             { count: 5, weight: 0.1 },
                         ],
                         airstrikeZoneRad: 55,
+                        wait: 1.5,
+                        delay: 1,
+                    },
+                },
+                {
+                    circleIdx: 2,
+                    wait: 40,
+                    options: {
+                        type: GameConfig.Plane.Airstrike,
+                        numPlanes: [
+                            { count: 5, weight: 4 },
+                            { count: 6, weight: 1 },
+                            { count: 7, weight: 0.1 },
+                        ],
+                        airstrikeZoneRad: 75,
                         wait: 1.5,
                         delay: 1,
                     },
