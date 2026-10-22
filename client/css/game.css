@@ -1602,8 +1602,8 @@ img {
     height: 64px;
     width: 72px;
 }
-
-/* #ui-leaderboard-alive-faction {
+/*
+ #ui-leaderboard-alive-faction {
     display: none;
     background: rgba(0, 0, 0, 0.4);
     border-radius: 5px;
