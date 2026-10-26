@@ -506,6 +506,12 @@ const mapDef: PartialMapDef = {
         customSpawnRules: {
             locationSpawns: [
                 {
+                    type: "logging_complex_01f",
+                    pos: v2.create(0.25, 0.75),
+                    rad: 30,
+                    retryOnFailure: true,
+                },
+                {
                     type: "faction_base_red",
                     pos: v2.create(0.25, 0.25),
                     rad: 30,
@@ -544,7 +550,7 @@ const mapDef: PartialMapDef = {
                 crate_23f: 6,
                 crate_03: 8,
                 bush_01: 78,
-                tree_08f: 320,
+                tree_08f: 500,
                 hedgehog_01: 24,
                 container_01: 5,
                 container_02: 5,
@@ -559,8 +565,8 @@ const mapDef: PartialMapDef = {
         fixedSpawns: [
             {
                 warehouse_01f: 6,
-                house_red_01: 4,
-                house_red_02: 4,
+                house_red_01: 5,
+                house_red_02: 5,
                 barn_01: 4,
                 barn_02: 1,
                 bank_01: 1,
