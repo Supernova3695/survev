@@ -11030,9 +11030,13 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
         groundTintLt: 0x576A33,
         groundTintDk: 0x404F21,
     }),
+    logging_complex_02f: createLoggingComplex2({ teamId: 3 }, { 
+        groundTintDk: 0x455722 
+    }),
+    logging_complex_03f: createLoggingComplex3({ teamId: 3 }, { 
+        groundTintDk: 0x404F21 
+    }),
     pillbox_01: createPillbox({},{}),
-    logging_complex_02f: createLoggingComplex2({ teamId: 3 }, { groundTintDk: 0x455722 }),
-    logging_complex_03f: createLoggingComplex3({ teamId: 3 }, { groundTintDk: 0x404F21 }),
     pillbox_complex_01: createPillboxComplex ({ teamId: 3 }, {
         groundTintLt: 0x576A33,
         groundTintDk: 0x404F21,
