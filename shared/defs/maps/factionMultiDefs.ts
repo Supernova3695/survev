@@ -7,7 +7,7 @@ import { Main, type PartialMapDef } from "./baseDefs.ts";
 const mapDef: PartialMapDef = {
     mapId: GameConfig.MapId.Faction,
     desc: {
-        name: "30v30v30v30",
+        name: "Multifactions",
         icon: "img/gui/star.svg",
         buttonCss: "btn-mode-faction-multi",
         buttonText: "multi",
