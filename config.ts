@@ -28,7 +28,9 @@ export function getConfig(isProduction: boolean, dir: string) {
             host: "127.0.0.1",
             port: 3000,
         },
-        regions: {},
+        regions: {
+            
+        },
         proxies: {},
         modes: [
             { mapName: "remnant", teamMode: TeamMode.Solo, enabled: true },
