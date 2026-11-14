@@ -188,7 +188,7 @@ export const GameConfig = {
         maxVisualRadius: 3.75,
         maxInteractionRad: 3.5,
         health: 100,
-        reviveHealth: 24,
+        reviveHealth: 25, //upped from 24
         minActiveTime: 10,
         boostDecay: 0.375,
         boostMoveSpeed: 1.85,
