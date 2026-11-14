@@ -5634,6 +5634,8 @@ function createWorkshopComplex(overrides: DeepPartial<BuildingDef>): BuildingDef
 
 function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
     fortress_bunker?: BuildingChildObjType;
+    loot_tier_center?: BuildingChildObjType;
+    loot_tier_center2?: BuildingChildObjType;
     groundTintGp?: number;
     groundTintPath?: number;
     concreteColor?: number;
@@ -5744,15 +5746,23 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
             beach: false
         },
         mapObstacleBounds: [
-            collider.createAabbExtents(v2.create(0, 0), v2.create(45, 45)),
+            collider.createAabbExtents(v2.create(0, 0), v2.create(45, 45)),//center
             collider.createAabbExtents(v2.create(80, 0), v2.create(40, 18)),//bridge
             collider.createAabbExtents(v2.create(-80, 0), v2.create(40, 18)),//bridge
             collider.createAabbExtents(v2.create(0, 80), v2.create(18, 40)),//bridge
             collider.createAabbExtents(v2.create(0, -80), v2.create(18, 40)),//bridge
             //east side faction area clearing
-            collider.createAabbExtents(v2.create(160, 8), v2.create(40, 65)),
+            collider.createAabbExtents(v2.create(149.5, -1), v2.create(29.5, 54)),
+            collider.createAabbExtents(v2.create(156.5, 62.5), v2.create(22.5, 9.5)),
+            collider.createAabbExtents(v2.create(189.5, -31), v2.create(10.5, 24),),
+            collider.createAabbExtents(v2.create(190, 25), v2.create(8, 15),),
+            collider.createAabbExtents(v2.create(190, 3), v2.create(10, 8),),
             //west side faction area clearing
-            collider.createAabbExtents(v2.create(-160, 8), v2.create(40, 65)),
+            collider.createAabbExtents(v2.create(-149.5, -1), v2.create(29.5, 54)),
+            collider.createAabbExtents(v2.create(-156.5, 62.5), v2.create(22.5, 9.5)),
+            collider.createAabbExtents(v2.create(-189.5, -31), v2.create(10.5, 24),),
+            collider.createAabbExtents(v2.create(-190, 25), v2.create(8, 15),),
+            collider.createAabbExtents(v2.create(-190, 3), v2.create(10, 8),),
             //north side faction area clearing
             collider.createAabbExtents(v2.create(0, 160), v2.create(8, 45)),
             collider.createAabbExtents(v2.create(-30, 140), v2.create(18, 20)),//lower house
@@ -5765,21 +5775,7 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
             collider.createAabbExtents(v2.create(32, 125), v2.create(9, 6)),//lower shack
             collider.createAabbExtents(v2.create(28, 195), v2.create(9, 6)),//upper shack
             collider.createAabbExtents(v2.create(-25, 208), v2.create(12.5, 8)),//grass patch
-            //north no mans land
-            // collider.createAabbExtents(v2.create(0, 335), v2.create(5, 125)),
-            // //north defensive positions
-            // collider.createAabbExtents(v2.create(50, 387), v2.create(30, 50)),//upper main structure
-            // collider.createAabbExtents(v2.create(10, 385), v2.create(5, 5)),//upper hedgehog1
-            // collider.createAabbExtents(v2.create(15, 405), v2.create(5, 5)),//upper hedgehog2
-            // collider.createAabbExtents(v2.create(15, 365), v2.create(5, 5)),//upper hedgehog3
-            // collider.createAabbExtents(v2.create(95, 385), v2.create(20, 35)), //upper rear area
-            // collider.createAabbExtents(v2.create(-28, 405), v2.create(8, 15)), //upper gun emplacement
-            // collider.createAabbExtents(v2.create(-50, 283), v2.create(30, 50)),//lower main structure
-            // collider.createAabbExtents(v2.create(-10, 285), v2.create(5, 5)),//lower hedgehog1
-            // collider.createAabbExtents(v2.create(-15, 305), v2.create(5, 5)),//lower hedgehog2
-            // collider.createAabbExtents(v2.create(-15, 265), v2.create(5, 5)),//lower hedgehog3
-            // collider.createAabbExtents(v2.create(-95, 285), v2.create(20, 35)), //lower rear area
-            // collider.createAabbExtents(v2.create(28, 265), v2.create(8, 15)), //lower gun emplacement
+            collider.createAabbExtents(v2.create(33, 210), v2.create(14, 8),), //outhouses
             //south side faction area clearing
             collider.createAabbExtents(v2.create(0, -160), v2.create(8, 45)),
             collider.createAabbExtents(v2.create(-30, -140), v2.create(18, 20)),//upper house
@@ -5792,6 +5788,32 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
             collider.createAabbExtents(v2.create(28, -125), v2.create(9, 6)),//upper shack
             collider.createAabbExtents(v2.create(32, -195), v2.create(9, 6)),//lower shack
             collider.createAabbExtents(v2.create(-25, -208), v2.create(12.5, 8)),//grass patch
+            collider.createAabbExtents(v2.create(33, -210), v2.create(14, 8),), //outhouses
+            //pillboxes
+            //pillbox northeast
+            collider.createAabbExtents(v2.create(130, 150), v2.create(30, 42)), //pillbox building
+            collider.createAabbExtents(v2.create(165, 170), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(170, 150), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(165, 130), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(85, 150), v2.create(20, 35)), //rear area
+            //pillbox northwest
+            collider.createAabbExtents(v2.create(-130, 150), v2.create(30, 42)), //pillbox building
+            collider.createAabbExtents(v2.create(-165, 170), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(-170, 150), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(-165, 130), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(-85, 150), v2.create(20, 35)), //rear area
+            //pillbox southeast
+            collider.createAabbExtents(v2.create(130, -150), v2.create(30, 42)), //pillbox building
+            collider.createAabbExtents(v2.create(165, -170), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(170, -150), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(165, -130), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(85, -150), v2.create(20, 35)), //rear area
+            //pillbox southwest
+            collider.createAabbExtents(v2.create(-130, -150), v2.create(30, 42)), //pillbox building
+            collider.createAabbExtents(v2.create(-165, -170), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(-170, -150), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(-165, -130), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(-85, -150), v2.create(20, 35)), //rear area
         ],
         mapGroundPatches: [
             {//cross road
@@ -5849,19 +5871,25 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 offsetDist: 1,
             },
             { // north grass patch
-                bound: collider.createAabbExtents(
-                    v2.create(-25, 208),
-                    v2.create(12, 8),
-                ),
+                bound: collider.createAabbExtents(v2.create(-25, 208), v2.create(12, 8),),
+                color: params.groundTintGp || 0x324319,
+                roughness: 0.05,
+                offsetDist: 0.5,
+            },
+            { // north outhouse grass patch
+                bound: collider.createAabbExtents(v2.create(33, 210), v2.create(14, 8),),
                 color: params.groundTintGp || 0x324319,
                 roughness: 0.05,
                 offsetDist: 0.5,
             },
             { // south grass patch
-                bound: collider.createAabbExtents(
-                    v2.create(-25, -208),
-                    v2.create(12, 8),
-                ),
+                bound: collider.createAabbExtents(v2.create(-25, -208), v2.create(12, 8),),
+                color: params.groundTintGp || 0x324319,
+                roughness: 0.05,
+                offsetDist: 0.5,
+            },
+            { // south outhouse grass patch
+                bound: collider.createAabbExtents(v2.create(33, -210), v2.create(14, 8),),
                 color: params.groundTintGp || 0x324319,
                 roughness: 0.05,
                 offsetDist: 0.5,
@@ -5963,30 +5991,6 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
             ],
         },
         mapObjects: [
-            // {
-            //     type: "no_mans_land_north",
-            //     pos: v2.create(335, 0),
-            //     scale: 1,
-            //     ori: 1,
-            // },
-            // {
-            //     type: "no_mans_land_north",
-            //     pos: v2.create(-335, 0),
-            //     scale: 1,
-            //     ori: 3,
-            // },
-            // {
-            //     type: "no_mans_land_north",
-            //     pos: v2.create(0, 335),
-            //     scale: 1,
-            //     ori: 0,
-            // },
-            // {
-            //     type: "no_mans_land_north",
-            //     pos: v2.create(0, -335),
-            //     scale: 1,
-            //     ori: 2,
-            // },
             {
                 type: "bridge_xlg_structure_02",
                 pos: v2.create(80, 0),
@@ -6034,6 +6038,31 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 pos: v2.create(0, -130),
                 scale: 2,
                 ori: 1,
+            },
+            //pillboxes
+            {
+                type: "pillbox_complex_01",
+                pos: v2.create(130, 150),
+                scale: 2,
+                ori: 2,
+            },
+            {
+                type: "pillbox_complex_01",
+                pos: v2.create(-130, 150),
+                scale: 2,
+                ori: 0,
+            },
+            {
+                type: "pillbox_complex_01",
+                pos: v2.create(130, -150),
+                scale: 2,
+                ori: 2,
+            },
+            {
+                type: "pillbox_complex_01",
+                pos: v2.create(-130, -150),
+                scale: 2,
+                ori: 0,
             },
             //obstacles
             //
@@ -6084,8 +6113,20 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 0,
             },
             {
+                type: "crate_01",
+                pos: v2.create(0, -10),
+                scale: 1,
+                ori: 0,
+            },
+            {
                 type: "crate_04",
                 pos: v2.create(0, 5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(0, 10),
                 scale: 1,
                 ori: 0,
             },
@@ -6176,6 +6217,48 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
             {
                 type: "mil_crate_06",
                 pos: v2.create(-11, 15.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-11, -16.25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center,
+                pos: v2.create(25, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center,
+                pos: v2.create(-25, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center,
+                pos: v2.create(0, 25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center,
+                pos: v2.create(0, -25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center2,
+                pos: v2.create(18, -18),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center2,
+                pos: v2.create(-18, 18),
                 scale: 1,
                 ori: 0,
             },
@@ -6348,6 +6431,18 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 2,
             },
             {
+                type: "loot_tier_outfit_verde",
+                pos: v2.create(35, 35),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_outfit_verde",
+                pos: v2.create(-35, -35),
+                scale: 1,
+                ori: 0,
+            },
+            {
                 type: params.north_west_center_object,
                 pos: v2.create(-30, 30),
                 scale: 1,
@@ -6518,10 +6613,34 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 1,
             },
             {
+                type: "crate_01",
+                pos: v2.create(35, -22),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_08",
+                pos: v2.create(35, -17),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(26, -10),
+                scale: 1,
+                ori: 1,
+            },
+            {
                 type: "shack_02",
                 pos: v2.create(18, -32),
                 scale: 1,
                 ori: 3,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(10, -20),
+                scale: 1,
+                ori: 0,
             },
             {
                 type: randomObstacleType({
@@ -6571,10 +6690,34 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 0,
             },
             {
+                type: "crate_01",
+                pos: v2.create(-35, 22),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_08",
+                pos: v2.create(-35, 17),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(-26, 10),
+                scale: 1,
+                ori: 1,
+            },
+            {
                 type: "shack_02",
                 pos: v2.create(-18, 32),
                 scale: 1,
                 ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-10, 20),
+                scale: 1,
+                ori: 0,
             },
             {
                 type: randomObstacleType({
@@ -6632,6 +6775,30 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
             {
                 type: "shack_01",
                 pos: v2.create(30, -195),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({ outhouse_01: 5, outhouse_02: 1 }),
+                pos: v2.create(30, -212),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "outhouse_01",
+                pos: v2.create(40, -210),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(23, -210),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(23, -215),
                 scale: 1,
                 ori: 0,
             },
@@ -6770,6 +6937,30 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 pos: v2.create(30, 195),
                 scale: 1,
                 ori: 2,
+            },
+            {
+                type: randomObstacleType({ outhouse_01: 5, outhouse_02: 1 }),
+                pos: v2.create(30, 212),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "outhouse_01",
+                pos: v2.create(40, 210),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(23, 210),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(23, 215),
+                scale: 1,
+                ori: 0,
             },
             {
                 type: "sandbags_02",
@@ -7146,6 +7337,27 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 scale: 1,
                 ori: 0,
             },
+            {
+                type: params.east_faction_crate_1,
+                pos: v2.create(194, 24),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    outhouse_01: 5,
+                    outhouse_02: 1,
+                }),
+                pos: v2.create(185, 4),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "outhouse_01",
+                pos: v2.create(195, 2),
+                scale: 1,
+                ori: 0,
+            },
             // west
             {
                 type: randomObstacleType({
@@ -7413,6 +7625,27 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                     crate_25: 1,
                 }),
                 pos: v2.create(-194, 14.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.west_faction_crate_1,
+                pos: v2.create(-194, 24),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    outhouse_01: 5,
+                    outhouse_02: 1,
+                }),
+                pos: v2.create(-185, 4),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "outhouse_01",
+                pos: v2.create(-195, 2),
                 scale: 1,
                 ori: 0,
             },
@@ -8490,7 +8723,7 @@ function createPillboxComplex(
         zIdx: 1,
         terrain: { grass: true, beach: false },
         mapObstacleBounds: [
-            collider.createAabbExtents(v2.create(0, 2), v2.create(30, 50)),
+            collider.createAabbExtents(v2.create(0, 2), v2.create(30, 50)), //pillbox building
             collider.createAabbExtents(v2.create(-40, 0), v2.create(5, 5)),
             collider.createAabbExtents(v2.create(-35, 20), v2.create(5, 5)),
             collider.createAabbExtents(v2.create(-35, -20), v2.create(5, 5)),
@@ -8588,7 +8821,7 @@ function createPillboxComplex(
                 ori: 1,
             },
             {
-                type: "outhouse_01",
+                type: randomObstacleType({ outhouse_01: 5, outhouse_02: 1 }),
                 pos: v2.create(33, 15),
                 scale: 1,
                 ori: 0,
@@ -8705,7 +8938,323 @@ function createPillboxComplex(
     return util.mergeDeep(baseDef, overrides);
 }
 
-function createNoMansLandNorth(
+function createNoMansLandVertical(
+    overrides: DeepPartial<BuildingDef>,
+    params: {
+        groundTintLt?: number;
+        groundTintDk?: number;
+        groundTintPath?: number;
+        loot_tier?: BuildingChildObjType;
+    },
+): BuildingDef {
+    const baseDef: BuildingDef = {
+        type: "building",
+        map: {
+            display: true,
+            shapes: [
+            ],
+        },
+        zIdx: 1,
+        terrain: { grass: true, beach: false },
+        mapObstacleBounds: [
+            collider.createAabbExtents(v2.create(0, 0), v2.create(20, 125)),
+        ],
+        mapGroundPatches: [
+            // {
+            //     bound: collider.createAabbExtents(v2.create(0, 0), v2.create(20, 125)),
+            //     color: params.groundTintPath || 0x653313,
+            //     roughness: 0.05,
+            //     offsetDist: 1,
+            // },
+            // {
+            //     bound: collider.createAabbExtents(v2.create(0, -130), v2.create(14, 10)),
+            //     color: params.groundTintPath || 0x653313,
+            //     roughness: 0.05,
+            //     offsetDist: 1,
+            // },
+        ],
+        floor: {
+            surfaces: [
+            ],
+            imgs: [
+            ],
+        },
+        ceiling: {
+            zoomRegions: [
+            ],
+            vision: { dist: 8, width: 5 },
+            imgs: [
+            ],
+        },
+        mapObjects: [
+            {
+                type: "pillbox_complex_01",
+                pos: v2.create(50, 50),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "pillbox_complex_01",
+                pos: v2.create(-50, -50),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(25, -65),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(25, -75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(30, -80),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(30, -60),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(30, -75.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(29.5, -63.5),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "crate_25",
+                pos: v2.create(29.5, -67),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(35, -70),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-25, 65),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-25, 75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-30, 80),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-30, 60),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-30, 75.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(-29.5, 63.5),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "crate_25",
+                pos: v2.create(-29.5, 67),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-35, 70),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, -90),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, -75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(10, -75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-10, -75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, -60),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, -45),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(10, -45),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-10, -45),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, -30),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, -15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(10, -15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-10, -15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, 0),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, 15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(10, 15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-10, 15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, 30),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, 45),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(10, 45),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-10, 45),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, 60),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, 75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(10, 75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-10, 75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, 90),
+                scale: 1,
+                ori: 1,
+            },
+        ],
+    };
+    return util.mergeDeep(baseDef, overrides);
+}
+
+function createNoMansLandHorizontal(
     overrides: DeepPartial<BuildingDef>,
     params: {
         groundTintLt?: number;
@@ -10993,6 +11542,8 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
     // Multi Faction
     faction_fortress_01: createFactionFortress({}, {
         fortress_bunker: "bunker_structure_11",
+        loot_tier_center: "loot_tier_surviv",
+        loot_tier_center2: "loot_tier_guns",
         south_statue: "statue_structure_red",
         east_statue: "statue_structure_blue",
         west_statue: "statue_structure_green",
@@ -11037,11 +11588,14 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
         groundTintDk: 0x404F21 
     }),
     pillbox_01: createPillbox({},{}),
-    pillbox_complex_01: createPillboxComplex ({ teamId: 3 }, {
+    pillbox_complex_01: createPillboxComplex ({}, {
         groundTintLt: 0x576A33,
         groundTintDk: 0x404F21,
     }),
-    no_mans_land_north: createNoMansLandNorth({ }, { }),
+    no_mans_land_north: createNoMansLandVertical({ }, { }),
+    no_mans_land_south: createNoMansLandVertical({ }, { }),
+    no_mans_land_east: createNoMansLandHorizontal({ }, { }),
+    no_mans_land_west: createNoMansLandHorizontal({ }, { }),
     statue_structure_red: {
         type: "building",
         ori: 0,

@@ -22,6 +22,11 @@ export const LootSpawnerDefs: Record<string, LootSpawnerDef> = {
         loot: [tierLoot("tier_surviv", 1, 1)],
         terrain: { grass: true, beach: true, riverShore: true },
     },
+    loot_tier_guns: {
+        type: "loot_spawner",
+        loot: [tierLoot("tier_guns", 1, 1)],
+        terrain: { grass: true, beach: true, riverShore: true },
+    },
     loot_tier_vault_floor: {
         type: "loot_spawner",
         loot: [tierLoot("tier_vault_floor", 1, 1)],
@@ -189,6 +194,11 @@ export const LootSpawnerDefs: Record<string, LootSpawnerDef> = {
     loot_tier_fortress_armor: {
         type: "loot_spawner",
         loot: [tierLoot("tier_airdrop_armor", 1, 1)],
+        terrain: { grass: true, beach: false },
+    },
+    loot_tier_outfit_verde: {
+        type: "loot_spawner",
+        loot: [tierLoot("tier_verde_outfit", 1, 1)],
         terrain: { grass: true, beach: false },
     },
 };
