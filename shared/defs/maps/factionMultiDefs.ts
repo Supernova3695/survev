@@ -601,7 +601,7 @@ const mapDef: PartialMapDef = {
                 stone_01: "stone_01f",
                 stone_03: "stone_03f",
                 tree_01: "tree_08f",
-                tree_09: "tree_08f",
+                tree_07: "tree_08f",
                 crate_19: "crate_19f"
             },
         ],
