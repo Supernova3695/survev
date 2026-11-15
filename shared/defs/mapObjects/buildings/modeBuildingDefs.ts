@@ -5636,6 +5636,7 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
     fortress_bunker?: BuildingChildObjType;
     loot_tier_center?: BuildingChildObjType;
     loot_tier_center2?: BuildingChildObjType;
+    loot_tier_docks?: BuildingChildObjType;
     groundTintGp?: number;
     groundTintPath?: number;
     concreteColor?: number;
@@ -7193,6 +7194,12 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 0,
             },
             {
+                type: params.loot_tier_docks,
+                pos: v2.create(165, 6),
+                scale: 1,
+                ori: 0,
+            },
+            {
                 type: "sandbags_02",
                 pos: v2.create(158, 5),
                 scale: 1,
@@ -7358,6 +7365,12 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 scale: 1,
                 ori: 0,
             },
+            {
+                type: params.loot_tier_docks,
+                pos: v2.create(188, -3),
+                scale: 1,
+                ori: 0,
+            },
             // west
             {
                 type: randomObstacleType({
@@ -7480,6 +7493,12 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
             {
                 type: params.west_faction_crate_1,
                 pos: v2.create(-171.75, 5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_docks,
+                pos: v2.create(-165, 6),
                 scale: 1,
                 ori: 0,
             },
@@ -7646,6 +7665,12 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
             {
                 type: "outhouse_01",
                 pos: v2.create(-195, 2),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_docks,
+                pos: v2.create(-188, -3),
                 scale: 1,
                 ori: 0,
             },
@@ -11544,6 +11569,7 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
         fortress_bunker: "bunker_structure_11",
         loot_tier_center: "loot_tier_surviv",
         loot_tier_center2: "loot_tier_guns",
+        loot_tier_docks: "loot_tier_guns",
         south_statue: "statue_structure_red",
         east_statue: "statue_structure_blue",
         west_statue: "statue_structure_green",
@@ -11556,10 +11582,10 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
         north_faction_crate_2: "crate_19f",
         south_faction_crate_1: "crate_02f",
         south_faction_crate_2: "crate_22",
-        west_faction_crate_1: "crate_02f",
-        west_faction_crate_2: "crate_19f",
         east_faction_crate_1: "crate_22",
         east_faction_crate_2: "crate_23f",
+        west_faction_crate_1: "crate_02f",
+        west_faction_crate_2: "crate_19f",
     }),
     faction_base_red: createFactionBase({ teamId: 1 },{
         faction_crate: "crate_02f",

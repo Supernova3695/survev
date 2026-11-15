@@ -572,9 +572,8 @@ const mapDef: PartialMapDef = {
                 bank_01: 1,
                 police_01: 1,
                 logging_complex_02f: 1,
-                workshop_complex_01: 1,
                 teahouse_01: 2,
-                hut_01: 5,
+                hut_01: 8,
                 hut_02: 1,
                 shack_03a: 2,
                 shack_03b: 3,
@@ -602,6 +601,8 @@ const mapDef: PartialMapDef = {
                 stone_01: "stone_01f",
                 stone_03: "stone_03f",
                 tree_01: "tree_08f",
+                tree_09: "tree_08f",
+                crate_19: "crate_19f"
             },
         ],
         importantSpawns: [
