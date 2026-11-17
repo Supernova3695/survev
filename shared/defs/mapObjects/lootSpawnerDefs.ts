@@ -196,9 +196,8 @@ export const LootSpawnerDefs: Record<string, LootSpawnerDef> = {
         loot: [tierLoot("tier_airdrop_armor", 1, 1)],
         terrain: { grass: true, beach: false },
     },
-    loot_tier_outfit_verde: {
+    loot_tier_faction_fortress_melee: {
         type: "loot_spawner",
-        loot: [tierLoot("tier_verde_outfit", 1, 1)],
-        terrain: { grass: true, beach: false },
+        loot: [tierLoot("tier_faction_fortress_melee", 1, 1)],
     },
 };

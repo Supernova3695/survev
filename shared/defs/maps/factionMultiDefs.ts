@@ -5,7 +5,7 @@ import type { MapDef } from "../mapDefs.ts";
 import { Main, type PartialMapDef } from "./baseDefs.ts";
 
 const mapDef: PartialMapDef = {
-    mapId: GameConfig.MapId.Faction,
+    mapId: GameConfig.MapId.MultiFaction,
     desc: {
         name: "Multifactions",
         icon: "img/gui/star.svg",
@@ -446,6 +446,12 @@ const mapDef: PartialMapDef = {
         tier_safe: [
             { name: "tier_airdrop_uncommon", count: 1, weight: 9 },
             { name: "tier_airdrop_rare", count: 1, weight: 1 },
+        ],
+        tier_faction_fortress_melee: [
+            { name: "tier_katanas", count: 1, weight: 4},
+            { name: "fireaxe", count: 1, weight: 20},
+            { name: "naginata", count: 1, weight: 1},
+            { name: "sledgehammer", count: 1, weight: 0.1},
         ]
     },
     mapGen: {
@@ -473,6 +479,7 @@ const mapDef: PartialMapDef = {
                         innerRad: 115,
                         outerRad: 140,
                         centerObj: "faction_fortress_02",
+                        noRiverObjs: false,
                         spawnBound: {
                             pos: v2.create(0.50, 0.50),
                             rad: 20,
@@ -488,11 +495,11 @@ const mapDef: PartialMapDef = {
         },
         places: [
             { 
-                name: "Riverside", 
+                name: "Lakeside", 
                 pos: v2.create(0.51, 0.5) 
             },
             {
-                name: "Todesfelde",
+                name: "Fowl Forest",
                 pos: v2.create(0.84, 0.18),
             },
             { 
@@ -551,24 +558,24 @@ const mapDef: PartialMapDef = {
         densitySpawns: [
             {
                 stone_01: 350,
-                barrel_01: 76,
+                barrel_01: 80,
                 silo_01: 8,
-                crate_01: 38,
+                crate_01: 42,
                 crate_02f: 7,
                 crate_22: 7,
                 crate_19f: 7,
                 crate_23f: 7,
-                crate_03: 8,
-                bush_01: 78,
+                crate_03: 10,
+                bush_01: 100,
                 tree_08f: 550,
                 hedgehog_01: 24,
-                container_01: 6,
-                container_02: 6,
-                container_03: 6,
-                container_04: 6,
-                shack_01: 7,
-                outhouse_01: 6,
-                loot_tier_1: 26,
+                container_01: 7,
+                container_02: 7,
+                container_03: 7,
+                container_04: 7,
+                shack_01: 8,
+                outhouse_01: 7,
+                loot_tier_1: 30,
                 loot_tier_beach: 4,
             },
         ],
@@ -584,8 +591,8 @@ const mapDef: PartialMapDef = {
                 teahouse_01: 2,
                 hut_01: 8,
                 hut_02: 1,
-                shack_03a: 2,
-                shack_03b: 3,
+                shack_03a: 5,
+                shack_03b: 6,
                 greenhouse_01: 1,
                 cache_01f: 1,
                 cache_02f: 1,
@@ -622,7 +629,6 @@ const mapDef: PartialMapDef = {
             "mansion_structure_01",
             "warehouse_complex_01",
             "logging_complex_01f",
-            "logging_complex_02f",
         ],
     },
     /* STRIP_FROM_PROD_CLIENT:END */

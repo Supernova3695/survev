@@ -8084,13 +8084,13 @@ function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 2,
             },
             {
-                type: "loot_tier_outfit_verde",
+                type: "loot_tier_verde_outfit",
                 pos: v2.create(35, 35),
                 scale: 1,
                 ori: 0,
             },
             {
-                type: "loot_tier_outfit_verde",
+                type: "loot_tier_verde_outfit",
                 pos: v2.create(-35, -35),
                 scale: 1,
                 ori: 0,
@@ -9600,6 +9600,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
     loot_tier_center?: BuildingChildObjType;
     loot_tier_center2?: BuildingChildObjType;
     loot_tier_docks?: BuildingChildObjType;
+    loot_tier_center_melee?: BuildingChildObjType;
     groundTintGp?: number;
     groundTintPath?: number;
     concreteColor?: number;
@@ -10338,7 +10339,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 1,
             },
             {
-                type: "loot_tier_fireaxe",
+                type: params.loot_tier_center_melee ||"loot_tier_faction_fortress_melee",
                 pos: v2.create(0, -19),
                 scale: 1,
                 ori: 1,
@@ -11179,14 +11180,14 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 0,
             },
             {
-                type: "loot_tier_outfit_verde",
+                type: "loot_tier_lumber_outfit",
                 pos: v2.create(-70, 71),
                 scale: 1,
                 ori: 0,
             },
             //top right corner of center
             {
-                type: "loot_tier_outfit_verde",
+                type: "loot_tier_verde_outfit",
                 pos: v2.create(75, 75),
                 scale: 1,
                 ori: 0,
@@ -11705,14 +11706,14 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 0,
             },
             {
-                type: "loot_tier_outfit_verde",
+                type: "loot_tier_pineapple_outfit",
                 pos: v2.create(70, -71),
                 scale: 1,
                 ori: 0,
             },
             //bottom left corner of center
             {
-                type: "loot_tier_outfit_verde",
+                type: "loot_tier_tarkhany_outfit",
                 pos: v2.create(-75, -75),
                 scale: 1,
                 ori: 0,

@@ -130,8 +130,17 @@ export interface MapDef {
         maxPlayers: number;
         killLeaderEnabled: boolean;
         desertMode?: boolean;
+        /**
+         * Sets the gamemode to being a faction gamemode
+         */
         factionMode?: boolean;
+        /**
+         * Sets the gamemode to being a multifaction gamemode
+         */
         multiFactionMode?: boolean;
+        /**
+         * The number of factions
+         */
         factions?: number;
         potatoMode?: boolean;
         woodsMode?: boolean;
@@ -208,6 +217,9 @@ export interface MapDef {
                     odds: number;
                     innerRad: number;
                     outerRad: number;
+                    /**
+                     * The object in the center
+                     */
                     centerObj?: string;
                     /**
                      * Disables bushes and rocks from spawning
@@ -249,7 +261,8 @@ export interface MapDef {
                 rad: number;
                 retryOnFailure: boolean;
             }>;
-            placeSpawns: string[];
+            placeSpawns: string[
+            ];
         };
         densitySpawns: [Record<string, number>];
         fixedSpawns: [
