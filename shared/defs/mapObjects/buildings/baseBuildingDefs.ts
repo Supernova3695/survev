@@ -9423,6 +9423,290 @@ export function createWarehouse3(
     return util.mergeDeep(baseDef, overrides);
 }
 
+export function createWarehouse4(
+    overrides: DeepPartial<BuildingDef>,
+    params: {
+        loot_tier_side?: BuildingChildObjType;
+        loot_tier_center?: BuildingChildObjType;
+    },
+): BuildingDef {
+    const baseDef: BuildingDef = {
+        type: "building",
+        map: {
+            display: true,
+            shapes: [
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(25, 0),
+                        v2.create(3, 12.25),
+                    ),
+                    color: 0x999999,
+                },
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(-25, 0),
+                        v2.create(3, 12.25),
+                    ),
+                    color: 0x999999,
+                },
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(0, 0),
+                        v2.create(22.5, 12.25),
+                    ),
+                    color: 2240064,
+                },
+            ],
+        },
+        zIdx: 1,
+        terrain: { grass: true, beach: false },
+        floor: {
+            surfaces: [
+                {
+                    type: "warehouse",
+                    collision: [
+                        collider.createAabbExtents(
+                            v2.create(0, 0),
+                            v2.create(27.5, 12.5),
+                        ),
+                    ],
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-building-warehouse-floor-02.img",
+                    pos: v2.create(-13.72, 0),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                    rot: 0,
+                },
+                {
+                    sprite: "map-building-warehouse-floor-02.img",
+                    pos: v2.create(13.72, 0),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                    rot: 2,
+                },
+            ],
+        },
+        ceiling: {
+            zoomRegions: [
+                {
+                    zoomIn: collider.createAabbExtents(
+                        v2.create(0, 0),
+                        v2.create(22, 12.25),
+                    ),
+                    zoomOut: collider.createAabbExtents(
+                        v2.create(0, 0),
+                        v2.create(27.5, 12.5),
+                    ),
+                },
+            ],
+            vision: { dist: 8, width: 5 },
+            imgs: [
+                {
+                    sprite: "map-building-warehouse-ceiling-02.img",
+                    scale: 1,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+        },
+        mapObjects: [
+            {
+                type: "metal_wall_ext_43",
+                pos: v2.create(0, 12),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_8",
+                pos: v2.create(-21.9, 8.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_8",
+                pos: v2.create(21.9, 8.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_43",
+                pos: v2.create(0, -12),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_8",
+                pos: v2.create(-21.9, -8.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_8",
+                pos: v2.create(21.9, -8.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(18.75, -8.75),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+                ignoreMapSpawnReplacement: true,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-18.75, -8.75),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+                ignoreMapSpawnReplacement: true,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(14.5, -8.75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(13.5, -3.5),
+                scale: 1,
+                ori: 1,
+                inheritOri: false,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(-14.5, -8.75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(-13.5, -3.5),
+                scale: 1,
+                ori: 1,
+                inheritOri: false,
+            },
+            {
+                type: randomObstacleType({ 
+                    crate_08: 24, 
+                    crate_09: 1 
+                }),
+                pos: v2.create(10, -9),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: randomObstacleType({ 
+                    crate_08: 24, 
+                    crate_09: 1 
+                }),
+                pos: v2.create(-10, -9),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(1, -9),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+                ignoreMapSpawnReplacement: true,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(4, -4),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+                ignoreMapSpawnReplacement: true,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(5.5, -9),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-9, -3),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(-13.5, 8.5),
+                scale: 1,
+                ori: 1,
+                inheritOri: false,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-18.75, 8.75),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+                ignoreMapSpawnReplacement: true,
+            },
+            {
+                type: randomObstacleType({ 
+                    mil_crate_04: 3,
+                    mil_crate_06: 1,
+                    "": 1, 
+                }),
+                pos: v2.create(-7.5, 9.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({ 
+                    mil_crate_04: 3,
+                    mil_crate_06: 1,
+                    "": 1, 
+                }),
+                pos: v2.create(-1, 9.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(5, 8.75),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+                ignoreMapSpawnReplacement: true,
+            },
+            {
+                type: params.loot_tier_side || "loot_tier_1",
+                pos: v2.create(13, 7),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(19, 9),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center || "loot_tier_guns",
+                pos: v2.create(-5, 2),
+                scale: 1,
+                ori: 0,
+            },
+        ],
+    };
+    return util.mergeDeep(baseDef, overrides);
+}
+
 export const BaseBuildingDefs: Record<string, BuildingDef> = {
     bank_01: createBank({ teamId: 1 }, {}),
     barn_basement_stairs_01: {
@@ -10486,6 +10770,7 @@ export const BaseBuildingDefs: Record<string, BuildingDef> = {
     }),
     warehouse_02: createWarehouse2({}),
     warehouse_03: createWarehouse3({}, {}),
+    warehouse_04: createWarehouse4({}, {}),
     warehouse_complex_01: createWarehouseComplex({ teamId: 2 }, {}),
     vault_01: createBankVault({}, {}),
 };

@@ -458,11 +458,21 @@ const mapDef: PartialMapDef = {
             grassInset: 18,
             rivers: {
                 lakes: [
+                    // {
+                    //     odds: 1,
+                    //     innerRad: 60,
+                    //     outerRad: 95,
+                    //     centerObj: "faction_fortress_01",
+                    //     spawnBound: {
+                    //         pos: v2.create(0.50, 0.50),
+                    //         rad: 20,
+                    //     },
+                    // },
                     {
                         odds: 1,
-                        innerRad: 60,
-                        outerRad: 95,
-                        centerObj: "faction_fortress_01",
+                        innerRad: 115,
+                        outerRad: 140,
+                        centerObj: "faction_fortress_02",
                         spawnBound: {
                             pos: v2.create(0.50, 0.50),
                             rad: 20,
@@ -507,8 +517,8 @@ const mapDef: PartialMapDef = {
             locationSpawns: [
                 {
                     type: "logging_complex_01f",
-                    pos: v2.create(0.25, 0.75),
-                    rad: 30,
+                    pos: v2.create(0.15, 0.85),
+                    rad: 40,
                     retryOnFailure: true,
                 },
                 {
@@ -571,7 +581,6 @@ const mapDef: PartialMapDef = {
                 barn_02: 1,
                 bank_01: 1,
                 police_01: 1,
-                logging_complex_02f: 1,
                 teahouse_01: 2,
                 hut_01: 8,
                 hut_02: 1,
@@ -607,6 +616,7 @@ const mapDef: PartialMapDef = {
         ],
         importantSpawns: [
             "faction_fortress_01",
+            "faction_fortress_02",
             "police_01",
             "bank_01",
             "mansion_structure_01",
