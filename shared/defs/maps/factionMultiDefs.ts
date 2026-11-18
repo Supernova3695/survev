@@ -79,7 +79,7 @@ const mapDef: PartialMapDef = {
             { name: "vault_change_03", channel: "sfx" },
             { name: "watering_01", channel: "sfx" },
         ],
-        atlases: ["loadout", "shared", "faction", "multifaction"],
+        atlases: ["loadout", "shared", "multifaction"],
     },
     biome: {
         colors: {
