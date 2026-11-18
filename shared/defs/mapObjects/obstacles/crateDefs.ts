@@ -1593,7 +1593,7 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         collision: collider.createAabbExtents(v2.create(0, 0), v2.create(2.7, 1.25)),
         health: 100,
         loot: [
-            tierLoot("tier_shotguns", 1, 3)
+            tierLoot("tier_shotguns", 1, 2)
         ],
         map: { display: true, color: 0x374626 },
         terrain: { grass: true, beach: true },

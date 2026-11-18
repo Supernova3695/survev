@@ -10303,7 +10303,10 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 1,
             },
             {
-                type: "airdrop_crate_01",
+                type: randomObstacleType({
+                    crate_10: 19,
+                    crate_11: 1,
+                }),
                 pos: v2.create(0, 18),
                 scale: 1,
                 ori: 0,
@@ -10327,7 +10330,13 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 1,
             },
             {
-                type: "crate_08",
+                type: "loot_tier_scopes_sniper",
+                pos: v2.create(0, -5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_07",
                 pos: v2.create(0, -10),
                 scale: 1,
                 ori: 0,
@@ -10639,6 +10648,36 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 pos: v2.create(39, 35.5),
                 scale: 1,
                 ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(54, 30),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(62, 25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(57.5, 25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(52.5, 25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(50, 30),
+                scale: 1,
+                ori: 0,
             },
             {
                 type: randomObstacleType({
