@@ -815,6 +815,14 @@ export const Main: MapDef = {
             { name: "outfitKhaki", count: 1, weight: 3},
             { name: "outfitGhillie", count: 1, weight: 0.01},
         ],
+        tier_melee_crate: [
+            { name: "falchion", count: 1, weight: 2},
+            { name: "spade_assault", count: 1, weight: 2},
+            { name: "woodaxe", count: 1, weight: 5},
+            { name: "woodaxe_bloody", count: 1, weight: 5},
+            { name: "crowbar", count: 1, weight: 5},
+            { name: "tier_katanas", count: 1, weight: 1},
+        ]
     },
     mapGen: {
         map: {

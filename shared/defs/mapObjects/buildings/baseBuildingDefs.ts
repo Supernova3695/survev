@@ -9595,8 +9595,9 @@ export function createWarehouse4(
             },
             {
                 type: randomObstacleType({ 
-                    crate_08: 24, 
-                    crate_09: 1 
+                    crate_08: 20, 
+                    crate_09: 1, 
+                    crate_26: 4,
                 }),
                 pos: v2.create(10, -9),
                 scale: 1,
@@ -9605,8 +9606,9 @@ export function createWarehouse4(
             },
             {
                 type: randomObstacleType({ 
-                    crate_08: 24, 
-                    crate_09: 1 
+                    crate_08: 20, 
+                    crate_09: 1, 
+                    crate_26: 4,
                 }),
                 pos: v2.create(-10, -9),
                 scale: 1,

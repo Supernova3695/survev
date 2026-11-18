@@ -10674,8 +10674,20 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 0,
             },
             {
+                type: "crate_26",
+                pos: v2.create(34, 25),
+                scale: 1,
+                ori: 0,
+            },
+            {
                 type: "crate_01",
                 pos: v2.create(50, 30),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "mil_crate_02",
+                pos: v2.create(45, 31),
                 scale: 1,
                 ori: 0,
             },
