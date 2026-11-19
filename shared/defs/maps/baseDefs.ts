@@ -819,10 +819,32 @@ export const Main: MapDef = {
             { name: "falchion", count: 1, weight: 2},
             { name: "spade_assault", count: 1, weight: 2},
             { name: "woodaxe", count: 1, weight: 5},
-            { name: "woodaxe_bloody", count: 1, weight: 5},
+            { name: "woodaxe_bloody", count: 1, weight: 2},
             { name: "crowbar", count: 1, weight: 5},
             { name: "tier_katanas", count: 1, weight: 1},
-        ]
+        ],
+        tier_container_7_weapon: [
+            { name: "vector", count: 1, weight: 2 },
+            { name: "vss", count: 1, weight: 2 },
+            { name: "m39", count: 1, weight: 2 },
+            { name: "mk12", count: 1, weight: 2 },
+            { name: "bar", count: 1, weight: 2 },
+            { name: "scar", count: 1, weight: 1.5 },
+            { name: "qbb97", count: 1, weight: 1 },
+            { name: "garand", count: 1, weight: 0.5 },
+        ],
+        tier_container_7_pack: [
+            { name: "backpack02", count: 1, weight: 2 },
+            { name: "backpack03", count: 1, weight: 1 },
+        ],
+        tier_container_8_weapon: [
+            { name: "falchion", count: 1, weight: 1},
+            { name: "woodaxe", count: 1, weight: 1},
+            { name: "fireaxe", count: 1, weight: 1},
+            { name: "tier_katanas", count: 1, weight: 1},
+            { name: "sledgehammer", count: 1, weight: 0.01},
+            { name: "pan", count: 1, weight: 0.01},
+        ],
     },
     mapGen: {
         map: {

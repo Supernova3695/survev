@@ -200,4 +200,20 @@ export const LootSpawnerDefs: Record<string, LootSpawnerDef> = {
         type: "loot_spawner",
         loot: [tierLoot("tier_faction_fortress_melee", 1, 1)],
     },
+    loot_tier_container_7_weapon: {
+        type: "loot_spawner",
+        loot: [tierLoot("tier_container_7_weapon", 1, 1)]
+    },
+    loot_tier_container_7_pack: {
+        type: "loot_spawner",
+        loot: [tierLoot("tier_container_7_pack", 1, 1)]
+    },
+    loot_tier_container_8_weapon: {
+        type: "loot_spawner",
+        loot: [tierLoot("tier_container_8_weapon", 1, 1)]
+    },
+    loot_tier_armor: {
+        type: "loot_spawner",
+        loot: [tierLoot("tier_armor", 1, 1)]
+    }
 };

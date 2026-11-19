@@ -452,7 +452,7 @@ const mapDef: PartialMapDef = {
             { name: "fireaxe", count: 1, weight: 20},
             { name: "naginata", count: 1, weight: 1},
             { name: "sledgehammer", count: 1, weight: 0.1},
-        ]
+        ],
     },
     mapGen: {
         map: {

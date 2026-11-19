@@ -9873,10 +9873,22 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 1,
             },
             {
+                type: "barrel_01",
+                pos: v2.create(75, -6),
+                scale: 1,
+                ori: 0,
+            },
+            {
                 type: "sandbags_01",
                 pos: v2.create(-75, 0),
                 scale: 1,
                 ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-75, 6),
+                scale: 1,
+                ori: 0,
             },
             {
                 type: "sandbags_01",
@@ -9885,8 +9897,32 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 0,
             },
             {
+                type: "barrel_01",
+                pos: v2.create(6, 75),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(0, 68),
+                scale: 1,
+                ori: 0,
+            },
+            {
                 type: "sandbags_01",
                 pos: v2.create(0, -75),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-6, -75),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(0, -68),
                 scale: 1,
                 ori: 0,
             },
@@ -10359,6 +10395,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_02: 1,
                     container_03: 1,
                     container_06: 0.08,
+                    container_07: 0.1,
                 }),
                 pos: v2.create(11, 5.5),
                 scale: 1,
@@ -10370,6 +10407,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_02: 1,
                     container_03: 1,
                     container_06: 0.08,
+                    container_07: 0.1,
                 }),
                 pos: v2.create(11, -5.5),
                 scale: 1,
@@ -10381,6 +10419,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_02: 1,
                     container_03: 1,
                     container_06: 0.08,
+                    container_07: 0.1,
                 }),
                 pos: v2.create(-11, 5.5),
                 scale: 1,
@@ -10392,6 +10431,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_02: 1,
                     container_03: 1,
                     container_06: 0.08,
+                    container_07: 0.1,
                 }),
                 pos: v2.create(-11, -5.5),
                 scale: 1,
@@ -10402,6 +10442,8 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_01: 1,
                     container_02: 1,
                     container_03: 1,
+                    container_06: 0.08,
+                    container_07: 0.1,
                 }),
                 pos: v2.create(11, 11),
                 scale: 1,
@@ -10412,6 +10454,8 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_01: 1,
                     container_02: 1,
                     container_03: 1,
+                    container_06: 0.08,
+                    container_07: 0.1,
                 }),
                 pos: v2.create(11, -11),
                 scale: 1,
@@ -10422,6 +10466,8 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_01: 1,
                     container_02: 1,
                     container_03: 1,
+                    container_06: 0.08,
+                    container_07: 0.1,
                 }),
                 pos: v2.create(-11, 11),
                 scale: 1,
@@ -10432,6 +10478,8 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_01: 1,
                     container_02: 1,
                     container_03: 1,
+                    container_06: 0.08,
+                    container_07: 0.1,
                 }),
                 pos: v2.create(-11, -11),
                 scale: 1,
@@ -10442,6 +10490,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_01: 1,
                     container_02: 1,
                     container_03: 1,
+                    container_07: 0.1,
                 }),
                 pos: v2.create(11, 16.5),
                 scale: 1,
@@ -10452,6 +10501,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_01: 1,
                     container_02: 1,
                     container_03: 1,
+                    container_07: 0.1,
                 }),
                 pos: v2.create(11, -16.5),
                 scale: 1,
@@ -10462,6 +10512,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_01: 1,
                     container_02: 1,
                     container_03: 1,
+                    container_07: 0.1,
                 }),
                 pos: v2.create(-11, 16.5),
                 scale: 1,
@@ -10472,6 +10523,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_01: 1,
                     container_02: 1,
                     container_03: 1,
+                    container_07: 0.1,
                 }),
                 pos: v2.create(-11, -16.5),
                 scale: 1,
@@ -10483,6 +10535,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_02: 1,
                     container_03: 1,
                     container_05: 2,
+                    container_07: 0.1,
                 }),
                 pos: v2.create(11, 22),
                 scale: 1,
@@ -10494,6 +10547,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_02: 1,
                     container_03: 1,
                     container_05: 2,
+                    container_07: 0.1,
                 }),
                 pos: v2.create(11, -22),
                 scale: 1,
@@ -10505,6 +10559,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_02: 1,
                     container_03: 1,
                     container_05: 2,
+                    container_07: 0.1,
                 }),
                 pos: v2.create(-11, 22),
                 scale: 1,
@@ -10516,6 +10571,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_02: 1,
                     container_03: 1,
                     container_05: 2,
+                    container_07: 0.1,
                 }),
                 pos: v2.create(-11, -22),
                 scale: 1,
@@ -10594,6 +10650,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_02: 1,
                     container_03: 1,
                     container_05: 2,
+                    container_08: 0.1,
                 }),
                 pos: v2.create(28.5, 14),
                 scale: 1,
@@ -10605,6 +10662,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_02: 1,
                     container_03: 1,
                     container_05: 2,
+                    container_08: 0.1,
                 }),
                 pos: v2.create(-28.5, 14),
                 scale: 1,
@@ -10616,6 +10674,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_02: 1,
                     container_03: 1,
                     container_05: 2,
+                    container_08: 0.1,
                 }),
                 pos: v2.create(28.5, -14),
                 scale: 1,
@@ -10627,6 +10686,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_02: 1,
                     container_03: 1,
                     container_05: 2,
+                    container_08: 0.1,
                 }),
                 pos: v2.create(-28.5, -14),
                 scale: 1,
@@ -10638,6 +10698,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_02: 1,
                     container_03: 1,
                     container_05: 2,
+                    container_08: 0.1,
                 }),
                 pos: v2.create(54, 35.5),
                 scale: 1,
@@ -10697,6 +10758,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_02: 1,
                     container_03: 1,
                     container_05: 2,
+                    container_08: 0.1,
                 }),
                 pos: v2.create(-54, -35.5),
                 scale: 1,
@@ -10708,6 +10770,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_02: 1,
                     container_03: 1,
                     container_05: 2,
+                    container_08: 0.1,
                 }),
                 pos: v2.create(-37, -35.5),
                 scale: 1,
@@ -10719,6 +10782,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_02: 1,
                     container_03: 1,
                     container_05: 2,
+                    container_08: 0.1,
                 }),
                 pos: v2.create(61.5, 14),
                 scale: 1,
@@ -10784,6 +10848,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_02: 1,
                     container_03: 1,
                     container_05: 2,
+                    container_08: 0.1,
                 }),
                 pos: v2.create(-61.5, 14),
                 scale: 1,
@@ -10849,6 +10914,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_02: 1,
                     container_03: 1,
                     container_05: 2,
+                    container_08: 0.1,
                 }),
                 pos: v2.create(61.5, -14),
                 scale: 1,
@@ -10860,6 +10926,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                     container_02: 1,
                     container_03: 1,
                     container_05: 2,
+                    container_08: 0.1,
                 }),
                 pos: v2.create(-61.5, -14),
                 scale: 1,
@@ -10934,7 +11001,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
             },
             {
                 type: "crate_01",
-                pos: v2.create(-16, 32),
+                pos: v2.create(-15, 32),
                 scale: 1,
                 ori: 2,
             },
@@ -10943,6 +11010,42 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 pos: v2.create(-11, 32.5),
                 scale: 1,
                 ori: 2,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-28, 26.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-24, 32),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-20, 32),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(-24, 27),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-24, 22.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_surviv",
+                pos: v2.create(-23, 19),
+                scale: 1,
+                ori: 0,
             },
             {
                 type: params.loot_tier_center2,
@@ -11015,7 +11118,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 0,
             },
             {
-                type: params.north_west_center_object,
+                type: "crate_01",
                 pos: v2.create(-28.5, 64),
                 scale: 1,
                 ori: 0,
@@ -11027,7 +11130,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 0,
             },
             {
-                type: params.north_east_center_object,
+                type: "crate_01",
                 pos: v2.create(-33.5, 64),
                 scale: 1,
                 ori: 0,
@@ -11297,7 +11400,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 0,
             },
             {
-                type: params.north_east_center_object,
+                type: "crate_08",
                 pos: v2.create(45, 67.5),
                 scale: 1,
                 ori: 0,
@@ -11459,16 +11562,52 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 2,
             },
             {
-                type: "crate_01",
-                pos: v2.create(16, -32),
+                type: "sandbags_02",
+                pos: v2.create(10, -32),
                 scale: 1,
-                ori: 2,
+                ori: 0,
             },
             {
-                type: "barrel_01",
-                pos: v2.create(11, -32.5),
+                type: "sandbags_02",
+                pos: v2.create(6, -27),
                 scale: 1,
-                ori: 2,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(14, -32),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(19, -32),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(10, -27.25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(33, -27),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(29, -24),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(29, -28.5),
+                scale: 1,
+                ori: 1,
             },
             {
                 type: params.loot_tier_center2,
@@ -11535,13 +11674,13 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 0,
             },
             {
-                type: params.south_east_center_object,
+                type: "crate_01",
                 pos: v2.create(28.5, -59),
                 scale: 1,
                 ori: 0,
             },
             {
-                type: params.south_west_center_object,
+                type: "crate_01",
                 pos: v2.create(28.5, -64),
                 scale: 1,
                 ori: 0,
@@ -11823,7 +11962,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 0,
             },
             {
-                type: params.south_west_center_object,
+                type: "crate_08",
                 pos: v2.create(-45, -67.5),
                 scale: 1,
                 ori: 0,
@@ -11843,6 +11982,12 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
             {
                 type: "chest_02",
                 pos: v2.create(-76, -71),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_26",
+                pos: v2.create(-55, -77),
                 scale: 1,
                 ori: 0,
             },
@@ -12232,7 +12377,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 scale: 1,
                 ori: 0,
             },
-            //other northern town objects
+            //other southern town objects
             {
                 type: "loot_tier_guns",
                 pos: v2.create(0, -210),
@@ -13448,6 +13593,395 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 pos: v2.create(-190, 71),
                 scale: 1,
                 ori: 2,
+            },
+        ],
+    };
+    return util.mergeDeep(baseDef, overrides);
+}
+
+function createFactionFortress2Desert(overrides: DeepPartial<BuildingDef>, params: {
+    loot_tier_center?: BuildingChildObjType;
+    loot_tier_center2?: BuildingChildObjType;
+    loot_tier_docks?: BuildingChildObjType;
+    loot_tier_center_melee?: BuildingChildObjType;
+    groundTintGp?: number;
+    groundTintPath?: number;
+    concreteColor?: number;
+    north_west_center_object?: BuildingChildObjType;
+    north_east_center_object?: BuildingChildObjType;
+    south_west_center_object?: BuildingChildObjType;
+    south_east_center_object?: BuildingChildObjType;
+}): BuildingDef {
+    const baseDef: BuildingDef = {
+        type: "building",
+        map: {
+            display: true,
+            shapes: [
+            ],
+        },
+        terrain: {
+            spawnPriority: 100,
+            grass: true,
+            beach: false
+        },
+        mapObstacleBounds: [
+            collider.createAabbExtents(v2.create(0, 0), v2.create(15, 15)),
+            collider.createAabbExtents(v2.create(22, 8), v2.create(10, 32)),
+            collider.createAabbExtents(v2.create(-42, 0), v2.create(22, 40)),
+            collider.createAabbExtents(v2.create(-16, 34), v2.create(30, 25)),
+            collider.createAabbExtents(v2.create(-30, 60), v2.create(16, 10)),
+        ],
+        mapGroundPatches: [
+            {
+                bound: collider.createAabbExtents(v2.create(22, 8), v2.create(10, 32)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(-42, 0), v2.create(22, 40)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(-16, 34), v2.create(30, 25)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(-30, 60), v2.create(16, 10)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+        ],
+        ori: 0,
+        ceiling: {
+            zoomRegions: [],
+            imgs: [],
+        },
+        floor: {
+            surfaces: [
+                {
+                    type: "grass",
+                    collision: [
+                        collider.createAabbExtents(v2.create(0, 0), v2.create(0, 0)),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(
+                            v2.create(0, 0),
+                            v2.create(40, 40),
+                        ),
+                    ],
+                },
+            ],
+            imgs: [
+                
+            ],
+        },
+        mapObjects: [
+            {
+                type: "tree_05c",
+                pos: v2.create(0, 2),
+                scale: 2,
+                ori: 0,
+                inheritOri: true,
+            },
+            {
+                type: "case_05",
+                pos: v2.create(0, -2),
+                scale: 1,
+                ori: 0,
+                inheritOri: true,
+            },
+            {
+                type: "warehouse_04d",
+                pos: v2.create(-45, 0),
+                scale: 2,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(11, 16.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-11, 16.5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(11, 22),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-11, 22),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-28.5, 14),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-29, -2),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_18",
+                pos: v2.create(-29, 3),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_18",
+                pos: v2.create(-11, 11),
+                scale: 1,
+                ori: 0,
+                inheritOri: true,
+            },
+            {
+                type: "crate_22d",
+                pos: v2.create(0, 19),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(0, 23),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(29, 3),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_02d",
+                pos: v2.create(29, -2),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(24, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_guns",
+                pos: v2.create(0, 30),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(28.5, 14),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(28.5, -14),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-11, 43),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-17, 43),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-23, 60),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-28, 26.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-24, 32),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-20, 32),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_19d",
+                pos: v2.create(-15, 32),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(-24, 27),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-24, 22.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_surviv",
+                pos: v2.create(-23, 19),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-3.5, 38),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-2, 49),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(0, 54),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(0, 58),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_23d",
+                pos: v2.create(-28.5, 59),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-28.5, 64),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-33.5, 59),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-33.5, 64),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-34, 39),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "chest_02",
+                pos: v2.create(-38, 41),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 1,
+                    crate_04: 1, 
+                }),
+                pos: v2.create(-42.5, 41),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(16, 36),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(20.5, 36),
+                scale: 1,
+                ori: 0,
             },
         ],
     };
@@ -15005,6 +15539,10 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
         north_east_center_object: "crate_23d",
         south_west_center_object: "crate_02d",
         south_east_center_object: "crate_22d",
+    }),
+
+    faction_fortress_02d: createFactionFortress2Desert({}, {
+
     }),
 
     // Faction
