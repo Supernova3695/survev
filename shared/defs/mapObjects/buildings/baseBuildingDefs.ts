@@ -10438,7 +10438,7 @@ export const BaseBuildingDefs: Record<string, BuildingDef> = {
     }),
     container_07: createContainer({
         open: false,
-        tint: 0x22A500,
+        tint: 0x00ba1f,//0x0E4200,
         ceilingSprite: "map-building-container-ceiling-01.img",
         loot_spawner_01: "loot_tier_container_7_weapon",
         loot_spawner_02: "loot_tier_container_7_pack",
@@ -10446,7 +10446,7 @@ export const BaseBuildingDefs: Record<string, BuildingDef> = {
     }),
     container_08: createContainer({
         open: false,
-        tint: 0x780000,
+        tint: 0xba0000,//0x670000,
         ceilingSprite: "map-building-container-ceiling-01.img",
         loot_spawner_01: "loot_tier_container_8_weapon",
         loot_spawner_02: "loot_tier_armor",
