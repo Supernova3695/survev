@@ -506,6 +506,7 @@ export const Main: MapDef = {
             { name: "grozas", count: 1, weight: 1 },
             { name: "m4a1", count: 1, weight: 1 },
             { name: "an94", count: 1, weight: 1 },
+            { name: "aek972", count: 1, weight: 1 },
         ],
         tier_guns_rare_tank: [
             { name: "qbb97", count: 1, weight: 1 },
@@ -816,7 +817,8 @@ export const Main: MapDef = {
             { name: "outfitGhillie", count: 1, weight: 0.01},
         ],
         tier_melee_crate: [
-            { name: "falchion", count: 1, weight: 2},
+            { name: "falchion", count: 1, weight: 3},
+            { name: "falchion_sapphire", count: 1, weight: 1},
             { name: "spade_assault", count: 1, weight: 2},
             { name: "woodaxe", count: 1, weight: 5},
             { name: "woodaxe_bloody", count: 1, weight: 2},
@@ -839,6 +841,7 @@ export const Main: MapDef = {
         ],
         tier_container_8_weapon: [
             { name: "falchion", count: 1, weight: 1},
+            { name: "falchion_sapphire", count: 1, weight: 0.5},
             { name: "woodaxe", count: 1, weight: 1},
             { name: "fireaxe", count: 1, weight: 1},
             { name: "tier_katanas", count: 1, weight: 1},

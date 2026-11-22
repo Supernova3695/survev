@@ -10384,7 +10384,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 1,
             },
             {
-                type: params.loot_tier_center_melee ||"loot_tier_faction_fortress_melee",
+                type: params.loot_tier_center_melee || "loot_tier_faction_fortress_melee",
                 pos: v2.create(0, -19),
                 scale: 1,
                 ori: 1,
@@ -11216,6 +11216,12 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 1,
             },
             {
+                type: "crate_26",
+                pos: v2.create(-50, 56),
+                scale: 1,
+                ori: 0,
+            },
+            {
                 type: "barrel_01",
                 pos: v2.create(-40, 54),
                 scale: 1,
@@ -11786,6 +11792,12 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 pos: v2.create(44, -54),
                 scale: 1,
                 ori: 1,
+            },
+            {
+                type: "crate_26",
+                pos: v2.create(50, -56),
+                scale: 1,
+                ori: 0,
             },
             {
                 type: "barrel_01",

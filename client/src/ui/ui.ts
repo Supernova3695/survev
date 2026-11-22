@@ -1380,6 +1380,7 @@ export class UiManager {
                 <div class="ui-stats-header-left ui-stats-header-blue-team">
                 <span class="ui-stats-header-stat">${blueTeamTxt} </span>
                 <span class="ui-stats-header-value">${this.playersAliveBlueCounter}</span></div>`;
+                
         } else if (multiFactionMode) {
             const is4Faction = factionMode && multiFactionMode
             const redTeamTxt = this.localization.translate("game-red-team");
@@ -1638,25 +1639,48 @@ export class UiManager {
                 });
             });
             this.statsOptions.append(restartButton);
-            const alive = this.playersAliveCounter + this.playersAliveRedCounter + this.playersAliveBlueCounter + this.playersAliveGreenCounter + this.playersAliveOrangeCounter;
-            if (gameOver || alive === 0) {
-                restartButton.css({
-                    width: device.uiLayout != device.UiLayout.Sm || device.tablet
-                        ? 225
-                        : 130,
-                });
-            } else {
-                restartButton.css({
-                    left: device.uiLayout != device.UiLayout.Sm || device.tablet
-                        ? -72
-                        : -46,
-                });
-                const q = $("<a/>", {
-                    class: "btn-green btn-darken menu-option ui-stats-spectate",
-                    html: this.localization.translate("game-spectate"),
-                });
-                q.on("click", this.beginSpectating.bind(this));
-                this.statsOptions.append(q);
+            if (map.multiFactionMode) {
+                const alive = this.playersAliveCounter + this.playersAliveRedCounter + this.playersAliveBlueCounter + this.playersAliveGreenCounter + this.playersAliveOrangeCounter;
+                if (gameOver || alive === 0) {
+                    restartButton.css({
+                       width: device.uiLayout != device.UiLayout.Sm || device.tablet
+                           ? 225
+                           : 130,
+                    });
+                } else {
+                    restartButton.css({
+                        left: device.uiLayout != device.UiLayout.Sm || device.tablet
+                            ? -72
+                            : -46,
+                    });
+                    const q = $("<a/>", {
+                        class: "btn-green btn-darken menu-option ui-stats-spectate",
+                        html: this.localization.translate("game-spectate"),
+                    });
+                    q.on("click", this.beginSpectating.bind(this));
+                    this.statsOptions.append(q);
+                }
+            } else if (!map.multiFactionMode) {
+                const alive = this.playersAliveCounter + this.playersAliveRedCounter + this.playersAliveBlueCounter;
+                if (gameOver || alive === 0) {
+                    restartButton.css({
+                       width: device.uiLayout != device.UiLayout.Sm || device.tablet
+                           ? 225
+                           : 130,
+                    });
+                } else {
+                    restartButton.css({
+                        left: device.uiLayout != device.UiLayout.Sm || device.tablet
+                            ? -72
+                            : -46,
+                    });
+                    const q = $("<a/>", {
+                        class: "btn-green btn-darken menu-option ui-stats-spectate",
+                        html: this.localization.translate("game-spectate"),
+                    });
+                    q.on("click", this.beginSpectating.bind(this));
+                    this.statsOptions.append(q);
+                }
             }
 
             let elemIdx = 0;
@@ -1952,11 +1976,11 @@ export class UiManager {
         this.playersAliveGreen.html(alive);
         this.playersAliveGreenCounter = alive;
 
-        this.leaderboardAlive.css("display", "none");
+        //this.leaderboardAlive.css("display", "none");
         //this.leaderboardAliveFaction.css("display", "block");
         this.leaderboardAliveMultiFaction.css("display", "block");
 
-        $("#ui-map-counter-default").css("display", "none");
+        //$("#ui-map-counter-default").css("display", "none");
         //$("#ui-map-counter-faction").css("display", "inline-block");
         $("#ui-map-counter-multi-faction").css("display", "inline-block");
     }
@@ -1965,11 +1989,11 @@ export class UiManager {
         this.playersAliveOrange.html(alive);
         this.playersAliveOrangeCounter = alive;
 
-        this.leaderboardAlive.css("display", "none");
+        //this.leaderboardAlive.css("display", "none");
         //this.leaderboardAliveFaction.css("display", "block");
         this.leaderboardAliveMultiFaction.css("display", "block");
 
-        $("#ui-map-counter-default").css("display", "none");
+        //$("#ui-map-counter-default").css("display", "none");
         //$("#ui-map-counter-faction").css("display", "inline-block");
         $("#ui-map-counter-multi-faction").css("display", "inline-block");
     }

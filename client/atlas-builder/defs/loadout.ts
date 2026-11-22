@@ -394,6 +394,7 @@ export const LoadoutAtlas: AtlasDef = {
         "loot/loot-melee-cutlass-forest.svg",
         "loot/loot-melee-falchion.svg",
         "loot/loot-melee-falchion-woodland.svg",
+        "loot/loot-melee-falchion-sapphire.svg",
         "loot/loot-melee-fireaxe.svg",
         "loot/loot-melee-hook-silver.svg",
         "loot/loot-melee-huntsman-burnished.svg",
