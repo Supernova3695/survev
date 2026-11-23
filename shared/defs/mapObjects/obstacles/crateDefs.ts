@@ -783,7 +783,7 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         map: { display: false },
         img: {
             sprite: "map-crate-12.img",
-            residue: "map-crate-res-03.img",
+            residue: "map-crate-res-05.img",
         },
         sound: { explode: "crate_break_01" },
     }),
@@ -811,7 +811,7 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         map: { display: false },
         img: {
             sprite: "map-crate-27.img",
-            residue: "map-crate-res-03.img",
+            residue: "map-crate-res-05.img",
         },
         sound: { explode: "crate_break_01" },
     }),
@@ -837,7 +837,7 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         map: { display: false },
         img: {
             sprite: "map-crate-12.img",
-            residue: "map-crate-res-03.img",
+            residue: "map-crate-res-05.img",
         },
         sound: { explode: "crate_break_01" },
     }),
@@ -857,7 +857,7 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         map: { display: false },
         img: {
             sprite: "map-crate-13.img",
-            residue: "map-crate-res-03.img",
+            residue: "map-crate-res-05.img",
         },
         sound: { explode: "crate_break_01" },
     }),
@@ -887,7 +887,7 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         map: { display: false },
         img: {
             sprite: "map-crate-13.img",
-            residue: "map-crate-res-03.img",
+            residue: "map-crate-res-05.img",
         },
         sound: { explode: "crate_break_01" },
     }),
@@ -919,12 +919,12 @@ export const CrateDefs: Record<string, ObstacleDef> = {
             autoLoot("strobe", 1),
             autoLoot("strobe", 1),
             autoLoot("strobe", 1),
-            autoLoot("outfitGhillie", 1),
+            tierLoot("tier_airdrop_faction_outfits", 1, 3),
         ],
         map: { display: false },
         img: {
             sprite: "map-crate-28.img",
-            residue: "map-crate-res-03.img",
+            residue: "map-crate-res-05.img",
         },
         sound: { explode: "crate_break_01" },
     }),
@@ -956,7 +956,7 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         map: { display: false },
         img: {
             sprite: "map-crate-13.img",
-            residue: "map-crate-res-03.img",
+            residue: "map-crate-res-05.img",
         },
         sound: { explode: "crate_break_01" },
     }),
