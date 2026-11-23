@@ -10643,6 +10643,12 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 scale: 1,
                 ori: 1,
             },
+            {
+                type: params.loot_tier_center || "loot_tier_1",
+                pos: v2.create(21, -26),
+                scale: 1,
+                ori: 1,
+            },
             //other center containers
             {
                 type: randomObstacleType({
@@ -11064,6 +11070,24 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 pos: v2.create(-3.5, 38),
                 scale: 1,
                 ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(10, 46),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(11.5, 41),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(7, 41),
+                scale: 1,
+                ori: 1,
             },
             {
                 type: "crate_01",
@@ -11638,8 +11662,74 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 0,
             },
             {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(5, -38.20),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(-1, -38.20),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(-7, -38.20),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-12, -39),
+                scale: 0.9,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-12, -43.5),
+                scale: 0.9,
+                ori: 0,
+            },
+            {
                 type: "sandbags_01",
-                pos: v2.create(3.5, -38),
+                pos: v2.create(-10, -63),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-12, -58),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-7.5, -49),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(-3, -49),
                 scale: 1,
                 ori: 0,
             },
@@ -12079,6 +12169,36 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
             {
                 type: params.loot_tier_center,
                 pos: v2.create(-25, -29),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-62, -27),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-57, -25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(-53, -25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(-57, -30),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-52, -30.5),
                 scale: 1,
                 ori: 0,
             },

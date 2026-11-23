@@ -645,6 +645,23 @@ const SkinDefs: Record<string, OutfitDef> = {
         },
         teamId: FactionTeam.Blue,
     }),
+    outfitGalaxy: defineOutfitSkin("outfitBase", {
+        name: "Galaxy Collapse",
+        skinImg: {
+            baseTint: 0xffffff,
+            baseSprite: "player-base-outfitGalaxy.img",
+            handTint: 0xffffff,
+            handSprite: "player-hands-outfitGalaxy.img",
+            footTint: 0x39013c,
+            footSprite: "player-feet-02.img",
+            backpackTint: 0xffffff,
+            backpackSprite: "player-bag-outfitGalaxy.img",
+        },
+        lootImg: {
+            sprite: "loot-shirt-02.img",
+            tint: 0x3a013d,
+        },
+    }),
     outfitHeaven: defineOutfitSkin("outfitBase", {
         name: "Celestial Garb",
         skinImg: {

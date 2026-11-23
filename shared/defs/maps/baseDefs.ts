@@ -818,11 +818,11 @@ export const Main: MapDef = {
         ],
         tier_melee_crate: [
             { name: "falchion", count: 1, weight: 3},
-            { name: "falchion_sapphire", count: 1, weight: 1},
+            { name: "falchion_cobalt", count: 1, weight: 1},
             { name: "spade_assault", count: 1, weight: 2},
-            { name: "woodaxe", count: 1, weight: 5},
+            { name: "woodaxe", count: 1, weight: 4},
             { name: "woodaxe_bloody", count: 1, weight: 2},
-            { name: "crowbar", count: 1, weight: 5},
+            { name: "crowbar", count: 1, weight: 4},
             { name: "tier_katanas", count: 1, weight: 1},
         ],
         tier_container_7_weapon: [
@@ -841,7 +841,7 @@ export const Main: MapDef = {
         ],
         tier_container_8_weapon: [
             { name: "falchion", count: 1, weight: 1},
-            { name: "falchion_sapphire", count: 1, weight: 0.5},
+            { name: "falchion_cobalt", count: 1, weight: 0.5},
             { name: "woodaxe", count: 1, weight: 1},
             { name: "fireaxe", count: 1, weight: 1},
             { name: "tier_katanas", count: 1, weight: 1},

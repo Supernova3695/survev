@@ -1501,12 +1501,12 @@ const SkinDefs: Record<string, MeleeDef> = {
         lootImg: { sprite: "loot-melee-falchion-woodland.img" },
         worldImg: { sprite: "loot-melee-falchion-woodland.img" },
     }),
-    falchion_sapphire: defineMeleeSkin("falchion", {
-        name: "Falchion Sapphire",
+    falchion_cobalt: defineMeleeSkin("falchion", {
+        name: "Falchion Cobalt",
         noPotatoSwap: true,
         damage: 30,
-        lootImg: { sprite: "loot-melee-falchion-sapphire.img" },
-        worldImg: { sprite: "loot-melee-falchion-sapphire.img" },
+        lootImg: { sprite: "loot-melee-falchion-cobalt.img" },
+        worldImg: { sprite: "loot-melee-falchion-cobalt.img" },
     }),
 };
 

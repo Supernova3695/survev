@@ -5,6 +5,8 @@ export const MultiFactionAtlas: AtlasDef = {
     images: [
         "map/map-airdrop-03.svg",
         "map/map-airdrop-04.svg",
+        "map/map-airdrop-06.svg",
+        "map/map-airdrop-07.svg",
         "map/map-building-bridge-xlg-floor.svg",
 
         ...BuildingSprites.greenhouse,
@@ -26,12 +28,14 @@ export const MultiFactionAtlas: AtlasDef = {
 
         "map/map-crate-02f.svg",
         "map/map-crate-19.svg",
+        "map/map-crate-22.svg",
         "map/map-crate-23.svg",
         "map/map-crate-24.svg",
 
         "map/map-crate-12.svg",
         "map/map-crate-13.svg",
-        "map/map-crate-22.svg",
+        "map/map-crate-27.svg",
+        "map/map-crate-28.svg",
 
         "map/map-statue-01.svg",
         "map/map-statue-top-01.svg",
