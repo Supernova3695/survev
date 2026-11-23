@@ -12,7 +12,6 @@ const mapDef: PartialMapDef = {
         icon: "img/gui/star.svg",
         buttonCss: "btn-mode-faction-potato",
         buttonText: "50v50",
-        backgroundImg: "img/main_splash_0_7_0.png",
     },
     assets: {
         audio: [
@@ -297,7 +296,7 @@ const mapDef: PartialMapDef = {
             { name: "m4a1", count: 1, weight: 3 },
             { name: "grozas", count: 1, weight: 3 },
             { name: "awc", count: 1, weight: 2.25 },
-            { name: "tier_airdrop_potato", weight: 2.25 },
+            { name: "tier_airdrop_potato", count: 1, weight: 2.25 },
             { name: "garand", count: 1, weight: 2 },
             { name: "ots38_dual", count: 1, weight: 2 },
             { name: "spas16", count: 1, weight: 2 },

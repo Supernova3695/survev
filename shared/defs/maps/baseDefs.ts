@@ -16,7 +16,7 @@ export const Main: MapDef = {
         name: "Normal",
         icon: "",
         buttonCss: "",
-        backgroundImg: "img/main_splash.png",
+        backgroundImg: "img/splashes/main.webp",
     },
     assets: {
         audio: [
@@ -45,6 +45,12 @@ export const Main: MapDef = {
         },
         valueAdjust: 1,
         sound: { riverShore: "sand" },
+        ambience: {
+            music: "menu_music_01",
+            wind: "ambient_wind_01",
+            river: "ambient_stream_01",
+            waves: "ambient_waves_01",
+        },
         particles: { camera: "" },
         tracerColors: {},
         airdrop: {
@@ -365,6 +371,9 @@ export const Main: MapDef = {
             { name: "fireaxe", count: 1, weight: 5 }, // ?
             { name: "tier_katanas", count: 1, weight: 3 }, // ?
             { name: "stonehammer", count: 1, weight: 1 }, // ?
+        ],
+        tier_fireaxe: [
+            { name: "fireaxe", count: 1, weight: 5 },
         ],
         tier_pavilion: [
             { name: "naginata", count: 1, weight: 2 }, // ?
