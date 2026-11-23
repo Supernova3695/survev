@@ -40,6 +40,7 @@ type DefaultItems = {
 
 export interface RoleDef {
     type: "role";
+    cobaltclass: boolean;
     announce: boolean;
     killFeed?: {
         assign?: boolean;
@@ -111,6 +112,7 @@ export function createDefaultItems(e: DeepPartial<DefaultItems>): DefaultItems {
 export const RoleDefs: Record<string, RoleDef> = {
     leader: {
         type: "role",
+        cobaltclass: false,
         announce: true,
         killFeed: { assign: true, dead: true },
         sound: {
@@ -159,8 +161,60 @@ export const RoleDefs: Record<string, RoleDef> = {
             },
         }),
     },
+    leader_cobalt: {
+        type: "role",
+        cobaltclass: false,
+        announce: true,
+        killFeed: { assign: true, dead: true },
+        sound: {
+            assign: "leader_assigned_01",
+            dead: "leader_dead_01",
+        },
+        mapIcon: {
+            alive: "player-star.img",
+            dead: "skull-leader.img",
+        },
+        perks: ["leadership", "lifeline", "field_medic"],
+        defaultItems: createDefaultItems({
+            weapons: [
+                (teamcolor: FactionTeam) =>
+                    getTeamWeapon(
+                        {
+                            [FactionTeam.Red]: { type: "m1014", ammo: 8, fillInv: true },
+                            [FactionTeam.Blue]: { type: "an94", ammo: 45, fillInv: true },
+                        },
+                        teamcolor,
+                    ),
+                { type: "flare_gun", ammo: 1 },
+                (teamcolor: FactionTeam) =>
+                    getTeamWeapon(
+                        {
+                            [FactionTeam.Red]: { type: "machete_taiga", ammo: 0 },
+                            [FactionTeam.Blue]: { type: "kukri_trad", ammo: 0 },
+                        },
+                        teamcolor,
+                    ),
+                { type: "", ammo: 0 },
+            ],
+            backpack: "backpack03",
+            helmet: "helmet04_leader",
+            chest: "chest04",
+            outfit: (teamcolor: FactionTeam) =>
+                ({
+                    [FactionTeam.Red]: "outfitRedLeader",
+                    [FactionTeam.Blue]: "outfitBlueLeader",
+                })[teamcolor],
+            noDropOutfit: true,
+            inventory: {
+                "8xscope": 1,
+                bandage: 10,
+                healthkit: 1,
+            },
+        }),
+    },
     captain: {
         type: "role",
+        cobaltclass: false,
         announce: true,
         killFeed: { assign: true },
         sound: { assign: "captain_assigned_01" },
@@ -194,6 +248,7 @@ export const RoleDefs: Record<string, RoleDef> = {
     },
     lieutenant: {
         type: "role",
+        cobaltclass: false,
         announce: true,
         killFeed: { assign: true },
         sound: { assign: "lt_assigned_01" },
@@ -225,6 +280,7 @@ export const RoleDefs: Record<string, RoleDef> = {
     },
     medic: {
         type: "role",
+        cobaltclass: false,
         announce: true,
         killFeed: { assign: true },
         sound: { assign: "medic_assigned_01" },
@@ -255,6 +311,7 @@ export const RoleDefs: Record<string, RoleDef> = {
     },
     marksman: {
         type: "role",
+        cobaltclass: false,
         announce: true,
         killFeed: { assign: true },
         sound: { assign: "marksman_assigned_01" },
@@ -290,6 +347,7 @@ export const RoleDefs: Record<string, RoleDef> = {
     },
     recon: {
         type: "role",
+        cobaltclass: false,
         announce: true,
         killFeed: { assign: true },
         sound: { assign: "recon_assigned_01" },
@@ -313,6 +371,7 @@ export const RoleDefs: Record<string, RoleDef> = {
     },
     grenadier: {
         type: "role",
+        cobaltclass: false,
         announce: true,
         killFeed: { assign: true },
         sound: { assign: "grenadier_assigned_01" },
@@ -337,6 +396,7 @@ export const RoleDefs: Record<string, RoleDef> = {
     },
     bugler: {
         type: "role",
+        cobaltclass: false,
         announce: true,
         killFeed: { assign: true },
         sound: { assign: "bugler_assigned_01" },
@@ -359,6 +419,7 @@ export const RoleDefs: Record<string, RoleDef> = {
     },
     last_man: {
         type: "role",
+        cobaltclass: false,
         announce: true,
         killFeed: { assign: true },
         sound: { assign: "last_man_assigned_01" },
@@ -420,6 +481,7 @@ export const RoleDefs: Record<string, RoleDef> = {
     },
     woods_king: {
         type: "role",
+        cobaltclass: false,
         announce: false,
         killFeed: { dead: true, color: "#12ff00" },
         sound: { dead: "leader_dead_01" },
@@ -427,6 +489,7 @@ export const RoleDefs: Record<string, RoleDef> = {
     },
     kill_leader: {
         type: "role",
+        cobaltclass: false,
         announce: false,
         killFeed: { assign: true, dead: true, color: "#ff8400" },
         sound: {
@@ -436,6 +499,7 @@ export const RoleDefs: Record<string, RoleDef> = {
     },
     the_hunted: {
         type: "role",
+        cobaltclass: false,
         announce: true,
         killFeed: { assign: true, dead: true, color: "#ff8400" },
         sound: {
@@ -452,6 +516,7 @@ export const RoleDefs: Record<string, RoleDef> = {
     },
     healer: {
         type: "role",
+        cobaltclass: true,
         defaultItems: createDefaultItems({
             outfit: "outfitMedic",
             inventory: {
@@ -470,6 +535,7 @@ export const RoleDefs: Record<string, RoleDef> = {
     },
     tank: {
         type: "role",
+        cobaltclass: true,
         defaultItems: createDefaultItems({
             outfit: "outfitTank",
             chest: "chest01",
@@ -486,6 +552,7 @@ export const RoleDefs: Record<string, RoleDef> = {
     },
     sniper: {
         type: "role",
+        cobaltclass: true,
         defaultItems: createDefaultItems({
             outfit: "outfitSniper",
             inventory: {
@@ -504,6 +571,7 @@ export const RoleDefs: Record<string, RoleDef> = {
     },
     scout: {
         type: "role",
+        cobaltclass: true,
         defaultItems: createDefaultItems({
             outfit: "outfitScout",
             inventory: {
@@ -522,6 +590,7 @@ export const RoleDefs: Record<string, RoleDef> = {
     },
     demo: {
         type: "role",
+        cobaltclass: true,
         defaultItems: createDefaultItems({
             outfit: "outfitDemo",
             backpack: "backpack01",
@@ -538,6 +607,7 @@ export const RoleDefs: Record<string, RoleDef> = {
     },
     assault: {
         type: "role",
+        cobaltclass: true,
         defaultItems: createDefaultItems({
             outfit: "outfitAssault",
             inventory: {
@@ -556,6 +626,7 @@ export const RoleDefs: Record<string, RoleDef> = {
     },
     classless: {
         type: "role",
+        cobaltclass: true,
         defaultItems: createDefaultItems({
             outfit: "outfitClassless",
             helmet: "helmet04_classless",

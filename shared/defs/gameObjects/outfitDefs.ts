@@ -78,7 +78,6 @@ const SkinDefs: Record<string, OutfitDef> = {
             sprite: "loot-shirt-02.img",
             tint: 0xc76a67,
         },
-        teamId: FactionTeam.Red,
     }),
     outfitTank: defineOutfitSkin("outfitBase", {
         noDrop: true,
@@ -147,7 +146,6 @@ const SkinDefs: Record<string, OutfitDef> = {
             sprite: "loot-shirt-02.img",
             tint: 0x8dcedb,
         },
-        teamId: FactionTeam.Blue,
     }),
     outfitAssault: defineOutfitSkin("outfitBase", {
         noDrop: true,

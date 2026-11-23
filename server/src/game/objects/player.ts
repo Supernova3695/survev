@@ -12,7 +12,7 @@ import {
 import type { GunDef } from "../../../../shared/defs/gameObjects/gunDefs.ts";
 import type { MeleeDef } from "../../../../shared/defs/gameObjects/meleeDefs.ts";
 import { PerkProperties } from "../../../../shared/defs/gameObjects/perkDefs.ts";
-import type { RoleDef } from "../../../../shared/defs/gameObjects/roleDefs.ts";
+import { RoleDefs, type RoleDef } from "../../../../shared/defs/gameObjects/roleDefs.ts";
 import type { ThrowableDef } from "../../../../shared/defs/gameObjects/throwableDefs.ts";
 import { UnlockDefs } from "../../../../shared/defs/gameObjects/unlockDefs.ts";
 import { GameObjectDefs } from "../../../../shared/defs/register.ts";
@@ -284,6 +284,7 @@ export class PlayerBarn {
 
     update(dt: number) {
         let sendWinEmotes = false;
+        let cobaltclass = "";
         if (this.game.over && !this.sentWinEmotes) {
             this.sendWinEmoteTicker -= dt;
             if (this.sendWinEmoteTicker <= 0) {
@@ -327,7 +328,7 @@ export class PlayerBarn {
                 const fullAliveContext = this.game.modeManager.getAlivePlayersContext();
                 for (let i = 0; i < fullAliveContext.length; i++) {
                     const promotablePlayers = fullAliveContext[i].filter(
-                        (p) => !p.disconnected && !p.downed && !p.role,
+                        (p) => !p.disconnected && !p.downed && (!p.role && !p.cobaltclass == false),
                     );
                     if (promotablePlayers.length == 0) continue;
 
@@ -849,6 +850,7 @@ export class Player extends BaseGameObject {
 
     hasRoleHelmet = false;
     role = "";
+    cobaltclass = "";
     isKillLeader = false;
 
     /** for cobalt mode role menu, will spawn the player by force if timer runs out */
@@ -876,6 +878,7 @@ export class Player extends BaseGameObject {
 
     promoteToRole(role: string) {
         let roleDef = GameObjectDefs.typeToDef(role, "role");
+        let iscobaltclass = roleDef.cobaltclass
 
         const roleOverride = this.game.map.mapDef.gameConfig.roles?.roleOverrides?.[role];
         if (roleOverride) {
@@ -899,7 +902,13 @@ export class Player extends BaseGameObject {
                 this.chest = "";
             }
         }
-
+        // if (iscobaltclass == false) {
+        //     this.role = role;
+        //     this.cobaltclass = "";
+        // } else if (iscobaltclass == true) {
+        //     this.role = "";
+        //     this.cobaltclass = role;
+        // }
         this.role = role;
         this.inventoryDirty = true;
         this.setDirty();

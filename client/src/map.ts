@@ -129,6 +129,7 @@ export class Map {
     mapName = "" as MapDefKey;
     mapDef = {} as MapDef;
     factionMode = false;
+    factionPerkMode = false;
     potatoMode = false;
     perkMode = false;
     turkeyMode = false;
@@ -207,6 +208,7 @@ export class Map {
         }
         this.mapDef = util.cloneDeep(mapDef);
         this.factionMode = !!this.mapDef.gameMode.factionMode;
+        this.factionPerkMode = !!this.mapDef.gameMode.factionPerkMode;
         this.potatoMode = !!this.mapDef.gameMode.potatoMode;
         this.perkMode = !!this.mapDef.gameMode.perkMode;
         this.turkeyMode = !!this.mapDef.gameMode.turkeyMode;

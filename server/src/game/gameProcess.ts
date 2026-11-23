@@ -190,6 +190,7 @@ class ServerGame extends Game {
                 ip: player.client.ip,
                 findGameIp: player.client.findGameIp,
                 role: player.role,
+                class: player.cobaltclass,
             };
         });
 

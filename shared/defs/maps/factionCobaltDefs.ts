@@ -102,8 +102,9 @@ const mapDef: PartialMapDef = {
         maxPlayers: 100,
         factionMode: true,
         factions: 2,
+        factionPerkMode: true,
         perkMode: true,
-        perkModeRoles: ["scout", "sniper", "healer", "demo", "assault", "tank", "leader", "captain", "bugler", "recon", "marksman", "grenadier", "medic"],
+        perkModeRoles: ["scout", "sniper", "healer", "demo", "assault", "tank",],
     },
     /* STRIP_FROM_PROD_CLIENT:START */
     gameConfig: {
@@ -203,47 +204,6 @@ const mapDef: PartialMapDef = {
                     role: "leader",
                     circleIdx: 0,
                     wait: 50,
-                },
-                {
-                    role: "lieutenant",
-                    circleIdx: 0,
-                    wait: 54,
-                },
-                {
-                    role: "marksman",
-                    circleIdx: 0,
-                    wait: 58,
-                },
-                {
-                    role: "recon",
-                    circleIdx: 0,
-                    wait: 62,
-                },
-                {
-                    role: "grenadier",
-                    circleIdx: 0,
-                    wait: 66,
-                },
-                // {
-                //     role: () =>
-                //         util.weightedRandom([
-                //             { type: "lieutenant", weight: 1 },
-                //             { type: "marksman", weight: 1 },
-                //             { type: "recon", weight: 1 },
-                //             { type: "grenadier", weight: 1 },
-                //         ]).type,
-                //     circleIdx: 0,
-                //     wait: 54,
-                // },
-                {
-                    role: "medic",
-                    circleIdx: 0,
-                    wait: 70,
-                },
-                {
-                    role: "bugler",
-                    circleIdx: 0,
-                    wait: 74,
                 },
             ]
         },
@@ -464,9 +424,8 @@ const mapDef: PartialMapDef = {
                 barrel_01: 76,
                 silo_01: 8,
                 crate_01: 38,
-                crate_02f: 5,
-                crate_22: 5,
                 crate_03: 8,
+                class_shell_01: 20,
                 bush_01cb: 78,
                 tree_01cb: 320,
                 hedgehog_01: 24,
@@ -505,7 +464,6 @@ const mapDef: PartialMapDef = {
                 chest_03cb: 1,
                 mil_crate_02: { odds: 1 },
                 tree_02: 3,
-                class_shell_01: 55,
             },
         ],
         randomSpawns: [],
@@ -517,7 +475,6 @@ const mapDef: PartialMapDef = {
                 stone_01: "stone_01cb",
                 stone_03: "stone_03cb",
                 tree_01: "tree_01cb",
-                river_town_01: "river_town_01cb",
             },
         ],
         importantSpawns: [

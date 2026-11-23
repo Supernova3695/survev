@@ -192,6 +192,7 @@ export class GameMap {
     mapId: MapId;
 
     factionMode: boolean;
+    factionPerkMode: boolean;
     perkMode: boolean;
     turkeyMode: boolean;
     woodsMode: boolean;
@@ -291,6 +292,7 @@ export class GameMap {
             v2.create(this.width, this.height),
         );
         this.factionMode = !!this.mapDef.gameMode.factionMode;
+        this.factionPerkMode = !!this.mapDef.gameMode.factionMode;
         this.perkMode = !!this.mapDef.gameMode.perkMode;
         this.turkeyMode = !!this.mapDef.gameMode.turkeyMode;
         this.woodsMode = !!this.mapDef.gameMode.woodsMode;
@@ -1969,7 +1971,9 @@ export class GameMap {
 
         const building = new Building(this.game, type, pos, ori, layer, parentId);
 
-        if (this.perkMode && type == "bunker_twins_sublevel_01") {
+        if (this.perkMode && !this.factionPerkMode && type == "bunker_twins_sublevel_01") {
+            this.perkModeTwinsBunker = building;
+        } else if (this.perkMode && this.factionPerkMode && type == "river_town_01") {
             this.perkModeTwinsBunker = building;
         }
 
