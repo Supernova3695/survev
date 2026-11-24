@@ -138,7 +138,7 @@ export const SharedAtlas: AtlasDef = {
         "map/map-crate-mil-06.svg",
         "map/map-crate-res-01.svg",
         "map/map-crate-res-03.svg",
-        "map/map-crate-res-05.svg",
+        //"map/map-crate-res-05.svg",
 
         "map/map-decal-club-01.svg",
         "map/map-decal-club-02.svg",

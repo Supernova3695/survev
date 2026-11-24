@@ -1172,7 +1172,7 @@ const BaseDefs: Record<string, MeleeDef> = {
             equip: 1,
         },
         anim: {
-            idlePose: "falchion",
+            idlePose: "machete",
             attackAnims: ["cutReverse"],
         },
         sound: {

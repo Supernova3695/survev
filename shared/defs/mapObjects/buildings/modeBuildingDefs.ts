@@ -6424,6 +6424,8 @@ function createPillboxComplex(
     params: {
         groundTintLt?: number;
         groundTintDk?: number;
+        tree?: BuildingChildObjType;
+        pillbox?: BuildingChildObjType;
         loot_tier?: BuildingChildObjType;
     },
 ): BuildingDef {
@@ -6452,35 +6454,8 @@ function createPillboxComplex(
             },
         ],
         floor: {
-            surfaces: [
-                // {
-                //     type: "warehouse",
-                //     collision: [
-                //         collider.createAabbExtents(
-                //             v2.create(0.25, 2.25),
-                //             v2.create(20.5, 21.0),
-                //         ),
-                //     ],
-                // },
-                // {
-                //     type: "warehouse",
-                //     collision: [
-                //         collider.createAabbExtents(
-                //             v2.create(0.25, -0.5),
-                //             v2.create(38.5, 18.5),
-                //         ),
-                //     ],
-                // },
-            ],
-            imgs: [
-                // {
-                //     sprite: "map-building-pillbox-floor.img",
-                //     pos: v2.create(0, 0),
-                //     scale: 0.5,
-                //     alpha: 1,
-                //     tint: 0xffffff,
-                // },
-            ],
+            surfaces: [],
+            imgs: [],
         },
         ceiling: {
             zoomRegions: [
@@ -6491,7 +6466,7 @@ function createPillboxComplex(
         },
         mapObjects: [
             {
-                type: "pillbox_01",
+                type: params.pillbox || "pillbox_01",
                 pos: v2.create(0, 0),
                 scale: 1,
                 ori: 1,
@@ -6584,13 +6559,13 @@ function createPillboxComplex(
                 ori: 0,
             },
             {
-                type: "tree_08f",
+                type: params.tree || "tree_08f",
                 pos: v2.create(50, 30),
                 scale: 1.5,
                 ori: 0,
             },
             {
-                type: "tree_08f",
+                type: params.tree || "tree_08f",
                 pos: v2.create(58, 25),
                 scale: 1.5,
                 ori: 0,
@@ -6608,7 +6583,7 @@ function createPillboxComplex(
                 ori: 0,
             },
             {
-                type: "tree_08f",
+                type: params.tree || "tree_08f",
                 pos: v2.create(52, -26),
                 scale: 1.5,
                 ori: 0,
@@ -6629,6 +6604,12 @@ function createPillboxComplex(
                 type: "barrel_01",
                 pos: v2.create(53, -12),
                 scale: 1,
+                ori: 1,
+            },
+            {
+                type: params.tree || "tree_08f",
+                pos: v2.create(62, -8),
+                scale: 1.5,
                 ori: 1,
             },
             {
@@ -9597,6 +9578,7 @@ function createFactionFortressDesert(overrides: DeepPartial<BuildingDef>, params
 
 function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
     fortress_bunker?: BuildingChildObjType;
+    pillbox_complex?: BuildingChildObjType;
     loot_tier_center?: BuildingChildObjType;
     loot_tier_center2?: BuildingChildObjType;
     loot_tier_docks?: BuildingChildObjType;
@@ -12216,7 +12198,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
             },
             //north town area
             {
-                type: "pillbox_complex_01",
+                type: params.pillbox_complex || "pillbox_complex_01",
                 pos: v2.create(120, 215),
                 scale: 1,
                 ori: 2,
@@ -12401,7 +12383,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
             },
             //south town area
             {
-                type: "pillbox_complex_01",
+                type: params.pillbox_complex || "pillbox_complex_01",
                 pos: v2.create(-120, -215),
                 scale: 1,
                 ori: 0,
@@ -13782,6 +13764,10 @@ function createFactionFortress2Desert(overrides: DeepPartial<BuildingDef>, param
             collider.createAabbExtents(v2.create(-42, 0), v2.create(22, 40)),
             collider.createAabbExtents(v2.create(-16, 34), v2.create(30, 25)),
             collider.createAabbExtents(v2.create(-30, 60), v2.create(16, 10)),
+            collider.createAabbExtents(v2.create(46, -37), v2.create(35, 7)),
+            collider.createAabbExtents(v2.create(46, -64), v2.create(35, 10)),
+            collider.createAabbExtents(v2.create(26, -50), v2.create(15, 10)),
+            collider.createAabbExtents(v2.create(68, -50), v2.create(13, 10)),
         ],
         mapGroundPatches: [
             {
@@ -13808,6 +13794,30 @@ function createFactionFortress2Desert(overrides: DeepPartial<BuildingDef>, param
                 roughness: 0.15,
                 offsetDist: 1,
             },
+            {
+                bound: collider.createAabbExtents(v2.create(46, -37), v2.create(35, 7)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(46, -64), v2.create(35, 10)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(26, -50), v2.create(15, 10)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(68, -50), v2.create(13, 10)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
         ],
         ori: 0,
         ceiling: {
@@ -13825,16 +13835,53 @@ function createFactionFortress2Desert(overrides: DeepPartial<BuildingDef>, param
                 {
                     type: "asphalt",
                     collision: [
-                        collider.createAabbExtents(
-                            v2.create(0, 0),
-                            v2.create(40, 40),
-                        ),
+                        collider.createAabbExtents(v2.create(22, 8), v2.create(10, 32)),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(-42, 0), v2.create(22, 40)),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(-16, 34), v2.create(30, 25)),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(-30, 60), v2.create(16, 10)),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(46, -37), v2.create(35, 7)),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(46, -64), v2.create(35, 10)),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(26, -50), v2.create(15, 10)),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(68, -50), v2.create(13, 10)),
                     ],
                 },
             ],
-            imgs: [
-                
-            ],
+            imgs: [],
         },
         mapObjects: [
             {
@@ -14134,6 +14181,131 @@ function createFactionFortress2Desert(overrides: DeepPartial<BuildingDef>, param
                 pos: v2.create(20.5, 36),
                 scale: 1,
                 ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(17, -60),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(23, -43),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(23, -60),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(77, -60),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "shack_02",
+                pos: v2.create(60, -60),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(28.5, -59),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(28.5, -64),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(45, -66),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(49.5, -60),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(49, -63.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(34, -39),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(56, -39),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(61, -37),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(60, -41.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(39, -37),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(61, -71),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(70, -71),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_06",
+                pos: v2.create(46, -49),
+                scale: 1,
+                ori: 0,
+                inheritOri: true,
             },
         ],
     };
@@ -16317,6 +16489,43 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
             },
         ],
     },
+
+    //Multi faction spring
+
+    faction_fortress_02sp: createFactionFortress2({}, {
+        groundTintPath: 0x334a0e,
+        groundTintGp: 0x253210,
+        pillbox_complex: "pillbox_complex_01sp",
+        fortress_bunker: "bunker_structure_11",
+        loot_tier_center: "loot_tier_surviv",
+        loot_tier_center2: "loot_tier_guns",
+        loot_tier_docks: "loot_tier_guns",
+        south_statue: "statue_structure_red",
+        east_statue: "statue_structure_blue",
+        west_statue: "statue_structure_green",
+        north_statue: "statue_structure_orange",
+        north_west_center_object: "crate_19f",
+        north_east_center_object: "crate_23f",
+        south_west_center_object: "crate_02f",
+        south_east_center_object: "crate_22",
+        north_faction_crate_1: "crate_23f",
+        north_faction_crate_2: "crate_19f",
+        south_faction_crate_1: "crate_02f",
+        south_faction_crate_2: "crate_22",
+        east_faction_crate_1: "crate_22",
+        east_faction_crate_2: "crate_23f",
+        west_faction_crate_1: "crate_02f",
+        west_faction_crate_2: "crate_19f",
+    }),
+    pillbox_complex_01sp: createPillboxComplex ({}, {
+        groundTintLt: 0x334a0e,
+        groundTintDk: 0x253210,
+        tree: "tree_08sp",
+    }),
+    logging_complex_01fsp: createLoggingComplexFaction({ teamId: 3 }, {
+        groundTintLt: 0x334a0e,
+        groundTintDk: 0x253210,
+    }),
 
     // Halloween
 

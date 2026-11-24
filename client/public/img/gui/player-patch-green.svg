@@ -6,7 +6,7 @@
    version="1.1"
    id="svg1"
    sodipodi:docname="player-patch-green.svg"
-   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +23,7 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="4.83125"
-     inkscape:cx="80"
+     inkscape:cx="80.103493"
      inkscape:cy="80"
      inkscape:window-width="1920"
      inkscape:window-height="991"
@@ -38,6 +38,6 @@
      stroke-width="2.646"
      stroke-opacity="0.439"
      id="path1"
-     style="fill:#00cc11;fill-opacity:1"
+     style="fill:#00a80d;fill-opacity:1"
      sodipodi:nodetypes="cccccccccc" />
 </svg>

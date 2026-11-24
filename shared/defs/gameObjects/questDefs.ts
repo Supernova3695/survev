@@ -948,6 +948,20 @@ export const QuestDefs: Record<string, QuestDef> = {
         mapFilterType: "only_on",
         maps: [MapId.Faction, MapId.FactionPotato],
     },
+    quest_faction_fortress_kills: {
+        type: "quest",
+        event: "kill",
+        target: 3,
+        xp: 30,
+        filters: [
+            {
+                type: "building",
+                buildingType: ["faction_fortress_01", "faction_fortress_02", "faction_fortress_02sp"],
+            },
+        ],
+        mapFilterType: "only_on",
+        maps: [MapId.MultiFaction],
+    },
     quest_desert_town_kills: {
         type: "quest",
         event: "kill",
@@ -989,6 +1003,8 @@ export const QuestDefs: Record<string, QuestDef> = {
                 type: "building",
                 buildingType: [
                     "logging_complex_01",
+                    "logging_complex_01f",
+                    "logging_complex_01fsp",
                     "logging_complex_01sp",
                     "logging_complex_01su",
                 ],
