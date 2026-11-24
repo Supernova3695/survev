@@ -308,7 +308,7 @@ export const GameConfig = {
         fallOff: 1.25,
     },
     groupColors: [0xffff00, 0xff00ff, 0xffff, 0xff5400],
-    teamColors: [0xcc0000, 0x7eff, 0x00CC00, 0xFFA500],
+    teamColors: [0xcc0000, 0x7eff, 0x00a90e, 0xFFA500], //faction colors
     bullet: {
         maxReflect: 3,
         reflectDistDecay: 1.5,

@@ -285,7 +285,7 @@ const mapDef: PartialMapDef = {
         customSpawnRules: {
             locationSpawns: [
                 {
-                    type: "faction_fortress_01d",
+                    type: "faction_fortress_02d",
                     pos: v2.create(0.51, 0.5),
                     rad: 50,
                     retryOnFailure: true,
@@ -348,7 +348,7 @@ const mapDef: PartialMapDef = {
                 stone_03: "stone_03b",
             },
         ],
-        importantSpawns: ["desert_town_01", "desert_town_02", "faction_fortress_01d"],
+        importantSpawns: ["desert_town_01", "desert_town_02", "faction_fortress_02d"],
     },
     /* STRIP_FROM_PROD_CLIENT:END */
 };

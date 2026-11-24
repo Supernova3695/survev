@@ -1150,6 +1150,59 @@ const BaseDefs: Record<string, MeleeDef> = {
             tint: 0xffffff,
         },
     },
+    falchion: {
+        name: "Falchion",
+        type: "melee",
+        quality: 1,
+        cleave: true,
+        autoAttack: false,
+        switchDelay: 0.25,
+        damage: 30,
+        obstacleDamage: 1,
+        attack: {
+            offset: {
+                x: 2.25,
+                y: 0,
+            },
+            rad: 1.75,
+            damageTimes: [0.1],
+            cooldownTime: 0.225,
+        },
+        speed: {
+            equip: 1,
+        },
+        anim: {
+            idlePose: "machete",
+            attackAnims: ["cutReverse"],
+        },
+        sound: {
+            pickup: "frag_pickup_01",
+            swing: "knife_swing_01",
+            deploy: "knife_deploy_01",
+            playerHit: "knife_hit_01",
+        },
+        lootImg: {
+            sprite: "loot-melee-falchion.img",
+            tint: 0xffffff,
+            border: "loot-circle-outer-02.img",
+            borderTint: 0xffffff,
+            scale: 0.3,
+            rot: 0.9,
+        },
+        worldImg: {
+            sprite: "loot-melee-falchion.img",
+            pos: {
+                x: 2,
+                y: -65,
+            },
+            rot: 1.885,
+            scale: {
+                x: 0.325,
+                y: 0.325,
+            },
+            tint: 0xffffff,
+        },
+    },
 };
 
 const SkinDefs: Record<string, MeleeDef> = {
@@ -1434,19 +1487,26 @@ const SkinDefs: Record<string, MeleeDef> = {
         lootImg: { sprite: "loot-melee-cutlass-forest.img" },
         worldImg: { sprite: "loot-melee-cutlass-forest.img" },
     }),
-    falchion: defineMeleeSkin("cutlass", {
+    falchion: defineMeleeSkin("falchion", {
         name: "Falchion",
         noPotatoSwap: true,
         damage: 33,
         lootImg: { sprite: "loot-melee-falchion.img" },
         worldImg: { sprite: "loot-melee-falchion.img" },
     }),
-    falchion_woodland: defineMeleeSkin("cutlass", {
+    falchion_woodland: defineMeleeSkin("falchion", {
         name: "Falchion Woodland",
         noPotatoSwap: true,
         damage: 30,
         lootImg: { sprite: "loot-melee-falchion-woodland.img" },
         worldImg: { sprite: "loot-melee-falchion-woodland.img" },
+    }),
+    falchion_cobalt: defineMeleeSkin("falchion", {
+        name: "Falchion Cobalt",
+        noPotatoSwap: true,
+        damage: 30,
+        lootImg: { sprite: "loot-melee-falchion-cobalt.img" },
+        worldImg: { sprite: "loot-melee-falchion-cobalt.img" },
     }),
 };
 

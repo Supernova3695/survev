@@ -28,12 +28,14 @@ export function getConfig(isProduction: boolean, dir: string) {
             host: "127.0.0.1",
             port: 3000,
         },
-        regions: {},
+        regions: {
+            
+        },
         proxies: {},
         modes: [
             { mapName: "remnant", teamMode: TeamMode.Solo, enabled: true },
             { mapName: "faction", teamMode: TeamMode.Duo, enabled: true },
-            { mapName: "faction_multi", teamMode: TeamMode.Squad, enabled: true },
+            { mapName: "faction_multi_spring", teamMode: TeamMode.Squad, enabled: true },
         ],
         clientTheme: "faction",
         passType: "pass_survivr2",

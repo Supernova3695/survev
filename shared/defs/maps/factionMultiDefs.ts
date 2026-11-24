@@ -5,7 +5,7 @@ import type { MapDef } from "../mapDefs.ts";
 import { Main, type PartialMapDef } from "./baseDefs.ts";
 
 const mapDef: PartialMapDef = {
-    mapId: GameConfig.MapId.Faction,
+    mapId: GameConfig.MapId.MultiFaction,
     desc: {
         name: "Multifactions",
         icon: "img/gui/star.svg",
@@ -79,7 +79,7 @@ const mapDef: PartialMapDef = {
             { name: "vault_change_03", channel: "sfx" },
             { name: "watering_01", channel: "sfx" },
         ],
-        atlases: ["loadout", "shared", "faction", "multifaction"],
+        atlases: ["loadout", "shared", "multifaction"],
     },
     biome: {
         colors: {
@@ -95,7 +95,7 @@ const mapDef: PartialMapDef = {
         },
     },
     gameMode: {
-        maxPlayers: 120,
+        maxPlayers: 100,
         factionMode: true,
         multiFactionMode: true,
         factions: 4,
@@ -113,6 +113,7 @@ const mapDef: PartialMapDef = {
             ],
         },
         planes: {
+            crates: [{ name: "airdrop_crate_03mf", weight: 1 }],
             timings: [
                 {
                     circleIdx: 1,
@@ -220,7 +221,6 @@ const mapDef: PartialMapDef = {
                     },
                 },
             ],
-            crates: [{ name: "airdrop_crate_03", weight: 1 }],
         },
         roles: {
             timings: [
@@ -410,6 +410,76 @@ const mapDef: PartialMapDef = {
             { name: "8xscope", count: 1, weight: 1 },
             { name: "15xscope", count: 1, weight: 0.01 },
         ],
+        tier_mf_airdrop_uncommon: [
+            { name: "vector", count: 1, weight: 2 },
+            { name: "vss", count: 1, weight: 2 },
+            { name: "m39", count: 1, weight: 2 },
+            { name: "mk12", count: 1, weight: 2 },
+            { name: "saiga", count: 1, weight: 2 },
+            { name: "scout_elite", count: 1, weight: 2 },
+            { name: "bar", count: 1, weight: 2 },
+            { name: "scar", count: 1, weight: 1.5 },
+            { name: "mosin", count: 1, weight: 1 },
+            { name: "qbb97", count: 1, weight: 1 },
+            { name: "deagle", count: 1, weight: 1 },
+            { name: "ots38_dual", count: 1, weight: 1 },
+            { name: "garand", count: 1, weight: 0.5 },
+            { name: "sv98", count: 1, weight: 0.5 },
+            { name: "m9", count: 1, weight: 0.01 },
+        ],
+        tier_mf_airdrop_rare: [
+            { name: "scorpion", count: 1, weight: 3 },
+            { name: "m4a1", count: 1, weight: 3 },
+            { name: "grozas", count: 1, weight: 3 },
+            { name: "awc", count: 1, weight: 2.25 },
+            { name: "garand", count: 1, weight: 2 },
+            { name: "ots38_dual", count: 1, weight: 2 },
+            { name: "spas16", count: 1, weight: 2 },
+            { name: "sv98", count: 1, weight: 2 },
+            { name: "barrett", count: 1, weight: 0.5 },
+            { name: "ash12", count: 1, weight: 0.5 },
+            { name: "p30l_dual", count: 1, weight: 0.5 },
+            { name: "deagle_dual", count: 1, weight: 0.5 },
+            { name: "pkp", count: 1, weight: 0.25 },
+            { name: "m249", count: 1, weight: 0.25 },
+        ],
+        tier_mf_airdrop_mythic: [
+            { name: "usas", count: 1, weight: 1 },
+            { name: "scarssr", count: 1, weight: 1 },
+            { name: "sv98", count: 1, weight: 1 },
+            { name: "deagle_dual", count: 1, weight: 1 },
+            { name: "p30l_dual", count: 1, weight: 1 },
+            { name: "pkp", count: 1, weight: 1.5 },
+            { name: "m249", count: 1, weight: 1.5 },
+            { name: "barrett", count: 1, weight: 1 },
+            { name: "awc", count: 1, weight: 0.75 },
+        ],
+        tier_mf_airdrop_melee: [
+            { name: "", count: 1, weight: 2 },
+            { name: "tier_katanas", count: 1, weight: 3 },
+            { name: "naginata", count: 1, weight: 1 },
+            { name: "fireaxe", count: 1, weight: 1 },
+            { name: "sledgehammer", count: 1, weight: 1 },
+            { name: "pan", count: 1, weight: 0.5 },
+        ],
+        tier_mf_airdrop_melee_light: [
+            { name: "", count: 1, weight: 2 },
+            { name: "falchion", count: 1, weight: 3 },
+            { name: "falchion_cobalt", count: 1, weight: 1 },
+            { name: "cutlass", count: 1, weight: 2 },
+        ],
+        tier_mf_airdrop_outfits: [
+            { name: "", count: 1, weight: 10 },
+            { name: "outfitGalaxy", count: 1, weight: 4 },
+            { name: "outfitHeaven", count: 1, weight: 4 },
+            { name: "outfitGhillie", count: 1, weight: 0.5, },
+        ],
+        tier_mf_airdrop_scopes: [
+            { name: "", count: 1, weight: 12 },
+            { name: "4xscope", count: 1, weight: 8 },
+            { name: "8xscope", count: 1, weight: 2 },
+            { name: "15xscope", count: 1, weight: 0.1 },
+        ],
         tier_ammo_crate: [
             { name: "9mm", count: 60, weight: 3 },
             { name: "762mm", count: 60, weight: 3 },
@@ -446,11 +516,17 @@ const mapDef: PartialMapDef = {
         tier_safe: [
             { name: "tier_airdrop_uncommon", count: 1, weight: 9 },
             { name: "tier_airdrop_rare", count: 1, weight: 1 },
-        ]
+        ],
+        tier_faction_fortress_melee: [
+            { name: "tier_katanas", count: 1, weight: 4},
+            { name: "fireaxe", count: 1, weight: 20},
+            { name: "naginata", count: 1, weight: 1},
+            { name: "sledgehammer", count: 1, weight: 0.1},
+        ],
     },
     mapGen: {
         map: {
-            baseWidth: 512, //530
+            baseWidth: 512,
             baseHeight: 512,
             scale: { small: 1.5, large: 1.5 },
             extension: 250, //112
@@ -458,11 +534,22 @@ const mapDef: PartialMapDef = {
             grassInset: 18,
             rivers: {
                 lakes: [
+                    // {
+                    //     odds: 1,
+                    //     innerRad: 60,
+                    //     outerRad: 95,
+                    //     centerObj: "faction_fortress_01",
+                    //     spawnBound: {
+                    //         pos: v2.create(0.50, 0.50),
+                    //         rad: 20,
+                    //     },
+                    // },
                     {
                         odds: 1,
-                        innerRad: 60,
-                        outerRad: 95,
-                        centerObj: "faction_fortress_01",
+                        innerRad: 115,
+                        outerRad: 140,
+                        centerObj: "faction_fortress_02",
+                        noRiverObjs: false,
                         spawnBound: {
                             pos: v2.create(0.50, 0.50),
                             rad: 20,
@@ -478,11 +565,11 @@ const mapDef: PartialMapDef = {
         },
         places: [
             { 
-                name: "Riverside", 
+                name: "Lakeside", 
                 pos: v2.create(0.51, 0.5) 
             },
             {
-                name: "Todesfelde",
+                name: "Fowl Forest",
                 pos: v2.create(0.84, 0.18),
             },
             { 
@@ -505,6 +592,12 @@ const mapDef: PartialMapDef = {
         },
         customSpawnRules: {
             locationSpawns: [
+                {
+                    type: "logging_complex_01f",
+                    pos: v2.create(0.15, 0.85),
+                    rad: 40,
+                    retryOnFailure: true,
+                },
                 {
                     type: "faction_base_red",
                     pos: v2.create(0.25, 0.25),
@@ -535,43 +628,41 @@ const mapDef: PartialMapDef = {
         densitySpawns: [
             {
                 stone_01: 350,
-                barrel_01: 76,
+                barrel_01: 80,
                 silo_01: 8,
-                crate_01: 38,
-                crate_02f: 6,
-                crate_22: 6,
-                crate_19f: 6,
-                crate_23f: 6,
-                crate_03: 8,
-                bush_01: 78,
-                tree_08f: 320,
+                crate_01: 42,
+                crate_02f: 7,
+                crate_22: 7,
+                crate_19f: 7,
+                crate_23f: 7,
+                crate_03: 10,
+                bush_01: 100,
+                tree_08f: 550,
                 hedgehog_01: 24,
-                container_01: 5,
-                container_02: 5,
-                container_03: 5,
-                container_04: 5,
-                shack_01: 7,
-                outhouse_01: 5,
-                loot_tier_1: 24,
+                container_01: 7,
+                container_02: 7,
+                container_03: 7,
+                container_04: 7,
+                shack_01: 8,
+                outhouse_01: 7,
+                loot_tier_1: 30,
                 loot_tier_beach: 4,
             },
         ],
         fixedSpawns: [
             {
                 warehouse_01f: 6,
-                house_red_01: 4,
-                house_red_02: 4,
-                barn_01: 4,
+                house_red_01: 6,
+                house_red_02: 6,
+                barn_01: 5,
                 barn_02: 1,
                 bank_01: 1,
                 police_01: 1,
-                logging_complex_02f: 1,
-                workshop_complex_01: 1,
                 teahouse_01: 2,
-                hut_01: 4,
+                hut_01: 8,
                 hut_02: 1,
-                shack_03a: 2,
-                shack_03b: 3,
+                shack_03a: 5,
+                shack_03b: 6,
                 greenhouse_01: 1,
                 cache_01f: 1,
                 cache_02f: 1,
@@ -596,15 +687,18 @@ const mapDef: PartialMapDef = {
                 stone_01: "stone_01f",
                 stone_03: "stone_03f",
                 tree_01: "tree_08f",
+                tree_07: "tree_08f",
+                crate_19: "crate_19f"
             },
         ],
         importantSpawns: [
             "faction_fortress_01",
+            "faction_fortress_02",
             "police_01",
             "bank_01",
             "mansion_structure_01",
             "warehouse_complex_01",
-            "logging_complex_02f"
+            "logging_complex_01f",
         ],
     },
     /* STRIP_FROM_PROD_CLIENT:END */

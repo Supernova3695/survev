@@ -830,6 +830,392 @@ function createLoggingComplex(
     return util.mergeDeep(baseDef, overrides);
 }
 
+function createLoggingComplexFaction(
+    overrides: DeepPartial<BuildingDef>,
+    params: {
+        groundTintLt?: number;
+        groundTintDk?: number;
+    },
+): BuildingDef {
+    const baseDef: BuildingDef = {
+        type: "building",
+        map: { display: true, shapes: [] },
+        terrain: { grass: true, beach: false, spawnPriority: 10 },
+        mapObstacleBounds: [
+            collider.createAabbExtents(v2.create(0, -4), v2.create(55, 50)),
+        ],
+        bridgeLandBounds: [
+            collider.createAabbExtents(v2.create(0, -4), v2.create(55, 50)),
+        ],
+        mapGroundPatches: [
+            {
+                bound: collider.createAabbExtents(v2.create(0, 0), v2.create(55, 55)),
+                color: params.groundTintLt || 0x4f4810,
+                roughness: 0.05,
+                offsetDist: 0.5,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(-28.5, 7), v2.create(7, 5)),
+                color: params.groundTintDk || 0x5b5a0b,
+                roughness: 0.05,
+                offsetDist: 0.5,
+            },
+            {
+                bound: collider.createAabbExtents(
+                    v2.create(-24.5, -35),
+                    v2.create(5.5, 4.5),
+                ),
+                color: params.groundTintDk || 0x5b5a0b,
+                roughness: 0.05,
+                offsetDist: 0.5,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(20, 10), v2.create(20, 30)),
+                color: params.groundTintDk || 0x5b5a0b,
+                roughness: 0.05,
+                offsetDist: 0.5,
+            },
+        ],
+        floor: {
+            surfaces: [
+                {
+                    type: "grass",
+                    collision: [
+                        collider.createAabbExtents(v2.create(0, 0), v2.create(55, 55)),
+                    ],
+                },
+            ],
+            imgs: [],
+        },
+        ceiling: { zoomRegions: [], imgs: [] },
+        mapObjects: [
+            {
+                type: "container_04",
+                pos: v2.create(3.75, 14),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({ crate_01: 4, crate_19: 1 }),
+                pos: v2.create(-1.35, 10.25),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: randomObstacleType({ crate_01: 4, crate_19: 1 }),
+                pos: v2.create(-6, 12.25),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-2, 14.5),
+                scale: 0.9,
+                ori: 0,
+            },
+            {
+                type: "warehouse_02",
+                pos: v2.create(20, 10),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({ crate_01: 4, crate_19: 1 }),
+                pos: v2.create(35, 24.25),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: randomObstacleType({ crate_01: 4, crate_19: 1 }),
+                pos: v2.create(35, 29),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: randomObstacleType({ crate_01: 4, crate_19: 1 }),
+                pos: v2.create(39.75, 27),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "tree_07",
+                pos: v2.create(47, 13),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_02",
+                pos: v2.create(50.5, 9.5),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "bunker_structure_06",
+                pos: v2.create(38, -12.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(21, -32),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(21, -37.5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "tree_07",
+                pos: v2.create(45.5, -31.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_07",
+                pos: v2.create(40.5, -36.5),
+                scale: 1.1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({ crate_01: 4, crate_19: 1 }),
+                pos: v2.create(21.75, -50),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: randomObstacleType({ crate_01: 4, crate_19: 1 }),
+                pos: v2.create(26.75, -49),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "tree_02",
+                pos: v2.create(44.5, -50.5),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(-9, 34),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_02",
+                pos: v2.create(-13.5, 35.5),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(-16.5, 32),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(-20, 36),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(-24.5, 33),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(-31.5, 37),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(-32.5, 32),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(-40, 35.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(-44.5, 32.5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "woodpile_02",
+                pos: v2.create(-33.5, 23.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "woodpile_02",
+                pos: v2.create(-42.75, 21.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({ crate_01: 4, crate_19: 1 }),
+                pos: v2.create(-30.5, 9),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "chest_02",
+                pos: v2.create(-30.5, 4.75),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({ crate_01: 4, crate_19: 1 }),
+                pos: v2.create(-25.75, 7),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "woodpile_02",
+                pos: v2.create(-14.5, 0.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "woodpile_02",
+                pos: v2.create(-21, -8.75),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-36.5, -9),
+                scale: 0.9,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-34, -11.5),
+                scale: 0.9,
+                ori: 0,
+            },
+            {
+                type: "outhouse_01",
+                pos: v2.create(-48.5, -5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({ outhouse_01: 5, outhouse_02: 1 }),
+                pos: v2.create(-48.5, -14.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "woodpile_01",
+                pos: v2.create(-51, -20.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({ crate_01: 4, crate_19: 1 }),
+                pos: v2.create(-26.75, -36),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: randomObstacleType({ crate_01: 4, crate_19: 1 }),
+                pos: v2.create(-22, -34),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(-14.5, -20),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(-11.5, -23),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "tree_09",
+                pos: v2.create(-15.5, -24),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "woodpile_02",
+                pos: v2.create(-37, -34),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "woodpile_02",
+                pos: v2.create(-31, -47),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "woodpile_02",
+                pos: v2.create(-18.75, -45.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-2.5, -35.75),
+                scale: 0.9,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(0.75, -37.5),
+                scale: 0.9,
+                ori: 0,
+            },
+            {
+                type: "tree_07",
+                pos: v2.create(1, -33),
+                scale: 1.2,
+                ori: 0,
+            },
+        ],
+    };
+    return util.mergeDeep(baseDef, overrides);
+}
+
 function createLoggingComplex2(
     overrides: DeepPartial<BuildingDef>,
     params: {
@@ -5246,2020 +5632,6 @@ function createWorkshopComplex(overrides: DeepPartial<BuildingDef>): BuildingDef
     return util.mergeDeep(baseDef, overrides);
 }
 
-function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
-    fortress_bunker?: BuildingChildObjType;
-    groundTintGp?: number;
-    groundTintPath?: number;
-    concreteColor?: number;
-    north_statue?: BuildingChildObjType;
-    south_statue?: BuildingChildObjType;
-    east_statue?: BuildingChildObjType;
-    west_statue?: BuildingChildObjType;
-    north_west_center_object?: BuildingChildObjType;
-    north_east_center_object?: BuildingChildObjType;
-    south_west_center_object?: BuildingChildObjType;
-    south_east_center_object?: BuildingChildObjType;
-    north_faction_crate_1?: BuildingChildObjType;
-    north_faction_crate_2?: BuildingChildObjType;
-    south_faction_crate_1?: BuildingChildObjType;
-    south_faction_crate_2?: BuildingChildObjType;
-    east_faction_crate_1?: BuildingChildObjType;
-    east_faction_crate_2?: BuildingChildObjType;
-    west_faction_crate_1?: BuildingChildObjType;
-    west_faction_crate_2?: BuildingChildObjType;
-}): BuildingDef {
-    const baseDef: BuildingDef = {
-        type: "building",
-        map: {
-            display: true,
-            shapes: [
-                {
-                    collider: collider.createAabbExtents(
-                        v2.create(0, 0),
-                        v2.create(-35, -35),
-                    ),
-                    color: 0x3a3a3a,
-                },
-                { //west side docks
-                    collider: collider.createAabbExtents(
-                        v2.create(150.75, 1.5),
-                        v2.create(30, 54.5),
-                    ),
-                    color: 0x3a3a3a,
-                },
-                {
-                    collider: collider.createAabbExtents(
-                        v2.create(157.5, 65),
-                        v2.create(23, 10),
-                    ),
-                    color: 0x3a3a3a,
-                },
-                {
-                    collider: collider.createAabbExtents(
-                        v2.create(191, -31.0),
-                        v2.create(10.5, 21.5),
-                    ),
-                    color: 0x3a3a3a,
-                },
-                { //east side docks
-                    collider: collider.createAabbExtents(
-                        v2.create(-150.75, 1.5),
-                        v2.create(30, 54.5),
-                    ),
-                    color: 0x3a3a3a,
-                },
-                {
-                    collider: collider.createAabbExtents(
-                        v2.create(-157.5, 65),
-                        v2.create(23, 10),
-                    ),
-                    color: 0x3a3a3a,
-                },
-                {
-                    collider: collider.createAabbExtents(
-                        v2.create(-191, -31.0),
-                        v2.create(10.5, 21.5),
-                    ),
-                    color: 0x3a3a3a,
-                },
-                { //faction statue map sprite
-                    collider: collider.createAabbExtents(
-                        v2.create(130, 0),
-                        v2.create(4.4, 4.4),
-                    ),
-                    color: 0x575757,
-                },
-                {
-                    collider: collider.createAabbExtents(
-                        v2.create(-130, 0),
-                        v2.create(4.4, 4.4),
-                    ),
-                    color: 0x575757,
-                },
-                {
-                    collider: collider.createAabbExtents(
-                        v2.create(0, 130),
-                        v2.create(4.4, 4.4),
-                    ),
-                    color: 0x575757,
-                },
-                {
-                    collider: collider.createAabbExtents(
-                        v2.create(0, -130),
-                        v2.create(4.4, 4.4),
-                    ),
-                    color: 0x575757,
-                },
-            ],
-        },
-        terrain: {
-            spawnPriority: 100,
-            grass: true,
-            beach: false
-        },
-        mapObstacleBounds: [
-            collider.createAabbExtents(v2.create(0, 0), v2.create(45, 45)),
-            collider.createAabbExtents(v2.create(80, 0), v2.create(40, 18)),//bridge
-            collider.createAabbExtents(v2.create(-80, 0), v2.create(40, 18)),//bridge
-            collider.createAabbExtents(v2.create(0, 80), v2.create(18, 40)),//bridge
-            collider.createAabbExtents(v2.create(0, -80), v2.create(18, 40)),//bridge
-            //east side faction area clearing
-            collider.createAabbExtents(v2.create(160, 8), v2.create(40, 65)),
-            //west side faction area clearing
-            collider.createAabbExtents(v2.create(-160, 8), v2.create(40, 65)),
-            //north side faction area clearing
-            collider.createAabbExtents(v2.create(0, 160), v2.create(8, 45)),
-            collider.createAabbExtents(v2.create(-30, 140), v2.create(18, 20)),//lower house
-            collider.createAabbExtents(v2.create(-12, 141), v2.create(7, 2)),//path to lower house
-            collider.createAabbExtents(v2.create(-33, 180), v2.create(18, 20)),//upper house
-            collider.createAabbExtents(v2.create(-12, 170), v2.create(7, 2)),//path to upper house
-            collider.createAabbExtents(v2.create(12, 160), v2.create(7, 2)),//path to barn
-            collider.createAabbExtents(v2.create(16, 160), v2.create(5, 7)),//barn entrance
-            collider.createAabbExtents(v2.create(32, 160), v2.create(16.5, 28)),//barn
-            collider.createAabbExtents(v2.create(32, 125), v2.create(9, 6)),//lower shack
-            collider.createAabbExtents(v2.create(28, 195), v2.create(9, 6)),//upper shack
-            collider.createAabbExtents(v2.create(-25, 208), v2.create(12.5, 8)),//grass patch
-            //south side faction area clearing
-            collider.createAabbExtents(v2.create(0, -160), v2.create(8, 45)),
-            collider.createAabbExtents(v2.create(-30, -140), v2.create(18, 20)),//upper house
-            collider.createAabbExtents(v2.create(-12, -139), v2.create(7, 2)),//path to upper house
-            collider.createAabbExtents(v2.create(-30, -180), v2.create(18, 20)),//lower house
-            collider.createAabbExtents(v2.create(-12, -190), v2.create(7, 2)),//path to lower house
-            collider.createAabbExtents(v2.create(12, -160), v2.create(7, 2)),//path to barn
-            collider.createAabbExtents(v2.create(16, -160), v2.create(5, 7)),//barn entrance
-            collider.createAabbExtents(v2.create(32, -160), v2.create(16.5, 28)),//barn
-            collider.createAabbExtents(v2.create(28, -125), v2.create(9, 6)),//upper shack
-            collider.createAabbExtents(v2.create(32, -195), v2.create(9, 6)),//lower shack
-            collider.createAabbExtents(v2.create(-25, -208), v2.create(12.5, 8)),//grass patch
-        ],
-        mapGroundPatches: [
-            {//cross road
-                bound: collider.createAabbExtents(v2.create(0, 0), v2.create(6, 200)),
-                color: params.groundTintPath || 0x653313,
-                roughness: 0.05,
-                offsetDist: 1,
-            },
-            {
-                bound: collider.createAabbExtents(v2.create(-7.5, 141), v2.create(9, 2)),
-                color: params.groundTintPath || 0x653313,
-                roughness: 0.05,
-                offsetDist: 1,
-            },
-            {
-                bound: collider.createAabbExtents(v2.create(7.5, 160.0), v2.create(9, 2)),
-                color: params.groundTintPath || 0x653313,
-                roughness: 0.05,
-                offsetDist: 1,
-            },
-            {
-                bound: collider.createAabbExtents(v2.create(-7.5, 170), v2.create(9, 2)),
-                color: params.groundTintPath || 0x653313,
-                roughness: 0.05,
-                offsetDist: 1,
-            },
-            {
-                bound: collider.createAabbExtents(v2.create(-7.5, -139.475), v2.create(9, 2)),
-                color: params.groundTintPath || 0x653313,
-                roughness: 0.05,
-                offsetDist: 1,
-            },
-            {
-                bound: collider.createAabbExtents(v2.create(7.5, -160), v2.create(9, 2)),
-                color: params.groundTintPath || 0x653313,
-                roughness: 0.05,
-                offsetDist: 1,
-            },
-            {
-                bound: collider.createAabbExtents(v2.create(-7.5, -190), v2.create(9, 2)),
-                color: params.groundTintPath || 0x653313,
-                roughness: 0.05,
-                offsetDist: 1,
-            },
-            {//docks cross road
-                bound: collider.createAabbExtents(v2.create(0, 0), v2.create(145, 6)),
-                color: params.groundTintPath || 0x653313,
-                roughness: 0.05,
-                offsetDist: 1,
-            },
-            {//center patch
-                bound: collider.createAabbExtents(v2.create(0, 0), v2.create(-37.5, -37.5)),
-                color: params.concreteColor || 0x3a3a3a,
-                roughness: 0.05,
-                offsetDist: 1,
-            },
-            { // north grass patch
-                bound: collider.createAabbExtents(
-                    v2.create(-25, 208),
-                    v2.create(12, 8),
-                ),
-                color: params.groundTintGp || 0x324319,
-                roughness: 0.05,
-                offsetDist: 0.5,
-            },
-            { // south grass patch
-                bound: collider.createAabbExtents(
-                    v2.create(-25, -208),
-                    v2.create(12, 8),
-                ),
-                color: params.groundTintGp || 0x324319,
-                roughness: 0.05,
-                offsetDist: 0.5,
-            },
-            { // east grass patch
-                bound: collider.createAabbExtents(
-                    v2.create(190, 25),
-                    v2.create(8, 15),
-                ),
-                color: params.groundTintGp || 0x324319,
-                roughness: 0.05,
-                offsetDist: 0.5,
-            },
-            { // west grass patch
-                bound: collider.createAabbExtents(
-                    v2.create(-190, 25),
-                    v2.create(8, 15),
-                ),
-                color: params.groundTintGp || 0x324319,
-                roughness: 0.05,
-                offsetDist: 0.5,
-            },
-        ],
-        ori: 0,
-        ceiling: {
-            zoomRegions: [],
-            imgs: [],
-        },
-        floor: {
-            surfaces: [
-                {
-                    type: "grass",
-                    collision: [
-                        collider.createAabbExtents(v2.create(0, 0), v2.create(0, 0)),
-                    ],
-                },
-                {
-                    type: "asphalt",
-                    collision: [
-                        collider.createAabbExtents(
-                            v2.create(0, 0),
-                            v2.create(-37.5, -37.5),
-                        ),
-                    ],
-                },
-                {
-                    type: "asphalt",
-                    collision: [
-                        collider.createAabbExtents(v2.create(149.5, -1), v2.create(29.5, 54),), //east docks main
-                    ],
-                },
-                {
-                    type: "asphalt",
-                    collision: [
-                        collider.createAabbExtents(v2.create(156.5, 62.5), v2.create(22.5, 9.5),), //east docks upper
-                    ],
-                },
-                {
-                    type: "asphalt",
-                    collision: [
-                        collider.createAabbExtents(v2.create(189.5, -31), v2.create(10.5, 24),), //east docks lower
-                    ],
-                },
-                {
-                    type: "asphalt",
-                    collision: [
-                        collider.createAabbExtents(v2.create(-149.5, -1), v2.create(29.5, 54),), //west docks main
-                    ],
-                },
-                {
-                    type: "asphalt",
-                    collision: [
-                        collider.createAabbExtents(v2.create(-156.5, 62.5), v2.create(22.5, 9.5),), //west docks upper
-                    ],
-                },
-                {
-                    type: "asphalt",
-                    collision: [
-                        collider.createAabbExtents(v2.create(-189.5, -31), v2.create(10.5, 24),), //west docks lower
-                    ],
-                },
-            ],
-            imgs: [
-                {
-                    sprite: "map-complex-warehouse-floor-04.img",
-                    pos: v2.create(160, 8.5),
-                    scale: 1,
-                    alpha: 1,
-                    tint: 0xffffff,
-                },
-                {
-                    sprite: "map-complex-warehouse-floor-04.img",
-                    pos: v2.create(-160, 8.5),
-                    scale: 1,
-                    alpha: 1,
-                    tint: 0xffffff,
-                    mirrorX: true,
-                },
-            ],
-        },
-        mapObjects: [
-            {
-                type: "bridge_xlg_structure_02",
-                pos: v2.create(80, 0),
-                scale: 2,
-                ori: 0,
-            },
-            {
-                type: params.east_statue,
-                pos: v2.create(130, 0),
-                scale: 2,
-                ori: 2,
-            },
-            {
-                type: "bridge_xlg_structure_02",
-                pos: v2.create(-80, 0),
-                scale: 2,
-                ori: 0,
-            },
-            {
-                type: params.west_statue,
-                pos: v2.create(-130, 0),
-                scale: 2,
-                ori: 0,
-            },
-            {
-                type: "bridge_xlg_structure_02",
-                pos: v2.create(0, 80),
-                scale: 2,
-                ori: 1,
-            },
-            {
-                type: params.north_statue,
-                pos: v2.create(0, 130),
-                scale: 2,
-                ori: 3,
-            },
-            {
-                type: "bridge_xlg_structure_02",
-                pos: v2.create(0, -80),
-                scale: 2,
-                ori: 1,
-            },
-            {
-                type: params.south_statue,
-                pos: v2.create(0, -130),
-                scale: 2,
-                ori: 1,
-            },
-            //obstacles
-            //
-            //center
-            // {
-            //     type: "bunker_structure_12", //core bunker, unfinished
-            //     pos: v2.create(0, 0),
-            //     scale: 1,
-            //     ori: 0,
-            // },
-            {
-                type: randomObstacleType({
-                    case_04: 19,
-                    case_12: 1,
-                }),
-                pos: v2.create(0, 0),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_04",
-                pos: v2.create(5, 0),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_01",
-                pos: v2.create(10, 0),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_04",
-                pos: v2.create(-5, 0),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_01",
-                pos: v2.create(-10, 0),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_04",
-                pos: v2.create(0, -5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_04",
-                pos: v2.create(0, 5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                    container_06: 0.08,
-                }),
-                pos: v2.create(11, 5.5),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                    container_06: 0.08,
-                }),
-                pos: v2.create(11, -5.5),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                    container_06: 0.08,
-                }),
-                pos: v2.create(-11, 5.5),
-                scale: 1,
-                ori: 3,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                    container_06: 0.08,
-                }),
-                pos: v2.create(-11, -5.5),
-                scale: 1,
-                ori: 3,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(11, 11),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(11, -11),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(-11, 11),
-                scale: 1,
-                ori: 3,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(-11, -11),
-                scale: 1,
-                ori: 3,
-            },
-            {
-                type: "mil_crate_06",
-                pos: v2.create(-11, 15.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(20, 40),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(30, 40),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(-20, 40),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(-30, 40),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(20, -40),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(30, -40),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(-20, -40),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(-30, -40),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(40, 20),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(40, 30),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(-40, 20),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(-40, 30),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(40, -20),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(40, -30),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(-40, -20),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(-40, -30),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "hedgehog_01",
-                pos: v2.create(40, 40),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "hedgehog_01",
-                pos: v2.create(40, -40),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "hedgehog_01",
-                pos: v2.create(-40, 40),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "hedgehog_01",
-                pos: v2.create(-40, -40),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(35, 0),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(31, 2),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(-35, 0),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(-31, 2),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(0, 35),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(2, 31),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(0, -35),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(2, -31),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: params.north_west_center_object,
-                pos: v2.create(-30, 30),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: params.north_east_center_object,
-                pos: v2.create(30, 30),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: params.south_west_center_object,
-                pos: v2.create(-30, -30),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: params.south_east_center_object,
-                pos: v2.create(30, -30),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(20, 28.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(14, 28.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: params.fortress_bunker,
-                pos: v2.create(30, 14),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(24.5, 34),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_01",
-                pos: v2.create(34, 19.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_01",
-                pos: v2.create(29, 19.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_03",
-                pos: v2.create(35, 24),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_04",
-                pos: v2.create(29, 35),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(25, 19.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(-20, -28.5),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(-14, -28.5),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(-28.5, -14),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(-24.5, -34),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_01",
-                pos: v2.create(-34, -19.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_01",
-                pos: v2.create(-29, -19.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_03",
-                pos: v2.create(-35, -24),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_04",
-                pos: v2.create(-29, -35),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(-25, -19.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(30, -26),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "sandbags_02",
-                pos: v2.create(25, -21.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "sandbags_02",
-                pos: v2.create(21.5, -25),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "shack_02",
-                pos: v2.create(18, -32),
-                scale: 1,
-                ori: 3,
-            },
-            {
-                type: randomObstacleType({
-                    crate_03: 1,
-                    crate_25: 1,
-                    "": 1,
-                }),
-                pos: v2.create(17, -25),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    crate_03: 1,
-                    crate_25: 1,
-                    "": 1,
-                }),
-                pos: v2.create(25, -35),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    crate_06: 2,
-                    "": 1,
-                }),
-                pos: v2.create(30, -35),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(-26, 30),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "sandbags_02",
-                pos: v2.create(-21.5, 25),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "sandbags_02",
-                pos: v2.create(-25, 21.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "shack_02",
-                pos: v2.create(-18, 32),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: randomObstacleType({
-                    crate_03: 1,
-                    crate_25: 1,
-                    "": 1,
-                }),
-                pos: v2.create(-17, 25),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    crate_03: 1,
-                    crate_25: 1,
-                    "": 1,
-                }),
-                pos: v2.create(-21.5, 21.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    crate_06: 2,
-                    "": 1,
-                }),
-                pos: v2.create(-25, 16.5),
-                scale: 1,
-                ori: 1,
-            },
-            { //south
-                type: "barn_01",
-                pos: v2.create(30, -160),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "house_red_01",
-                pos: v2.create(-30, -140),
-                scale: 1,
-                ori: 3,
-            },
-            {
-                type: "house_red_02",
-                pos: v2.create(-30, -180),
-                scale: 1,
-                ori: 3,
-            },
-            {
-                type: "shack_01",
-                pos: v2.create(30, -125),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: "shack_01",
-                pos: v2.create(30, -195),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "sandbags_02",
-                pos: v2.create(-2, -150),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "crate_01",
-                pos: v2.create(-2, -160),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_01",
-                pos: v2.create(0, -165),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: params.south_faction_crate_1,
-                pos: v2.create(-4, -170),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: params.south_faction_crate_2,
-                pos: v2.create(-5, -165),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    crate_01: 5,
-                    crate_04: 4,
-                    crate_08: 1,
-                }),
-                pos: v2.create(-33, -212),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    crate_01: 5,
-                    crate_04: 4,
-                    crate_08: 1,
-                }),
-                pos: v2.create(-28, -212),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    crate_01: 5,
-                    crate_04: 4,
-                    crate_08: 1,
-                }),
-                pos: v2.create(-16, -203),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(-16, -208),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(-18, -211),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_06",
-                pos: v2.create(-21, -206),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: randomObstacleType({
-                    crate_01: 5,
-                    crate_04: 4,
-                    crate_08: 1,
-                }),
-                pos: v2.create(-25, -203),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    crate_03: 2,
-                    crate_25: 1,
-                }),
-                pos: v2.create(-35, -203),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    crate_03: 2,
-                    crate_25: 1,
-                }),
-                pos: v2.create(-34, -206.5),
-                scale: 1,
-                ori: 0,
-            },
-            { //north
-                type: "barn_01",
-                pos: v2.create(30, 160),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "house_red_01",
-                pos: v2.create(-30, 140),
-                scale: 1,
-                ori: 3,
-            },
-            {
-                type: "house_red_02",
-                pos: v2.create(-30, 180),
-                scale: 1,
-                ori: 3,
-            },
-            {
-                type: "shack_01",
-                pos: v2.create(30, 125),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "shack_01",
-                pos: v2.create(30, 195),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: "sandbags_02",
-                pos: v2.create(2, 150),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "crate_01",
-                pos: v2.create(-2, 160),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_01",
-                pos: v2.create(0, 165),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: params.north_faction_crate_1,
-                pos: v2.create(-4, 170),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: params.north_faction_crate_2,
-                pos: v2.create(-5, 165),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    crate_01: 5,
-                    crate_04: 4,
-                    crate_08: 1,
-                }),
-                pos: v2.create(-33, 212),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    crate_01: 5,
-                    crate_04: 4,
-                    crate_08: 1,
-                }),
-                pos: v2.create(-28, 212),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    crate_01: 5,
-                    crate_04: 4,
-                    crate_08: 1,
-                }),
-                pos: v2.create(-16, 203),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(-16, 208),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(-18, 211),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_06",
-                pos: v2.create(-21, 206),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: randomObstacleType({
-                    crate_01: 5,
-                    crate_04: 4,
-                    crate_08: 1,
-                }),
-                pos: v2.create(-25, 203),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    crate_03: 2,
-                    crate_25: 1,
-                }),
-                pos: v2.create(-35, 203),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    crate_03: 2,
-                    crate_25: 1,
-                }),
-                pos: v2.create(-34, 206.5),
-                scale: 1,
-                ori: 0,
-            },
-            { //east
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(123.75, 34.5),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(130, 34.5),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(123.75, -37.0),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(169.75, 50.0),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(169.75, 32.0),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(155.75, -15.25),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(172.75, -15.25),
-                scale: 1,
-                ori: 3,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(155.75, -5.5),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(155.75, -48.5),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(172.75, -48.5),
-                scale: 1,
-                ori: 3,
-            },
-            {
-                type: "crate_01",
-                pos: v2.create(169.75, 20.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_01",
-                pos: v2.create(169.75, 0),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_01",
-                pos: v2.create(174.75, 0),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: params.east_faction_crate_1,
-                pos: v2.create(171.75, 5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "sandbags_02",
-                pos: v2.create(158, 5),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(153, 2),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(145, 5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(142, 3),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(174.75, -6),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: params.east_faction_crate_2,
-                pos: v2.create(158, 1),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "shack_02",
-                pos: v2.create(126.5, 19),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "shack_02",
-                pos: v2.create(126.5, -21.5),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: "warehouse_02",
-                pos: v2.create(153, 40),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "warehouse_02",
-                pos: v2.create(166, -32),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    crate_01: 5,
-                    crate_04: 4,
-                    crate_08: 1,
-                }),
-                pos: v2.create(186, 36),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_06",
-                pos: v2.create(190, 36),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(194, 36),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: randomObstacleType({
-                    barrel_01: 2,
-                    "": 1,
-                }),
-                pos: v2.create(196, 32),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: randomObstacleType({
-                    crate_01: 10,
-                    crate_04: 9,
-                    crate_08: 1,
-                }),
-                pos: v2.create(188, 31),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    crate_01: 10,
-                    crate_04: 9,
-                    crate_08: 1,
-                }),
-                pos: v2.create(190, 14),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "chest_02",
-                pos: v2.create(186, 14),
-                scale: 1,
-                ori: 3,
-            },
-            {
-                type: randomObstacleType({
-                    crate_01: 10,
-                    crate_04: 9,
-                    crate_08: 1,
-                }),
-                pos: v2.create(194, 19),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    barrel_01: 2,
-                    "": 1,
-                }),
-                pos: v2.create(189, 21),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    crate_03: 2,
-                    crate_25: 1,
-                }),
-                pos: v2.create(194, 14.5),
-                scale: 1,
-                ori: 0,
-            },
-            // west
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(-123.75, 34.5),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(-130, 34.5),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(-123.75, -37.0),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(-169.75, 50.0),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(-169.75, 32.0),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(-155.75, -15.25),
-                scale: 1,
-                ori: 3,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(-172.75, -15.25),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(-155.75, -5.5),
-                scale: 1,
-                ori: 3,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(-155.75, -48.5),
-                scale: 1,
-                ori: 3,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(-172.75, -48.5),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "crate_01",
-                pos: v2.create(-169.75, 20.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_01",
-                pos: v2.create(-169.75, 0),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_01",
-                pos: v2.create(-174.75, 0),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: params.west_faction_crate_1,
-                pos: v2.create(-171.75, 5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "sandbags_02",
-                pos: v2.create(-158, 5),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(-153, 2),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(-145, 5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(-142, 3),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(-174.75, -6),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: params.west_faction_crate_2,
-                pos: v2.create(-158, 1),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "shack_02",
-                pos: v2.create(-126.5, 19),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "shack_02",
-                pos: v2.create(-126.5, -21.5),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: "warehouse_02",
-                pos: v2.create(-153, 40),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "warehouse_02",
-                pos: v2.create(-166, -32),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    crate_01: 5,
-                    crate_04: 4,
-                    crate_08: 1,
-                }),
-                pos: v2.create(-186, 36),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_06",
-                pos: v2.create(-190, 36),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "barrel_01",
-                pos: v2.create(-194, 36),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: randomObstacleType({
-                    barrel_01: 2,
-                    "": 1,
-                }),
-                pos: v2.create(-196, 32),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: randomObstacleType({
-                    crate_01: 10,
-                    crate_04: 9,
-                    crate_08: 1,
-                }),
-                pos: v2.create(-188, 31),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    crate_01: 10,
-                    crate_04: 9,
-                    crate_08: 1,
-                }),
-                pos: v2.create(-190, 14),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "chest_02",
-                pos: v2.create(-186, 14),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: randomObstacleType({
-                    crate_01: 10,
-                    crate_04: 9,
-                    crate_08: 1,
-                }),
-                pos: v2.create(-194, 19),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    barrel_01: 2,
-                    "": 1,
-                }),
-                pos: v2.create(-189, 21),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    crate_03: 2,
-                    crate_25: 1,
-                }),
-                pos: v2.create(-194, 14.5),
-                scale: 1,
-                ori: 0,
-            },
-        ],
-    };
-    return util.mergeDeep(baseDef, overrides);
-}
-
-function createFactionFortressDesert(overrides: DeepPartial<BuildingDef>, params: {
-    groundTintPath?: number;
-    concreteColor?: number;
-    north_west_center_object?: BuildingChildObjType;
-    north_east_center_object?: BuildingChildObjType;
-    south_west_center_object?: BuildingChildObjType;
-    south_east_center_object?: BuildingChildObjType;
-}): BuildingDef {
-    const baseDef: BuildingDef = {
-        type: "building",
-        map: { display: true, shapes: [] },
-        terrain: {
-            spawnPriority: 100,
-            grass: true,
-            beach: false
-        },
-        oris: [0, 1],
-        mapObstacleBounds: [
-            collider.createAabbExtents(v2.create(20, 0), v2.create(15, 15)),
-            collider.createAabbExtents(v2.create(0, -32), v2.create(25, 5)),//small lower piece
-            collider.createAabbExtents(v2.create(-27, -12), v2.create(10, 25)),//big wide left piece
-            collider.createAabbExtents(v2.create(-5, -5), v2.create(15, 15)),//big wide left piece
-            collider.createAabbExtents(v2.create(0, 22), v2.create(-37.5, 15)),
-            collider.createAabbExtents(v2.create(13, 64), v2.create(3, 5)),
-            // collider.createAabbExtents(v2.create(-13, 96), v2.create(3, 5)),
-            collider.createAabbExtents(v2.create(13, -64), v2.create(3, 5)),
-            // collider.createAabbExtents(v2.create(-13, -96), v2.create(3, 5)),
-            collider.createAabbExtents(v2.create(64, 13), v2.create(5, 3)),
-            // collider.createAabbExtents(v2.create(96, -13), v2.create(5, 3)),
-            collider.createAabbExtents(v2.create(-64, 13), v2.create(5, 3)),
-            // collider.createAabbExtents(v2.create(-96, -13), v2.create(5, 3)),
-            collider.createAabbExtents(v2.create(35, 0), v2.create(3, 5)),
-            collider.createAabbExtents(v2.create(-35, 0), v2.create(3, 5)),
-            collider.createAabbExtents(v2.create(0, 35), v2.create(5, 3)),
-            collider.createAabbExtents(v2.create(0, -35), v2.create(5, 3)),
-            collider.createAabbExtents(v2.create(-30, 30), v2.create(5, 5)),
-            collider.createAabbExtents(v2.create(30, -30), v2.create(5, 5)),
-        ],
-        mapGroundPatches: [
-            {
-                bound: collider.createAabbExtents(v2.create(20, 0), v2.create(15, 15)),
-                color: params.concreteColor || 0x3a3a3a,
-                roughness: 0.15,
-                offsetDist: 1,
-            },
-            {
-                bound: collider.createAabbExtents(v2.create(0, -32), v2.create(35, 5)),//small lower piece
-                color: params.concreteColor || 0x3a3a3a,
-                roughness: 0.15,
-                offsetDist: 1,
-            },
-            {
-                bound: collider.createAabbExtents(v2.create(0, 22), v2.create(-37.5, 15)),
-                color: params.concreteColor || 0x3a3a3a,
-                roughness: 0.15,
-                offsetDist: 1,
-            },
-            {
-                bound: collider.createAabbExtents(v2.create(-27, -12), v2.create(10, 25)),//big wide left piece
-                color: params.concreteColor || 0x3a3a3a,
-                roughness: 0.15,
-                offsetDist: 1,
-            },
-        ],
-        floor: {
-            surfaces: [
-                {
-                    type: "grass",
-                    collision: [
-                        collider.createAabbExtents(v2.create(0, 0), v2.create(0, 0)),
-                    ],
-                },
-                {//center asphalt
-                    type: "asphalt",
-                    collision: [
-                        collider.createAabbExtents(v2.create(20, 0), v2.create(15, 15)),
-                        collider.createAabbExtents(v2.create(0, -32), v2.create(35, 5)),//small lower piece
-                        collider.createAabbExtents(v2.create(0, 22), v2.create(-37.5, 15)),
-                        collider.createAabbExtents(v2.create(-27, -12), v2.create(10, 25)),//big wide left piece
-                    ],
-                },
-            ],
-            imgs: [
-            ],
-        },
-        ceiling: { zoomRegions: [], imgs: [] },
-        mapObjects: [
-            {
-                type: "stone_06",//northern bridge pillars
-                pos: v2.create(13, 64),
-                scale: 1,
-                ori: 1,
-                inheritOri: true,
-            },
-            // {
-            //     type: "stone_06",
-            //     pos: v2.create(-13, 96),
-            //     scale: 1,
-            //     ori: 1,
-            //     inheritOri: true,
-            // },
-            {
-                type: "stone_06",//southern bridge pillars
-                pos: v2.create(13, -64),
-                scale: 1,
-                ori: 1,
-                inheritOri: true,
-            },
-            // {
-            //     type: "stone_06",
-            //     pos: v2.create(-13, -96),
-            //     scale: 1,
-            //     ori: 1,
-            //     inheritOri: true,
-            // },
-            {
-                type: "stone_06",//eastern bridge pillars
-                pos: v2.create(64, 13),
-                scale: 1,
-                ori: 0,
-                inheritOri: true,
-            },
-            // {
-            //     type: "stone_06",
-            //     pos: v2.create(96, -13),
-            //     scale: 1,
-            //     ori: 0,
-            //     inheritOri: true,
-            // },
-            {
-                type: "stone_06",//western bridge pillars
-                pos: v2.create(-64, 13),
-                scale: 1,
-                ori: 0,
-                inheritOri: true,
-            },
-            // {
-            //     type: "stone_06",
-            //     pos: v2.create(-96, -13),
-            //     scale: 1,
-            //     ori: 0,
-            //     inheritOri: true,
-            // },
-            //center area structures
-            {
-                type: params.north_west_center_object,
-                pos: v2.create(-30, 30),
-                scale: 1,
-                ori: 0,
-                inheritOri: false,
-            },
-            {
-                type: params.north_east_center_object,
-                pos: v2.create(30, 30),
-                scale: 1,
-                ori: 0,
-                inheritOri: false,
-            },
-            {
-                type: params.south_west_center_object,
-                pos: v2.create(-30, -30),
-                scale: 1,
-                ori: 0,
-                inheritOri: false,
-            },
-            {
-                type: params.south_east_center_object,
-                pos: v2.create(30, -30),
-                scale: 1,
-                ori: 0,
-                inheritOri: false,
-            },
-            {
-                type: "tree_05c",
-                pos: v2.create(0, 2),
-                scale: 2,
-                ori: 0,
-                inheritOri: true,
-            },
-            {
-                type: "case_05",
-                pos: v2.create(0, -2),
-                scale: 1,
-                ori: 0,
-                inheritOri: true,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(20, 28.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(14, 28.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_18",
-                pos: v2.create(-10, -5),
-                scale: 1,
-                ori: 0,
-                inheritOri: false,
-            },
-            {
-                type: randomObstacleType({
-                    container_01: 1,
-                    container_02: 1,
-                    container_03: 1,
-                }),
-                pos: v2.create(-28.5, -14),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "crate_01",
-                pos: v2.create(-34, -19.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "crate_01",
-                pos: v2.create(-29, -19.5),
-                scale: 1,
-                ori: 0,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(35, 0),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(-35, 0),
-                scale: 1,
-                ori: 1,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(0, 35),
-                scale: 1,
-                ori: 2,
-            },
-            {
-                type: "sandbags_01",
-                pos: v2.create(0, -35),
-                scale: 1,
-                ori: 2,
-            },
-        ],
-    };
-    return util.mergeDeep(baseDef, overrides);
-}
-
 function createFactionBase(
     overrides: DeepPartial<BuildingDef>,
     params: {
@@ -7786,6 +6158,7 @@ function createPillbox(
                 pos: v2.create(-32, 11.5),
                 scale: 1,
                 ori: 0,
+                inheritOri: false,
             },
             {
                 type: "bed_sm_01",
@@ -7945,6 +6318,7 @@ function createPillbox(
                 pos: v2.create(14.25, -0.25),
                 scale: 1,
                 ori: 0,
+                inheritOri: false,
             },
             {
                 type: "crate_01",
@@ -7956,7 +6330,7 @@ function createPillbox(
                 type: "control_panel_06",
                 pos: v2.create(-3.5, -1.15),
                 scale: 1,
-                ori: 0,
+                ori: 2,
             },
             {
                 type: randomObstacleType({
@@ -7989,14 +6363,14 @@ function createPillbox(
                 pos: v2.create(-14.75, 17.5),
                 scale: 1,
                 ori: 0,
-                inheritOri: true,
+                inheritOri: false,
             },
             {
                 type: "crate_03",
                 pos: v2.create(-11.5, 17.5),
                 scale: 1,
                 ori: 0,
-                inheritOri: true,
+                inheritOri: false,
             },
             {
                 type: "hedgehog_01",
@@ -8039,6 +6413,7899 @@ function createPillbox(
                 pos: v2.create(5, -21),
                 scale: 1,
                 ori: 0,
+            },
+        ],
+    };
+    return util.mergeDeep(baseDef, overrides);
+}
+
+function createPillboxComplex(
+    overrides: DeepPartial<BuildingDef>,
+    params: {
+        groundTintLt?: number;
+        groundTintDk?: number;
+        tree?: BuildingChildObjType;
+        pillbox?: BuildingChildObjType;
+        loot_tier?: BuildingChildObjType;
+    },
+): BuildingDef {
+    const baseDef: BuildingDef = {
+        type: "building",
+        map: {
+            display: true,
+            shapes: [
+            ],
+        },
+        zIdx: 1,
+        terrain: { grass: true, beach: false },
+        mapObstacleBounds: [
+            collider.createAabbExtents(v2.create(0, 2), v2.create(30, 50)), //pillbox building
+            collider.createAabbExtents(v2.create(-40, 0), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(-35, 20), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(-35, -20), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(45, 0), v2.create(20, 35)), //rear area
+        ],
+        mapGroundPatches: [
+            {
+                bound: collider.createAabbExtents(v2.create(35, 0), v2.create(30, 35)),
+                color: params.groundTintDk || 0x5b5a0b,
+                roughness: 0.05,
+                offsetDist: 0.5,
+            },
+        ],
+        floor: {
+            surfaces: [],
+            imgs: [],
+        },
+        ceiling: {
+            zoomRegions: [
+            ],
+            vision: { dist: 8, width: 5 },
+            imgs: [
+            ],
+        },
+        mapObjects: [
+            {
+                type: params.pillbox || "pillbox_01",
+                pos: v2.create(0, 0),
+                scale: 1,
+                ori: 1,
+            },
+            {  
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(22.5, -25),
+                scale: 1,
+                ori: 2,
+            },
+            {  
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(28.5, -25),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "shack_01",
+                pos: v2.create(35, -5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "shack_01",
+                pos: v2.create(46, -5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(35, 4),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({ outhouse_01: 5, outhouse_02: 1 }),
+                pos: v2.create(33, 15),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "outhouse_01",
+                pos: v2.create(42, 18),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(60, 18),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(56, 12),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(52, 12),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: params.loot_tier || "loot_tier_1",
+                pos: v2.create(53, 19),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_08",
+                pos: v2.create(35, 25),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(40, 27),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.tree || "tree_08f",
+                pos: v2.create(50, 30),
+                scale: 1.5,
+                ori: 0,
+            },
+            {
+                type: params.tree || "tree_08f",
+                pos: v2.create(58, 25),
+                scale: 1.5,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(40, -27),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(45, -25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.tree || "tree_08f",
+                pos: v2.create(52, -26),
+                scale: 1.5,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(60, -26),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(57, -12),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(53, -12),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: params.tree || "tree_08f",
+                pos: v2.create(62, -8),
+                scale: 1.5,
+                ori: 1,
+            },
+            {
+                type: params.loot_tier || "loot_tier_1",
+                pos: v2.create(45, -17),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 1,
+                    crate_25: 1,
+                }),
+                pos: v2.create(42, -13.5),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+        ],
+    };
+    return util.mergeDeep(baseDef, overrides);
+}
+
+function createNoMansLandVertical(
+    overrides: DeepPartial<BuildingDef>,
+    params: {
+        groundTintLt?: number;
+        groundTintDk?: number;
+        groundTintPath?: number;
+        loot_tier?: BuildingChildObjType;
+    },
+): BuildingDef {
+    const baseDef: BuildingDef = {
+        type: "building",
+        map: {
+            display: true,
+            shapes: [
+            ],
+        },
+        zIdx: 1,
+        terrain: { grass: true, beach: false },
+        mapObstacleBounds: [
+            collider.createAabbExtents(v2.create(0, 0), v2.create(20, 125)),
+        ],
+        mapGroundPatches: [
+            // {
+            //     bound: collider.createAabbExtents(v2.create(0, 0), v2.create(20, 125)),
+            //     color: params.groundTintPath || 0x653313,
+            //     roughness: 0.05,
+            //     offsetDist: 1,
+            // },
+            // {
+            //     bound: collider.createAabbExtents(v2.create(0, -130), v2.create(14, 10)),
+            //     color: params.groundTintPath || 0x653313,
+            //     roughness: 0.05,
+            //     offsetDist: 1,
+            // },
+        ],
+        floor: {
+            surfaces: [
+            ],
+            imgs: [
+            ],
+        },
+        ceiling: {
+            zoomRegions: [
+            ],
+            vision: { dist: 8, width: 5 },
+            imgs: [
+            ],
+        },
+        mapObjects: [
+            {
+                type: "pillbox_complex_01",
+                pos: v2.create(50, 50),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "pillbox_complex_01",
+                pos: v2.create(-50, -50),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(25, -65),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(25, -75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(30, -80),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(30, -60),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(30, -75.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(29.5, -63.5),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "crate_25",
+                pos: v2.create(29.5, -67),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(35, -70),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-25, 65),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-25, 75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-30, 80),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-30, 60),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-30, 75.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(-29.5, 63.5),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "crate_25",
+                pos: v2.create(-29.5, 67),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-35, 70),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, -90),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, -75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(10, -75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-10, -75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, -60),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, -45),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(10, -45),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-10, -45),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, -30),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, -15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(10, -15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-10, -15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, 0),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, 15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(10, 15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-10, 15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, 30),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, 45),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(10, 45),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-10, 45),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, 60),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, 75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(10, 75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-10, 75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, 90),
+                scale: 1,
+                ori: 1,
+            },
+        ],
+    };
+    return util.mergeDeep(baseDef, overrides);
+}
+
+function createNoMansLandHorizontal(
+    overrides: DeepPartial<BuildingDef>,
+    params: {
+        groundTintLt?: number;
+        groundTintDk?: number;
+        groundTintPath?: number;
+        loot_tier?: BuildingChildObjType;
+    },
+): BuildingDef {
+    const baseDef: BuildingDef = {
+        type: "building",
+        map: {
+            display: true,
+            shapes: [
+            ],
+        },
+        zIdx: 1,
+        terrain: { grass: true, beach: false },
+        mapObstacleBounds: [
+            collider.createAabbExtents(v2.create(0, 0), v2.create(20, 125)),
+        ],
+        mapGroundPatches: [
+            // {
+            //     bound: collider.createAabbExtents(v2.create(0, 0), v2.create(20, 125)),
+            //     color: params.groundTintPath || 0x653313,
+            //     roughness: 0.05,
+            //     offsetDist: 1,
+            // },
+            // {
+            //     bound: collider.createAabbExtents(v2.create(0, -130), v2.create(14, 10)),
+            //     color: params.groundTintPath || 0x653313,
+            //     roughness: 0.05,
+            //     offsetDist: 1,
+            // },
+        ],
+        floor: {
+            surfaces: [
+            ],
+            imgs: [
+            ],
+        },
+        ceiling: {
+            zoomRegions: [
+            ],
+            vision: { dist: 8, width: 5 },
+            imgs: [
+            ],
+        },
+        mapObjects: [
+            {
+                type: "pillbox_complex_01",
+                pos: v2.create(50, 50),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "pillbox_complex_01",
+                pos: v2.create(-50, -50),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(25, -65),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(25, -75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(30, -80),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(30, -60),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(30, -75.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(29.5, -63.5),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "crate_25",
+                pos: v2.create(29.5, -67),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(35, -70),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-25, 65),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-25, 75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-30, 80),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-30, 60),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-30, 75.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(-29.5, 63.5),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "crate_25",
+                pos: v2.create(-29.5, 67),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-35, 70),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, -90),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, -75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(10, -75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-10, -75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, -60),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, -45),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(10, -45),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-10, -45),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, -30),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, -15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(10, -15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-10, -15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, 0),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, 15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(10, 15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-10, 15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, 30),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, 45),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(10, 45),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-10, 45),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, 60),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, 75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(10, 75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-10, 75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(0, 90),
+                scale: 1,
+                ori: 1,
+            },
+        ],
+    };
+    return util.mergeDeep(baseDef, overrides);
+}
+
+function createFactionFortress(overrides: DeepPartial<BuildingDef>, params: {
+    fortress_bunker?: BuildingChildObjType;
+    loot_tier_center?: BuildingChildObjType;
+    loot_tier_center2?: BuildingChildObjType;
+    loot_tier_docks?: BuildingChildObjType;
+    groundTintGp?: number;
+    groundTintPath?: number;
+    concreteColor?: number;
+    north_statue?: BuildingChildObjType;
+    south_statue?: BuildingChildObjType;
+    east_statue?: BuildingChildObjType;
+    west_statue?: BuildingChildObjType;
+    north_west_center_object?: BuildingChildObjType;
+    north_east_center_object?: BuildingChildObjType;
+    south_west_center_object?: BuildingChildObjType;
+    south_east_center_object?: BuildingChildObjType;
+    north_faction_crate_1?: BuildingChildObjType;
+    north_faction_crate_2?: BuildingChildObjType;
+    south_faction_crate_1?: BuildingChildObjType;
+    south_faction_crate_2?: BuildingChildObjType;
+    east_faction_crate_1?: BuildingChildObjType;
+    east_faction_crate_2?: BuildingChildObjType;
+    west_faction_crate_1?: BuildingChildObjType;
+    west_faction_crate_2?: BuildingChildObjType;
+}): BuildingDef {
+    const baseDef: BuildingDef = {
+        type: "building",
+        map: {
+            display: true,
+            shapes: [
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(0, 0),
+                        v2.create(-35, -35),
+                    ),
+                    color: 0x3a3a3a,
+                },
+                { //west side docks
+                    collider: collider.createAabbExtents(
+                        v2.create(150.75, 1.5),
+                        v2.create(30, 54.5),
+                    ),
+                    color: 0x3a3a3a,
+                },
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(157.5, 65),
+                        v2.create(23, 10),
+                    ),
+                    color: 0x3a3a3a,
+                },
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(191, -31.0),
+                        v2.create(10.5, 21.5),
+                    ),
+                    color: 0x3a3a3a,
+                },
+                { //east side docks
+                    collider: collider.createAabbExtents(
+                        v2.create(-150.75, 1.5),
+                        v2.create(30, 54.5),
+                    ),
+                    color: 0x3a3a3a,
+                },
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(-157.5, 65),
+                        v2.create(23, 10),
+                    ),
+                    color: 0x3a3a3a,
+                },
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(-191, -31.0),
+                        v2.create(10.5, 21.5),
+                    ),
+                    color: 0x3a3a3a,
+                },
+                { //faction statue map sprite
+                    collider: collider.createAabbExtents(
+                        v2.create(130, 0),
+                        v2.create(4.4, 4.4),
+                    ),
+                    color: 0x575757,
+                },
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(-130, 0),
+                        v2.create(4.4, 4.4),
+                    ),
+                    color: 0x575757,
+                },
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(0, 130),
+                        v2.create(4.4, 4.4),
+                    ),
+                    color: 0x575757,
+                },
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(0, -130),
+                        v2.create(4.4, 4.4),
+                    ),
+                    color: 0x575757,
+                },
+            ],
+        },
+        terrain: {
+            spawnPriority: 100,
+            grass: true,
+            beach: false
+        },
+        mapObstacleBounds: [
+            collider.createAabbExtents(v2.create(0, 0), v2.create(45, 45)),//center
+            collider.createAabbExtents(v2.create(80, 0), v2.create(40, 18)),//bridge
+            collider.createAabbExtents(v2.create(-80, 0), v2.create(40, 18)),//bridge
+            collider.createAabbExtents(v2.create(0, 80), v2.create(18, 40)),//bridge
+            collider.createAabbExtents(v2.create(0, -80), v2.create(18, 40)),//bridge
+            //east side faction area clearing
+            collider.createAabbExtents(v2.create(149.5, -1), v2.create(29.5, 54)),
+            collider.createAabbExtents(v2.create(156.5, 62.5), v2.create(22.5, 9.5)),
+            collider.createAabbExtents(v2.create(189.5, -31), v2.create(10.5, 24),),
+            collider.createAabbExtents(v2.create(190, 25), v2.create(8, 15),),
+            collider.createAabbExtents(v2.create(190, 3), v2.create(10, 8),),
+            //west side faction area clearing
+            collider.createAabbExtents(v2.create(-149.5, -1), v2.create(29.5, 54)),
+            collider.createAabbExtents(v2.create(-156.5, 62.5), v2.create(22.5, 9.5)),
+            collider.createAabbExtents(v2.create(-189.5, -31), v2.create(10.5, 24),),
+            collider.createAabbExtents(v2.create(-190, 25), v2.create(8, 15),),
+            collider.createAabbExtents(v2.create(-190, 3), v2.create(10, 8),),
+            //north side faction area clearing
+            collider.createAabbExtents(v2.create(0, 160), v2.create(8, 45)),
+            collider.createAabbExtents(v2.create(-30, 140), v2.create(18, 20)),//lower house
+            collider.createAabbExtents(v2.create(-12, 141), v2.create(7, 2)),//path to lower house
+            collider.createAabbExtents(v2.create(-33, 180), v2.create(18, 20)),//upper house
+            collider.createAabbExtents(v2.create(-12, 170), v2.create(7, 2)),//path to upper house
+            collider.createAabbExtents(v2.create(12, 160), v2.create(7, 2)),//path to barn
+            collider.createAabbExtents(v2.create(16, 160), v2.create(5, 7)),//barn entrance
+            collider.createAabbExtents(v2.create(32, 160), v2.create(16.5, 28)),//barn
+            collider.createAabbExtents(v2.create(32, 125), v2.create(9, 6)),//lower shack
+            collider.createAabbExtents(v2.create(28, 195), v2.create(9, 6)),//upper shack
+            collider.createAabbExtents(v2.create(-25, 208), v2.create(12.5, 8)),//grass patch
+            collider.createAabbExtents(v2.create(33, 210), v2.create(14, 8),), //outhouses
+            //south side faction area clearing
+            collider.createAabbExtents(v2.create(0, -160), v2.create(8, 45)),
+            collider.createAabbExtents(v2.create(-30, -140), v2.create(18, 20)),//upper house
+            collider.createAabbExtents(v2.create(-12, -139), v2.create(7, 2)),//path to upper house
+            collider.createAabbExtents(v2.create(-30, -180), v2.create(18, 20)),//lower house
+            collider.createAabbExtents(v2.create(-12, -190), v2.create(7, 2)),//path to lower house
+            collider.createAabbExtents(v2.create(12, -160), v2.create(7, 2)),//path to barn
+            collider.createAabbExtents(v2.create(16, -160), v2.create(5, 7)),//barn entrance
+            collider.createAabbExtents(v2.create(32, -160), v2.create(16.5, 28)),//barn
+            collider.createAabbExtents(v2.create(28, -125), v2.create(9, 6)),//upper shack
+            collider.createAabbExtents(v2.create(32, -195), v2.create(9, 6)),//lower shack
+            collider.createAabbExtents(v2.create(-25, -208), v2.create(12.5, 8)),//grass patch
+            collider.createAabbExtents(v2.create(33, -210), v2.create(14, 8),), //outhouses
+            //pillboxes
+            //pillbox northeast
+            collider.createAabbExtents(v2.create(130, 150), v2.create(30, 42)), //pillbox building
+            collider.createAabbExtents(v2.create(165, 170), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(170, 150), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(165, 130), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(85, 150), v2.create(20, 35)), //rear area
+            //pillbox northwest
+            collider.createAabbExtents(v2.create(-130, 150), v2.create(30, 42)), //pillbox building
+            collider.createAabbExtents(v2.create(-165, 170), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(-170, 150), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(-165, 130), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(-85, 150), v2.create(20, 35)), //rear area
+            //pillbox southeast
+            collider.createAabbExtents(v2.create(130, -150), v2.create(30, 42)), //pillbox building
+            collider.createAabbExtents(v2.create(165, -170), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(170, -150), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(165, -130), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(85, -150), v2.create(20, 35)), //rear area
+            //pillbox southwest
+            collider.createAabbExtents(v2.create(-130, -150), v2.create(30, 42)), //pillbox building
+            collider.createAabbExtents(v2.create(-165, -170), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(-170, -150), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(-165, -130), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(-85, -150), v2.create(20, 35)), //rear area
+        ],
+        mapGroundPatches: [
+            {//cross road
+                bound: collider.createAabbExtents(v2.create(0, 0), v2.create(6, 200)),
+                color: params.groundTintPath || 0x653313,
+                roughness: 0.05,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(-7.5, 141), v2.create(9, 2)),
+                color: params.groundTintPath || 0x653313,
+                roughness: 0.05,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(7.5, 160.0), v2.create(9, 2)),
+                color: params.groundTintPath || 0x653313,
+                roughness: 0.05,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(-7.5, 170), v2.create(9, 2)),
+                color: params.groundTintPath || 0x653313,
+                roughness: 0.05,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(-7.5, -139.475), v2.create(9, 2)),
+                color: params.groundTintPath || 0x653313,
+                roughness: 0.05,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(7.5, -160), v2.create(9, 2)),
+                color: params.groundTintPath || 0x653313,
+                roughness: 0.05,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(-7.5, -190), v2.create(9, 2)),
+                color: params.groundTintPath || 0x653313,
+                roughness: 0.05,
+                offsetDist: 1,
+            },
+            {//docks cross road
+                bound: collider.createAabbExtents(v2.create(0, 0), v2.create(145, 6)),
+                color: params.groundTintPath || 0x653313,
+                roughness: 0.05,
+                offsetDist: 1,
+            },
+            {//center patch
+                bound: collider.createAabbExtents(v2.create(0, 0), v2.create(-37.5, -37.5)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.05,
+                offsetDist: 1,
+            },
+            { // north grass patch
+                bound: collider.createAabbExtents(v2.create(-25, 208), v2.create(12, 8),),
+                color: params.groundTintGp || 0x324319,
+                roughness: 0.05,
+                offsetDist: 0.5,
+            },
+            { // north outhouse grass patch
+                bound: collider.createAabbExtents(v2.create(33, 210), v2.create(14, 8),),
+                color: params.groundTintGp || 0x324319,
+                roughness: 0.05,
+                offsetDist: 0.5,
+            },
+            { // south grass patch
+                bound: collider.createAabbExtents(v2.create(-25, -208), v2.create(12, 8),),
+                color: params.groundTintGp || 0x324319,
+                roughness: 0.05,
+                offsetDist: 0.5,
+            },
+            { // south outhouse grass patch
+                bound: collider.createAabbExtents(v2.create(33, -210), v2.create(14, 8),),
+                color: params.groundTintGp || 0x324319,
+                roughness: 0.05,
+                offsetDist: 0.5,
+            },
+            { // east grass patch
+                bound: collider.createAabbExtents(
+                    v2.create(190, 25),
+                    v2.create(8, 15),
+                ),
+                color: params.groundTintGp || 0x324319,
+                roughness: 0.05,
+                offsetDist: 0.5,
+            },
+            { // west grass patch
+                bound: collider.createAabbExtents(
+                    v2.create(-190, 25),
+                    v2.create(8, 15),
+                ),
+                color: params.groundTintGp || 0x324319,
+                roughness: 0.05,
+                offsetDist: 0.5,
+            },
+        ],
+        ori: 0,
+        ceiling: {
+            zoomRegions: [],
+            imgs: [],
+        },
+        floor: {
+            surfaces: [
+                {
+                    type: "grass",
+                    collision: [
+                        collider.createAabbExtents(v2.create(0, 0), v2.create(0, 0)),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(
+                            v2.create(0, 0),
+                            v2.create(-37.5, -37.5),
+                        ),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(149.5, -1), v2.create(29.5, 54),), //east docks main
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(156.5, 62.5), v2.create(22.5, 9.5),), //east docks upper
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(189.5, -31), v2.create(10.5, 24),), //east docks lower
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(-149.5, -1), v2.create(29.5, 54),), //west docks main
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(-156.5, 62.5), v2.create(22.5, 9.5),), //west docks upper
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(-189.5, -31), v2.create(10.5, 24),), //west docks lower
+                    ],
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-complex-warehouse-floor-04.img",
+                    pos: v2.create(160, 8.5),
+                    scale: 1,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+                {
+                    sprite: "map-complex-warehouse-floor-04.img",
+                    pos: v2.create(-160, 8.5),
+                    scale: 1,
+                    alpha: 1,
+                    tint: 0xffffff,
+                    mirrorX: true,
+                },
+            ],
+        },
+        mapObjects: [
+            {
+                type: "bridge_xlg_structure_02",
+                pos: v2.create(80, 0),
+                scale: 2,
+                ori: 0,
+            },
+            {
+                type: params.east_statue,
+                pos: v2.create(130, 0),
+                scale: 2,
+                ori: 2,
+            },
+            {
+                type: "bridge_xlg_structure_02",
+                pos: v2.create(-80, 0),
+                scale: 2,
+                ori: 0,
+            },
+            {
+                type: params.west_statue,
+                pos: v2.create(-130, 0),
+                scale: 2,
+                ori: 0,
+            },
+            {
+                type: "bridge_xlg_structure_02",
+                pos: v2.create(0, 80),
+                scale: 2,
+                ori: 1,
+            },
+            {
+                type: params.north_statue,
+                pos: v2.create(0, 130),
+                scale: 2,
+                ori: 3,
+            },
+            {
+                type: "bridge_xlg_structure_02",
+                pos: v2.create(0, -80),
+                scale: 2,
+                ori: 1,
+            },
+            {
+                type: params.south_statue,
+                pos: v2.create(0, -130),
+                scale: 2,
+                ori: 1,
+            },
+            //pillboxes
+            {
+                type: "pillbox_complex_01",
+                pos: v2.create(130, 150),
+                scale: 2,
+                ori: 2,
+            },
+            {
+                type: "pillbox_complex_01",
+                pos: v2.create(-130, 150),
+                scale: 2,
+                ori: 0,
+            },
+            {
+                type: "pillbox_complex_01",
+                pos: v2.create(130, -150),
+                scale: 2,
+                ori: 2,
+            },
+            {
+                type: "pillbox_complex_01",
+                pos: v2.create(-130, -150),
+                scale: 2,
+                ori: 0,
+            },
+            //obstacles
+            //
+            //center
+            // {
+            //     type: "bunker_structure_12", //core bunker, unfinished
+            //     pos: v2.create(0, 0),
+            //     scale: 1,
+            //     ori: 0,
+            // },
+            {
+                type: randomObstacleType({
+                    case_04: 19,
+                    case_12: 1,
+                }),
+                pos: v2.create(0, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(5, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(10, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(-5, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-10, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(0, -5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(0, -10),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(0, 5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(0, 10),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_06: 0.08,
+                }),
+                pos: v2.create(11, 5.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_06: 0.08,
+                }),
+                pos: v2.create(11, -5.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_06: 0.08,
+                }),
+                pos: v2.create(-11, 5.5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_06: 0.08,
+                }),
+                pos: v2.create(-11, -5.5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(11, 11),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(11, -11),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-11, 11),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-11, -11),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "mil_crate_06",
+                pos: v2.create(-11, 15.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-11, -16.25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center,
+                pos: v2.create(25, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center,
+                pos: v2.create(-25, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center,
+                pos: v2.create(0, 25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center,
+                pos: v2.create(0, -25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center2,
+                pos: v2.create(18, -18),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center2,
+                pos: v2.create(-18, 18),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(20, 40),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(30, 40),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-20, 40),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-30, 40),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(20, -40),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(30, -40),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-20, -40),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-30, -40),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(40, 20),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(40, 30),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-40, 20),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-40, 30),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(40, -20),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(40, -30),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-40, -20),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-40, -30),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(40, 40),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(40, -40),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(-40, 40),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(-40, -40),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(35, 0),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(31, 2),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-35, 0),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-31, 2),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(0, 35),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(2, 31),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(0, -35),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(2, -31),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "loot_tier_verde_outfit",
+                pos: v2.create(35, 35),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_verde_outfit",
+                pos: v2.create(-35, -35),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.north_west_center_object,
+                pos: v2.create(-30, 30),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.north_east_center_object,
+                pos: v2.create(30, 30),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.south_west_center_object,
+                pos: v2.create(-30, -30),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.south_east_center_object,
+                pos: v2.create(30, -30),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(20, 28.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(14, 28.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.fortress_bunker,
+                pos: v2.create(30, 14),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(24.5, 34),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(34, 19.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(29, 19.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(35, 24),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(29, 35),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(25, 19.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-20, -28.5),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-14, -28.5),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-28.5, -14),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-24.5, -34),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-34, -19.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-29, -19.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(-35, -24),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(-29, -35),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-25, -19.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(30, -26),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(25, -21.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(21.5, -25),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(35, -22),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_08",
+                pos: v2.create(35, -17),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(26, -10),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "shack_02",
+                pos: v2.create(18, -32),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(10, -20),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 1,
+                    crate_25: 1,
+                    "": 1,
+                }),
+                pos: v2.create(17, -25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 1,
+                    crate_25: 1,
+                    "": 1,
+                }),
+                pos: v2.create(25, -35),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_06: 2,
+                    "": 1,
+                }),
+                pos: v2.create(30, -35),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-26, 30),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-21.5, 25),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-25, 21.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-35, 22),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_08",
+                pos: v2.create(-35, 17),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(-26, 10),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "shack_02",
+                pos: v2.create(-18, 32),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-10, 20),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 1,
+                    crate_25: 1,
+                    "": 1,
+                }),
+                pos: v2.create(-17, 25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 1,
+                    crate_25: 1,
+                    "": 1,
+                }),
+                pos: v2.create(-21.5, 21.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_06: 2,
+                    "": 1,
+                }),
+                pos: v2.create(-25, 16.5),
+                scale: 1,
+                ori: 1,
+            },
+            { //south
+                type: "barn_01",
+                pos: v2.create(30, -160),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "house_red_01",
+                pos: v2.create(-30, -140),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "house_red_02",
+                pos: v2.create(-30, -180),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "shack_01",
+                pos: v2.create(30, -125),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "shack_01",
+                pos: v2.create(30, -195),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({ outhouse_01: 5, outhouse_02: 1 }),
+                pos: v2.create(30, -212),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "outhouse_01",
+                pos: v2.create(40, -210),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(23, -210),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(23, -215),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-2, -150),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-2, -160),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(0, -165),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.south_faction_crate_1,
+                pos: v2.create(-4, -170),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.south_faction_crate_2,
+                pos: v2.create(-5, -165),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 5,
+                    crate_04: 4,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-33, -212),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 5,
+                    crate_04: 4,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-28, -212),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 5,
+                    crate_04: 4,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-16, -203),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-16, -208),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-18, -211),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(-21, -206),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 5,
+                    crate_04: 4,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-25, -203),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 2,
+                    crate_25: 1,
+                }),
+                pos: v2.create(-35, -203),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 2,
+                    crate_25: 1,
+                }),
+                pos: v2.create(-34, -206.5),
+                scale: 1,
+                ori: 0,
+            },
+            { //north
+                type: "barn_01",
+                pos: v2.create(30, 160),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "house_red_01",
+                pos: v2.create(-30, 140),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "house_red_02",
+                pos: v2.create(-30, 180),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "shack_01",
+                pos: v2.create(30, 125),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "shack_01",
+                pos: v2.create(30, 195),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({ outhouse_01: 5, outhouse_02: 1 }),
+                pos: v2.create(30, 212),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "outhouse_01",
+                pos: v2.create(40, 210),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(23, 210),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(23, 215),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(2, 150),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-2, 160),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(0, 165),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.north_faction_crate_1,
+                pos: v2.create(-4, 170),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.north_faction_crate_2,
+                pos: v2.create(-5, 165),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 5,
+                    crate_04: 4,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-33, 212),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 5,
+                    crate_04: 4,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-28, 212),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 5,
+                    crate_04: 4,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-16, 203),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-16, 208),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-18, 211),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(-21, 206),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 5,
+                    crate_04: 4,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-25, 203),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 2,
+                    crate_25: 1,
+                }),
+                pos: v2.create(-35, 203),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 2,
+                    crate_25: 1,
+                }),
+                pos: v2.create(-34, 206.5),
+                scale: 1,
+                ori: 0,
+            },
+            { //east
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(123.75, 34.5),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(130, 34.5),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(123.75, -37.0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(169.75, 50.0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(169.75, 32.0),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(155.75, -15.25),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(172.75, -15.25),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(155.75, -5.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(155.75, -48.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(172.75, -48.5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(169.75, 20.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(169.75, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(174.75, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.east_faction_crate_1,
+                pos: v2.create(171.75, 5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_docks,
+                pos: v2.create(165, 6),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(158, 5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(153, 2),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(145, 5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(142, 3),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(174.75, -6),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.east_faction_crate_2,
+                pos: v2.create(158, 1),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "shack_02",
+                pos: v2.create(126.5, 19),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "shack_02",
+                pos: v2.create(126.5, -21.5),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "warehouse_02",
+                pos: v2.create(153, 40),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "warehouse_02",
+                pos: v2.create(166, -32),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 5,
+                    crate_04: 4,
+                    crate_08: 1,
+                }),
+                pos: v2.create(186, 36),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(190, 36),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(194, 36),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    barrel_01: 2,
+                    "": 1,
+                }),
+                pos: v2.create(196, 32),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 10,
+                    crate_04: 9,
+                    crate_08: 1,
+                }),
+                pos: v2.create(188, 31),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 10,
+                    crate_04: 9,
+                    crate_08: 1,
+                }),
+                pos: v2.create(190, 14),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "chest_02",
+                pos: v2.create(186, 14),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 10,
+                    crate_04: 9,
+                    crate_08: 1,
+                }),
+                pos: v2.create(194, 19),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    barrel_01: 2,
+                    "": 1,
+                }),
+                pos: v2.create(189, 21),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 2,
+                    crate_25: 1,
+                }),
+                pos: v2.create(194, 14.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.east_faction_crate_1,
+                pos: v2.create(194, 24),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    outhouse_01: 5,
+                    outhouse_02: 1,
+                }),
+                pos: v2.create(185, 4),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "outhouse_01",
+                pos: v2.create(195, 2),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_docks,
+                pos: v2.create(188, -3),
+                scale: 1,
+                ori: 0,
+            },
+            // west
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-123.75, 34.5),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-130, 34.5),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-123.75, -37.0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-169.75, 50.0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-169.75, 32.0),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-155.75, -15.25),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-172.75, -15.25),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-155.75, -5.5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-155.75, -48.5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-172.75, -48.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-169.75, 20.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-169.75, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-174.75, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.west_faction_crate_1,
+                pos: v2.create(-171.75, 5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_docks,
+                pos: v2.create(-165, 6),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-158, 5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-153, 2),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-145, 5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-142, 3),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-174.75, -6),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.west_faction_crate_2,
+                pos: v2.create(-158, 1),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "shack_02",
+                pos: v2.create(-126.5, 19),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "shack_02",
+                pos: v2.create(-126.5, -21.5),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "warehouse_02",
+                pos: v2.create(-153, 40),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "warehouse_02",
+                pos: v2.create(-166, -32),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 5,
+                    crate_04: 4,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-186, 36),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(-190, 36),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-194, 36),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    barrel_01: 2,
+                    "": 1,
+                }),
+                pos: v2.create(-196, 32),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 10,
+                    crate_04: 9,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-188, 31),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 10,
+                    crate_04: 9,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-190, 14),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "chest_02",
+                pos: v2.create(-186, 14),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 10,
+                    crate_04: 9,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-194, 19),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    barrel_01: 2,
+                    "": 1,
+                }),
+                pos: v2.create(-189, 21),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 2,
+                    crate_25: 1,
+                }),
+                pos: v2.create(-194, 14.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.west_faction_crate_1,
+                pos: v2.create(-194, 24),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    outhouse_01: 5,
+                    outhouse_02: 1,
+                }),
+                pos: v2.create(-185, 4),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "outhouse_01",
+                pos: v2.create(-195, 2),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_docks,
+                pos: v2.create(-188, -3),
+                scale: 1,
+                ori: 0,
+            },
+        ],
+    };
+    return util.mergeDeep(baseDef, overrides);
+}
+
+function createFactionFortressDesert(overrides: DeepPartial<BuildingDef>, params: {
+    groundTintPath?: number;
+    concreteColor?: number;
+    north_west_center_object?: BuildingChildObjType;
+    north_east_center_object?: BuildingChildObjType;
+    south_west_center_object?: BuildingChildObjType;
+    south_east_center_object?: BuildingChildObjType;
+}): BuildingDef {
+    const baseDef: BuildingDef = {
+        type: "building",
+        map: { display: true, shapes: [] },
+        terrain: {
+            spawnPriority: 100,
+            grass: true,
+            beach: false
+        },
+        oris: [0, 1],
+        mapObstacleBounds: [
+            collider.createAabbExtents(v2.create(20, 0), v2.create(15, 15)),
+            collider.createAabbExtents(v2.create(0, -32), v2.create(25, 5)),//small lower piece
+            collider.createAabbExtents(v2.create(-27, -12), v2.create(10, 25)),//big wide left piece
+            collider.createAabbExtents(v2.create(-5, -5), v2.create(15, 15)),//big wide left piece
+            collider.createAabbExtents(v2.create(0, 22), v2.create(-37.5, 15)),
+            collider.createAabbExtents(v2.create(13, 64), v2.create(3, 5)),
+            // collider.createAabbExtents(v2.create(-13, 96), v2.create(3, 5)),
+            collider.createAabbExtents(v2.create(13, -64), v2.create(3, 5)),
+            // collider.createAabbExtents(v2.create(-13, -96), v2.create(3, 5)),
+            collider.createAabbExtents(v2.create(64, 13), v2.create(5, 3)),
+            // collider.createAabbExtents(v2.create(96, -13), v2.create(5, 3)),
+            collider.createAabbExtents(v2.create(-64, 13), v2.create(5, 3)),
+            // collider.createAabbExtents(v2.create(-96, -13), v2.create(5, 3)),
+            collider.createAabbExtents(v2.create(35, 0), v2.create(3, 5)),
+            collider.createAabbExtents(v2.create(-35, 0), v2.create(3, 5)),
+            collider.createAabbExtents(v2.create(0, 35), v2.create(5, 3)),
+            collider.createAabbExtents(v2.create(0, -35), v2.create(5, 3)),
+            collider.createAabbExtents(v2.create(-30, 30), v2.create(5, 5)),
+            collider.createAabbExtents(v2.create(30, -30), v2.create(5, 5)),
+        ],
+        mapGroundPatches: [
+            {
+                bound: collider.createAabbExtents(v2.create(20, 0), v2.create(15, 15)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(0, -32), v2.create(35, 5)),//small lower piece
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(0, 22), v2.create(-37.5, 15)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(-27, -12), v2.create(10, 25)),//big wide left piece
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+        ],
+        floor: {
+            surfaces: [
+                {
+                    type: "grass",
+                    collision: [
+                        collider.createAabbExtents(v2.create(0, 0), v2.create(0, 0)),
+                    ],
+                },
+                {//center asphalt
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(20, 0), v2.create(15, 15)),
+                        collider.createAabbExtents(v2.create(0, -32), v2.create(35, 5)),//small lower piece
+                        collider.createAabbExtents(v2.create(0, 22), v2.create(-37.5, 15)),
+                        collider.createAabbExtents(v2.create(-27, -12), v2.create(10, 25)),//big wide left piece
+                    ],
+                },
+            ],
+            imgs: [
+            ],
+        },
+        ceiling: { zoomRegions: [], imgs: [] },
+        mapObjects: [
+            {
+                type: "stone_06",//northern bridge pillars
+                pos: v2.create(13, 64),
+                scale: 1,
+                ori: 1,
+                inheritOri: true,
+            },
+            // {
+            //     type: "stone_06",
+            //     pos: v2.create(-13, 96),
+            //     scale: 1,
+            //     ori: 1,
+            //     inheritOri: true,
+            // },
+            {
+                type: "stone_06",//southern bridge pillars
+                pos: v2.create(13, -64),
+                scale: 1,
+                ori: 1,
+                inheritOri: true,
+            },
+            // {
+            //     type: "stone_06",
+            //     pos: v2.create(-13, -96),
+            //     scale: 1,
+            //     ori: 1,
+            //     inheritOri: true,
+            // },
+            {
+                type: "stone_06",//eastern bridge pillars
+                pos: v2.create(64, 13),
+                scale: 1,
+                ori: 0,
+                inheritOri: true,
+            },
+            // {
+            //     type: "stone_06",
+            //     pos: v2.create(96, -13),
+            //     scale: 1,
+            //     ori: 0,
+            //     inheritOri: true,
+            // },
+            {
+                type: "stone_06",//western bridge pillars
+                pos: v2.create(-64, 13),
+                scale: 1,
+                ori: 0,
+                inheritOri: true,
+            },
+            // {
+            //     type: "stone_06",
+            //     pos: v2.create(-96, -13),
+            //     scale: 1,
+            //     ori: 0,
+            //     inheritOri: true,
+            // },
+            //center area structures
+            {
+                type: params.north_west_center_object,
+                pos: v2.create(-30, 30),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: params.north_east_center_object,
+                pos: v2.create(30, 30),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: params.south_west_center_object,
+                pos: v2.create(-30, -30),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: params.south_east_center_object,
+                pos: v2.create(30, -30),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: "tree_05c",
+                pos: v2.create(0, 2),
+                scale: 2,
+                ori: 0,
+                inheritOri: true,
+            },
+            {
+                type: "case_05",
+                pos: v2.create(0, -2),
+                scale: 1,
+                ori: 0,
+                inheritOri: true,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(20, 28.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(14, 28.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_18",
+                pos: v2.create(-10, -5),
+                scale: 1,
+                ori: 0,
+                inheritOri: false,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-28.5, -14),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-34, -19.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-29, -19.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(35, 0),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-35, 0),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(0, 35),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(0, -35),
+                scale: 1,
+                ori: 2,
+            },
+        ],
+    };
+    return util.mergeDeep(baseDef, overrides);
+}
+
+function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
+    fortress_bunker?: BuildingChildObjType;
+    pillbox_complex?: BuildingChildObjType;
+    loot_tier_center?: BuildingChildObjType;
+    loot_tier_center2?: BuildingChildObjType;
+    loot_tier_docks?: BuildingChildObjType;
+    loot_tier_center_melee?: BuildingChildObjType;
+    groundTintGp?: number;
+    groundTintPath?: number;
+    concreteColor?: number;
+    north_statue?: BuildingChildObjType;
+    south_statue?: BuildingChildObjType;
+    east_statue?: BuildingChildObjType;
+    west_statue?: BuildingChildObjType;
+    north_west_center_object?: BuildingChildObjType;
+    north_east_center_object?: BuildingChildObjType;
+    south_west_center_object?: BuildingChildObjType;
+    south_east_center_object?: BuildingChildObjType;
+    north_faction_crate_1?: BuildingChildObjType;
+    north_faction_crate_2?: BuildingChildObjType;
+    south_faction_crate_1?: BuildingChildObjType;
+    south_faction_crate_2?: BuildingChildObjType;
+    east_faction_crate_1?: BuildingChildObjType;
+    east_faction_crate_2?: BuildingChildObjType;
+    west_faction_crate_1?: BuildingChildObjType;
+    west_faction_crate_2?: BuildingChildObjType;
+}): BuildingDef {
+    const baseDef: BuildingDef = {
+        type: "building",
+        map: {
+            display: true,
+            shapes: [
+                {
+                    collider: collider.createAabbExtents(
+                        v2.create(0, 0),
+                        v2.create(-35, -35),
+                    ),
+                    color: 0x3a3a3a,
+                },
+            ],
+        },
+        terrain: {
+            spawnPriority: 100,
+            grass: true,
+            beach: false
+        },
+        mapObstacleBounds: [
+            collider.createAabbExtents(v2.create(0, 0), v2.create(88, 88)),//center
+            collider.createAabbExtents(v2.create(125, 0), v2.create(40, 18)),//bridge
+            collider.createAabbExtents(v2.create(-125, 0), v2.create(40, 18)),//bridge
+            collider.createAabbExtents(v2.create(0, 125), v2.create(18, 40)),//bridge
+            collider.createAabbExtents(v2.create(0, -125), v2.create(18, 40)),//bridge
+            collider.createAabbExtents(v2.create(0, 0), v2.create(10, 250)),//crossroad
+            //north town
+            collider.createAabbExtents(v2.create(-15, 210), v2.create(70, 10)),//north road
+            collider.createAabbExtents(v2.create(-40, 240), v2.create(28, 16.5)),//north barn
+            collider.createAabbExtents(v2.create(-40, 224), v2.create(7, 5)),//north barn entrance
+            collider.createAabbExtents(v2.create(30, 238), v2.create(18, 18)),//north red house
+            collider.createAabbExtents(v2.create(30, 184), v2.create(20, 18)),//north lower red house
+            collider.createAabbExtents(v2.create(-65, 184), v2.create(20, 18)),//north lower red house2
+            collider.createAabbExtents(v2.create(75, 215), v2.create(20, 35)),//north pillbox complex rear
+            collider.createAabbExtents(v2.create(120, 216), v2.create(30, 50)),//north pillbox
+            collider.createAabbExtents(v2.create(155, 216), v2.create(12, 30)),//north pillbox hedgehogs
+            collider.createAabbExtents(v2.create(-28, 184), v2.create(18, 18)),//north grass patch
+            //south town
+            collider.createAabbExtents(v2.create(15, -210), v2.create(70, 10)),//south road
+            collider.createAabbExtents(v2.create(40, -240), v2.create(28, 16.5)),//south barn
+            collider.createAabbExtents(v2.create(40, -224), v2.create(7, 5)),//south barn entrance
+            collider.createAabbExtents(v2.create(-30, -238), v2.create(18, 18)),//south red house
+            collider.createAabbExtents(v2.create(-30, -184), v2.create(20, 18)),//south lower red house
+            collider.createAabbExtents(v2.create(65, -184), v2.create(20, 18)),//south lower red house2
+            collider.createAabbExtents(v2.create(-75, -215), v2.create(20, 35)),//south pillbox complex rear
+            collider.createAabbExtents(v2.create(-120, -216), v2.create(30, 50)),//south pillbox
+            collider.createAabbExtents(v2.create(-155, -216), v2.create(12, 30)),//south pillbox hedgehogs
+            collider.createAabbExtents(v2.create(28, -184), v2.create(18, 18)),//south grass patch
+            //east docks
+            collider.createAabbExtents(v2.create(210, 0), v2.create(45, 80)),
+            //west docks
+            collider.createAabbExtents(v2.create(-210, 0), v2.create(45, 80)),
+        ],
+        mapGroundPatches: [
+            {//cross road
+                bound: collider.createAabbExtents(v2.create(0, 0), v2.create(6, 250)),
+                color: params.groundTintPath || 0x653313,
+                roughness: 0.05,
+                offsetDist: 1,
+            },
+            {//north road
+                bound: collider.createAabbExtents(v2.create(-15, 210), v2.create(70, 6)),
+                color: params.groundTintPath || 0x653313,
+                roughness: 0.05,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(30, 220), v2.create(2, 5)),
+                color: params.groundTintPath || 0x653313,
+                roughness: 0,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(40, 200), v2.create(2, 5)),
+                color: params.groundTintPath || 0x653313,
+                roughness: 0,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(-40, 220), v2.create(2, 5)),
+                color: params.groundTintPath || 0x653313,
+                roughness: 0,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(-55, 200), v2.create(2, 5)),
+                color: params.groundTintPath || 0x653313,
+                roughness: 0,
+                offsetDist: 1,
+            },
+            {//south road
+                bound: collider.createAabbExtents(v2.create(15, -210), v2.create(70, 6)),
+                color: params.groundTintPath || 0x653313,
+                roughness: 0.05,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(-30, -220), v2.create(2, 5)),
+                color: params.groundTintPath || 0x653313,
+                roughness: 0,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(-40, -200), v2.create(2, 5)),
+                color: params.groundTintPath || 0x653313,
+                roughness: 0,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(40, -220), v2.create(2, 5)),
+                color: params.groundTintPath || 0x653313,
+                roughness: 0,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(55, -200), v2.create(2, 5)),
+                color: params.groundTintPath || 0x653313,
+                roughness: 0,
+                offsetDist: 1,
+            },
+            {//docks cross road
+                bound: collider.createAabbExtents(v2.create(0, 0), v2.create(195, 6)),
+                color: params.groundTintPath || 0x653313,
+                roughness: 0.05,
+                offsetDist: 1,
+            },
+            {//east docks
+                bound: collider.createAabbExtents(v2.create(210, 0), v2.create(45, 80)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0,
+                offsetDist: 1,
+            },
+            {//west docks
+                bound: collider.createAabbExtents(v2.create(-210, 0), v2.create(45, 80)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0,
+                offsetDist: 1,
+            },
+            {//center concrete
+                bound: collider.createAabbExtents(v2.create(0, 0), v2.create(80, 80)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.005,
+                offsetDist: 1,
+            },
+            {//north grass patch
+                bound: collider.createAabbExtents(v2.create(-28, 184), v2.create(18, 18)),
+                color: params.groundTintGp || 0x324319,
+                roughness: 0.05,
+                offsetDist: 1,
+            },
+            {//south grass patch
+                bound: collider.createAabbExtents(v2.create(28, -184), v2.create(18, 18)),
+                color: params.groundTintGp || 0x324319,
+                roughness: 0.05,
+                offsetDist: 1,
+            },
+        ],
+        ori: 0,
+        ceiling: {
+            zoomRegions: [],
+            imgs: [],
+        },
+        floor: {
+            surfaces: [
+                {
+                    type: "grass",
+                    collision: [
+                        collider.createAabbExtents(v2.create(0, 0), v2.create(0, 0)),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(
+                            v2.create(0, 0),
+                            v2.create(80, 80),
+                        ),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(210, 0), v2.create(45, 80)),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(-210, 0), v2.create(45, 80)),
+                    ],
+                },
+            ],
+            imgs: [
+                
+            ],
+        },
+        mapObjects: [
+            {
+                type: "bridge_xlg_structure_02",
+                pos: v2.create(125, 0),
+                scale: 2,
+                ori: 0,
+            },
+            {
+                type: params.east_statue,
+                pos: v2.create(175, 0),
+                scale: 2,
+                ori: 2,
+            },
+            {
+                type: "bridge_xlg_structure_02",
+                pos: v2.create(-125, 0),
+                scale: 2,
+                ori: 0,
+            },
+            {
+                type: params.west_statue,
+                pos: v2.create(-175, 0),
+                scale: 2,
+                ori: 0,
+            },
+            {
+                type: "bridge_xlg_structure_02",
+                pos: v2.create(0, 125),
+                scale: 2,
+                ori: 1,
+            },
+            {
+                type: params.north_statue,
+                pos: v2.create(0, 175),
+                scale: 2,
+                ori: 3,
+            },
+            {
+                type: "bridge_xlg_structure_02",
+                pos: v2.create(0, -125),
+                scale: 2,
+                ori: 1,
+            },
+            {
+                type: params.south_statue,
+                pos: v2.create(0, -175),
+                scale: 2,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(75, 0),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(75, -6),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-75, 0),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-75, 6),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(0, 75),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(6, 75),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(0, 68),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(0, -75),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-6, -75),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(0, -68),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(80, 80),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(80, -80),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(-80, 80),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "hedgehog_01",
+                pos: v2.create(-80, -80),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(83, 70),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(83, 60),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(83, 50),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(83, 40),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(83, 30),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(83, 20),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(83, -70),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(83, -60),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(83, -50),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(83, -40),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(83, -30),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(83, -20),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-83, 70),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-83, 60),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-83, 50),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-83, 40),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-83, 30),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-83, 20),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-83, -70),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-83, -60),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-83, -50),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-83, -40),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-83, -30),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-83, -20),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-83, 70),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-83, 60),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-83, 50),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-83, 40),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-83, 30),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-83, 20),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(70, 83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(60, 83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(50, 83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(40, 83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(30, 83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(20, 83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-70, 83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-60, 83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-50, 83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-40, 83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-30, 83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-20, 83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(70, -83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(60, -83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(50, -83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(40, -83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(30, -83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(20, -83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-70, -83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-60, -83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-50, -83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-40, -83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-30, -83),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-20, -83),
+                scale: 1,
+                ori: 0,
+            },
+            //center area
+            {
+                type: "warehouse_04",
+                pos: v2.create(45, 0),
+                scale: 2,
+                ori: 1,
+            },
+            {
+                type: "warehouse_04",
+                pos: v2.create(37, 52),
+                scale: 2,
+                ori: 0,
+            },
+            {
+                type: "warehouse_04",
+                pos: v2.create(-45, 0),
+                scale: 2,
+                ori: 1,
+            },
+            {
+                type: "warehouse_04",
+                pos: v2.create(-37, -52),
+                scale: 2,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    case_04: 19,
+                    case_12: 1,
+                }),
+                pos: v2.create(0, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(5, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(10, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(-5, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-10, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(0, 23),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    crate_10: 19,
+                    crate_11: 1,
+                }),
+                pos: v2.create(0, 18),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "mil_crate_04",
+                pos: v2.create(-1, 12),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(0.5, 7),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(0, -23),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_scopes_sniper",
+                pos: v2.create(0, -5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_07",
+                pos: v2.create(0, -10),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_fortress_armor",
+                pos: v2.create(0, -15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: params.loot_tier_center_melee || "loot_tier_faction_fortress_melee",
+                pos: v2.create(0, -19),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_06: 0.08,
+                    container_07: 0.3,
+                }),
+                pos: v2.create(11, 5.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_06: 0.08,
+                    container_07: 0.3,
+                }),
+                pos: v2.create(11, -5.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_06: 0.08,
+                    container_07: 0.3,
+                }),
+                pos: v2.create(-11, 5.5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_06: 0.08,
+                    container_07: 0.3,
+                }),
+                pos: v2.create(-11, -5.5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_06: 0.08,
+                    container_07: 0.3,
+                }),
+                pos: v2.create(11, 11),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_06: 0.08,
+                    container_07: 0.3,
+                }),
+                pos: v2.create(11, -11),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_06: 0.08,
+                    container_07: 0.3,
+                }),
+                pos: v2.create(-11, 11),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_06: 0.08,
+                    container_07: 0.3,
+                }),
+                pos: v2.create(-11, -11),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_07: 0.3,
+                }),
+                pos: v2.create(11, 16.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_07: 0.3,
+                }),
+                pos: v2.create(11, -16.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_07: 0.3,
+                }),
+                pos: v2.create(-11, 16.5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_07: 0.3,
+                }),
+                pos: v2.create(-11, -16.5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_07: 0.3,
+                }),
+                pos: v2.create(11, 22),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_07: 0.3,
+                }),
+                pos: v2.create(11, -22),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_07: 0.3,
+                }),
+                pos: v2.create(-11, 22),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_07: 0.3,
+                }),
+                pos: v2.create(-11, -22),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "mil_crate_06",
+                pos: v2.create(-11, -26.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(29, 3),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_02f",
+                pos: v2.create(29, -2),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_22",
+                pos: v2.create(24, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(21, 20),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(23, -15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-29, -2),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_19f",
+                pos: v2.create(-29, 3),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_23f",
+                pos: v2.create(-24, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-23, 15),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-21, -20),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: params.loot_tier_center || "loot_tier_1",
+                pos: v2.create(21, -26),
+                scale: 1,
+                ori: 1,
+            },
+            //other center containers
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(28.5, 14),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(-28.5, 14),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(28.5, -14),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(-28.5, -14),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(54, 35.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: params.fortress_bunker,
+                pos: v2.create(39, 35.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(54, 30),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(62, 25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(57.5, 25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(52.5, 25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_26",
+                pos: v2.create(34, 25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(50, 30),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "mil_crate_02",
+                pos: v2.create(45, 31),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(-54, -35.5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(-37, -35.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(61.5, 14),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(61, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_08",
+                pos: v2.create(61, -5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_02",
+                pos: v2.create(65.5, -2),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_02",
+                pos: v2.create(60, 4.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(67, 16),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(77, 12),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(77, 16),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(78, 20),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center2,
+                pos: v2.create(72, -16),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(-61.5, 14),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-61, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_08",
+                pos: v2.create(-61, -5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_02",
+                pos: v2.create(-65.5, -2),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_02",
+                pos: v2.create(-60, 4.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-67, 16),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-77, 12),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-77, 16),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(-78, 20),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center2,
+                pos: v2.create(-72, -16),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(61.5, -14),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(-61.5, -14),
+                scale: 1,
+                ori: 2,
+            },
+            //top left corner of center
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(-11, 43),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(-11, 60),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(-17, 43),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(-17, 60),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(-23, 43),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(-23, 60),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-15, 32),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-11, 32.5),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-28, 26.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-24, 32),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-20, 32),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(-24, 27),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-24, 22.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_surviv",
+                pos: v2.create(-23, 19),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center2,
+                pos: v2.create(0, 30),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-3.5, 38),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(10, 46),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(11.5, 41),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(7, 41),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-2, 49),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(0, 54),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(0, 58),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(-77, 43),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(-77, 60),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "shack_02",
+                pos: v2.create(-60, 60),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center2,
+                pos: v2.create(-60, 48),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.north_east_center_object,
+                pos: v2.create(-28.5, 59),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-28.5, 64),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.north_west_center_object,
+                pos: v2.create(-33.5, 59),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-33.5, 64),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-33.5, 68),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-22, 71),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center,
+                pos: v2.create(-40, 71),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-33.5, 71.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(-45, 59),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(-53.5, 61),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-45, 66),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 2,
+                    crate_25: 1, 
+                }),
+                pos: v2.create(-49.5, 60),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 2,
+                    crate_25: 1, 
+                }),
+                pos: v2.create(-49, 63.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-40, 50),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-44, 54),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_26",
+                pos: v2.create(-50, 56),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-40, 54),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-34, 39),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-56, 39),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-61, 37),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-60, 41.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 2,
+                    crate_25: 1, 
+                }),
+                pos: v2.create(-52, 37),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 2,
+                    crate_25: 1, 
+                }),
+                pos: v2.create(-52, 41),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "chest_02",
+                pos: v2.create(-38, 41),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 1,
+                    crate_04: 1, 
+                }),
+                pos: v2.create(-42.5, 41),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    case_08: 9,
+                    case_03: 1, 
+                }),
+                pos: v2.create(-44, 37),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(-39, 37),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-33, 33),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-52, 78),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-47, 78),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-49, 73),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-78, 71),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_08",
+                pos: v2.create(-76, 76),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(-65, 76),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(-61, 71),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_lumber_outfit",
+                pos: v2.create(-70, 71),
+                scale: 1,
+                ori: 0,
+            },
+            //top right corner of center
+            {
+                type: "loot_tier_verde_outfit",
+                pos: v2.create(75, 75),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(25, 68),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 1,
+                    crate_25: 1,
+                }),
+                pos: v2.create(50, 66.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 1,
+                    crate_25: 1,
+                }),
+                pos: v2.create(53.5, 66.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 1,
+                    crate_25: 1,
+                }),
+                pos: v2.create(50, 70),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 1,
+                    crate_25: 1,
+                }),
+                pos: v2.create(53.5, 70),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center,
+                pos: v2.create(63, 70),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_08",
+                pos: v2.create(45, 67.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(40, 67.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "shack_02",
+                pos: v2.create(74, 64),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "chest_02",
+                pos: v2.create(76, 71),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(60, 77),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(65, 77),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(41, 77),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(30, 77),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(35, 77),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(76, 50),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(70.5, 55),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center,
+                pos: v2.create(69, 31),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center,
+                pos: v2.create(25, 29),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(16, 36),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(20.5, 36),
+                scale: 1,
+                ori: 0,
+            },
+            //bottom right corner of center
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(11, -43),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(11, -60),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(17, -43),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(17, -60),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(23, -43),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(23, -60),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(10, -32),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(6, -27),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(14, -32),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(19, -32),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(10, -27.25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(33, -27),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(29, -24),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(29, -28.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: params.loot_tier_center2,
+                pos: v2.create(0, -30),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(5, -38.20),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(-1, -38.20),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(-7, -38.20),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-12, -39),
+                scale: 0.9,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-12, -43.5),
+                scale: 0.9,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-10, -63),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-12, -58),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-7.5, -49),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(-3, -49),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(2, -49),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(0, -54),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(0, -58),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(77, -43),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(77, -60),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "shack_02",
+                pos: v2.create(60, -60),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: params.loot_tier_center2,
+                pos: v2.create(60, -48),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(28.5, -59),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(28.5, -64),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.south_west_center_object,
+                pos: v2.create(33.5, -59),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.south_east_center_object,
+                pos: v2.create(33.5, -64),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(33.5, -68),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(22, -71),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center,
+                pos: v2.create(40, -71),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(33.5, -71.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(45, -59),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(53.5, -61),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(45, -66),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 2,
+                    crate_25: 1, 
+                }),
+                pos: v2.create(49.5, -60),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 2,
+                    crate_25: 1, 
+                }),
+                pos: v2.create(49, -63.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(40, -50),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(44, -54),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_26",
+                pos: v2.create(50, -56),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(40, -54),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(34, -39),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(56, -39),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(61, -37),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(60, -41.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 2,
+                    crate_25: 1, 
+                }),
+                pos: v2.create(52, -37),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 2,
+                    crate_25: 1, 
+                }),
+                pos: v2.create(52, -41),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "chest_02",
+                pos: v2.create(38, -41),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 1,
+                    crate_04: 1, 
+                }),
+                pos: v2.create(42.5, -41),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    case_08: 9,
+                    case_03: 1, 
+                }),
+                pos: v2.create(44, -37),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(39, -37),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(33, -33),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(52, -78),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(47, -78),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(49, -73),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(78, -71),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_08",
+                pos: v2.create(76, -76),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(65, -76),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(61, -71),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_pineapple_outfit",
+                pos: v2.create(70, -71),
+                scale: 1,
+                ori: 0,
+            },
+            //bottom left corner of center
+            {
+                type: "loot_tier_tarkhany_outfit",
+                pos: v2.create(-75, -75),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(-25, -68),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 1,
+                    crate_25: 1,
+                }),
+                pos: v2.create(-50, -66.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 1,
+                    crate_25: 1,
+                }),
+                pos: v2.create(-53.5, -66.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 1,
+                    crate_25: 1,
+                }),
+                pos: v2.create(-50, -70),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 1,
+                    crate_25: 1,
+                }),
+                pos: v2.create(-53.5, -70),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center,
+                pos: v2.create(-63, -70),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_08",
+                pos: v2.create(-45, -67.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-40, -67.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "shack_02",
+                pos: v2.create(-74, -64),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "chest_02",
+                pos: v2.create(-76, -71),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_26",
+                pos: v2.create(-55, -77),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-60, -77),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-65, -77),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-41, -77),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(-30, -77),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(-35, -77),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 1,
+                    container_08: 0.25,
+                }),
+                pos: v2.create(-76, -50),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-70.5, -55),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center,
+                pos: v2.create(-69, -31),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_center,
+                pos: v2.create(-25, -29),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-62, -27),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-57, -25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(-53, -25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(-57, -30),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-52, -30.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-16, -36),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-20.5, -36),
+                scale: 1,
+                ori: 0,
+            },
+            //north town area
+            {
+                type: params.pillbox_complex || "pillbox_complex_01",
+                pos: v2.create(120, 215),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "house_red_01",
+                pos: v2.create(30, 238),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "house_red_02",
+                pos: v2.create(30, 185),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barn_01",
+                pos: v2.create(-40, 238),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "house_red_02",
+                pos: v2.create(-65, 185),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    outhouse_01: 5,
+                    outhouse_02: 1,
+                }),
+                pos: v2.create(-18, 195),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "outhouse_01",
+                pos: v2.create(-15, 186),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-11, 192),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-14, 177),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "shack_01",
+                pos: v2.create(-35, 173),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: params.north_faction_crate_1,
+                pos: v2.create(-25.5, 174),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.north_faction_crate_2,
+                pos: v2.create(-20.5, 172),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(-25.5, 169),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(-18, 179.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_25",
+                pos: v2.create(-18, 176),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-40, 198),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-42, 193),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "chest_02",
+                pos: v2.create(-38, 193),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_08",
+                pos: v2.create(-28, 186),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-37, 184),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_guns",
+                pos: v2.create(-28, 196),
+                scale: 1,
+                ori: 0,
+            },
+            //other northern town objects
+            {
+                type: "loot_tier_guns",
+                pos: v2.create(0, 210),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-10, 202),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(14, 206),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(33, 210),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(38, 212),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(-11, 220),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-50, 210),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-55, 212),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-60, 215),
+                scale: 1,
+                ori: 1,
+            },
+            //south town area
+            {
+                type: params.pillbox_complex || "pillbox_complex_01",
+                pos: v2.create(-120, -215),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "house_red_01",
+                pos: v2.create(-30, -238),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "house_red_02",
+                pos: v2.create(-30, -185),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "barn_01",
+                pos: v2.create(40, -238),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "house_red_02",
+                pos: v2.create(65, -185),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    outhouse_01: 5,
+                    outhouse_02: 1,
+                }),
+                pos: v2.create(18, -195),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "outhouse_01",
+                pos: v2.create(15, -186),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(11, -192),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(14, -177),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "shack_01",
+                pos: v2.create(35, -173),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.south_faction_crate_1,
+                pos: v2.create(25.5, -174),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.south_faction_crate_2,
+                pos: v2.create(20.5, -172),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(25.5, -169),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(18, -179.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_25",
+                pos: v2.create(18, -176),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(40, -198),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(42, -193),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "chest_02",
+                pos: v2.create(38, -193),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "crate_08",
+                pos: v2.create(28, -186),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(37, -184),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_guns",
+                pos: v2.create(28, -196),
+                scale: 1,
+                ori: 0,
+            },
+            //other southern town objects
+            {
+                type: "loot_tier_guns",
+                pos: v2.create(0, -210),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(10, -202),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-14, -206),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-33, -210),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-38, -212),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(11, -220),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(50, -210),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(55, -212),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(60, -215),
+                scale: 1,
+                ori: 1,
+            },
+            //east docks area
+            {
+                type: "warehouse_02",
+                pos: v2.create(210, 55),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "warehouse_02",
+                pos: v2.create(190, -40),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "warehouse_02",
+                pos: v2.create(230, -40),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(191, 33),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(197, 33),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(203, 33),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(210, 32),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "chest_02",
+                pos: v2.create(208.5, 40),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(208, 36),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_08",
+                pos: v2.create(213, 39),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.east_faction_crate_1,
+                pos: v2.create(223.5, 39),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.east_faction_crate_2,
+                pos: v2.create(223.5, 34),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(209, 27),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(214, 23),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_docks,
+                pos: v2.create(220, 26),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(225, 23),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 1,
+                    crate_25: 1,
+                }),
+                pos: v2.create(225, 27),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "container_05",
+                pos: v2.create(229, 33),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(229, 25),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(228, 18),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(228, 12),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(211, 18),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(211, 12),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(190, 13),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(195, 12),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 2,
+                    crate_04: 1,
+                    crate_08: 1,
+                }),
+                pos: v2.create(195, 17),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(190, 19),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "shack_02",
+                pos: v2.create(171, 19),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(169, 38),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(169, 27),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(174, 27),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_docks,
+                pos: v2.create(183, 26),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(252, 38),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(252, 20.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(203, 71),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(192, 71),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(221, 71),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(230, 71),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(225, 71),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(228, 76),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "outhouse_01",
+                pos: v2.create(249, 75),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(251, 68),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(169, 71),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(174.5, 77),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(174.5, 72),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_25",
+                pos: v2.create(174, 68),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(174, 55),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(210, 5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(229, 5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(225, 7),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(218, 5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(245, -3),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(243, 2),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(246.5, -26),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(246.5, -45),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(246.5, -56),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(246.5, -61),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(213.5, -21),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(213.5, -38),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(213.5, -54),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(206, -46),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(205, -42),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: params.east_faction_crate_1,
+                pos: v2.create(206, -35),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(206, -30),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(208, -25),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(208, -10),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(173.5, -26),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(173.5, -54),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(173.5, -36),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_08",
+                pos: v2.create(173.5, -41),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(174, -76),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(235, -76),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "shack_02",
+                pos: v2.create(249, -74),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(210, -77),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(207, -72),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(205, -77),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(200, -77),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: params.loot_tier_docks,
+                pos: v2.create(190, -71),
+                scale: 1,
+                ori: 2,
+            },
+            //west docks area
+            {
+                type: "warehouse_02",
+                pos: v2.create(-210, -55),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "warehouse_02",
+                pos: v2.create(-190, 40),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "warehouse_02",
+                pos: v2.create(-230, 40),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(-191, -33),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(-197, -33),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(-203, -33),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-210, -32),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "chest_02",
+                pos: v2.create(-208.5, -40),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-208, -36),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_08",
+                pos: v2.create(-213, -39),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.west_faction_crate_1,
+                pos: v2.create(-223.5, -39),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.west_faction_crate_2,
+                pos: v2.create(-223.5, -34),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(-209, -27),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-214, -23),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_docks,
+                pos: v2.create(-220, -26),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(-225, -23),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_03: 1,
+                    crate_25: 1,
+                }),
+                pos: v2.create(-225, -27),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "container_05",
+                pos: v2.create(-229, -33),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-229, -25),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(-228, -18),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(-228, -12),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(-211, -18),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(-211, -12),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-190, -13),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-195, -12),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 2,
+                    crate_04: 1,
+                    crate_08: 1,
+                }),
+                pos: v2.create(-195, -17),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-190, -19),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "shack_02",
+                pos: v2.create(-171, -19),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(-169, -38),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(-169, -27),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-174, -27),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.loot_tier_docks,
+                pos: v2.create(-183, -26),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(-252, -38),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(-252, -20.5),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(-203, -71),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-192, -71),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-221, -71),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-230, -71),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-225, -71),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-228, -76),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "outhouse_01",
+                pos: v2.create(-249, -75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(-251, -68),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(-169, -71),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-174.5, -77),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-174.5, -72),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_25",
+                pos: v2.create(-174, -68),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-174, -55),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-210, -5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-229, -5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-225, -7),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(-218, -5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-245, 3),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-243, -2),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(-246.5, 26),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(-246.5, 45),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-246.5, 56),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-246.5, 61),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(-213.5, 21),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(-213.5, 38),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(-213.5, 54),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-206, 46),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-205, 42),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: params.west_faction_crate_1,
+                pos: v2.create(-206, 35),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-206, 30),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(-208, 25),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-208, 10),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(-173.5, 26),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(-173.5, 54),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-173.5, 36),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_08",
+                pos: v2.create(-173.5, 41),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(-174, 76),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                    container_05: 2,
+                }),
+                pos: v2.create(-235, 76),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "shack_02",
+                pos: v2.create(-249, 74),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-210, 77),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-207, 72),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(-205, 77),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(-200, 77),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: params.loot_tier_docks,
+                pos: v2.create(-190, 71),
+                scale: 1,
+                ori: 2,
+            },
+        ],
+    };
+    return util.mergeDeep(baseDef, overrides);
+}
+
+function createFactionFortress2Desert(overrides: DeepPartial<BuildingDef>, params: {
+    loot_tier_center?: BuildingChildObjType;
+    loot_tier_center2?: BuildingChildObjType;
+    loot_tier_docks?: BuildingChildObjType;
+    loot_tier_center_melee?: BuildingChildObjType;
+    groundTintGp?: number;
+    groundTintPath?: number;
+    concreteColor?: number;
+    north_west_center_object?: BuildingChildObjType;
+    north_east_center_object?: BuildingChildObjType;
+    south_west_center_object?: BuildingChildObjType;
+    south_east_center_object?: BuildingChildObjType;
+}): BuildingDef {
+    const baseDef: BuildingDef = {
+        type: "building",
+        map: {
+            display: true,
+            shapes: [
+            ],
+        },
+        terrain: {
+            spawnPriority: 100,
+            grass: true,
+            beach: false
+        },
+        mapObstacleBounds: [
+            collider.createAabbExtents(v2.create(0, 0), v2.create(15, 15)),
+            collider.createAabbExtents(v2.create(22, 8), v2.create(10, 32)),
+            collider.createAabbExtents(v2.create(-42, 0), v2.create(22, 40)),
+            collider.createAabbExtents(v2.create(-16, 34), v2.create(30, 25)),
+            collider.createAabbExtents(v2.create(-30, 60), v2.create(16, 10)),
+            collider.createAabbExtents(v2.create(46, -37), v2.create(35, 7)),
+            collider.createAabbExtents(v2.create(46, -64), v2.create(35, 10)),
+            collider.createAabbExtents(v2.create(26, -50), v2.create(15, 10)),
+            collider.createAabbExtents(v2.create(68, -50), v2.create(13, 10)),
+        ],
+        mapGroundPatches: [
+            {
+                bound: collider.createAabbExtents(v2.create(22, 8), v2.create(10, 32)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(-42, 0), v2.create(22, 40)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(-16, 34), v2.create(30, 25)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(-30, 60), v2.create(16, 10)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(46, -37), v2.create(35, 7)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(46, -64), v2.create(35, 10)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(26, -50), v2.create(15, 10)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(68, -50), v2.create(13, 10)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.15,
+                offsetDist: 1,
+            },
+        ],
+        ori: 0,
+        ceiling: {
+            zoomRegions: [],
+            imgs: [],
+        },
+        floor: {
+            surfaces: [
+                {
+                    type: "grass",
+                    collision: [
+                        collider.createAabbExtents(v2.create(0, 0), v2.create(0, 0)),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(22, 8), v2.create(10, 32)),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(-42, 0), v2.create(22, 40)),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(-16, 34), v2.create(30, 25)),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(-30, 60), v2.create(16, 10)),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(46, -37), v2.create(35, 7)),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(46, -64), v2.create(35, 10)),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(26, -50), v2.create(15, 10)),
+                    ],
+                },
+                {
+                    type: "asphalt",
+                    collision: [
+                        collider.createAabbExtents(v2.create(68, -50), v2.create(13, 10)),
+                    ],
+                },
+            ],
+            imgs: [],
+        },
+        mapObjects: [
+            {
+                type: "tree_05c",
+                pos: v2.create(0, 2),
+                scale: 2,
+                ori: 0,
+                inheritOri: true,
+            },
+            {
+                type: "case_05",
+                pos: v2.create(0, -2),
+                scale: 1,
+                ori: 0,
+                inheritOri: true,
+            },
+            {
+                type: "warehouse_04d",
+                pos: v2.create(-45, 0),
+                scale: 2,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(11, 16.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-11, 16.5),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(11, 22),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-11, 22),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-28.5, 14),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-29, -2),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_18",
+                pos: v2.create(-29, 3),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_18",
+                pos: v2.create(-11, 11),
+                scale: 1,
+                ori: 0,
+                inheritOri: true,
+            },
+            {
+                type: "crate_22d",
+                pos: v2.create(0, 19),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(0, 23),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(29, 3),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_02d",
+                pos: v2.create(29, -2),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(24, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_guns",
+                pos: v2.create(0, 30),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(28.5, 14),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(28.5, -14),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-11, 43),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-17, 43),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(-23, 60),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-28, 26.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-24, 32),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-20, 32),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_19d",
+                pos: v2.create(-15, 32),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(-24, 27),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-24, 22.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_surviv",
+                pos: v2.create(-23, 19),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-3.5, 38),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-2, 49),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(0, 54),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(0, 58),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_23d",
+                pos: v2.create(-28.5, 59),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-28.5, 64),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-33.5, 59),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-33.5, 64),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(-34, 39),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "chest_02",
+                pos: v2.create(-38, 41),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 1,
+                    crate_04: 1, 
+                }),
+                pos: v2.create(-42.5, 41),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(16, 36),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(20.5, 36),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(17, -60),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(23, -43),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(23, -60),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: randomObstacleType({
+                    container_01: 1,
+                    container_02: 1,
+                    container_03: 1,
+                }),
+                pos: v2.create(77, -60),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "shack_02",
+                pos: v2.create(60, -60),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(28.5, -59),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(28.5, -64),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(45, -66),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(49.5, -60),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_03",
+                pos: v2.create(49, -63.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(34, -39),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "sandbags_01",
+                pos: v2.create(56, -39),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(61, -37),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(60, -41.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(39, -37),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_04",
+                pos: v2.create(61, -71),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "loot_tier_1",
+                pos: v2.create(70, -71),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_06",
+                pos: v2.create(46, -49),
+                scale: 1,
+                ori: 0,
+                inheritOri: true,
             },
         ],
     };
@@ -9598,6 +15865,10 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
         south_east_center_object: "crate_22d",
     }),
 
+    faction_fortress_02d: createFactionFortress2Desert({}, {
+
+    }),
+
     // Faction
 
     river_town_01: {
@@ -10017,6 +16288,9 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
     // Multi Faction
     faction_fortress_01: createFactionFortress({}, {
         fortress_bunker: "bunker_structure_11",
+        loot_tier_center: "loot_tier_surviv",
+        loot_tier_center2: "loot_tier_guns",
+        loot_tier_docks: "loot_tier_guns",
         south_statue: "statue_structure_red",
         east_statue: "statue_structure_blue",
         west_statue: "statue_structure_green",
@@ -10029,10 +16303,32 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
         north_faction_crate_2: "crate_19f",
         south_faction_crate_1: "crate_02f",
         south_faction_crate_2: "crate_22",
-        west_faction_crate_1: "crate_02f",
-        west_faction_crate_2: "crate_19f",
         east_faction_crate_1: "crate_22",
         east_faction_crate_2: "crate_23f",
+        west_faction_crate_1: "crate_02f",
+        west_faction_crate_2: "crate_19f",
+    }),
+    faction_fortress_02: createFactionFortress2({}, {
+        fortress_bunker: "bunker_structure_11",
+        loot_tier_center: "loot_tier_surviv",
+        loot_tier_center2: "loot_tier_guns",
+        loot_tier_docks: "loot_tier_guns",
+        south_statue: "statue_structure_red",
+        east_statue: "statue_structure_blue",
+        west_statue: "statue_structure_green",
+        north_statue: "statue_structure_orange",
+        north_west_center_object: "crate_19f",
+        north_east_center_object: "crate_23f",
+        south_west_center_object: "crate_02f",
+        south_east_center_object: "crate_22",
+        north_faction_crate_1: "crate_23f",
+        north_faction_crate_2: "crate_19f",
+        south_faction_crate_1: "crate_02f",
+        south_faction_crate_2: "crate_22",
+        east_faction_crate_1: "crate_22",
+        east_faction_crate_2: "crate_23f",
+        west_faction_crate_1: "crate_02f",
+        west_faction_crate_2: "crate_19f",
     }),
     faction_base_red: createFactionBase({ teamId: 1 },{
         faction_crate: "crate_02f",
@@ -10050,7 +16346,25 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
         faction_crate: "crate_23f",
         loot_tier: "loot_tier_surviv"
     }),
+    logging_complex_01f: createLoggingComplexFaction({ teamId: 3 }, {
+        groundTintLt: 0x576A33,
+        groundTintDk: 0x404F21,
+    }),
+    logging_complex_02f: createLoggingComplex2({ teamId: 3 }, { 
+        groundTintDk: 0x455722 
+    }),
+    logging_complex_03f: createLoggingComplex3({ teamId: 3 }, { 
+        groundTintDk: 0x404F21 
+    }),
     pillbox_01: createPillbox({},{}),
+    pillbox_complex_01: createPillboxComplex ({}, {
+        groundTintLt: 0x576A33,
+        groundTintDk: 0x404F21,
+    }),
+    no_mans_land_north: createNoMansLandVertical({ }, { }),
+    no_mans_land_south: createNoMansLandVertical({ }, { }),
+    no_mans_land_east: createNoMansLandHorizontal({ }, { }),
+    no_mans_land_west: createNoMansLandHorizontal({ }, { }),
     statue_structure_red: {
         type: "building",
         ori: 0,
@@ -10175,6 +16489,43 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
             },
         ],
     },
+
+    //Multi faction spring
+
+    faction_fortress_02sp: createFactionFortress2({}, {
+        groundTintPath: 0x334a0e,
+        groundTintGp: 0x253210,
+        pillbox_complex: "pillbox_complex_01sp",
+        fortress_bunker: "bunker_structure_11",
+        loot_tier_center: "loot_tier_surviv",
+        loot_tier_center2: "loot_tier_guns",
+        loot_tier_docks: "loot_tier_guns",
+        south_statue: "statue_structure_red",
+        east_statue: "statue_structure_blue",
+        west_statue: "statue_structure_green",
+        north_statue: "statue_structure_orange",
+        north_west_center_object: "crate_19f",
+        north_east_center_object: "crate_23f",
+        south_west_center_object: "crate_02f",
+        south_east_center_object: "crate_22",
+        north_faction_crate_1: "crate_23f",
+        north_faction_crate_2: "crate_19f",
+        south_faction_crate_1: "crate_02f",
+        south_faction_crate_2: "crate_22",
+        east_faction_crate_1: "crate_22",
+        east_faction_crate_2: "crate_23f",
+        west_faction_crate_1: "crate_02f",
+        west_faction_crate_2: "crate_19f",
+    }),
+    pillbox_complex_01sp: createPillboxComplex ({}, {
+        groundTintLt: 0x334a0e,
+        groundTintDk: 0x253210,
+        tree: "tree_08sp",
+    }),
+    logging_complex_01fsp: createLoggingComplexFaction({ teamId: 3 }, {
+        groundTintLt: 0x334a0e,
+        groundTintDk: 0x253210,
+    }),
 
     // Halloween
 
@@ -12608,7 +18959,4 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
         tree_small: "tree_08su",
         tree_large: "tree_08su",
     }),
-
-    // Multi-faction
-    logging_complex_02f: createLoggingComplex2({ teamId: 3 }, { groundTintDk: 0x455722 }),
 };

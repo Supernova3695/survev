@@ -6,7 +6,7 @@
    version="1.1"
    id="svg9"
    sodipodi:docname="loot-melee-falchion.svg"
-   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
    inkscape:export-filename="melee-cutlass.png"
    inkscape:export-xdpi="92.307693"
    inkscape:export-ydpi="92.307693"
@@ -36,8 +36,8 @@
      showgrid="true"
      inkscape:showpageshadow="false"
      inkscape:zoom="2.8284271"
-     inkscape:cx="0.88388348"
-     inkscape:cy="95.282639"
+     inkscape:cx="1.0606602"
+     inkscape:cy="94.929086"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
@@ -154,7 +154,7 @@
        y2="163.96037"
        gradientTransform="translate(-4.0658642,6.8942911)" /></defs><g
      id="g2"
-     transform="translate(-0.12793265,6.6599788)"><path
+     transform="matrix(-1,0,0,1,69.154031,6.6599788)"><path
        style="display:inline;fill:none;fill-opacity:0.995516;stroke:#000000;stroke-width:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 23.294713,132.67151 c 0.184502,-8.30257 2.02317,-82.435284 -0.493904,-124.13173 2.314368,-3.471553 1.353554,-8.58058291 1.353554,-8.58058291 20,10.00000031 10.163392,96.71231091 14.442859,131.05553291 z"
        id="path17"

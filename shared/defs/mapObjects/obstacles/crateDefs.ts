@@ -787,6 +787,34 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         },
         sound: { explode: "crate_break_01" },
     }),
+    crate_12mf: createCrate({
+        collision: collider.createAabbExtents(v2.create(0, 0), v2.create(3.5, 3.5)),
+        scale: { destroy: 0.75 },
+        health: 500,
+        loot: [
+            tierLoot("tier_airdrop_ammo", 16, 20),
+            tierLoot("tier_airdrop_throwables", 10, 12),
+            tierLoot("tier_airdrop_armor", 10, 15),
+            tierLoot("tier_medical", 14, 18),
+            tierLoot("tier_mf_airdrop_scopes", 7, 8),
+            tierLoot("tier_mf_airdrop_outfits", 3, 4),
+            tierLoot("tier_mf_airdrop_melee", 6, 7),
+            tierLoot("tier_mf_airdrop_melee_light", 3, 4),
+            tierLoot("tier_mf_airdrop_uncommon", 8, 10, {
+                preloadGuns: true,
+            }),
+            tierLoot("tier_mf_airdrop_rare", 3, 5, {
+                preloadGuns: true,
+            }),
+            autoLoot("backpack04", 1),
+        ],
+        map: { display: false },
+        img: {
+            sprite: "map-crate-27.img",
+            residue: "map-crate-res-03.img",
+        },
+        sound: { explode: "crate_break_01" },
+    }),
     crate_12po: createCrate({
         collision: collider.createAabbExtents(v2.create(0, 0), v2.create(3.5, 3.5)),
         scale: { destroy: 0.75 },
@@ -859,6 +887,43 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         map: { display: false },
         img: {
             sprite: "map-crate-13.img",
+            residue: "map-crate-res-03.img",
+        },
+        sound: { explode: "crate_break_01" },
+    }),
+    crate_13mf: createCrate({ //gold multifactions military airdrops
+        collision: collider.createAabbExtents(v2.create(0, 0), v2.create(3.5, 3.5)),
+        scale: { destroy: 0.75 },
+        health: 200,
+        loot: [
+            tierLoot("tier_airdrop_ammo", 16, 22),
+            tierLoot("tier_airdrop_throwables", 10, 14),
+            tierLoot("tier_airdrop_armor", 10, 18),
+            tierLoot("tier_medical", 14, 20),
+            tierLoot("tier_mf_airdrop_scopes", 7, 10),
+            tierLoot("tier_mf_airdrop_outfits", 4, 6),
+            tierLoot("tier_mf_airdrop_melee", 6, 8),
+            tierLoot("tier_mf_airdrop_melee_light", 4, 6),
+            tierLoot("tier_mf_airdrop_uncommon", 8, 14, {
+                preloadGuns: true,
+            }),
+            tierLoot("tier_mf_airdrop_rare", 6, 7, {
+                preloadGuns: true,
+            }),
+            tierLoot("tier_mf_airdrop_mythic", 3, 5, {
+                preloadGuns: true,
+            }),
+            autoLoot("backpack04", 1),
+            autoLoot("strobe", 1),
+            autoLoot("strobe", 1),
+            autoLoot("strobe", 1),
+            autoLoot("strobe", 1),
+            autoLoot("strobe", 1),
+            tierLoot("tier_airdrop_faction_outfits", 1, 3),
+        ],
+        map: { display: false },
+        img: {
+            sprite: "map-crate-28.img",
             residue: "map-crate-res-03.img",
         },
         sound: { explode: "crate_break_01" },
@@ -1125,6 +1190,20 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         img: { sprite: "map-crate-25.img", scale: 0.35 },
         sound: { explode: "crate_break_01" },
     }),
+    crate_26: createCrate({
+        health: 140,
+        loot: [
+            tierLoot("tier_melee_crate", 1, 2),
+            tierLoot("tier_outfit_crate", 1, 2),
+        ],
+        map: { display: true, color: 32511 },
+        terrain: {
+            grass: true,
+            beach: false,
+        },
+        img: { sprite: "map-crate-26.img" },
+        sound: { explode: "crate_break_01" },
+    }),
     airdrop_crate_01: createAirdrop({
         button: {
             useImg: "map-airdrop-02.img",
@@ -1164,6 +1243,20 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         },
         destroyType: "crate_12",
         explodeParticle: "airdropCrate04",
+    }),
+    airdrop_crate_03mf: createAirdrop({
+        collision: collider.createAabbExtents(v2.create(0, 0), v2.create(4, 4)),
+        button: {
+            useImg: "map-airdrop-07.img",
+            useParticle: "airdropCrate05",
+            sound: { on: "airdrop_open_01", off: "" },
+        },
+        img: {
+            sprite: "map-airdrop-06.img",
+            residue: "none",
+        },
+        destroyType: "crate_12mf",
+        explodeParticle: "airdropCrate06",
     }),
     airdrop_crate_03po: createAirdrop({
         collision: collider.createAabbExtents(v2.create(0, 0), v2.create(4, 4)),
@@ -1206,6 +1299,20 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         },
         destroyType: "crate_13",
         explodeParticle: "airdropCrate04",
+    }),
+    airdrop_crate_04mf: createAirdrop({
+        collision: collider.createAabbExtents(v2.create(0, 0), v2.create(4, 4)),
+        button: {
+            useImg: "map-airdrop-07.img",
+            useParticle: "airdropCrate05",
+            sound: { on: "airdrop_open_01", off: "" },
+        },
+        img: {
+            sprite: "map-airdrop-06.img",
+            residue: "none",
+        },
+        destroyType: "crate_13mf",
+        explodeParticle: "airdropCrate06",
     }),
     airdrop_crate_04po: createAirdrop({
         collision: collider.createAabbExtents(v2.create(0, 0), v2.create(4, 4)),
@@ -1593,7 +1700,7 @@ export const CrateDefs: Record<string, ObstacleDef> = {
         collision: collider.createAabbExtents(v2.create(0, 0), v2.create(2.7, 1.25)),
         health: 100,
         loot: [
-            tierLoot("tier_shotguns", 1, 3)
+            tierLoot("tier_shotguns", 1, 2)
         ],
         map: { display: true, color: 0x374626 },
         terrain: { grass: true, beach: true },

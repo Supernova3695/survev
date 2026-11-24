@@ -1653,7 +1653,7 @@ export class GameMap {
                 ];
 
                 if ("teamId" in def && def.teamId) {
-                    const teamId = def.teamId; // 1: green team, 2: orange team, 3: red team, 4: blue team
+                    const teamId = def.teamId;
                     const idx = teamId - 1;
 
                     const isRight = (idx % 2) === 1;
@@ -1674,11 +1674,11 @@ export class GameMap {
                             max: v2.create(maxX, maxY)
                         });
                     } else {
-                        const minX = isRight ? spawnAabb.max.x - width * 0.25 : spawnAabb.min.x;
-                        const maxX = isRight ? spawnAabb.max.x : spawnAabb.min.x + width * 0.25;
+                        const minX = isRight ? spawnAabb.max.x - width * 0.30 : spawnAabb.min.x;
+                        const maxX = isRight ? spawnAabb.max.x : spawnAabb.min.x + width * 0.30;
 
-                        const minY = isBottom ? spawnAabb.max.y - height * 0.25 : spawnAabb.min.y;
-                        const maxY = isBottom ? spawnAabb.max.y : spawnAabb.min.y + height * 0.25;
+                        const minY = isBottom ? spawnAabb.max.y - height * 0.30 : spawnAabb.min.y;
+                        const maxY = isBottom ? spawnAabb.max.y : spawnAabb.min.y + height * 0.30;
 
                         return util.randomPointInAabb({
                             min: v2.create(minX, minY),
