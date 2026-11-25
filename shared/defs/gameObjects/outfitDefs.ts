@@ -360,7 +360,7 @@ const SkinDefs: Record<string, OutfitDef> = {
         skinImg: {
             baseTint: 0x008f0b,
             baseSprite: "player-base-02.img",
-            handTint: 0x00b30e,
+            handTint: 0x00D010,
             handSprite: "player-hands-02.img",
             footTint: 0x00b30e,
             footSprite: "player-feet-02.img",
@@ -378,7 +378,7 @@ const SkinDefs: Record<string, OutfitDef> = {
         skinImg: {
             baseTint: 0xDC9300,
             baseSprite: "player-base-02.img",
-            handTint: 0xE19400,
+            handTint: 0xEE9D00,
             handSprite: "player-hands-02.img",
             footTint: 0xE19400,
             footSprite: "player-feet-02.img",
@@ -435,7 +435,7 @@ const SkinDefs: Record<string, OutfitDef> = {
         skinImg: {
             baseTint: 0x008f0b,
             baseSprite: "player-base-02.img",
-            handTint: 0x00b30e,
+            handTint: 0x00D010,
             handSprite: "player-hands-02.img",
             footTint: 0x00b30e,
             footSprite: "player-feet-02.img",
@@ -454,7 +454,7 @@ const SkinDefs: Record<string, OutfitDef> = {
         skinImg: {
             baseTint: 0xDC9300,
             baseSprite: "player-base-02.img",
-            handTint: 0xE19400,
+            handTint: 0xEE9D00,
             handSprite: "player-hands-02.img",
             footTint: 0xE19400,
             footSprite: "player-feet-02.img",

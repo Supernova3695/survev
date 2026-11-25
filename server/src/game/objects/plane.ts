@@ -219,17 +219,8 @@ export class PlaneBarn {
             (p) => !p.disconnected,
         );
 
-        const greenConnectedPlayers = this.game.playerBarn.teams[3].livingPlayers.filter(
-            (p) => !p.disconnected,
-        );
-        const orangeConnectedPlayers = this.game.playerBarn.teams[4].livingPlayers.filter(
-            (p) => !p.disconnected,
-        );
-
         const redAliveCount = redConnectedPlayers.length;
         const blueAliveCount = blueConnectedPlayers.length;
-        const greenAliveCount = greenConnectedPlayers.length;
-        const orangeAliveCount = orangeConnectedPlayers.length;
 
         const maxAliveCount = math.max(redAliveCount, blueAliveCount);
         const minAliveCount = math.min(redAliveCount, blueAliveCount);

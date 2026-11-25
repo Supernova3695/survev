@@ -9579,6 +9579,7 @@ function createFactionFortressDesert(overrides: DeepPartial<BuildingDef>, params
 function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
     fortress_bunker?: BuildingChildObjType;
     pillbox_complex?: BuildingChildObjType;
+    tree?: BuildingChildObjType;
     loot_tier_center?: BuildingChildObjType;
     loot_tier_center2?: BuildingChildObjType;
     loot_tier_docks?: BuildingChildObjType;
@@ -9607,15 +9608,7 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
         type: "building",
         map: {
             display: true,
-            shapes: [
-                {
-                    collider: collider.createAabbExtents(
-                        v2.create(0, 0),
-                        v2.create(-35, -35),
-                    ),
-                    color: 0x3a3a3a,
-                },
-            ],
+            shapes: [],
         },
         terrain: {
             spawnPriority: 100,
@@ -9741,12 +9734,6 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 roughness: 0,
                 offsetDist: 1,
             },
-            {//center concrete
-                bound: collider.createAabbExtents(v2.create(0, 0), v2.create(80, 80)),
-                color: params.concreteColor || 0x3a3a3a,
-                roughness: 0.005,
-                offsetDist: 1,
-            },
             {//north grass patch
                 bound: collider.createAabbExtents(v2.create(-28, 184), v2.create(18, 18)),
                 color: params.groundTintGp || 0x324319,
@@ -9757,6 +9744,12 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 bound: collider.createAabbExtents(v2.create(28, -184), v2.create(18, 18)),
                 color: params.groundTintGp || 0x324319,
                 roughness: 0.05,
+                offsetDist: 1,
+            },
+            {//center concrete
+                bound: collider.createAabbExtents(v2.create(0, 0), v2.create(80, 80)),
+                color: params.concreteColor || 0x3a3a3a,
+                roughness: 0.005,
                 offsetDist: 1,
             },
         ],
@@ -11120,6 +11113,24 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 0,
             },
             {
+                type: "sandbags_02",
+                pos: v2.create(-67.5, 59),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(-67.5, 63),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "crate_06",
+                pos: v2.create(-71.5, 63),
+                scale: 1,
+                ori: 1,
+            },
+            {
                 type: params.loot_tier_center2,
                 pos: v2.create(-60, 48),
                 scale: 1,
@@ -12255,6 +12266,12 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 1,
             },
             {
+                type: params.tree || "tree_08f",
+                pos: v2.create(-14, 170),
+                scale: 1,
+                ori: 0,
+            },
+            {
                 type: "shack_01",
                 pos: v2.create(-35, 173),
                 scale: 1,
@@ -12297,6 +12314,12 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 0,
             },
             {
+                type: params.tree || "tree_08f",
+                pos: v2.create(-33, 199),
+                scale: 1,
+                ori: 0,
+            },
+            {
                 type: "crate_01",
                 pos: v2.create(-42, 193),
                 scale: 1,
@@ -12334,6 +12357,12 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 0,
             },
             {
+                type: params.tree || "tree_08f",
+                pos: v2.create(8, 202),
+                scale: 1,
+                ori: 0,
+            },
+            {
                 type: "sandbags_01",
                 pos: v2.create(-10, 202),
                 scale: 1,
@@ -12359,7 +12388,13 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
             },
             {
                 type: "crate_03",
-                pos: v2.create(-11, 220),
+                pos: v2.create(-8, 220),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.tree || "tree_08f",
+                pos: v2.create(-8, 240),
                 scale: 1,
                 ori: 0,
             },
@@ -12440,6 +12475,12 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 1,
             },
             {
+                type: params.tree || "tree_08f",
+                pos: v2.create(14, -170),
+                scale: 1,
+                ori: 0,
+            },
+            {
                 type: "shack_01",
                 pos: v2.create(35, -173),
                 scale: 1,
@@ -12482,6 +12523,12 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 0,
             },
             {
+                type: params.tree || "tree_08f",
+                pos: v2.create(33, -199),
+                scale: 1,
+                ori: 0,
+            },
+            {
                 type: "crate_01",
                 pos: v2.create(42, -193),
                 scale: 1,
@@ -12519,6 +12566,12 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
                 ori: 0,
             },
             {
+                type: params.tree || "tree_08f",
+                pos: v2.create(-8, -202),
+                scale: 1,
+                ori: 0,
+            },
+            {
                 type: "sandbags_01",
                 pos: v2.create(10, -202),
                 scale: 1,
@@ -12544,7 +12597,13 @@ function createFactionFortress2(overrides: DeepPartial<BuildingDef>, params: {
             },
             {
                 type: "crate_03",
-                pos: v2.create(11, -220),
+                pos: v2.create(8, -220),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: params.tree || "tree_08f",
+                pos: v2.create(8, -240),
                 scale: 1,
                 ori: 0,
             },
@@ -13768,6 +13827,7 @@ function createFactionFortress2Desert(overrides: DeepPartial<BuildingDef>, param
             collider.createAabbExtents(v2.create(46, -64), v2.create(35, 10)),
             collider.createAabbExtents(v2.create(26, -50), v2.create(15, 10)),
             collider.createAabbExtents(v2.create(68, -50), v2.create(13, 10)),
+            collider.createAabbExtents(v2.create(48, -50), v2.create(10, 10)),
         ],
         mapGroundPatches: [
             {
@@ -16497,6 +16557,7 @@ export const ModeBuildingDefs: Record<string, BuildingDef> = {
         groundTintGp: 0x253210,
         pillbox_complex: "pillbox_complex_01sp",
         fortress_bunker: "bunker_structure_11",
+        tree: "tree_08sp",
         loot_tier_center: "loot_tier_surviv",
         loot_tier_center2: "loot_tier_guns",
         loot_tier_docks: "loot_tier_guns",
