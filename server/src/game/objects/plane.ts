@@ -273,6 +273,8 @@ export class PlaneBarn {
         // Faction golden airdrop
         if (this.game.map.potatoMode) {
             this.game.planeBarn.addAirdrop(pos, "airdrop_crate_04po"); // Potato factions, specifically
+        } else if (this.game.map.multiFactionMode) {
+            this.game.planeBarn.addAirdrop(pos, "airdrop_crate_04mf"); // multifactions
         } else {
             this.game.planeBarn.addAirdrop(pos, "airdrop_crate_04");
         }
